@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/Index.js"></script>
+	<script defer src='Content/JS/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/NewMoveDatabase.js'></script>	
+	<script defer src='Content/JS/SkillDatabase.js'></script>	
+    <script defer src='Content/JS/NewTechniqueDatabase.js'></script>
+	<script defer src='Content/JS/NewInspiritDatabase.js'></script>	
+	<script defer src='Content/JS/NewSoultimateDatabase.js'></script>
+	<script defer src='Content/JS/AttitudeDatabase.js'></script>
+    <script defer src='Content/JS/ShowStats.js'></script>
+    <style>
+        .container {
+            justify-content: space-around;
+        }
+        .yokai-shower, .yokai-data {
+            border: none;
+            padding: 20px;
+            width: 55%;
+        }
+        .yokai-data img {
+            cursor: pointer;
+            margin: 5px;
+        }
+        .pagination {
+            border: none;
+            display: grid;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .pagination img {
+            width: auto;
+            height: 30px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <button class="nav-button" id="home-btn" style="margin: 0 0px">Home</button>
+            <button class="nav-button" id="about-btn" style="margin: 0 -200px">About Us</button>
+            <button class="nav-button" id="contact-btn" style="margin: 0 0px">Contact</button>
+        </div>
+        <a href="#" id='logo-js' class="nav-brand"><img src="Content/Graphics/BannerWide.jpeg" alt="Logo" width="1300px" height="100px"></a>
+    </nav>
+        
+    <aside class="side-bar" id="side_bar">
+    <main style="width: 100%; overflow-y: scroll; height: calc(100vh - 145px); color: black;">
+
+            <div class="container yokai-data" id="yokai-details" style="display: flex; flex-direction: column; margin: 1px 100px; list-style: none; overflow-y: visible; height: auto; flex-wrap: wrap; padding-right:100px;">
+			
+
+            
+        
+        
+        <footer>
+            <!-- Footer content goes here -->
+        </footer>
+    </main>
+</body>
+</html>
