@@ -1,0 +1,118 @@
+@font-face { font-family: chewy; src: url('C:/Users/admin/Desktop/V.3/Current/Content/Fonts/Chewy/Chewy-Regular.ttf'); } 
+
+.nav-brand {
+    position: fixed; 
+	left: 0px;
+	z-index: 2; 
+	margin: 37px 0px;
+}
+/*
+.nav-links {
+    padding: 15px 30px;
+    margin: 0 50px;
+    background-color: #5d8aa8;
+    color: #ebf2f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-links li {
+    padding: 0 1rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #f00;
+}
+*/
+
+.yokai-list {
+	display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the items vertically */
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #2A4B38;
+    padding-left: 60px;
+	padding-right: 60px;
+	padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	z-index: 3;
+	height:40px;
+    /*padding: 30px;
+	border-image-repeat: round; 
+	*/
+}
+
+.nav-button {
+    padding: 5px 30px;
+    margin: 0 50px;
+    background-color: #47826F;
+    color: #E0EEDB;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-button_selected {
+    padding: 5px 30px;
+    background-color: #50927D;
+    color: #EDF5EA;
+    border: none;
+    cursor: default;
+	
+}
+
+.side-bar {
+    padding-top: 15px;
+    width: 200px;
+    height: 100%;
+    background-color: #2A4B38; /*#2d2d2d;*/
+    color: #fff;
+    position: fixed;
+    top: 145px;
+    left: 0;
+    z-index: -1;
+    overflow-y: auto;
+}
+
+.side-button {
+    margin: 5px 20px;
+    position: static;
+    width: 165px;
+    height: 40px;
+    background-color: #47826F; /*#b8b8b8;*/
+    color: #E0EEDB; /*#171717;*/
+    border-color: #000000/*#949494;*/
+}
+
+main {
+	overflow: auto;
+	/*align-items: flex-start;*/
+	align-content: stretch;
+	top: 145px;
+	left: 200px;
+    width: 100%;
+	height: 100%;
+	position: fixed;
+	display: grid;
+	z-index: -1
+}
