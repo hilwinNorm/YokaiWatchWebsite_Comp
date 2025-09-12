@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+	<link rel="stylesheet" href="Content/CSS/Main.css">
+	<script defer src="Content/JS/Index.js"></script>
+	<script defer src='Content/JS/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/TeamBuild.js'></script>
+    <style>
+	
+    </style>
+</head>
+<body>
+    <nav>
+            <div class="nav-bar">
+			<button class="nav-button_selected" id="home-btn" disabled style="margin: 0 0px">Home</button>
+			<button class="nav-button" id="about-btn" style="margin: 0 -200px">About Us</button>
+			<button class="nav-button" id="contact-btn" style="margin: 0 0px">Contact</button>
+		</div>
+        <a href="#" id='logo-js' class="nav-brand"><img src="Content/Graphics/BannerWide.jpeg" alt="Logo" width="1300px" height="100px";></a>
+    </nav>
+	
+            
+    <aside class="side-bar" id="side_bar">
+		
+	
+  
+	</aside>
+    <main>
+	<div style="position: relative; display: flex; flex-direction: row">
+	<div style="width: 20px;">
+	<img width="20px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.jpg">
+	<img width="20px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.jpg">
+	<img width="20px" height="auto" id="A_Rank1" src="Content/Graphics/A_RankUnincluded.jpg">
+	<img width="20px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.jpg">
+	</div>
+	<img src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 1px 150px;">
+	<img id="Slot1" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="1" style="position: absolute;left: 201.5px;right:0px;top: 68px;bottom: 0px;">
+	<img id="Slot2" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="2" style="position: absolute;left: 283px;right:0px;top: 23px;bottom: 0px;">
+	<img id="Slot3" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="3" style="position: absolute;left: 364px;right:0px;top: 70px;bottom: 0px;">
+	<img id="Slot4" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="4" style="position: absolute;left: 364px;right:0px;top: 159px;bottom: 0px;">
+	<img id="Slot5" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="5" style="position: absolute;left: 283px;right:0px;top: 207px;bottom: 0px;">
+	<img id="Slot6" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="6" style="position: absolute;left: 202px;right:0px;top: 159px;bottom: 0px;">
+	<div style="border: solid; width: 35%">
+	<!--
+	<h4>#1 YoKai Equipment <input type="text" id="Eq1" placeholder="None"></h4>
+	<h4>#2 YoKai Equipment <input type="text" id="Eq2" placeholder="None"></h4>
+	<h4>#3 YoKai Equipment <input type="text" id="Eq3" placeholder="None"></h4>
+	<h4>#4 YoKai Equipment <input type="text" id="Eq4" placeholder="None"></h4>
+	<h4>#5 YoKai Equipment <input type="text" id="Eq5" placeholder="None"></h4>
+	<h4>#6 YoKai Equipment <input type="text" id="Eq6" placeholder="None"></h4>
+	-->
+	
+	</div>
+	<div style="position: absolute; top:325px; left: 225px">
+	<button onclick="SaveTeam()" style="position:relative;" height="auto" width="auto">Copy</button>
+	<button onclick="LoadTeam()" style="position:relative;" height="auto" width="auto">Paste</button>
+	
+	<button onclick="CopyAsText()" style="position:relative;" height="auto" width="auto">Copy as Text</button>
+	</div>
+	</div>
+	
+	
+	<div class="container yokai-list"style="position: absolute; display: flex; height: 250px; width:max-content; flex-wrap: nowrap; top: 500px; left: 200px; list-style: none; overflow-y: scroll; align-items: flex-end;">
+				<div id="yokai-page" class="yokai-list"></div>
+            </div>
+	
+	</main>
+</body>
+</html>
