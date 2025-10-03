@@ -1,75 +1,335 @@
-@font-face { font-family: chewy; src: url('C:/Users/admin/Desktop/V.3/Current/Content/Fonts/Chewy/Chewy-Regular.ttf'); } 
+@font-face { font-family: chewy; src: url('../Fonts/Chewy/Chewy-Regular.ttf'); } 
 
-.nav-brand {
-    position: fixed; 
-	left: 0px;
-	z-index: 2; 
-	margin: 37px 0px;
-}
-/*
-.nav-links {
-    padding: 15px 30px;
-    margin: 0 50px;
-    background-color: #5d8aa8;
-    color: #ebf2f9;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+@font-face{
+	font-family: 'YokaiWatch_YokaiRoleFont';
+	src: url('../Fonts/Yokai_Watch Font/HOT-Bukotsu Std U.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.nav-links li {
-    padding: 0 1rem;
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	src: url('../Fonts/Yokai_Watch Font/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.nav-links li a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease;
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue2Font';
+	src: url('../Fonts/Yokai_Watch Font/FOT-Seurat Pro B.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.nav-links li a:hover {
-    color: #f00;
+@font-face{
+	font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
+	src: url('../Fonts/Yokai_Watch Font/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
-*/
 
-.yokai-list {
+.left-char {
+  grid-column: 1;
+  height: 108px;
+  justify-self: start;
+}
+
+.right-char {
+  grid-column: 3;
+  height: 108px;
+  justify-self: end;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Define individual icons */
+.icon-discord {
+  background-image: url('../Fonts/emoticons/discord_ico_color.png');
+}
+
+.Cool_Blue {
+	--logo-color: #003c83;
+	--side-buttons-bg: #2879d3;
+	--side-buttons-color: #ffffff;
+	--side-bg: #255cce;
+	--nav-buttons-bg: #2879d3;
+	--nav-buttons-color: #000000;
+	--nav-bg: #20a5d8;
+	--transparent-bg: #255cce80;
+}
+
+.Antique_Blossoms {
+	--logo-color: #734b04;
+	--side-buttons-bg: #c68282;
+	--side-buttons-color: #251e20;
+	--side-bg: #ce6a6a;
+	--nav-buttons-bg: #f5e54c;
+	--nav-buttons-color: #48483e;
+	--nav-bg: #dbce53;
+	--transparent-bg: #ce6a6a80;
+}
+
+.Bamboo_Forest {
+	--logo-color: #154624;
+	--side-buttons-bg: #4a854d;
+	--side-buttons-color: #fcfcfc;
+	--side-bg: #33612b;
+	--nav-buttons-bg: #4a854d;
+	--nav-buttons-color: #fcfcfc;
+	--nav-bg: #33612b;
+	--transparent-bg: #33612b80;
+}
+.Merchant_Purple {
+	--logo-color: #441a47;
+	--side-buttons-bg: #915673;
+	--side-buttons-color: #ffe0ef;
+	--side-bg: #5a255e;
+	--nav-buttons-bg: #915673;
+	--nav-buttons-color: #ffe0ef;
+	--nav-bg: #5a255e;
+	--transparent-bg: #5a255e80;
+}
+.Classic_Gold {
+	--logo-color: #ebba4d;
+	--side-buttons-bg: #936722;
+	--side-buttons-color: #fff5de;
+	--side-bg: #614416;
+	--nav-buttons-bg: #936722;
+	--nav-buttons-color: #fff5de;
+	--nav-bg: #614416;
+	--transparent-bg: #61441680;
+}
+.Up_All_Night {
+	--logo-color: #6680fb;
+	--side-buttons-bg: #202c64;
+	--side-buttons-color: #c6c0ff;
+	--side-bg: #0c1334;
+	--nav-buttons-bg: #202c64;
+	--nav-buttons-color: #c6c0ff;
+	--nav-bg: #0c1334;
+	--transparent-bg: #0c133480;
+}
+.Galaxy_Cruise {
+	--logo-color: #102521;
+	--side-buttons-bg: #2f73c0;
+	--side-buttons-color: #fff4f8;
+	--side-bg: #24558d;
+	--nav-buttons-bg: #da2424;
+	--nav-buttons-color: #f7ffff;
+	--nav-bg: #d64c4c;
+	--transparent-bg: #24558d80;
+}
+.Small_Cream_Soda {
+	--logo-color: #153831;
+	--side-buttons-bg: #148d67;
+	--side-buttons-color: #ffffff;
+	--side-bg: #1ba479;
+	--nav-buttons-bg: #deb358;
+	--nav-buttons-color: #ffffff;
+	--nav-bg: #edc87a;
+	--transparent-bg: #1ba47980;
+}
+
+.SlotInfo-Text{
+	color: var(--side-buttons-color)
+}
+
+.MiniYokaiInfo-div{
+	width: 850px;
+	height: 80px;
+	margin: 5px;
+	background-color: var(--side-buttons-bg);
+	border: 1px solid rgb(0, 0, 0);
+	color: var(--side-buttons-color);
 	display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the items vertically */
+	place-content: center flex-start;
+	align-items: center;
+	flex-flow: wrap;
 }
 
-.nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #2A4B38;
-    padding-left: 60px;
-	padding-right: 60px;
-	padding-bottom: 5px;
+.MiniSoulGemInfo-div{
+	width: 850px;
+    height: 80px;
+    margin: 5px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-	
-	border-left: 0px;
-	border-top: 0px;
-	border-right: 0px;
-	border-bottom: 0px;
-	z-index: 3;
-	height:40px;
-    /*padding: 30px;
-	border-image-repeat: round; 
-	*/
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.MiniEqInfo-div{
+	width: 850px;
+    height: 80px;
+    margin: 5px;
+	color: var(--side-buttons-color);
+	background-color: var(--side-buttons-bg);
+	border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .nav-button {
-    padding: 5px 30px;
-    margin: 0 50px;
-    background-color: #47826F;
-    color: #E0EEDB;
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    padding: 0px 30px;
     border: none;
     cursor: pointer;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--nav-buttons-color);
+}
+
+.nav-wallpaper-change {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	padding: 0px 30px;
+    margin: 0 50px;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+#wallpaper-select{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	margin-left: 5px;
+	padding-bottom: 3px;
+	border: none;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.side-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 10px;
+    margin: 5px 20px;
+    position: static;
+    width: 165px;
+    height: 40px;
+    border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.main-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    position: static;
+    width: auto;
+    height: auto;
+    /*margin: 5px 20px;*/
+	border-width: 1px; 
+	border-style: solid;
+	border-radius: 30px;
+	border-color: var(--side-buttons-color);
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.main-select{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+#Logo-Text{
+	font-family: 'YokaiWatch_YokaiRoleFont'; 
+	font-size: 40px; 
+	color: var(--logo-color);
+}
+#side_bar{
+	background: var(--side-bg);
+}
+
+#nav-tab{
+	background: var(--nav-bg);
+}
+
+.banner-container {
+	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
+	position: fixed; 
+	left: 0px;
+	top: 37px;
+	z-index: 2; 
+	display: grid;
+	grid-template-columns: 1fr auto 1fr; /* Left character | Logo | Right character */
+	width: 100%;
+    align-items: center;
+	height: 108px
+}
+
+#logo-js {
+  justify-self: center; /* Centers logo horizontally */
+  
+}
+
+.transparent-background{
+	background-color: var(--transparent-bg);
+	border-radius: 15px;
+	border-style: solid; /* Or dashed, dotted, etc. */
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	margin: 20px 100px;
+    width: max-content;
+}
+
+.yokai-ranks {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-tribes{
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list img {
+	width: 47px;
+	height: auto;
+	cursor: pointer;
+	margin: 5px;
 }
 
 .nav-button_selected {
@@ -78,41 +338,88 @@
     color: #EDF5EA;
     border: none;
     cursor: default;
+	border-radius: 15px;
 	
 }
 
-.side-bar {
-    padding-top: 15px;
-    width: 200px;
-    height: 100%;
-    background-color: #2A4B38; /*#2d2d2d;*/
-    color: #fff;
-    position: fixed;
-    top: 145px;
-    left: 0;
-    z-index: -1;
-    overflow-y: auto;
+.side-button:disabled {
+    color: gray;
+	cursor: not-allowed;
 }
 
-.side-button {
-    margin: 5px 20px;
-    position: static;
-    width: 165px;
-    height: 40px;
-    background-color: #47826F; /*#b8b8b8;*/
-    color: #E0EEDB; /*#171717;*/
-    border-color: #000000/*#949494;*/
+
+.main-tabs {
+	display: flex;
+	justify-content: space-between; /* Pushes children to edges */
+	padding: 5px 0;
+	height: 27px;
 }
 
 main {
-	overflow: auto;
-	/*align-items: flex-start;*/
-	align-content: stretch;
-	top: 145px;
-	left: 200px;
-    width: 100%;
-	height: 100%;
-	position: fixed;
+	grid-area: main;
+	width: calc(100vw - 240px);
+	height: calc(100vh - 145px);
+	padding: 20px 0px 20px 0px;
+}
+
+body{
+	font-family: 'YokaiWatch_YokaiDialogue2Font'; 
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
 	display: grid;
-	z-index: -1
+	grid-template-areas:
+	"nav nav"
+	"aside main";
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 145px auto;
+    height: 100%;
+    width: 100%;
+    background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+	background-attachment: fixed;
+    animation: scrollBackground 60s linear infinite;
+}
+
+aside {
+  padding-top: 15px;
+  grid-area: aside;
+  position: fixed;
+  color: #fff;
+  top: 145px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 145px);
+  background: #2A4B38;
+  overflow-y: auto;
+  z-index: 5;
+}
+
+nav {
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	grid-area: nav;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #2A4B38;
+	z-index: 10;
+}
+
+input {
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+select{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+@keyframes scrollBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
 }
