@@ -1,0 +1,130 @@
+
+.TribeCells{
+	background-color: black;
+	color: white;
+}
+
+.TierCells{
+	color: black;
+	text-align: center;
+}
+
+.cellsStyle{
+	text-align: center;
+}
+
+tr:nth-of-type(odd) td:nth-child(2) {
+  background-color: #cc0000;
+}
+
+tr:nth-of-type(even) td:nth-child(2) {
+  background-color: #e06666;
+}
+
+tr:nth-of-type(odd) td:nth-child(3) {
+  background-color: #ffff00;
+}
+
+tr:nth-of-type(even) td:nth-child(3) {
+  background-color: #ffd966;
+}
+
+tr:nth-of-type(odd) td:nth-child(4) {
+  background-color: #ff9900;
+}
+
+tr:nth-of-type(even) td:nth-child(4) {
+  background-color: #f9cb9c;
+}
+
+tr:nth-of-type(odd) td:nth-child(5) {
+  background-color: #741b47;
+}
+
+tr:nth-of-type(even) td:nth-child(5) {
+  background-color: #a64d79;
+}
+
+/* Heartful column (6th) - Pinks */
+tr:nth-of-type(odd) td:nth-child(6) {
+  background-color: #6aa84f;
+}
+
+tr:nth-of-type(even) td:nth-child(6) {
+  background-color: #aafd9e;
+}
+
+tr:nth-of-type(odd) td:nth-child(7) {
+  background-color: #073763;
+}
+
+tr:nth-of-type(even) td:nth-child(7) {
+  background-color: #3d85c6;
+}
+
+tr:nth-of-type(odd) td:nth-child(8) {
+  background-color: #9900ff;
+}
+
+tr:nth-of-type(even) td:nth-child(8) {
+  background-color: #674ea7;
+}
+
+tr:nth-of-type(odd) td:nth-child(9) {
+  background-color: #134f5c;
+}
+
+tr:nth-of-type(even) td:nth-child(9) {
+  background-color: #45818e;
+}
+
+tr:nth-of-type(odd) td:nth-child(10) {
+  background-color: #434343;
+}
+
+tr:nth-of-type(even) td:nth-child(10) {
+  background-color: #666666;
+}
+
+/* Container for the yokai items */
+.OU, .UU, .RU, .NU, .PU, .Ubers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    min-height: 60px;
+}
+
+/* Individual yokai items */
+.OU > div, .UU > div, .RU > div, .NU > div, .PU > div, .Ubers > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 60px;
+    max-width: 80px;
+}
+
+/* Ensure text doesn't wrap */
+.OU > div, .UU > div, .RU > div, .NU > div, .PU > div, .Ubers > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Image styling */
+.OU img, .UU img, .RU img, .NU img, .PU img, .Ubers img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+/* Text styling - prevent wrapping */
+.OU div div, .UU div div, .RU div div, .NU div div, .PU div div, .Ubers div div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 2px;
+}
