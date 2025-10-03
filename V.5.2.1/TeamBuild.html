@@ -7,65 +7,63 @@
 	<link rel="stylesheet" href="Content/CSS/Main.css">
 	<script defer src="Content/JS/Index.js"></script>
 	<script defer src='Content/JS/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/SoulGemDatabase.js'></script>
+	<script defer src='Content/JS/EquipmentDatabase.js'></script>
+	<script defer src='Content/JS/AttitudeDatabase.js'></script>
 	<script defer src='Content/JS/TeamBuild.js'></script>
+	<script src="Content/Libs/html2canvas.js"></script>
     <style>
-        /* Your CSS will go here */
+	
     </style>
 </head>
 <body>
-    <nav>
-            <div class="nav-bar">
-			<button class="nav-button_selected" id="home-btn" disabled style="margin: 0 0px">Home</button>
-			<button class="nav-button" id="about-btn" style="margin: 0 -200px">About Us</button>
-			<button class="nav-button" id="contact-btn" style="margin: 0 0px">Contact</button>
-		</div>
-        <a href="#" id='logo-js' class="nav-brand"><img src="Content/Graphics/BannerWide.jpeg" alt="Logo" width="1300px" height="100px";></a>
-    </nav>
+    <nav id="nav-tab"></nav>
 	
             
-    <aside class="side-bar" id="side_bar">
-		
-	
-  
-	</aside>
+    <aside class="side-bar" id="side_bar"></aside>
     <main>
-	<div style="position: relative; display: flex; flex-direction: row;">
-	<div style="width: 20px;">
-	<img width="20px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.jpg">
-	<img width="20px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.jpg">
-	<img width="20px" height="auto" id="A_Rank1" src="Content/Graphics/A_RankUnincluded.jpg">
-	<img width="20px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.jpg">
+	<div style="position: relative; display: flex; flex-direction: row">
+	<div class="transparent-background" style="width: 20px; height: 102px;">
+	<img width="20px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.png">
+	<img width="20px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.png">
+	<img width="20px" height="auto" id="A_Rank1" src="Content/Graphics/A_RankUnincluded.png">
+	<img width="20px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
 	</div>
-	<img src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 1px 150px;">
-	<img id="Slot1" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="1" style="position: absolute;left: 201.5px;right:0px;top: 68px;bottom: 0px;">
-	<img id="Slot2" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="2" style="position: absolute;left: 283px;right:0px;top: 23px;bottom: 0px;">
-	<img id="Slot3" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="3" style="position: absolute;left: 364px;right:0px;top: 70px;bottom: 0px;">
-	<img id="Slot4" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="4" style="position: absolute;left: 364px;right:0px;top: 159px;bottom: 0px;">
-	<img id="Slot5" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="5" style="position: absolute;left: 283px;right:0px;top: 207px;bottom: 0px;">
-	<img id="Slot6" class="slot" data-index="0" onclick="moveImage(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="6" style="position: absolute;left: 202px;right:0px;top: 159px;bottom: 0px;">
-	<div>
-	<h4>#1 YoKai Equipment <input type="text" id="Eq1" placeholder="None"></h4>
-	<h4>#2 YoKai Equipment <input type="text" id="Eq2" placeholder="None"></h4>
-	<h4>#3 YoKai Equipment <input type="text" id="Eq3" placeholder="None"></h4>
-	<h4>#4 YoKai Equipment <input type="text" id="Eq4" placeholder="None"></h4>
-	<h4>#5 YoKai Equipment <input type="text" id="Eq5" placeholder="None"></h4>
-	<h4>#6 YoKai Equipment <input type="text" id="Eq6" placeholder="None"></h4>
+	<div id="Wheel-div">
+	<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 1px 150px;">
+	<img id="Slot1" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="1" style="position: absolute;left: 206.5px;right:0px;top: 68px;bottom: 0px;">
+	<img id="Slot2" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="2" style="position: absolute;left: 288px;right:0px;top: 23px;bottom: 0px;">
+	<img id="Slot3" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="3" style="position: absolute;left: 369px;right:0px;top: 70px;bottom: 0px;">
+	<img id="Slot4" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="4" style="position: absolute;left: 369px;right:0px;top: 159px;bottom: 0px;">
+	<img id="Slot5" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="5" style="position: absolute;left: 288px;right:0px;top: 207px;bottom: 0px;">
+	<img id="Slot6" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/Yo kai Medals/Unknown.webp" width="74px" height="auto" alt="6" style="position: absolute;left: 206.5px;right:0px;top: 159px;bottom: 0px;">
+	<img id="ChosenYokaiRing" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing" style="width: 85px; height: auto; position: absolute; left: 195px; top: 64px; visibility: hidden">
+	</div>
+	<div class="transparent-background"id="SlotInfo-div"style="padding: 20px; width: 475px; height: 301px; overflow-y: scroll; visibility: hidden">
+	</div>
+	<div style="position: absolute; top:325px; left: 225px">
+	<button class="main-button" onclick="EditTeam()" style="position:relative">Edit team</button>
 	
-	<button onclick="SaveTeam()" style="position:relative;" height="auto" width="auto">Copy</button>
-	<button onclick="LoadTeam()" style="position:relative;" height="auto" width="auto">Paste</button>
+	<button class="main-button" onclick="SaveTeam()" style="position:relative;" height="auto" width="auto">Copy</button>
+	<button class="main-button" onclick="LoadTeam()" style="position:relative;" height="auto" width="auto">Load</button>
+	
+	<button class="main-button" onclick="CopyAsText()" style="position:relative;" height="auto" width="auto">Copy as Text</button>
+	</div>
 	</div>
 	
-	</div>
+	<div style="width: 50%; margin: 100px auto 50px auto">
+		<button class="main-button" id="YokaiButton">Yokai</button>
+		<button class="main-button" id="EquipmentButton">Equipment</button>
+		<button class="main-button" id="SoulGemButton">Soul Gems</button>
+		
+		<input type="search" id="search-input" name="query" placeholder="Search...">
+		</div>
 	
 	
-	<div class="container yokai-list"style="position: relative; display: flex; height: 250px; flex-wrap: nowrap; margin-right: 50%; margin-top: 1px; bottom: 70px; list-style: none; overflow-y: scroll; overflow-x: hidden; align-items: flex-end;">
-				<div id="yokai-page" class="yokai-list"></div>
+	<div class="container yokai-list transparent-background"style="height: 250px; flex-wrap: nowrap;list-style: none; overflow-y: scroll;">
+				<div id="data-page" class="yokai-list"></div>
             </div>
 	
 	</main>
-    <footer>
-	
-        <!-- Footer content goes here -->
-    </footer>
 </body>
 </html>
