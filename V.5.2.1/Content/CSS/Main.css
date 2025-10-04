@@ -2,28 +2,28 @@
 
 @font-face{
 	font-family: 'YokaiWatch_YokaiRoleFont';
-	src: url('../Fonts/Yokai_Watch Font/HOT-Bukotsu Std U.otf') format('woff');
+	src: url('../Fonts/Yokai_WatchFont/HOT-Bukotsu Std U.otf') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face{
 	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	src: url('../Fonts/Yokai_Watch Font/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
+	src: url('../Fonts/Yokai_WatchFont/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face{
 	font-family: 'YokaiWatch_YokaiDialogue2Font';
-	src: url('../Fonts/Yokai_Watch Font/FOT-Seurat Pro B.otf') format('woff');
+	src: url('../Fonts/Yokai_WatchFont/FOT-Seurat Pro B.otf') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face{
 	font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
-	src: url('../Fonts/Yokai_Watch Font/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
+	src: url('../Fonts/Yokai_WatchFont/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
