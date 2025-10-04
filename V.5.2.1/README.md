@@ -1,5 +1,7 @@
 **YO-GON ACADEMY**
-  
+
+Version of the project: 1.0.0
+
 **Purpose**
 This website serves as a comprehensive resource for players offering: 
 Advanced Yokai Information; 
