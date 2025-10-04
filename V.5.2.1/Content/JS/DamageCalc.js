@@ -217,7 +217,7 @@ function SetAttackerData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 	
 	for (i=0;i<yokais.length;i++){
 		if (Attacker.value == yokais[i].name){
-			AttackerImg.src = 'Content/Graphics/Yo kai Medals/'+yokais[i].image
+			AttackerImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
 			AttackerName = yokais[i]
 			break;
 		}
@@ -236,7 +236,7 @@ function SetDefenderData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 	
 	for (i=0;i<yokais.length;i++){
 		if (Defender.value == yokais[i].name){
-			DefenderImg.src = 'Content/Graphics/Yo kai Medals/'+yokais[i].image
+			DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
 			DefenderName = yokais[i]
 			break;
 		}
@@ -371,7 +371,7 @@ var AttackerName = Attacker.value;
 
 for (i=0;i<yokais.length;i++){
 	if (Attacker.value == yokais[i].name){
-		AttackerImg.src = 'Content/Graphics/Yo kai Medals/'+yokais[i].image
+		AttackerImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
 		break;
 	}
 }
@@ -380,7 +380,7 @@ var DefenderNumber = Defender.value;
 		
 for (i=0;i<yokais.length;i++){
 	if (Defender.value == yokais[i].name){
-		DefenderImg.src = 'Content/Graphics/Yo kai Medals/'+yokais[i].image
+		DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
 		break;
 	}
 }

@@ -1,7 +1,7 @@
 
 const Tiers = ["OU","UU","RU","NU","PU","Ubers"]
 
-var Path = "Content/Graphics/Yo kai Medals/"
+var Path = "Content/Graphics/YokaiMedals/"
 
 function YokaiInfoRedirect(yokai){
 	SaveData(yokai)
