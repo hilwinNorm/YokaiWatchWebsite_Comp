@@ -15764,7 +15764,7 @@ var DefaultLVL = 60;
 
 var CurrentLVL = DefaultLVL;
 
-var Path = "Content/Graphics/Yo kai Medals/"
+var Path = "Content/Graphics/YokaiMedals/"
 
 var TribePath = "Content/Graphics/tribes"
 

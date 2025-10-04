@@ -50,7 +50,7 @@ var DefaultLVL = 60;
 
 var CurrentLVL = DefaultLVL;
 
-var Path_Medal = 'Content/Graphics/Yo kai Medals/'
+var Path_Medal = 'Content/Graphics/YokaiMedals/'
 
 var Path_Artwork = "Content/Graphics/Artwork/"
 

@@ -2,68 +2,7 @@
 var side_bar = document.getElementById('side_bar')
 
 var nav_tab = document.getElementById('nav-tab')
-/*
-class YokaiBanner {
-    constructor() {
-        this.yokaiImages = [
-            'Content/Graphics/Artwork/Orcanos.png',
-            'Content/Graphics/Artwork/MasterOden.png',
-            'Content/Graphics/Artwork/buhu.png',
-            'Content/Graphics/Artwork/Machonyan.png',
-            'Content/Graphics/Artwork/Illuminoct.png',
-            'Content/Graphics/Artwork/Leggly.png',
-            'Content/Graphics/Artwork/urnaconda.png',
-            'Content/Graphics/Artwork/confuze.png',
-            'Content/Graphics/Artwork/ShadowVenoct.png',
-            'Content/Graphics/Artwork/Scarasol.png',
-        ];
-        
-        this.init();
-    }
-    
-    init() {
-        this.loadRandomYokai();
-    }
-    
-    loadRandomYokai() {
-        const leftYokai = this.getRandomYokai(4);
-        const rightYokai = this.getRandomYokai(4);
-        
-        this.displayYokai('left', leftYokai);
-        this.displayYokai('right', rightYokai);
-    }
-    
-    getRandomYokai(count) {
-        const shuffled = [...this.yokaiImages].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    }
-    
-    displayYokai(side, yokaiArray) {
-        for (let i = 0; i < 4; i++) {
-            const imgElement = document.querySelector(`.${side}-yokai-${i + 1}`);
-            if (imgElement && yokaiArray[i]) {
-                imgElement.src = yokaiArray[i];
-                imgElement.style.display = 'block';
-                
-                // Add alt text based on filename
-                const name = this.getYokaiName(yokaiArray[i]);
-                imgElement.alt = name;
-                imgElement.title = name;
-            }
-        }
-    }
-    
-    getYokaiName(imagePath) {
-        // Extract name from file path
-        const filename = imagePath.split('/').pop().split('.')[0];
-        return filename.replace(/_/g, ' ');
-    }
-    
-    refreshYokai() {
-        this.loadRandomYokai();
-    }
-}
-*/
+
 side_bar.innerHTML += `
 <button class="side-button" id="medallium-btn">Strategy Medallium</button>
 	<button class="side-button" id="tierSheet-btn">Tier Sheet</button>
@@ -344,6 +283,8 @@ function changeTheme(wallpaper){
 		}
 	}
 	*/
+	wallpaper_change.value = wallpaper;
+	
 	banner_container.style.backgroundImage = `url("./Content/Graphics/Wallpapers/${wallpaper}.png")`
 	body_element.style.backgroundImage = `url("./Content/Graphics/Wallpapers/${wallpaper}.png")`
 	
