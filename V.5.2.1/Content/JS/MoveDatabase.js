@@ -426,16 +426,8 @@ const moves = [
 
 function GetMove(GivenStats){ // Damage Calc Function
 	console.log(GivenStats)
-	console.log(GivenStats.attack)
-	return FindByID(GivenStats.attack);
-	//SavingStats = btoa(SavingStats)
-	//localStorage.setItem("_trans_attacker_yokai_move_data", SavingStats);
-	//getAttack()
-}
-
-function FindByID(ID){
 	for (i = 0; i < moves.length; i++){
-		if (moves[i].ID == ID){
+		if (moves[i].ID == GivenStats){
 			console.log(moves[i])
 			return moves[i]
 		}

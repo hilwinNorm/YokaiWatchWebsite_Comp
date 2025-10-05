@@ -9,12 +9,6 @@ let DefenderLVL = document.getElementById("yokai_select1-LVL")
 let DefenderEV = document.getElementById("yokai_select1-Attitude")
 let DefenderEV_Div = document.getElementById("yokai_select1-Attitude_display")
 
-let DefenderHP_IV_Input = document.getElementById("yokai_select1-IV_HP")
-let DefenderSTR_IV_Input = document.getElementById("yokai_select1-IV_STR")
-let DefenderSPR_IV_Input = document.getElementById("yokai_select1-IV_SPR")
-let DefenderDEF_IV_Input = document.getElementById("yokai_select1-IV_DEF")
-let DefenderSPD_IV_Input = document.getElementById("yokai_select1-IV_SPD")
-
 let DefenderSTR_Gym_Input = document.getElementById("yokai_select1-STR_Gym")
 let DefenderSPR_Gym_Input = document.getElementById("yokai_select1-SPR_Gym")
 let DefenderDEF_Gym_Input = document.getElementById("yokai_select1-DEF_Gym")
@@ -42,16 +36,13 @@ let AttackerLVL = document.getElementById("yokai_select2-LVL")
 let AttackerEV = document.getElementById("yokai_select2-Attitude")
 let AttackerEV_Div = document.getElementById("yokai_select2-Attitude_display")
 
-let AttackerHP_IV_Input = document.getElementById("yokai_select2-IV_HP")
-let AttackerSTR_IV_Input = document.getElementById("yokai_select2-IV_STR")
-let AttackerSPR_IV_Input = document.getElementById("yokai_select2-IV_SPR")
-let AttackerDEF_IV_Input = document.getElementById("yokai_select2-IV_DEF")
-let AttackerSPD_IV_Input = document.getElementById("yokai_select2-IV_SPD")
+let ATK_IVInput = document.getElementsByClassName("ATK_IV")
 
-let AttackerSTR_Gym_Input = document.getElementById("yokai_select2-STR_Gym")
-let AttackerSPR_Gym_Input = document.getElementById("yokai_select2-SPR_Gym")
-let AttackerDEF_Gym_Input = document.getElementById("yokai_select2-DEF_Gym")
-let AttackerSPD_Gym_Input = document.getElementById("yokai_select2-SPD_Gym")
+let DEF_IVInput = document.getElementsByClassName("DEF_IV")
+
+let ATK_GymInput = document.getElementsByClassName("ATK_Gym")
+
+let DEF_GymInput = document.getElementsByClassName("DEF_Gym")
 
 var AttackerSTR_Gym = 0;
 var AttackerSPR_Gym = 0;
@@ -183,25 +174,17 @@ function getAttack(Attack){
 		if (isMoxie.checked == true && isMoxie.disabled == false){
 			MoxieMulti = 2;
 		}
-		if (Attack.target == 2){
-			Defence = 0;
-			DamageOutput.style.color ="green";
-			DefenceMulti = 1;
-			Crit = 1;
-		}else{
-			DamageOutput.style.color ="red";
-		}
 		
 		RawDamage = (ChosenAttackStat/2 + Power/2 - Defence/4)
+		console.log("Raw Damage: ", RawDamage)
 		if (RawDamage < 1){
 			RawDamage = 1;	
 		}
-		Damage = (RawDamage*RandMulti*DefenceMulti*ElementalResistance*Crit*MoxieMulti)*Hit_amount
+		Damage = (RawDamage*RandMulti*DefenceMulti*ElementalResistance*Crit*MoxieMulti)
 		Damage = Math.round(Damage) 
 		DamageOutput.innerHTML = Damage;
 		console.log(Damage)
 		console.log(DefenderEV_Div)
-		console.log(Attitudes[DefenderEV_Div.value])
 		DetermineHitAmount(Damage, parseInt(DefenderHP.value)+parseInt(Attitudes[DefenderEV.value].boost[0]))
 }
 
@@ -212,7 +195,7 @@ function DetermineHitAmount(Damage, DefenderHealth){
 	HitsDiv.innerHTML = Amount;
 }
 
-function SetAttackerData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym, DEF_Gym, SPD_Gym){
+function SetAttackerData(){
 	var AttackerName = Attacker.value;
 	
 	for (i=0;i<yokais.length;i++){
@@ -222,7 +205,9 @@ function SetAttackerData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 			break;
 		}
 	}
-	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(AttackerName, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, parseInt(AttackerLVL.value), STR_Gym, SPR_Gym, DEF_Gym, SPD_Gym)
+	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(AttackerName, ATK_IVInput[0].value, ATK_IVInput[1].value, ATK_IVInput[2].value, ATK_IVInput[3].value, ATK_IVInput[4].value, AttackerLVL.value, ATK_GymInput[0].value, ATK_GymInput[1].value, ATK_GymInput[2].value, ATK_GymInput[3].value)
+	
+	console.log("Attacker Stats: ",[BHP, BSTR, BSPR, BDEF, BSPD])
 	
 	AttackerHP.value = Math.round(BHP)
 	AttackerSTR.value = Math.round(BSTR);
@@ -231,7 +216,7 @@ function SetAttackerData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 	AttackerSPD.value = Math.round(BSPD);
 }
 
-function SetDefenderData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym, DEF_Gym, SPD_Gym){
+function SetDefenderData(){
 	var DefenderName = Defender.value;
 	
 	for (i=0;i<yokais.length;i++){
@@ -241,7 +226,7 @@ function SetDefenderData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 			break;
 		}
 	}
-	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(DefenderName, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, parseInt(DefenderLVL.value), STR_Gym, SPR_Gym, DEF_Gym, SPD_Gym)
+	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(DefenderName, DEF_IVInput[0].value, DEF_IVInput[1].value, DEF_IVInput[2].value, DEF_IVInput[3].value, DEF_IVInput[4].value, DefenderLVL.value, DEF_GymInput[0].value, DEF_GymInput[1].value, DEF_GymInput[2].value, DEF_GymInput[3].value)
 		
 	DefenderHP.value = Math.round(BHP)	
 	DefenderSTR.value = Math.round(BSTR);
@@ -251,35 +236,67 @@ function SetDefenderData(HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, STR_Gym, SPR_Gym
 }
 
 function CheckIV(){
-	if ((parseInt(AttackerHP_IV_Input.value) + parseInt(AttackerSTR_IV_Input.value) + parseInt(AttackerSPR_IV_Input.value) + parseInt(AttackerDEF_IV_Input.value) + parseInt(AttackerSPD_IV_Input.value)) != 40){
-		ATK_IVInput.style.color =  "red"
+	let DEFsum=0;
+	let ATKsum=0;
+	for (const element of DEF_IVInput) {
+		DEFsum+=parseInt(element.value);
+	}
+	for (const element of ATK_IVInput) {
+		ATKsum+=parseInt(element.value);
+	}
+	if (ATKsum != 40){
+		for (const element of ATK_IVInput) {
+		element.style.color =  "red"
+		}
 	}
 	else{
-		ATK_IVInput.style.color =  "black"
+		for (const element of ATK_IVInput) {
+		element.style.color =  "var(--side-buttons-color)"
+		}
 	}
-	if ((parseInt(DefenderHP_IV_Input.value) + parseInt(DefenderSTR_IV_Input.value) + parseInt(DefenderSPR_IV_Input.value) + parseInt(DefenderDEF_IV_Input.value) + parseInt(DefenderSPD_IV_Input.value)) != 40){
-		DEF_IVInput.style.color =  "red"
+	if (DEFsum != 40){
+		for (const element of DEF_IVInput) {
+		element.style.color =  "red"
+		}
 	}
 	else{
-		DEF_IVInput.style.color =  "black"
+		for (const element of DEF_IVInput) {
+		element.style.color =  "var(--side-buttons-color)"
+		}
 	}
-	SetAttackerData(AttackerHP_IV_Input.value,AttackerSTR_IV_Input.value,AttackerSPR_IV_Input.value, AttackerDEF_IV_Input.value, AttackerSPD_IV_Input.value, AttackerSTR_Gym_Input.value, AttackerSPR_Gym_Input.value, AttackerDEF_Gym_Input.value, AttackerSPD_Gym_Input.value)
-	SetDefenderData(DefenderHP_IV_Input.value,DefenderSTR_IV_Input.value,DefenderSPR_IV_Input.value,DefenderDEF_IV_Input.value,DefenderSPD_IV_Input.value, DefenderSTR_Gym_Input.value, DefenderSPR_Gym_Input.value, DefenderDEF_Gym_Input.value, DefenderSPD_Gym_Input.value)
+	SetAttackerData()
+	SetDefenderData()
 }
 
 function CheckGymStat(){
-	if (parseInt(DefenderSTR_Gym_Input.value) + parseInt(DefenderSPR_Gym_Input.value) + parseInt(DefenderDEF_Gym_Input.value) + parseInt(DefenderSPD_Gym_Input.value) > 5){
-		DEF_GymInput.style.color ="red"
-	}else{
-		DEF_GymInput.style.color ="black"
+	let DEFsum=0;
+	let ATKsum=0;
+	for (const element of DEF_GymInput) {
+		DEFsum+=parseInt(element.value);
 	}
-	if (parseInt(AttackerSTR_Gym_Input.value) + parseInt(AttackerSPR_Gym_Input.value) + parseInt(AttackerDEF_Gym_Input.value) + parseInt(AttackerSPD_Gym_Input.value) > 5){
-		ATK_GymInput.style.color ="red"
-	}else{
-		ATK_GymInput.style.color ="black"
+	for (const element of ATK_GymInput) {
+		ATKsum+=parseInt(element.value);
 	}
-	SetDefenderData(DefenderHP_IV_Input.value,DefenderSTR_IV_Input.value,DefenderSPR_IV_Input.value,DefenderDEF_IV_Input.value,DefenderSPD_IV_Input.value, DefenderSTR_Gym_Input.value, DefenderSPR_Gym_Input.value, DefenderDEF_Gym_Input.value, DefenderSPD_Gym_Input.value)
-	SetAttackerData(AttackerHP_IV_Input.value,AttackerSTR_IV_Input.value,AttackerSPR_IV_Input.value, AttackerDEF_IV_Input.value, AttackerSPD_IV_Input.value, AttackerSTR_Gym_Input.value, AttackerSPR_Gym_Input.value, AttackerDEF_Gym_Input.value, AttackerSPD_Gym_Input.value)
+	if (DEFsum > 5){
+		for (const element of DEF_GymInput) {
+		element.style.color =  "red"
+		}
+	}else{
+		for (const element of DEF_GymInput) {
+		element.style.color =  "var(--side-buttons-color)"
+		}
+	}
+	if (ATKsum > 5){
+		for (const element of ATK_GymInput) {
+		element.style.color =  "red"
+		}
+	}else{
+		for (const element of ATK_GymInput) {
+		element.style.color =  "var(--side-buttons-color)"
+		}
+	}
+	SetAttackerData()
+	SetDefenderData()
 }
 
 	if (Defender){
@@ -302,23 +319,21 @@ function CheckGymStat(){
 	//(STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard 
 	
 	Attacker.addEventListener('change', function(event) { 
-		SetAttackerData(AttackerHP_IV_Input.value,AttackerSTR_IV_Input.value,AttackerSPR_IV_Input.value, AttackerDEF_IV_Input.value, AttackerSPD_IV_Input.value, AttackerSTR_Gym_Input.value, AttackerSPR_Gym_Input.value, AttackerDEF_Gym_Input.value, AttackerSPD_Gym_Input.value)
-})
+		SetAttackerData()
+		})
 	
 	Defender.addEventListener('change', function(event) {
-	SetDefenderData(DefenderHP_IV_Input.value,DefenderSTR_IV_Input.value,DefenderSPR_IV_Input.value,DefenderDEF_IV_Input.value,DefenderSPD_IV_Input.value, DefenderSTR_Gym_Input.value, DefenderSPR_Gym_Input.value, DefenderDEF_Gym_Input.value, DefenderSPD_Gym_Input.value)
+	SetDefenderData()
 	})
 	
 	DefenderLVL.addEventListener('input', function(event){
-	SetDefenderData(DefenderHP_IV_Input.value,DefenderSTR_IV_Input.value,DefenderSPR_IV_Input.value,DefenderDEF_IV_Input.value,DefenderSPD_IV_Input.value, DefenderSTR_Gym_Input.value, DefenderSPR_Gym_Input.value, DefenderDEF_Gym_Input.value, DefenderSPD_Gym_Input.value)
+	SetDefenderData()
 	})
 	
 	AttackerLVL.addEventListener('input', function(event){
-	SetAttackerData(AttackerHP_IV_Input.value,AttackerSTR_IV_Input.value,AttackerSPR_IV_Input.value, AttackerDEF_IV_Input.value, AttackerSPD_IV_Input.value, AttackerSTR_Gym_Input.value, AttackerSPR_Gym_Input.value, AttackerDEF_Gym_Input.value, AttackerSPD_Gym_Input.value)
+	SetAttackerData()
 	})
 	
-	let ATK_IVInput = document.getElementsByClassName("ATK_IV")
-	let DEF_IVInput = document.getElementsByClassName("DEF_IV")
 	
 	for (const element of ATK_IVInput) {
         element.addEventListener('input', function(event){
@@ -331,9 +346,6 @@ function CheckGymStat(){
 		CheckIV()
     })
 	}
-	
-	let ATK_GymInput = document.getElementsByClassName("ATK_Gym")
-	let DEF_GymInput = document.getElementsByClassName("DEF_Gym")
 	
 	for (const element of ATK_GymInput) {
         element.addEventListener('input', function(event){
@@ -366,8 +378,6 @@ function CheckGymStat(){
 			isMoxie.disabled = true;
 		}
 	})
-	
-var AttackerName = Attacker.value;
 
 for (i=0;i<yokais.length;i++){
 	if (Attacker.value == yokais[i].name){
@@ -375,9 +385,7 @@ for (i=0;i<yokais.length;i++){
 		break;
 	}
 }
-		
-var DefenderNumber = Defender.value;
-		
+	
 for (i=0;i<yokais.length;i++){
 	if (Defender.value == yokais[i].name){
 		DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
@@ -390,21 +398,21 @@ SetAttackerData(8, 8, 8, 8, 8, 60, 0, 0, 0, 0)
 SetDefenderData(8, 8, 8, 8, 8, 60, 0, 0, 0, 0)
 
 CalcButton.addEventListener("click", () =>{
-	let ID = null;
+	let yokai = null;
 	for (i=0;i<yokais.length;i++){
 	if (Attacker.value == yokais[i].name){
-		ID = i
+		yokai = yokais[i]
 		break;
 	}
 }
 		if (AttackType.value == "1"){
-		getAttack(GetMove(yokais[ID]))
+		getAttack(GetMove(yokai.attack))
 	}
 	else if (AttackType.value == "2"){
-		getAttack(GetTechnique(yokais[ID]))
+		getAttack(GetTechnique(yokai.technique))
 	}
 	else if(AttackType.value == "3"){
-		getAttack(GetSoultimate(yokais[ID]))
+		getAttack(GetSoultimate(yokai.soultimate))
 	}
 	
 });

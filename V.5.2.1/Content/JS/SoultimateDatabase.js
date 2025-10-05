@@ -4292,16 +4292,9 @@ const soultimates = [
 ]
 
 function GetSoultimate(GivenStats){ // Damage Calc Function
-	//var GivenStats = localStorage.getItem('_soultimate_yokai_attacker_data');
-	return FindByID(GivenStats.soultimate);
-	//SavingStats = btoa(SavingStats)
-	//localStorage.setItem("_trans_attacker_yokai_soultimate_data", SavingStats);
-	//getAttack()
-}
-
-function FindByID(ID){
+	return FindByID(GivenStats);
 	for (i = 0; i < soultimates.length; i++){
-		if (soultimates[i].ID == ID){
+		if (soultimates[i].ID == GivenStats){
 			return soultimates[i]
 		}
 	}

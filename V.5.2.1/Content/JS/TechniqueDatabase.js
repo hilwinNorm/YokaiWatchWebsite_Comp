@@ -218,16 +218,9 @@ const techqniues = [
 ]
 
 function GetTechnique(GivenStats){ // Damage Calc Function
-	return FindByID(GivenStats.technique);
-	//SavingStats = btoa(SavingStats)
-	//localStorage.setItem("_trans_element_yokai_move_data", SavingStats);
-	//getAttack()
-	
-}
-
-function FindByID(ID){
+	return FindByID(GivenStats);
 	for (i = 0; i < techqniues.length; i++){
-		if (techqniues[i].ID == ID){
+		if (techqniues[i].ID == GivenStats){
 			return techqniues[i]
 		}
 	}

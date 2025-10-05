@@ -44,7 +44,7 @@ nav_tab.innerHTML += `
 			
 				<div id="Logo-Text" style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 40px;">Yo-gon Academy</div>
 			
-			<img src="Content/Graphics/RightYokai.png" class="right-char" alt="Right Character">
+			<img src="Content/Graphics/RightYokai2.png" class="right-char" alt="Right Character">
 		</div>
 		</a>
 `
