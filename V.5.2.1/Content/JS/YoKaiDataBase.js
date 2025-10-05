@@ -15735,11 +15735,11 @@ function CalculateStats(yokai, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, LVL, STR_G
     if (LVL == NaN || LVL > 99 || LVL <= 0) {
         LVL = 60
     }
-    var BHP = yokai.BS_A_HP + (yokai.BS_B_HP - yokai.BS_A_HP + parseInt(HP_IV)*2) * (LVL - 1) / 98;
-    var BSTR = yokai.BS_A_Str + (yokai.BS_B_Str - yokai.BS_A_Str + parseInt(STR_IV) + STR_Gym*5) * (LVL - 1) / 98;
-    var BSPR = yokai.BS_A_Spr + (yokai.BS_B_Spr - yokai.BS_A_Spr + parseInt(SPR_IV) + SPR_Gym*5) * (LVL - 1) / 98;
-    var BDEF = yokai.BS_A_Def + (yokai.BS_B_Def - yokai.BS_A_Def + parseInt(DEF_IV) + DEF_Gym*5) * (LVL - 1) / 98;
-    var BSPD = yokai.BS_A_Spd + (yokai.BS_B_Spd - yokai.BS_A_Spd + parseInt(SPD_IV) + SPD_Gym*5) * (LVL - 1) / 98;
+    var BHP = yokai.BS_A_HP + (yokai.BS_B_HP - yokai.BS_A_HP + parseInt(HP_IV)*2) * (parseInt(LVL) - 1) / 98;
+    var BSTR = yokai.BS_A_Str + (yokai.BS_B_Str - yokai.BS_A_Str + parseInt(STR_IV) + parseInt(STR_Gym)*5) * (parseInt(LVL) - 1) / 98;
+    var BSPR = yokai.BS_A_Spr + (yokai.BS_B_Spr - yokai.BS_A_Spr + parseInt(SPR_IV) + parseInt(SPR_Gym)*5) * (parseInt(LVL) - 1) / 98;
+    var BDEF = yokai.BS_A_Def + (yokai.BS_B_Def - yokai.BS_A_Def + parseInt(DEF_IV) + parseInt(DEF_Gym)*5) * (parseInt(LVL) - 1) / 98;
+    var BSPD = yokai.BS_A_Spd + (yokai.BS_B_Spd - yokai.BS_A_Spd + parseInt(SPD_IV) + parseInt(SPD_Gym)*5) * (parseInt(LVL) - 1) / 98;
     return [BHP, BSTR, BSPR, BDEF, BSPD]
 }
 
