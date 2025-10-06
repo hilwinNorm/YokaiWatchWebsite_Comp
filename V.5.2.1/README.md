@@ -1,6 +1,6 @@
 **YO-GON ACADEMY**
 
-Version of the project: 1.0.0
+Version of the project: 1.0.1
 
 **Purpose**
 This website serves as a comprehensive resource for players offering: 
@@ -52,23 +52,7 @@ HTML5, CSS3, JavaScript
 
 │   ├── JS/  # JavaScript modules
 
-│   │   ├── AttitudeDatabase.js
-
-│   │   ├── InspiritDatabase.js
-
-│   │   ├── EquipmentDatabase.js
-
-│   │   ├── MoveDatabase.js
-
-│   │   ├── SkillDatabase.js
-
-│   │   ├── SoulGemDatabase.js
-
-│   │   ├── SoultimateDatabase.js
-
-│   │   ├── YoKaiDataBase.js
-
-│   │   ├── TechniqueDatabase.js
+│   │   ├── Databases/ # Holds all of databases that are used across the website
 
 │   │   ├── DamageCalc.js # Has all of the main scripts for DamageCalc.html
 
