@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/Index.js"></script>
+    <script defer src='Content/JS/Databases/YokaiDataBase.js'></script>
+    <script defer src='Content/JS/Databases/MoveDatabase.js'></script>
+    <script defer src='Content/JS/Databases/TechniqueDatabase.js'></script>
+    <script defer src='Content/JS/Databases/InspiritDatabase.js'></script>
+    <script defer src='Content/JS/Databases/SoultimateDatabase.js'></script>
+    <script defer src='Content/JS/Databases/SkillDatabase.js'></script>
+    <script defer src='Content/JS/YokaiDataList.js'></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+        
+    <aside class="side-bar" id="side_bar"></aside>
+    <main>
+		<div style="width: 50%; margin: 50px auto 50px auto; display: flex; justify-content: center;">
+			<button onclick="ShowYokaiData(move_list)" style="font-size: 12px" class="main-button" id="move-btn">Moves</button>
+			<button onclick="ShowYokaiData(technique_list)" style="font-size: 12px" class="main-button" id="technique-btn">Techniques</button>
+			<button onclick="ShowYokaiData(inspirit_list)" style="font-size: 12px" class="main-button" id="inspirit-btn">Inspirits</button>
+			<button onclick="ShowYokaiData(soultimate_list)" style="font-size: 12px" class="main-button" id="soultimate-btn">Soultimates</button>
+			<button onclick="ShowYokaiData(skill_list)" style="font-size: 12px" class="main-button" id="skill-btn">Skills</button>
+			<input type="search" id="search-input" name="query" placeholder="Search...">
+		</div>
+		<div class="container" style="display: flex; flex-wrap: nowrap; margin: 1px 100px; margin-top: 1px; list-style: none; overflow-y: visible; height: auto; justify-content: center;">
+			<div id="yokaidata-page"></div>
+		</div>
+    </main>
+</body>
+</html>

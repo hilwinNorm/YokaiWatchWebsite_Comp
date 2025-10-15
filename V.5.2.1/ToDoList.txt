@@ -1,5 +1,2 @@
-1. Add negative addition to gym training (after giving buff to another stat) (?)
-2. Make 2 options of copy to clipboard (With stats+image; only yokai equipment and attitude) (Can be done when I start running files through local server)
-3. Create image and database Recourses page
-4. Create custom 404 page not found page (With Phantasmurai mouse init)
-5. Sort out JS files into proper packages
+1. Make 2 options of copy to clipboard (With stats+image; only yokai equipment and attitude) (Can be done when I start running files through local server)
+2. Create image and database Recourses page
