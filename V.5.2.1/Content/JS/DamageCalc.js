@@ -76,7 +76,14 @@ function getRandomNumberWithTwoDecimals() {
 }
 
 function getAttack(Attack){
-	console.log(Attack)
+	var yokaiData;
+	for (yokai of yokais){
+		if (Defender.value == yokai.name){
+			yokaiData = yokai;
+			console.log("Yokai: ",yokaiData)
+			break;
+		}
+	}
 	var Power = parseInt(Attack.Lv10_power);
 	var ElementalResistance=1;
 	var Attack;
@@ -85,37 +92,18 @@ function getAttack(Attack){
 	var Crit = 1;
 	var Defence = parseInt(DefenderDEF.value)+parseInt(Attitudes[DefenderEV.value].boost[3]);
 	if (AttackType.value == "1"){
-		//Attack = localStorage.getItem("_trans_attacker_yokai_move_data");
-		//Attack = JSON.parse(atob(Attack));
 		
 		ChosenAttackStat = parseInt(AttackerSTR.value)+parseInt(Attitudes[DefenderEV.value].boost[1]);
 		Hit_amount = Attack.N_Hits;
 		
 	}
 	else if (AttackType.value == "2"){
-		//Attack = localStorage.getItem("_trans_attacker_yokai_technique_data");
-		//Attack = JSON.parse(atob(Attack));
 		ChosenAttackStat = parseInt(AttackerSPR.value)+parseInt(Attitudes[DefenderEV.value].boost[2]);
 		let Element = Attack.Element;
 		console.log(Element)
-		if (Element="Fire"){
-			ElementalResistance = yokais[Defender.value].Fire
-		}
-		else if (Element="Water"){
-			ElementalResistance = yokais[Defender.value].Water
-		}
-		else if (Element="Lightning"){
-			ElementalResistance = yokais[Defender.value].Lightning
-		}
-		else if (Element="Earth"){
-			ElementalResistance = yokais[Defender.value].Earth
-		}
-		else if (Element="Wind"){
-			ElementalResistance = yokais[Defender.value].Wind
-		}
-		else if (Element="Ice"){
-			ElementalResistance = yokais[Defender.value].Ice
-		}
+		
+		ElementalResistance = yokaiData[Element]
+		
 		Hit_amount = 1;
 	}
 	else if (AttackType.value == "3"){
@@ -124,24 +112,7 @@ function getAttack(Attack){
 			ChosenAttackStat = parseInt(AttackerSPR.value)+parseInt(Attitudes[DefenderEV.value].boost[2]);
 			let Element = Attack.element_type;
 		console.log(Element)
-		if (Element="Fire"){
-			ElementalResistance = yokais[Defender.value].Fire
-		}
-		else if (Element="Water"){
-			ElementalResistance = yokais[Defender.value].Water
-		}
-		else if (Element="Lightning"){
-			ElementalResistance = yokais[Defender.value].Lightning
-		}
-		else if (Element="Earth"){
-			ElementalResistance = yokais[Defender.value].Earth
-		}
-		else if (Element="Wind"){
-			ElementalResistance = yokais[Defender.value].Wind
-		}
-		else if (Element="Ice"){
-			ElementalResistance = yokais[Defender.value].Ice
-		}
+		ElementalResistance = yokaiData[Element]
 		}
 		Hit_amount = Attack.N_Hits;		
 	}
@@ -205,7 +176,7 @@ function SetAttackerData(){
 			break;
 		}
 	}
-	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(AttackerName, ATK_IVInput[0].value, ATK_IVInput[1].value, ATK_IVInput[2].value, ATK_IVInput[3].value, ATK_IVInput[4].value, AttackerLVL.value, ATK_GymInput[0].value, ATK_GymInput[1].value, ATK_GymInput[2].value, ATK_GymInput[3].value)
+	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(AttackerName, ATK_IVInput[0].value, ATK_IVInput[1].value, ATK_IVInput[2].value, ATK_IVInput[3].value, ATK_IVInput[4].value, AttackerLVL.value, ATK_GymInput[0].value, ATK_GymInput[1].value, ATK_GymInput[2].value, ATK_GymInput[3].value, Attitudes[AttackerEV.value].boost[0], Attitudes[AttackerEV.value].boost[1], Attitudes[AttackerEV.value].boost[2], Attitudes[AttackerEV.value].boost[3], Attitudes[AttackerEV.value].boost[4])
 	
 	console.log("Attacker Stats: ",[BHP, BSTR, BSPR, BDEF, BSPD])
 	
@@ -226,7 +197,7 @@ function SetDefenderData(){
 			break;
 		}
 	}
-	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(DefenderName, DEF_IVInput[0].value, DEF_IVInput[1].value, DEF_IVInput[2].value, DEF_IVInput[3].value, DEF_IVInput[4].value, DefenderLVL.value, DEF_GymInput[0].value, DEF_GymInput[1].value, DEF_GymInput[2].value, DEF_GymInput[3].value)
+	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(DefenderName, DEF_IVInput[0].value, DEF_IVInput[1].value, DEF_IVInput[2].value, DEF_IVInput[3].value, DEF_IVInput[4].value, DefenderLVL.value, DEF_GymInput[0].value, DEF_GymInput[1].value, DEF_GymInput[2].value, DEF_GymInput[3].value, Attitudes[DefenderEV.value].boost[0], Attitudes[DefenderEV.value].boost[1], Attitudes[DefenderEV.value].boost[2], Attitudes[DefenderEV.value].boost[3], Attitudes[DefenderEV.value].boost[4])
 		
 	DefenderHP.value = Math.round(BHP)	
 	DefenderSTR.value = Math.round(BSTR);
@@ -238,13 +209,21 @@ function SetDefenderData(){
 function CheckIV(){
 	let DEFsum=0;
 	let ATKsum=0;
+	let DEFflag = 0;
+	let ATKflag = 0;
 	for (const element of DEF_IVInput) {
+		if (parseInt(element.value) < 0){
+			DEFflag = 1;
+		}
 		DEFsum+=parseInt(element.value);
 	}
 	for (const element of ATK_IVInput) {
+		if (parseInt(element.value) < 0){
+			ATKflag = 1;
+		}
 		ATKsum+=parseInt(element.value);
 	}
-	if (ATKsum != 40){
+	if (ATKsum != 40 || ATKflag == 1){
 		for (const element of ATK_IVInput) {
 		element.style.color =  "red"
 		}
@@ -254,7 +233,7 @@ function CheckIV(){
 		element.style.color =  "var(--side-buttons-color)"
 		}
 	}
-	if (DEFsum != 40){
+	if (DEFsum != 40 || DEFflag == 1){
 		for (const element of DEF_IVInput) {
 		element.style.color =  "red"
 		}
@@ -361,15 +340,20 @@ function CheckGymStat(){
 	
 	DefenderEV.addEventListener('change', function(event){
 		DefenderEV_Div.innerHTML = 'HP Boost:'+Attitudes[DefenderEV.value].boost[0]+' | STR Boost:'+Attitudes[DefenderEV.value].boost[1]+' | SPR Boost:'+Attitudes[DefenderEV.value].boost[2]+' | DEF Boost:'+Attitudes[DefenderEV.value].boost[3]+' | SPD Boost:'+Attitudes[DefenderEV.value].boost[4]
+		SetDefenderData()
 	})
 	AttackerEV.addEventListener('change', function(event){
 		AttackerEV_Div.innerHTML = 'HP Boost:'+Attitudes[AttackerEV.value].boost[0]+' | STR Boost:'+Attitudes[AttackerEV.value].boost[1]+' | SPR Boost:'+Attitudes[AttackerEV.value].boost[2]+' | DEF Boost:'+Attitudes[AttackerEV.value].boost[3]+' | SPD Boost:'+Attitudes[AttackerEV.value].boost[4]
+		SetAttackerData()
 	})
+	
+	AttackerEV.value = "3";
+	DefenderEV.value = "3";
 	
 	AttackerEV_Div.innerHTML = 'HP Boost:'+Attitudes[AttackerEV.value].boost[0]+' | STR Boost:'+Attitudes[AttackerEV.value].boost[1]+' | SPR Boost:'+Attitudes[AttackerEV.value].boost[2]+' | DEF Boost:'+Attitudes[AttackerEV.value].boost[3]+' | SPD Boost:'+Attitudes[AttackerEV.value].boost[4]
 	
 	DefenderEV_Div.innerHTML = 'HP Boost:'+Attitudes[DefenderEV.value].boost[0]+' | STR Boost:'+Attitudes[DefenderEV.value].boost[1]+' | SPR Boost:'+Attitudes[DefenderEV.value].boost[2]+' | DEF Boost:'+Attitudes[DefenderEV.value].boost[3]+' | SPD Boost:'+Attitudes[DefenderEV.value].boost[4]
-
+	
 	AttackType.addEventListener('change', function(event){
 		if (AttackType.value == "3"){
 			isMoxie.disabled = false;

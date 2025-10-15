@@ -4292,10 +4292,9 @@ const soultimates = [
 ]
 
 function GetSoultimate(GivenStats){ // Damage Calc Function
-	return FindByID(GivenStats);
-	for (i = 0; i < soultimates.length; i++){
-		if (soultimates[i].ID == GivenStats){
-			return soultimates[i]
+	for (soultimate of soultimates){
+		if (soultimate.ID == GivenStats){
+			return soultimate
 		}
 	}
 }

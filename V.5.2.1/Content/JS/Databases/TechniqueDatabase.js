@@ -1,4 +1,4 @@
-const techqniues = [
+const techniques = [
   {
     Command: 'Absorb',
     Lv1_power: '20',
@@ -218,10 +218,9 @@ const techqniues = [
 ]
 
 function GetTechnique(GivenStats){ // Damage Calc Function
-	return FindByID(GivenStats);
-	for (i = 0; i < techqniues.length; i++){
-		if (techqniues[i].ID == GivenStats){
-			return techqniues[i]
+	for (technique of techniques){
+		if (technique.ID == GivenStats){
+			return technique
 		}
 	}
 }

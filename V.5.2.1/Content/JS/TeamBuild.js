@@ -229,19 +229,20 @@ function CopyAsText(){
 }
 
 function createTeamText() {
+	
             return `${slots_stats[0].name} - ${slots_stats[1].name} - ${slots_stats[2].name}
 ${slots_stats[3].name} - ${slots_stats[4].name} - ${slots_stats[5].name}
 
 __*Equipment and Attitudes*__
 
-${slots_stats[0].name} @ ${Attitudes[slots_stats[0].attitude].name} ${WheelSlot1Eq.Slot1_Name} ${WheelSlot1Eq.Slot2_Name}
-${slots_stats[1].name} @ ${Attitudes[slots_stats[1].attitude].name} ${WheelSlot2Eq.Slot1_Name} ${WheelSlot2Eq.Slot2_Name}
-${slots_stats[2].name} @ ${Attitudes[slots_stats[2].attitude].name} ${WheelSlot3Eq.Slot1_Name} ${WheelSlot3Eq.Slot2_Name}
-${slots_stats[3].name} @ ${Attitudes[slots_stats[3].attitude].name} ${WheelSlot4Eq.Slot1_Name} ${WheelSlot4Eq.Slot2_Name}
-${slots_stats[4].name} @ ${Attitudes[slots_stats[4].attitude].name} ${WheelSlot5Eq.Slot1_Name} ${WheelSlot5Eq.Slot2_Name}
-${slots_stats[5].name} @ ${Attitudes[slots_stats[5].attitude].name} ${WheelSlot6Eq.Slot1_Name} ${WheelSlot6Eq.Slot2_Name}`;
+${slots_stats[0].name} @ ${Attitudes[slots_stats[0].attitude || 0].name} ${WheelSlot1Eq.Slot1_Name} ${WheelSlot1Eq.Slot2_Name}
+${slots_stats[1].name} @ ${Attitudes[slots_stats[1].attitude || 0].name} ${WheelSlot2Eq.Slot1_Name} ${WheelSlot2Eq.Slot2_Name}
+${slots_stats[2].name} @ ${Attitudes[slots_stats[2].attitude || 0].name} ${WheelSlot3Eq.Slot1_Name} ${WheelSlot3Eq.Slot2_Name}
+${slots_stats[3].name} @ ${Attitudes[slots_stats[3].attitude || 0].name} ${WheelSlot4Eq.Slot1_Name} ${WheelSlot4Eq.Slot2_Name}
+${slots_stats[4].name} @ ${Attitudes[slots_stats[4].attitude || 0].name} ${WheelSlot5Eq.Slot1_Name} ${WheelSlot5Eq.Slot2_Name}
+${slots_stats[5].name} @ ${Attitudes[slots_stats[5].attitude || 0].name} ${WheelSlot6Eq.Slot1_Name} ${WheelSlot6Eq.Slot2_Name}`;
         }
-	
+/*
 async function CopyBoth() {
 	try {
 		const text = createTeamText();
@@ -268,7 +269,7 @@ async function CopyBoth() {
 		showStatus("Failed to capture wheel: " + err, "error");
 	}
 }
-
+*/
 function ShowSlotInfo(slot){
 	var slotNumber = selectedWheelSlot.id.replace('Slot', '');
 	var wheelSlotEq = window[`WheelSlot${slotNumber}Eq`];
@@ -458,7 +459,7 @@ function setupSlotEventListeners(slotIndex, slotStats) {
 			const stat_value = element.value;
             slotStats[`${stat}_IV`] = parseInt(stat_value) || 0;
             slots_stats[slotIndex] = slotStats;
-            //CheckIV(slotStats);
+            CheckIV();
             updateDisplayedStats(slotStats);
         });
     }
@@ -471,10 +472,52 @@ function setupSlotEventListeners(slotIndex, slotStats) {
 			const stat_value = element.value;
             slotStats[`${stat}_GYM`] = parseInt(stat_value) || 0;
             slots_stats[slotIndex] = slotStats;
-            //CheckGymStat(slotStats);
+            CheckGymStat();
             updateDisplayedStats(slotStats);
         });
     }
+	
+	function CheckIV(){
+		let sum=0;
+		let flag = 0;
+		for (const element of IV_Class) {
+			if (parseInt(element.value) < 0){
+				flag=1;
+			}
+			sum+=parseInt(element.value);
+		}
+		if (sum != 40 || flag == 1){
+			for (const element of IV_Class) {
+				element.style.color = 'red';
+			}
+		}
+		else{
+			for (const element of IV_Class) {
+				element.style.color =  "var(--side-buttons-color)"
+			}
+		}
+	}
+
+	function CheckGymStat(){
+		let sum=0;
+		let flag = 0;
+		for (const element of GYM_Class) {
+			if (parseInt(element.value) < 0){
+				flag=1;
+			}
+			sum+=parseInt(element.value);
+		}
+		if (sum > 5 || flag == 1){
+			for (const element of GYM_Class) {
+				element.style.color = 'red';
+			}
+		}
+		else{
+			for (const element of GYM_Class) {
+				element.style.color =  "var(--side-buttons-color)"
+			}
+		}
+	}
 }
 
 function updateDisplayedStats(slotStats) {
@@ -490,14 +533,19 @@ function updateDisplayedStats(slotStats) {
         slotStats.SPR_GYM, 
         slotStats.DEF_GYM, 
         slotStats.SPD_GYM, 
+		Attitudes[slotStats.attitude].boost[0],
+		Attitudes[slotStats.attitude].boost[1],
+		Attitudes[slotStats.attitude].boost[2],
+		Attitudes[slotStats.attitude].boost[3],
+		Attitudes[slotStats.attitude].boost[4],
     );
     
     const statElements = {
-        'HP': Math.round(BHP) + Attitudes[slotStats.attitude].boost[0],
-        'STR': Math.round(BSTR) + Attitudes[slotStats.attitude].boost[1],
-        'SPR': Math.round(BSPR) + Attitudes[slotStats.attitude].boost[2],
-        'DEF': Math.round(BDEF) + Attitudes[slotStats.attitude].boost[3],
-        'SPD': Math.round(BSPD) + Attitudes[slotStats.attitude].boost[4]
+        'HP': Math.round(BHP),
+        'STR': Math.round(BSTR),
+        'SPR': Math.round(BSPR),
+        'DEF': Math.round(BDEF),
+        'SPD': Math.round(BSPD)
     };
     let i=0;
     for (const [stat, value] of Object.entries(statElements)) {

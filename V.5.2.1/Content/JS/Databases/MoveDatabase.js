@@ -425,11 +425,9 @@ const moves = [
 ]
 
 function GetMove(GivenStats){ // Damage Calc Function
-	console.log(GivenStats)
-	for (i = 0; i < moves.length; i++){
-		if (moves[i].ID == GivenStats){
-			console.log(moves[i])
-			return moves[i]
+	for (move of moves){
+		if (move.ID == GivenStats){
+			return move
 		}
 	}
 }
