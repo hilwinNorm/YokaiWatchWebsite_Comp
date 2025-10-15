@@ -31,12 +31,14 @@
 .left-char {
   grid-column: 1;
   height: 108px;
+  width: auto;
   justify-self: start;
 }
 
 .right-char {
   grid-column: 3;
   height: 108px;
+  width: auto;
   justify-self: end;
 }
 
@@ -50,7 +52,34 @@
 
 /* Define individual icons */
 .icon-discord {
-  background-image: url('../Fonts/emoticons/discord_ico_color.png');
+  background-image: url('../Graphics/MenuIcons/Discord/discord_ico_color.png');
+}
+.icon-yokai {
+	background-image: url('../Graphics/MenuIcons/Yokai_Icon.png')
+}
+.icon-soulgems {
+	background-image: url('../Graphics/MenuIcons/SoulGems_Icon.png')
+}
+.icon-equipment {
+	background-image: url('../Graphics/MenuIcons/Equipment_Icon.png')
+}
+.icon-itemall {
+	background-image: url('../Graphics/MenuIcons/All_Icon.png')
+}
+.icon-dict {
+	background-image: url('../Graphics/MenuIcons/Dictionary_Icon.png')
+}
+.icon-damage {
+	background-image: url('../Graphics/MenuIcons/Damage_Icon.png')
+}
+.icon-home {
+	background-image: url('../Graphics/MenuIcons/Home_Icon.png')
+}
+.icon-dialoguequest {
+	background-image: url('../Graphics/MenuIcons/DialogueQuest_Icon.png')
+}
+.icon-search {
+	background-image: url('../Graphics/MenuIcons/Search_Icon.png')
 }
 
 .Cool_Blue {
@@ -135,6 +164,26 @@
 	--nav-bg: #edc87a;
 	--transparent-bg: #1ba47980;
 }
+.HeartsAndFluff {
+	--logo-color: #6d0032;
+	--side-buttons-bg: #ff85ac;
+	--side-buttons-color: #341b23;
+	--side-bg: #e95585;
+	--nav-buttons-bg: #ff85ac;
+	--nav-buttons-color: #341b23;
+	--nav-bg: #e95585;
+	--transparent-bg: #e9558580;
+}
+.OhMySwirls {
+	--logo-color: #244913;
+	--side-buttons-bg: #368b27;
+	--side-buttons-color: #000000;
+	--side-bg: #28661d;
+	--nav-buttons-bg: #368b27;
+	--nav-buttons-color: #000000;
+	--nav-bg: #28661d;
+	--transparent-bg: #368b2780;
+}
 
 .SlotInfo-Text{
 	color: var(--side-buttons-color)
@@ -152,6 +201,7 @@
 	align-items: center;
 	flex-flow: wrap;
 }
+
 
 .MiniSoulGemInfo-div{
 	width: 850px;
@@ -362,24 +412,28 @@ main {
 	padding: 20px 0px 20px 0px;
 }
 
-body{
-	font-family: 'YokaiWatch_YokaiDialogue2Font'; 
-	font-size: 12px;
-	margin: 0;
-	padding: 0;
-	display: grid;
-	grid-template-areas:
-	"nav nav"
-	"aside main";
-	grid-template-columns: 200px 1fr;
-	grid-template-rows: 145px auto;
+body {
+    font-family: 'YokaiWatch_YokaiDialogue2Font'; 
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+    "nav nav"
+    "aside main";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 145px auto;
     height: 100%;
     width: 100%;
-    background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-	background-attachment: fixed;
-    animation: scrollBackground 60s linear infinite;
+    
+    /* Two-layer background */
+    background: url('../Graphics/Wallpapers/Bamboo_Forest_Pattern.png') repeat, url('../Graphics/Wallpapers/Bamboo_Forest.png') fixed;
+    
+    background-size: 
+        auto 100%,  /* Pattern size */
+        cover;       /* Static background size */
+    
+    animation: scrollBackground 180s linear infinite;
 }
 
 aside {
@@ -420,6 +474,15 @@ select{
 }
 
 @keyframes scrollBackground {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 0; }
+    0% {
+        background-position: 
+            0px 0px,    /* Pattern starts at top-left */
+            0px 0px;    /* Static background remains fixed */
+    }
+	
+    100% {
+        background-position: 
+            100% 100%,  /* Pattern moves diagonally */
+            0px 0px;    /* Static background stays in place */
+    }
 }
