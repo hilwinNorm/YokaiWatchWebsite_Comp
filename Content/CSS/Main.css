@@ -191,46 +191,54 @@
 
 .MiniYokaiInfo-div{
 	width: 850px;
-	height: 80px;
-	margin: 5px;
+    height: 80px;
+	padding: 0px 15px;
 	background-color: var(--side-buttons-bg);
-	border: 1px solid rgb(0, 0, 0);
 	color: var(--side-buttons-color);
-	display: flex;
-	place-content: center flex-start;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
 	align-items: center;
-	flex-flow: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
 .MiniSoulGemInfo-div{
-	width: 850px;
+	width: auto;
     height: 80px;
-    margin: 5px;
+	padding: 0px 15px;
 	background-color: var(--side-buttons-bg);
 	color: var(--side-buttons-color);
 	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .MiniEqInfo-div{
-	width: 850px;
+	width: auto;
     height: 80px;
-    margin: 5px;
-	color: var(--side-buttons-color);
+	padding: 0px 15px;
 	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
 	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.equipment-list{
+	justify-content: center
 }
 
 .nav-button {
