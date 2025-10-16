@@ -40,7 +40,7 @@ HTML5, CSS3, JavaScript
 
 ├── PageNotFound.html  # Page that is used in case of the 404 Error (Instead of giving out some basic one; Currently unused)
 
-├── DamageCalc.html # Damage Calculator (Currently in rough state and must be fixed sooner or later)
+├── DamageCalc.html # Damage Calculator
 
 ├── equipment.html # Same as medallium.html but for equipment and soul gems
 
