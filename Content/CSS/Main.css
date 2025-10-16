@@ -481,6 +481,11 @@ select{
 	color: var(--side-buttons-color);
 }
 
+#search-input{
+	width:250px;
+	height: 25px;
+}
+
 @keyframes scrollBackground {
     0% {
         background-position: 
