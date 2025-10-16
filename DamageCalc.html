@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/Index.js"></script>
+	<script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/Databases/MoveDatabase.js'></script>	
+	<script defer src='Content/JS/Databases/SkillDatabase.js'></script>	
+    <script defer src='Content/JS/Databases/TechniqueDatabase.js'></script>	
+	<script defer src='Content/JS/Databases/SoultimateDatabase.js'></script>
+	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
+	<script defer src='Content/JS/DamageCalc.js'></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+        
+    <aside class="side-bar" id="side_bar"></aside>
+    <main>
+            <div class="transparent-background" style="color: var(--side-buttons-color);; padding: 20px;">
+			<h3 style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 30px;"><u>Defender</u></h3> 
+			<img id="DefenderImg" alt="Defender Image" width="50px">
+			<p>
+			<label for="yokai_select1">Choose Defending YoKai:</label>
+			<select class="main-select" id="yokai_select1" name="yokai_select1"></span>
+			</select>
+			<input type="number" placeholder="LVL" id="yokai_select1-LVL" value="60">
+			</p>
+			
+			<label for="yokai_select1-Attitude">Choose Attitude:</label>
+			<select id="yokai_select1-Attitude">
+			</select>
+			<h3>Attitude boost:</h3>
+			<div id="yokai_select1-Attitude_display"></div>
+			<h3>Gym Training</h3>
+			<div>
+			<span>STR:</span>
+			<input class="DEF_Gym" type="number" value=0 placeholder="STR" id="yokai_select1-STR_Gym">
+			<span>SPR:</span>
+			<input class="DEF_Gym" type="number" value=0 placeholder="SPR" id="yokai_select1-SPR_Gym">
+			<span>DEF:</span>
+			<input class="DEF_Gym" type="number" value=0 placeholder="DEF" id="yokai_select1-DEF_Gym">
+			<span>SPD:</span>
+			<input class="DEF_Gym" type="number" value=0 placeholder="SPD" id="yokai_select1-SPD_Gym">
+			</div>
+			<h4>Stats:</h4>
+			<div>
+			<span>HP:</span>
+			<input type="number" placeholder="HP" id="yokai_select1-HP">
+			<span>STR:</span>
+			<input type="number" placeholder="STR" id="yokai_select1-STR">
+			<span>SPR:</span>
+			<input type="number" placeholder="SPR" id="yokai_select1-SPR">
+			<span>DEF:</span>
+			<input type="number" placeholder="DEF" id="yokai_select1-DEF">
+			<span>SPD:</span>
+			<input type="number" placeholder="SPD" id="yokai_select1-SPD">
+			</div>
+			<h4>IV:</h4>
+			<div style="margin-bottom: 25px;">
+			<span>HP IV:</span>
+			<input class="DEF_IV" type="number" value=8 placeholder="HP IV" id="yokai_select1-IV_HP">
+			<span>STR IV:</span>
+			<input class="DEF_IV" type="number" value=8 placeholder="STR IV" id="yokai_select1-IV_STR">
+			<span>SPR IV:</span>
+			<input class="DEF_IV" type="number" value=8 placeholder="SPR IV" id="yokai_select1-IV_SPR">
+			<span>DEF IV:</span>
+			<input class="DEF_IV" type="number" value=8 placeholder="DEF IV" id="yokai_select1-IV_DEF">
+			<span>SPD IV:</span>
+			<input class="DEF_IV" type="number" value=8 placeholder="SPD IV" id="yokai_select1-IV_SPD">
+			<div id="yokai_select1-IV_Amount" style="color: red"></div>
+			</div>
+			<span style="font-weight:bold; font-size:115%">Defending:</span>
+			<input type="checkbox" id="isDefending">
+			<h3 style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 30px;"><u>Attacker</u></h3>
+			<img id="AttackerImg" alt="Attacker Image" width="50px">
+			<p>
+			<label for="yokai_select2">Choose Attacking YoKai:</label>
+			<select id="yokai_select2" name="yokai_select2">
+			</select>
+			<input type="number" placeholder="LVL" id="yokai_select2-LVL" value="60">
+			</p>
+			<label for="yokai_select2-Attitude">Choose Attitude:</label>
+			<select id="yokai_select2-Attitude">
+			</select>
+			<h3>Attitude boost:</h3>
+			<div id="yokai_select2-Attitude_display"></div>
+			<h3>Gym Training</h3>
+			<div>
+			<span>STR:</span>
+			<input class="ATK_Gym" type="number" value=0 placeholder="STR" id="yokai_select2-STR_Gym">
+			<span>SPR:</span>
+			<input class="ATK_Gym" type="number" value=0 placeholder="SPR" id="yokai_select2-SPR_Gym">
+			<span>DEF:</span>
+			<input class="ATK_Gym" type="number" value=0 placeholder="DEF" id="yokai_select2-DEF_Gym">
+			<span>SPD:</span>
+			<input class="ATK_Gym" type="number" value=0 placeholder="SPD" id="yokai_select2-SPD_Gym">
+			</div>
+			<h4>Stats:</h4>
+			<div>
+			<span>HP:</span>
+			<input type="number" placeholder="HP" id="yokai_select2-HP">
+			<span>STR:</span>
+			<input type="number" placeholder="STR" id="yokai_select2-STR">
+			<span>SPR:</span>
+			<input type="number" placeholder="SPR" id="yokai_select2-SPR">
+			<span>DEF:</span>
+			<input type="number" placeholder="DEF" id="yokai_select2-DEF">
+			<span>SPD:</span>
+			<input type="number" placeholder="SPD" id="yokai_select2-SPD">
+			</div>
+			<h4>IV:</h4>
+			<div>
+			<span>HP IV:</span>
+			<input class="ATK_IV" type="number" value=8 placeholder="HP IV" id="yokai_select2-IV_HP">
+			<span>STR IV:</span>
+			<input class="ATK_IV" type="number" value=8 placeholder="STR IV" id="yokai_select2-IV_STR">
+			<span>SPR IV:</span>
+			<input class="ATK_IV" type="number" value=8 placeholder="SPR IV" id="yokai_select2-IV_SPR">
+			<span>DEF IV:</span>
+			<input class="ATK_IV" type="number" value=8 placeholder="DEF IV" id="yokai_select2-IV_DEF">
+			<span>SPD IV:</span>
+			<input class="ATK_IV" type="number" value=8 placeholder="SPD IV" id="yokai_select2-IV_SPD">
+			<div id="yokai_select2-IV_Amount" style="color: red"></div>
+			</div>
+			<h4>Attack Type</h4>
+			<p>
+			<select id="AttackType">
+			<option value="1">Move</option>
+			<option value="2">Technique</option>
+			<option value="3">Soultimate<option>
+			</select>
+			</p>
+			<span style="font-weight:bold; font-size:115%">Crit:</span>
+			<input type="checkbox" id="isCrit">
+			<span style="font-weight:bold; font-size:115%">Moxie:</span>
+			<input type="checkbox" disabled id="isMoxie">
+			<button style="border-width: 1px; border-style: solid; margin: 5px 10px; font-size: 15px;"id="calcButton" class="main-button">Calculate</button>
+			<h3>Result:</h3>
+			<div id="DamageOutput" style="margin-top: 25px"></div>
+			<h3>Hits needed:</h3>
+			<div id="HitsDiv"></div>
+			<!-- 
+			Normal Formula (STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard 
+			
+			No Guard = 1
+			
+			Normal Guard = 0.5
+			
+			Jar Guard = 0.25
+			
+			Crit Formula (STRorSPR/2 + BasePower/2)*0.9or1.1*CritMulti*SkillMultiplier*Guard
+			
+			Normal Crit = 1.25
+			
+			Extreme Crit = 1.875
+			
+			Normal Crit Rate = 10%
+			
+			Soultimate Damage (STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard*MoxieBoost*SoulGem(1.5or2)
+			
+			
+			
+			-->
+    </main>
+</body>
+</html>

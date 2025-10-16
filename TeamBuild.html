@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+	<link rel="stylesheet" href="Content/CSS/Main.css">
+	<script defer src="Content/JS/Index.js"></script>
+	<script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/Databases/SoulGemDatabase.js'></script>
+	<script defer src='Content/JS/Databases/EquipmentDatabase.js'></script>
+	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
+	<script defer src='Content/JS/TeamBuild.js'></script>
+	<script src="Content/Libs/html2canvas.js"></script>
+    <style>
+	
+    </style>
+</head>
+<body>
+    <nav id="nav-tab"></nav>
+	
+            
+    <aside class="side-bar" id="side_bar"></aside>
+    <main>
+	<div style="position: relative; display: flex; flex-direction: row">
+	<div class="transparent-background" style="width: 26px; height: 126px;">
+	<img width="26px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.png">
+	<img width="26px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.png">
+	<img width="26px" height="auto" id="A_Rank1" src="Content/Graphics/A_RankUnincluded.png">
+	<img width="26px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
+	</div>
+	<div id="Wheel-div">
+	<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 1px 150px;">
+	<img id="Slot1" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="1" style="position: absolute;left: 212.5px;right:0px;top: 68px;bottom: 0px;">
+	<img id="Slot2" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="2" style="position: absolute;left: 294px;right:0px;top: 23px;bottom: 0px;">
+	<img id="Slot3" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="3" style="position: absolute;left: 375px;right:0px;top: 70px;bottom: 0px;">
+	<img id="Slot4" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="4" style="position: absolute;left: 375px;right:0px;top: 159px;bottom: 0px;">
+	<img id="Slot5" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="5" style="position: absolute;left: 294px;right:0px;top: 207px;bottom: 0px;">
+	<img id="Slot6" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="6" style="position: absolute;left: 212.5px;right:0px;top: 159px;bottom: 0px;">
+	<img id="ChosenYokaiRing" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing" style="width: 85px; height: auto; position: absolute; left: 195px; top: 64px; visibility: hidden">
+	</div>
+	<div class="transparent-background"id="SlotInfo-div"style="padding: 20px; width: 475px; height: 301px; overflow-y: scroll; visibility: hidden">
+	</div>
+	<div style="position: absolute; top:325px; left: 225px">
+	<button class="main-button" onclick="EditTeam()" style="position:relative">Edit team</button>
+	
+	<button class="main-button" onclick="SaveTeam()" style="position:relative;" height="auto" width="auto">Copy</button>
+	<button class="main-button" onclick="LoadTeam()" style="position:relative;" height="auto" width="auto">Load</button>
+	
+	<button class="main-button" onclick="CopyAsText()" style="position:relative;" height="auto" width="auto">Copy as Text</button>
+	</div>
+	</div>
+	
+	<div style="width: 50%; margin: 100px auto 50px auto">
+		<button class="main-button" id="YokaiButton">Yokai  <span class="icon icon-yokai"></span></button>
+		<button class="main-button" id="EquipmentButton">Equipment  <span class="icon icon-equipment"></span></button>
+		<button class="main-button" id="SoulGemButton">Soul Gems  <span class="icon icon-soulgems"></span></button>
+		
+		<input type="search" id="search-input" name="query" placeholder="Search...">
+		</div>
+	
+	
+	<div class="container yokai-list transparent-background"style="height: 250px; flex-wrap: nowrap;list-style: none; overflow-y: scroll;">
+				<div id="data-page" class="yokai-list"></div>
+            </div>
+	
+	</main>
+</body>
+</html>

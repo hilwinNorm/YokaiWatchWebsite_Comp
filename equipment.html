@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/Index.js"></script>
+    <script defer src='Content/JS/Databases/SoulGemDatabase.js'></script>
+	<script defer src='Content/JS/Databases/EquipmentDatabase.js'></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+        
+    <aside class="side-bar" id="side_bar"></aside>
+    <main>
+		<div style="width: 50%; margin: 50px auto 50px auto">
+			<button style="font-size: 12px" class="main-button" id="EquipmentButton">Equipment  <span class="icon icon-equipment"></button>
+			<button style="font-size: 12px" class="main-button" id="SoulGemButton">Soul Gems  <span class="icon icon-soulgems"></button>
+			<input type="search" id="search-input" name="query" placeholder="Search...">
+		</div>
+		<div class="container equipment-list" style="display: flex; flex-wrap: nowrap; margin: 1px 100px; margin-top: 1px; list-style: none; overflow-y: visible; height: auto;">
+			<div id="data-page" class="equipment-list"></div>
+		</div>
+    </main>
+</body>
+</html>

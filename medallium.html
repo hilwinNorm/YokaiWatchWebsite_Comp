@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/Index.js"></script>
+    <script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+        
+    <aside class="side-bar" id="side_bar"></aside>
+    <main>
+			<div class="yokai-list transparent-background" style="list-style: none; overflow-y: visible; height: auto;">
+			
+				<div class="yokai-tribes">
+                <button id="Brave" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeBrave.png" style="width: auto; height:80px;" alt="Brave Tribe"></button>
+                <button id="Mysterious" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeMysterious.png" style="width: auto; height:80px;" alt="Mysterious Tribe"></button>
+                <button id="Tough" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeTough.png" style="width: auto; height:70px;" alt="Tough Tribe"></button>
+                <button id="Charming" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeCharming.png" style="width: auto; height:80px;" alt="Charming Tribe"></button>
+                <button id="Heartful" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeHeartful.png" style="width: auto; height:80px;" alt="Heartful Tribe"></button>
+                <button id="Shady" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeShady.png" style="width: auto; height:70px;" alt="Shady Tribe"></button>
+                <button id="Eerie" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeEerie.png" style="width: 80px; height:55px;" alt="Eerie Tribe"></button>
+                <button id="Slippery" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeSlippery.png" style="width: auto; height:80px;" alt="Slippery Tribe"></button>
+                <button id="Wicked" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/tribes/tribeKaima.png" style="width: auto; height:80px;" alt="Wicked Tribe"></button>
+			</div>
+			<div class="yokai-ranks">
+				<button id="E" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_E_icon.png" style="width: auto; height:70px;" alt="Rank E"></button>
+				<button id="D" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_D_icon.png" style="width: auto; height:70px;" alt="Rank D"></button>
+				<button id="C" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_C_icon.png" style="width: auto; height:70px;" alt="Rank C"></button>
+				<button id="B" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_B_icon.png" style="width: auto; height:70px;" alt="Rank B"></button>
+				<button id="A" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_A_icon.png" style="width: auto; height:70px;" alt="Rank A"></button>
+				<button id="S" style='cursor: pointer; background: none; border: none; width: 100px; height: 100px;'><img src="Content/Graphics/Ranks/Rank_S_icon.png" style="width: auto; height:70px;" alt="Rank S"></button>
+			</div>
+            
+			<input type="search" id="search-input" name="query" placeholder="Search for Yokai...">
+                <div id="data-page" class="yokai-list"></div>
+            </div>
+    </main>
+</body>
+</html>
