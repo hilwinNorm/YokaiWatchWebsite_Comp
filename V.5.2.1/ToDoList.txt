@@ -1,2 +1,0 @@
-1. Make 2 options of copy to clipboard (With stats+image; only yokai equipment and attitude) (Can be done when I start running files through local server)
-2. Create image and database Recourses page
