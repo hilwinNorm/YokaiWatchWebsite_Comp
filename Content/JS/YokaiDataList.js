@@ -16,12 +16,7 @@ skill_list = []
 
 for (move of moves){
 	divMain = document.createElement("div")
-	//divName = document.createElement("div")
-	//divLVL1 = document.createElement("div")
-	//divLVL10 = document.createElement("div")
-	//divHits = document.createElement("div")
-	//divID = document.createElement("div")
-	divMain.innerHTML = `Name: ${move.Command} | ID: ${move.ID} | LVL 1 Power: ${move.Lv1_power} | LVL 10 Power: ${move.Lv10_power} | Number of Hits: ${move.N_Hits}`
+	divMain.innerHTML = `Name:‎‎ ‎ <div id="div-name">${move.Command}</div>‎ | ID: ${move.ID} | LVL 1 Power: ${move.Lv1_power} | LVL 10 Power: ${move.Lv10_power} | Number of Hits: ${move.N_Hits}`
 	divMain.className = "MiniYokaiInfo-div"
 				divMain.style = `width: auto;
     height: 80px;
@@ -41,7 +36,7 @@ for (technique of techniques){
 	if (technique.Element == null){
 		Element = ``
 	}
-	divMain.innerHTML = `Name: ${technique.Command}${Element} | ID: ${technique.ID} | LVL 1 Power: ${technique.Lv1_power} | LVL 10 Power: ${technique.Lv10_power}`
+	divMain.innerHTML = `Name:‎ ‎‎<div id="div-name">${technique.Command}</div>‎  ${Element}| ID: ${technique.ID} | LVL 1 Power: ${technique.Lv1_power} | LVL 10 Power: ${technique.Lv10_power}`
 	divMain.className = "MiniYokaiInfo-div"
 				divMain.style = `width: auto;
     height: 80px;
@@ -57,7 +52,7 @@ for (technique of techniques){
 }
 for (inspirit of inspirits){
 	divMain = document.createElement("div")
-	divMain.innerHTML = `Name: ${inspirit.Command} | ID: ${inspirit.ID} | Description: ${inspirit.Effect[0].EffectDesc}`
+	divMain.innerHTML = `Name:‎ ‎ <div id="div-name">${inspirit.Command}</div>‎ | ID: ${inspirit.ID} | Description: <div id="div-desc">${inspirit.Effect[0].EffectDesc}</div>`
 	divMain.className = "MiniYokaiInfo-div"
 				divMain.style = `width: auto;
     height: 80px;
@@ -73,11 +68,12 @@ for (inspirit of inspirits){
 }
 for (soultimate of soultimates){
 	divMain = document.createElement("div")
-	let Element = `| Element: ${soultimate.Element} <img style="height:20px; width: auto; margin-left:3px; margin-right:3px;"src="Content/Graphics/Elements/InGameIcons/${soultimate.Element}.png" alt="ElementImg">`
+	
+	let Element = `| Element:‎  ${soultimate.Element} <img style="height:20px; width: auto; margin-left:3px; margin-right:3px;"src="Content/Graphics/Elements/InGameIcons/${soultimate.Element}.png" alt="ElementImg">`
 	if (soultimate.Element == null){
 		Element = ''
 	}
-	divMain.innerHTML = `Name: ${soultimate.Command} | ID: ${soultimate.ID} | LVL 1 Power: ${soultimate.Lv1_power} | LVL 10 Power: ${soultimate.Lv10_power} | LVL 1 Charge: ${soultimate.Lv1_soul_charge} | LVL 10 Charge: ${soultimate.Lv10_soul_charge} | Number of Hits: ${soultimate.N_Hits}${Element}`
+	divMain.innerHTML = `Name:‎ <div id="div-name">${soultimate.Command}</div>‎ | ID: ${soultimate.ID} | LVL 1 Power: ${soultimate.Lv1_power} | LVL 10 Power: ${soultimate.Lv10_power} | LVL 1 Charge: ${soultimate.Lv1_soul_charge} | LVL 10 Charge: ${soultimate.Lv10_soul_charge} | Number of Hits: ${soultimate.N_Hits}${Element}`
 	divMain.className = "MiniYokaiInfo-div"
 				divMain.style = `width: auto;
     height: 80px;
@@ -95,7 +91,7 @@ for (soultimate of soultimates){
 }
 for (skill of skills){
 	divMain = document.createElement("div")
-	divMain.innerHTML = `Name: ${skill.name} | Description: ${skill.description}`
+	divMain.innerHTML = `Name:‎ ‎ <div id="div-name">${skill.name}</div>‎ | Description: <div id="div-desc">${skill.description}</div>`
 	divMain.className = "MiniYokaiInfo-div"
 				divMain.style = `width: auto;
     height: 80px;

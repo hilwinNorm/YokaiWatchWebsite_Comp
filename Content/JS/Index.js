@@ -197,7 +197,7 @@ if (SearchInput){
 	var Data_List_Len = undefined;
 	
 	SearchInput.addEventListener('search', function(){
-		Data_List = document.getElementById("data-page")
+		Data_List = document.getElementById("data-page") || document.getElementById("yokaidata-page")
 
 		const searchTerm = SearchInput.value.toLowerCase();
 		Array.from(Data_List.children).forEach(div => {
