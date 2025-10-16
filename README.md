@@ -1,6 +1,6 @@
 **YO-GON ACADEMY**
 
-Version of the project: 1.0.1
+Version of the project: 1.1.0
 
 **Purpose**
 This website serves as a comprehensive resource for players offering: 
@@ -46,6 +46,8 @@ HTML5, CSS3, JavaScript
 
 ├── YoKaiInfoPage.html # Page used to show the info on a clicked yokai
 
+├── YokaiData.html # Page that contains all of Yokai Attacks and Skills
+
 ├── Content/
 
 │   ├── CSS/  # Stylesheets
@@ -62,15 +64,13 @@ HTML5, CSS3, JavaScript
 
 │   │   ├── TeamBuild.js # Used in TeamBuild.html
 
+│   │   ├── YokaiDataList.js # Used in YokaiData.html
+
 │   │   └── TierSheet.js # Used to fill out tiers in tierSheet.html
 
 │   ├── Graphics/  # Images and visual assets
 
 │   ├── Fonts/  # Custom typography
-
-│   │  ├── Chewy/ # Unused, might get deleted soon
-
-│   │  ├── emoticons/ # Contains Discord images, might get deprecated soon
 
 │   │  └── Yokai_WatchFont/ # Main list of fonts that are used across the pages (Originate from games)
 
@@ -79,7 +79,7 @@ HTML5, CSS3, JavaScript
 └── README.md  # This file
 
 **Access**
-This is the first publicly accessible web version, available through any modern web browser. (Write IP address here later)
+This is the first publicly accessible web version, available through any modern web browser.
 You can also run this website locally just by downloading and opening any .html file (preferably index.html)
 
 **Future Roadmap**
@@ -91,8 +91,7 @@ Mobile app version
 
 Multi-language support (?)
 
-~~Interactive battle simulator~~ (No)
-
+Page for hosting and storing datas on tourneys
 
 
 This project welcomes any help from the community!
