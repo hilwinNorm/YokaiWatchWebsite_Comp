@@ -19,7 +19,7 @@ nav_tab.innerHTML += `
 			<div style="display: flex; gap: 10px;">
 			<button style="margin-left: 50px;"class="nav-button" id="home-btn">Home</button>
 			<button class="nav-button" id="about-btn">About Us</button>
-			<button class="nav-button" id="contact-btn">Contact</button>
+			<button class="nav-button" id="contact-btn">Contacts</button>
 			<a href='https://discord.gg/wyWbEhhGwm'><button class="nav-button" style="height: 28px; background-color: #5972ff; color: white;">Discord <span style="height: 25px; width: 25px;" class="icon icon-discord"></span></button></a>
 			</div>
 			<div id="nav-wallpaper-change" class="nav-wallpaper-change">
