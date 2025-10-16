@@ -79,7 +79,7 @@ HTML5, CSS3, JavaScript
 └── README.md  # This file
 
 **Access**
-This is the first publicly accessible web version, available through any modern web browser.
+This is the first publicly accessible web version, available through any modern web browser. Address: https://hilwinnorm.github.io/YokaiWatchWebsite_Comp/
 You can also run this website locally just by downloading and opening any .html file (preferably index.html)
 
 **Future Roadmap**
