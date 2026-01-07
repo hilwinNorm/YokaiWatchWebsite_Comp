@@ -1,4 +1,3 @@
-@font-face { font-family: chewy; src: url('../Fonts/Chewy/Chewy-Regular.ttf'); } 
 
 @font-face{
 	font-family: 'YokaiWatch_YokaiRoleFont';
@@ -27,6 +26,34 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+@media (max-height: 400px) {
+	main {
+		transform: scale(0.9);
+	}
+	nav{position: absolute !important; width: 100vw !important;}
+	.banner-container{transform: scale(1); height: 108px !important; width: 100vw !important;}
+	.nav-wallpaper-change{transform: scale(0.8); margin-left: 0px !important;}
+	#Logo-Text{font-size:26px !important;}
+	aside{top: 0 !important; height: 100vh !important; padding: 0px !important;}
+	#yokai-details{margin-left:0px !important;}
+	.yokai-tribes{transform: scale(0.55)}
+	.yokai-ranks{transform: scale(0.7)}
+	.yokai-list{width: 500px !important;}
+	.MiniYokaiInfo-div{transform: scale(0.55)}
+	.nav-button{transform: scale(0.8); padding: 0px 0px !important; width: 100px; font-size: 10px !important;}
+	.icon{transform: scale(0.7)}
+	#Wheel-div{width: 400px !important;}
+	#Wheel-img{margin: 0px 120px !important;}
+	.SaveOptions{left: 125px !important;}
+	#Slot1{top: 65px !important; left: 182.5px !important;}
+	#Slot2{top: 20px !important; left: 264px !important;}
+	#Slot3{top: 66px !important; left: 345px !important;}
+	#Slot4{top: 157px !important; left: 345px !important;}
+	#Slot5{top: 204px !important; left: 264px !important;}
+	#Slot6{top: 157px !important; left: 182.5px !important;}
+}
+
 
 .left-char {
   grid-column: 1;
@@ -204,6 +231,9 @@
     flex-wrap: wrap;
 }
 
+.WheelMedal-img{
+	width: 70px;
+}
 
 .MiniSoulGemInfo-div{
 	width: auto;
@@ -248,7 +278,7 @@
     border: none;
     cursor: pointer;
 	border-radius: 15px;
-	cursor: pointer;
+	height: 28px;
 	background-color: var(--nav-buttons-bg);
 	color: var(--nav-buttons-color);
 }
@@ -280,7 +310,7 @@
 .side-button {
 	font-family: 'YokaiWatch_YokaiDialogue1Font';
 	font-size: 10px;
-    margin: 5px 20px;
+    margin-top: 15px;
     position: static;
     width: 165px;
     height: 40px;
@@ -289,6 +319,12 @@
 	cursor: pointer;
 	background-color: var(--side-buttons-bg);
 	color: var(--side-buttons-color);
+}
+
+
+.side-button:disabled {
+    color: gray;
+	cursor: not-allowed;
 }
 
 .main-button {
@@ -312,22 +348,9 @@
 	color: var(--side-buttons-color);
 }
 
-#Logo-Text{
-	font-family: 'YokaiWatch_YokaiRoleFont'; 
-	font-size: 40px; 
-	color: var(--logo-color);
-}
-#side_bar{
-	background: var(--side-bg);
-}
-
-#nav-tab{
-	background: var(--nav-bg);
-}
-
 .banner-container {
 	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
-	position: fixed; 
+	position: absolute;
 	left: 0px;
 	top: 37px;
 	z-index: 2; 
@@ -341,6 +364,12 @@
 #logo-js {
   justify-self: center; /* Centers logo horizontally */
   
+}
+
+#Logo-Text{
+	font-family: 'YokaiWatch_YokaiRoleFont'; 
+	font-size: 40px; 
+	color: var(--logo-color);
 }
 
 .transparent-background{
@@ -390,34 +419,19 @@
 	margin: 5px;
 }
 
-.nav-button_selected {
-    padding: 5px 30px;
-    background-color: #50927D;
-    color: #EDF5EA;
-    border: none;
-    cursor: default;
-	border-radius: 15px;
-	
-}
-
-.side-button:disabled {
-    color: gray;
-	cursor: not-allowed;
-}
-
-
 .main-tabs {
 	display: flex;
 	justify-content: space-between; /* Pushes children to edges */
 	padding: 5px 0;
 	height: 27px;
+	z-index: 4;
 }
 
 main {
-	grid-area: main;
-	width: calc(100vw - 240px);
+	width: 100%;
 	height: calc(100vh - 145px);
-	padding: 20px 0px 20px 0px;
+	position: absolute;
+	bottom: 0;
 }
 
 body {
@@ -427,8 +441,7 @@ body {
     padding: 0;
     display: grid;
     grid-template-areas:
-    "nav nav"
-    "aside main";
+    "nav nav";
     grid-template-columns: 200px 1fr;
     grid-template-rows: 145px auto;
     height: 100%;
@@ -445,20 +458,29 @@ body {
 }
 
 aside {
-  padding-top: 15px;
-  grid-area: aside;
-  position: fixed;
-  color: #fff;
-  top: 145px;
-  left: 0;
-  width: 200px;
-  height: calc(100vh - 145px);
-  background: #2A4B38;
-  overflow-y: auto;
-  z-index: 5;
+	padding-top: 10px;
+	padding-left: 10px;
+	display: flex;
+	transition: transform 0.8s ease-in-out;
+	border-top-right-radius: 10px;
+	color: #fff;
+	top: 145px;
+	width: 200px;
+	height: calc(100vh - 145px);
+	background: var(--side-bg);
+	overflow-y: auto;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 3;
+	position: fixed;
+}
+
+.hidden-sidebar {
+    transform: translateX(-87%);
 }
 
 nav {
+	background: var(--nav-bg);
 	border-left: 0px;
 	border-top: 0px;
 	border-right: 0px;
@@ -467,8 +489,7 @@ nav {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background: #2A4B38;
-	z-index: 10;
+	z-index: 2;
 }
 
 input {

@@ -1,4 +1,58 @@
 
+var pathDatabase = "Content/JS/Databases/";
+
+const Databases = ['YoKaiDataBase.js', 'AttackDatabase.js', 'TechniqueDatabase.js', 'SoultimateDatabase.js']
+
+function loadScripts(scripts, callback) {
+    const promises = scripts.map(name => {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            // Ensure pathDatabase is defined globally or passed in
+            script.src = pathDatabase + name;
+            script.async = true;
+
+            script.onload = () => {
+                console.log(`${name} loaded successfully.`);
+                resolve();
+            };
+
+            // Capture the error event object
+            script.onerror = (event) => {
+                const errorMsg = `Error loading script: ${name}`;
+                console.error(errorMsg, {
+                    url: script.src,
+                    event: event // This contains the technical details of the failure
+                });
+                reject(new Error(errorMsg));
+            };
+			//console.log(script)
+            document.head.appendChild(script);
+        });
+    });
+
+    Promise.all(promises)
+        .then(() => {
+            if (callback) callback();
+        })
+        .catch(err => {
+            console.error("Script batch failed:", err.message, err.stack);
+        });
+}
+
+function CalculateStats(yokai, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, LVL, STR_Gym=0, SPR_Gym=0, DEF_Gym=0, SPD_Gym=0, HP_EV=0, STR_EV=0, SPR_EV=0, DEF_EV=0, SPD_EV=0) {
+    if (LVL == NaN || LVL > 99 || LVL <= 0) {
+        LVL = 60
+    }
+	LVL=parseInt(LVL)
+	
+    var BHP = yokai.baseA_HP + (yokai.baseB_HP - yokai.baseA_HP + parseInt(HP_IV)*2) * (LVL - 1) / 98 + HP_EV * (1+LVL/198);
+    var BSTR = yokai.baseA_Strength + (yokai.baseB_Strength - yokai.baseA_Strength + parseInt(STR_IV)) * (LVL - 1) / 98 + STR_EV * (1+LVL/198) + (parseInt(STR_Gym)*5);
+    var BSPR = yokai.baseA_Spirit + (yokai.baseB_Spirit - yokai.baseA_Spirit + parseInt(SPR_IV)) * (LVL - 1) / 98 + SPR_EV * (1+LVL/198) + (parseInt(SPR_Gym)*5);
+    var BDEF = yokai.baseA_Defense + (yokai.baseB_Defense - yokai.baseA_Defense + parseInt(DEF_IV)) * (LVL - 1) / 98 + DEF_EV * (1+LVL/198) + (parseInt(DEF_Gym)*5) - (parseInt(STR_Gym)*2) - (parseInt(SPD_Gym)*2);
+    var BSPD = yokai.baseA_Speed + (yokai.baseB_Speed - yokai.baseA_Speed + parseInt(SPD_IV)) * (LVL - 1) / 98 + SPD_EV * (1+LVL/198) + (parseInt(SPD_Gym)*5) - (parseInt(SPR_Gym)*2) - (parseInt(DEF_Gym)*2);
+	return [BHP, BSTR, BSPR, BDEF, BSPD]
+}
+
 let Defender = document.getElementById("yokai_select1")
 let DefenderHP = document.getElementById("yokai_select1-HP")
 let DefenderSTR = document.getElementById("yokai_select1-STR")
@@ -77,8 +131,8 @@ function getRandomNumberWithTwoDecimals() {
 
 function getAttack(Attack){
 	var yokaiData;
-	for (yokai of yokais){
-		if (Defender.value == yokai.name){
+	for (const [key,yokai] of Object.entries(yokaiDatabase)){
+		if (Defender.value == yokai.Name){
 			yokaiData = yokai;
 			console.log("Yokai: ",yokaiData)
 			break;
@@ -166,16 +220,14 @@ function DetermineHitAmount(Damage, DefenderHealth){
 	HitsDiv.innerHTML = Amount;
 }
 
-function SetAttackerData(){
-	var AttackerName = Attacker.value;
+function SetAttackerData(yokaiDatabase){
+	var AttackerName = yokaiDatabase[Attacker.value];
 	
-	for (i=0;i<yokais.length;i++){
-		if (Attacker.value == yokais[i].name){
-			AttackerImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
-			AttackerName = yokais[i]
-			break;
-		}
-	}
+	console.log(Attacker.value, yokaiDatabase)
+	
+	AttackerImg.src = 'Content/Graphics/YokaiMedals/'+AttackerName.Medallium_Image;
+	
+			
 	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(AttackerName, ATK_IVInput[0].value, ATK_IVInput[1].value, ATK_IVInput[2].value, ATK_IVInput[3].value, ATK_IVInput[4].value, AttackerLVL.value, ATK_GymInput[0].value, ATK_GymInput[1].value, ATK_GymInput[2].value, ATK_GymInput[3].value, Attitudes[AttackerEV.value].boost[0], Attitudes[AttackerEV.value].boost[1], Attitudes[AttackerEV.value].boost[2], Attitudes[AttackerEV.value].boost[3], Attitudes[AttackerEV.value].boost[4])
 	
 	console.log("Attacker Stats: ",[BHP, BSTR, BSPR, BDEF, BSPD])
@@ -187,16 +239,11 @@ function SetAttackerData(){
 	AttackerSPD.value = Math.round(BSPD);
 }
 
-function SetDefenderData(){
-	var DefenderName = Defender.value;
+function SetDefenderData(yokaiDatabase){
+	var DefenderName = yokaiDatabase[Defender.value];
 	
-	for (i=0;i<yokais.length;i++){
-		if (Defender.value == yokais[i].name){
-			DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
-			DefenderName = yokais[i]
-			break;
-		}
-	}
+	DefenderImg.src = 'Content/Graphics/YokaiMedals/'+DefenderName.Medallium_Image;
+			
 	let [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(DefenderName, DEF_IVInput[0].value, DEF_IVInput[1].value, DEF_IVInput[2].value, DEF_IVInput[3].value, DEF_IVInput[4].value, DefenderLVL.value, DEF_GymInput[0].value, DEF_GymInput[1].value, DEF_GymInput[2].value, DEF_GymInput[3].value, Attitudes[DefenderEV.value].boost[0], Attitudes[DefenderEV.value].boost[1], Attitudes[DefenderEV.value].boost[2], Attitudes[DefenderEV.value].boost[3], Attitudes[DefenderEV.value].boost[4])
 		
 	DefenderHP.value = Math.round(BHP)	
@@ -243,8 +290,8 @@ function CheckIV(){
 		element.style.color =  "var(--side-buttons-color)"
 		}
 	}
-	SetAttackerData()
-	SetDefenderData()
+	SetAttackerData(yokaiDatabase)
+	SetDefenderData(yokaiDatabase)
 }
 
 function CheckGymStat(){
@@ -274,15 +321,19 @@ function CheckGymStat(){
 		element.style.color =  "var(--side-buttons-color)"
 		}
 	}
-	SetAttackerData()
-	SetDefenderData()
+	SetAttackerData(yokaiDatabase)
+	SetDefenderData(yokaiDatabase)
 }
+
+loadScripts(Databases, () => {
+	//yokaiDatabase;
+    console.log("All databases loaded. Initializing game...");
 
 	if (Defender){
 		
-		for (i = 0; i < yokais.length; i++){
+		for (const [key,yokai] of Object.entries(yokaiDatabase)){
 			const option = `
-				<option value="${yokais[i].name}">${yokais[i].name}</option>
+				<option value="${key}">${yokai.Name}</option>
 			`
 			Defender.innerHTML += option;
 			Attacker.innerHTML += option;
@@ -298,19 +349,19 @@ function CheckGymStat(){
 	//(STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard 
 	
 	Attacker.addEventListener('change', function(event) { 
-		SetAttackerData()
+		SetAttackerData(yokaiDatabase)
 		})
 	
 	Defender.addEventListener('change', function(event) {
-	SetDefenderData()
+		SetDefenderData(yokaiDatabase)
 	})
 	
 	DefenderLVL.addEventListener('input', function(event){
-	SetDefenderData()
+		SetDefenderData(yokaiDatabase)
 	})
 	
 	AttackerLVL.addEventListener('input', function(event){
-	SetAttackerData()
+		SetAttackerData(yokaiDatabase)
 	})
 	
 	
@@ -340,11 +391,11 @@ function CheckGymStat(){
 	
 	DefenderEV.addEventListener('change', function(event){
 		DefenderEV_Div.innerHTML = 'HP Boost:'+Attitudes[DefenderEV.value].boost[0]+' | STR Boost:'+Attitudes[DefenderEV.value].boost[1]+' | SPR Boost:'+Attitudes[DefenderEV.value].boost[2]+' | DEF Boost:'+Attitudes[DefenderEV.value].boost[3]+' | SPD Boost:'+Attitudes[DefenderEV.value].boost[4]
-		SetDefenderData()
+		SetDefenderData(yokaiDatabase)
 	})
 	AttackerEV.addEventListener('change', function(event){
 		AttackerEV_Div.innerHTML = 'HP Boost:'+Attitudes[AttackerEV.value].boost[0]+' | STR Boost:'+Attitudes[AttackerEV.value].boost[1]+' | SPR Boost:'+Attitudes[AttackerEV.value].boost[2]+' | DEF Boost:'+Attitudes[AttackerEV.value].boost[3]+' | SPD Boost:'+Attitudes[AttackerEV.value].boost[4]
-		SetAttackerData()
+		SetAttackerData(yokaiDatabase)
 	})
 	
 	AttackerEV.value = "3";
@@ -363,43 +414,31 @@ function CheckGymStat(){
 		}
 	})
 
-for (i=0;i<yokais.length;i++){
-	if (Attacker.value == yokais[i].name){
-		AttackerImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
-		break;
-	}
-}
-	
-for (i=0;i<yokais.length;i++){
-	if (Defender.value == yokais[i].name){
-		DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokais[i].image
-		break;
-	}
-}
-	
-SetAttackerData(8, 8, 8, 8, 8, 60, 0, 0, 0, 0)
 
-SetDefenderData(8, 8, 8, 8, 8, 60, 0, 0, 0, 0)
+	AttackerImg.src = 'Content/Graphics/YokaiMedals/'+yokaiDatabase[Attacker.value].Medallium_Image;
 
-CalcButton.addEventListener("click", () =>{
-	let yokai = null;
-	for (i=0;i<yokais.length;i++){
-	if (Attacker.value == yokais[i].name){
-		yokai = yokais[i]
-		break;
-	}
-}
+	DefenderImg.src = 'Content/Graphics/YokaiMedals/'+yokaiDatabase[Defender.value].Medallium_Image;
+
+		
+	SetAttackerData(yokaiDatabase)
+
+	SetDefenderData(yokaiDatabase)
+
+	CalcButton.addEventListener("click", () =>{
+		yokai = yokaiDatabase[Attacker.value]
+		
 		if (AttackType.value == "1"){
-		getAttack(GetMove(yokai.attack))
+		getAttack(attackDatabase[yokai.AttackID])
+		}
+		else if (AttackType.value == "2"){
+			getAttack(techniqueDatabase[yokai.TechniqueID])
+		}
+		else if(AttackType.value == "3"){
+			getAttack(soultimateDatabase[yokai.SoultimateID])
+		}
+		
+	});
+
 	}
-	else if (AttackType.value == "2"){
-		getAttack(GetTechnique(yokai.technique))
-	}
-	else if(AttackType.value == "3"){
-		getAttack(GetSoultimate(yokai.soultimate))
-	}
-	
+
 });
-
-}
-
