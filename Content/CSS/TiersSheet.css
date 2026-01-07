@@ -1,4 +1,9 @@
 
+
+@media (max-height: 400px) {
+	.cellsStyle{margin-left: 30px !important; transform: scale(0.9);}
+	
+}
 .TribeCells{
 	background-color: black;
 	color: white;

@@ -1,26 +1,35 @@
 
-var side_bar = document.getElementById('side_bar')
+var meta = document.createElement('meta');
 
-var nav_tab = document.getElementById('nav-tab')
+meta.name = "viewport";
+
+meta.content = `width=device-width, initial-scale=1.0`;
+
+document.getElementsByTagName('head')[0].appendChild(meta);
+
+
+var side_bar = document.getElementsByTagName('aside')[0];
+
+var nav_tab = document.getElementById('nav-tab');
 
 side_bar.innerHTML += `
-<button class="side-button" id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></button>
+	<button style="position: absolute; right: 0px; top: 0px; border-radius: 15px; color: var(--side_button-color); background-color: var(--side-buttons-bg)"id="toggleSidebar">-</button>
+	<button class="side-button" id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></button>
 	<button class="side-button" id="tierSheet-btn">Tier Sheet</button>
 	<button class="side-button" id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></button>
 	<button class="side-button" id="equipment-btn">Equipment List <span class="icon icon-equipment"></button>
 	<button class="side-button" id="yokaiData-btn">Yo-Kai Data</button>
-	
 	<button class="side-button" id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></button>
-	
+	<button class="side-button" id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></button>
 `
 
 nav_tab.innerHTML += `
 	<div class="main-tabs">
 			<div style="display: flex; gap: 10px;">
-			<button style="margin-left: 50px;"class="nav-button" id="home-btn">Home</button>
-			<button class="nav-button" id="about-btn">About Us</button>
-			<button class="nav-button" id="contact-btn">Contacts</button>
-			<a href='https://discord.gg/wyWbEhhGwm'><button class="nav-button" style="height: 28px; background-color: #5972ff; color: white;">Discord <span style="height: 25px; width: 25px;" class="icon icon-discord"></span></button></a>
+			<a href='./index.html'><button style="margin-left: 50px;"class="nav-button" id="home-btn">Home</button></a>
+			<a href='./about.html'><button class="nav-button">About Us</button></a>
+			<a href='./contact.html'><button class="nav-button">Contacts</button></a>
+			<a href='https://discord.gg/wyWbEhhGwm'><button class="nav-button" style="background-color: #5972ff; color: white;">Discord <span style="height: 25px; width: 25px;" class="icon icon-discord"></span></button></a>
 			</div>
 			<div id="nav-wallpaper-change" class="nav-wallpaper-change">
 			<label for="wallpaper-select">Wallpaper:  </label>
@@ -39,18 +48,46 @@ nav_tab.innerHTML += `
 			</div>
 		</div>
 		
-        <a href="#" id='logo-js' class="nav-brand">
+        <a href="./index.html" id='logo-js' class="nav-brand">
 		<div id="banner-container" class="banner-container">
-			<img src="Content/Graphics/BannerYokai/LeftYokai3.png" class="left-char" alt="Left Character">
+			<img src="Content/Graphics/BannerYokai/LeftYokai_Christmas.png" class="left-char" alt="Left Character">
 			
 				<div id="Logo-Text" style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 45px;">Yo-gon Academy</div>
 			
-			<img src="Content/Graphics/BannerYokai/RightYokai3.png" class="right-char" alt="Right Character">
+			<img src="Content/Graphics/BannerYokai/RightYokai_Christmas.png" class="right-char" alt="Right Character">
 		</div>
 		</a>
 `
 
+var toggleSidebar_button = document.getElementById("toggleSidebar")
 
+toggleSidebar_button.addEventListener('click', function(event){
+    const element = document.getElementsByTagName('aside')[0];
+    element.classList.toggle('hidden-sidebar');
+	if (element.classList.contains("hidden-sidebar")){
+		toggleSidebar_button.textContent = '+'
+	}
+	else{
+		toggleSidebar_button.textContent = '-'
+	}
+	
+	if (element.classList.contains('hidden-sidebar')){
+		localStorage.setItem("_sidebar_hidden", 1)
+	}else{localStorage.setItem("_sidebar_hidden", 0)}
+})
+if (localStorage.getItem("_sidebar_hidden") == 1){
+	const element = document.getElementsByTagName('aside')[0];
+	element.style.removeProperty("transition")
+    element.classList.toggle('hidden-sidebar');
+	element.style.transition = "transform 0.8s ease-in-out";
+	if (element.classList.contains("hidden-sidebar")){
+		toggleSidebar_button.textContent = '+'
+	}
+	else{
+		toggleSidebar_button.textContent = '-'
+	}
+	
+}
 
 var transparent_background = document.getElementsByClassName("transparent-background")
 
@@ -76,14 +113,6 @@ wallpaper_change.addEventListener('change', function(event){
 	changeTheme(wallpaper_change.value)
 })
 
-var home_btn = document.getElementById('home-btn');
-
-var about_btn = document.getElementById('about-btn');
-
-var contact_btn = document.getElementById('contact-btn');
-
-var logo_js = document.getElementById('logo-js');
-
 var medallium_btn = document.getElementById('medallium-btn');
 
 var damageCalc_btn = document.getElementById('damageCalc-btn')
@@ -95,6 +124,8 @@ var equipment_btn = document.getElementById("equipment-btn")
 var tierSheet_btn = document.getElementById("tierSheet-btn")
 
 var yokaiData_btn = document.getElementById("yokaiData-btn")
+
+var imageRecources_btn = document.getElementById("Resources-btn")
 
 var head = document.head
 
@@ -111,10 +142,8 @@ function changeTheme(wallpaper){
 	wallpaper_change.value = wallpaper;
 	
 	banner_container.style.backgroundImage = `url("./Content/Graphics/Wallpapers/${wallpaper}.png")`
-	console.log(body_element.style)
 	body_element.style.background = `url("./Content/Graphics/Wallpapers/${wallpaper}_Pattern.png") fixed, url("./Content/Graphics/Wallpapers/${wallpaper}.png") fixed`
 	body_element.style.backgroundSize = `220px, cover`
-	console.log(body_element)
 	
 	document.documentElement.className = wallpaper;
 	
@@ -147,23 +176,6 @@ function noredirect(num){
 	}
 }
 
-home_btn.addEventListener('click', () => {
-	redirect("index")
-});
-
-about_btn.addEventListener('click', () => {
-	redirect("about")
-});
-
-contact_btn.addEventListener('click', () => {
-	redirect("contact")
-});
-
-
-logo_js.addEventListener('click', () => {
-	redirect("index")
-});
-
 medallium_btn.addEventListener('click', () => {
 	redirect("medallium")
 });
@@ -184,6 +196,10 @@ tierSheet_btn.addEventListener('click', () => {
 })
 yokaiData_btn.addEventListener('click', () => {
 	redirect("YokaiData")
+})
+
+imageRecources_btn.addEventListener('click', () => {
+	redirect("imageRecources")
 })
 
 var SearchInput = document.getElementById("search-input")

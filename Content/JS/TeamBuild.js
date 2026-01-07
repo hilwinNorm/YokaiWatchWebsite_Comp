@@ -1,3 +1,86 @@
+var pathDatabase = "Content/JS/Databases/";
+
+const Databases = ['YoKaiDataBase.js'];
+
+function loadScripts(scripts, callback) {
+    const promises = scripts.map(name => {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            // Ensure pathDatabase is defined globally or passed in
+            script.src = pathDatabase + name;
+            script.async = true;
+
+            script.onload = () => {
+                console.log(`${name} loaded successfully.`);
+                resolve();
+            };
+
+            // Capture the error event object
+            script.onerror = (event) => {
+                const errorMsg = `Error loading script: ${name}`;
+                console.error(errorMsg, {
+                    url: script.src,
+                    event: event // This contains the technical details of the failure
+                });
+                reject(new Error(errorMsg));
+            };
+			//console.log(script)
+            document.head.appendChild(script);
+        });
+    });
+
+    Promise.all(promises)
+        .then(() => {
+            if (callback) callback();
+        })
+        .catch(err => {
+            console.error("Script batch failed:", err.message, err.stack);
+        });
+}
+
+function CalculateStats(yokai, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, LVL, STR_Gym=0, SPR_Gym=0, DEF_Gym=0, SPD_Gym=0, HP_EV=0, STR_EV=0, SPR_EV=0, DEF_EV=0, SPD_EV=0) {
+    if (LVL == NaN || LVL > 99 || LVL <= 0) {
+        LVL = 60
+    }
+	LVL=parseInt(LVL)
+	
+    var BHP = yokai.baseA_HP + (yokai.baseB_HP - yokai.baseA_HP + parseInt(HP_IV)*2) * (LVL - 1) / 98 + HP_EV * (1+LVL/198);
+    var BSTR = yokai.baseA_Strength + (yokai.baseB_Strength - yokai.baseA_Strength + parseInt(STR_IV)) * (LVL - 1) / 98 + STR_EV * (1+LVL/198) + (parseInt(STR_Gym)*5);
+    var BSPR = yokai.baseA_Spirit + (yokai.baseB_Spirit - yokai.baseA_Spirit + parseInt(SPR_IV)) * (LVL - 1) / 98 + SPR_EV * (1+LVL/198) + (parseInt(SPR_Gym)*5);
+    var BDEF = yokai.baseA_Defense + (yokai.baseB_Defense - yokai.baseA_Defense + parseInt(DEF_IV)) * (LVL - 1) / 98 + DEF_EV * (1+LVL/198) + (parseInt(DEF_Gym)*5) - (parseInt(STR_Gym)*2) - (parseInt(SPD_Gym)*2);
+    var BSPD = yokai.baseA_Speed + (yokai.baseB_Speed - yokai.baseA_Speed + parseInt(SPD_IV)) * (LVL - 1) / 98 + SPD_EV * (1+LVL/198) + (parseInt(SPD_Gym)*5) - (parseInt(SPR_Gym)*2) - (parseInt(DEF_Gym)*2);
+	return [BHP, BSTR, BSPR, BDEF, BSPD]
+}
+
+var Path_Medal = 'Content/Graphics/YokaiMedals/'
+
+var Path_Artwork = "Content/Graphics/Artwork/"
+
+var STR_Gym = 0;
+var SPR_Gym = 0;
+var DEF_Gym = 0;
+var SPD_Gym = 0;
+
+var HP_IV = 8;
+var STR_IV = 8;
+var SPR_IV = 8;
+var DEF_IV = 8;
+var SPD_IV = 8;
+
+const Tribes = [
+	"None",
+    "Brave",
+    "Mysterious",
+    "Tough",
+    "Charming",
+    "Heartful",
+    "Shady",
+    "Eerie",
+    "Slippery",
+    "Wicked"
+]
+
+const Ranks=['E','D','C','B','A','S']
 
 Slot1 = document.getElementById("Slot1")
 
@@ -97,8 +180,8 @@ function selectSlot(slot) {
 	}
 	
 	let ChosenYokaiRing = document.getElementById("ChosenYokaiRing")
-	let Ring_Left = JSON.stringify(parseInt(slot.style.left, 10)-6)+"px"
-	let Ring_Top = JSON.stringify(parseInt(slot.style.top, 10)-4)+"px"
+	let Ring_Left = JSON.stringify(parseInt(slot.style.left, 10)-8)+"px"
+	let Ring_Top = JSON.stringify(parseInt(slot.style.top, 10)-7)+"px"
 	ChosenYokaiRing.style.left = Ring_Left
 	ChosenYokaiRing.style.top = Ring_Top
 	ChosenYokaiRing.style.visibility = "visible"
@@ -111,7 +194,7 @@ function selectSlot(slot) {
 	
 	var slotInfo_div = document.getElementById("SlotInfo-div")
 	
-	if (slot.getAttribute('rank-index') == "S"){
+	if (slot.getAttribute('rank-index') == "5"){
 		if (SRanksUsed == 1){
 			S_RankSlot1.src = "Content/Graphics/S_RankUnincluded.png"
 		}
@@ -121,7 +204,7 @@ function selectSlot(slot) {
 		SRanksUsed -= 1
 		console.log("SRanksUsed", SRanksUsed)
 	}
-	else if(slot.getAttribute('rank-index') == "A"){
+	else if(slot.getAttribute('rank-index') == "4"){
 		if (ARanksUsed == 1){
 			A_RankSlot1.src = "Content/Graphics/A_RankUnincluded.png"
 		}
@@ -131,7 +214,7 @@ function selectSlot(slot) {
 		ARanksUsed -= 1
 		console.log("ARanksUsed", ARanksUsed)
 	}
-	if (selectedImage.getAttribute('rank-index') == "S"){
+	if (selectedImage.getAttribute('rank-index') == "5"){
 		if (SRanksUsed == 0){
 			S_RankSlot1.src = "Content/Graphics/S_RankIncluded.png"
 		}
@@ -141,7 +224,7 @@ function selectSlot(slot) {
 		SRanksUsed += 1
 		console.log("SRanksUsed", SRanksUsed)
 	}
-	else if (selectedImage.getAttribute('rank-index') == "A"){
+	else if (selectedImage.getAttribute('rank-index') == "4"){
 		if (ARanksUsed == 0){
 			A_RankSlot1.src = "Content/Graphics/A_RankIncluded.png"
 		}
@@ -152,10 +235,12 @@ function selectSlot(slot) {
 		console.log("ARanksUsed", ARanksUsed)
 	}
 	
-	let imageName = selectedImage.parentNode.querySelector("#div-name").textContent
+	let imageName = selectedImage.parentNode.parentNode.querySelector("#div-name").innerText;
+	let imageParamID = selectedImage.parentNode.parentNode.querySelector("#div-name").getAttribute("paramID")
 
 	slot.src = selectedImage.src;
 	slot.setAttribute('data-name', imageName);
+	slot.setAttribute('data-paramID', imageParamID);
 	slot.setAttribute('rank-index', selectedImage.getAttribute('rank-index'));
 	slotInfo_div.innerHTML=""
 	ShowSlotInfo(slot)
@@ -281,6 +366,7 @@ function ShowSlotInfo(slot){
 	
 	const slotName = slot.getAttribute('data-name')
     const slotIndex = parseInt(slotNumber) - 1;
+	const slotParamID = slot.getAttribute('data-paramID')
 	
     let slotStats = slots_stats[slotIndex];
 	if ((!slotStats || Object.keys(slotStats).length === 0) || (EditingSlots == false)) {
@@ -305,8 +391,8 @@ function ShowSlotInfo(slot){
 				"SPR_GYM": 0,
 				"DEF_GYM": 0,
 				"SPD_GYM": 0,
-				"rank": "",
-				"tribe": "",
+				"Rank": "",
+				"Tribe": "",
 				"equipment": 0,
 				"level": 60,
 				"attitude": 0
@@ -314,26 +400,21 @@ function ShowSlotInfo(slot){
 		slotStats.name = slotName;
 		}
         if (slotName && slotName !== "null") {
-            for (let i = 0; i < yokais.length; i++){
-                let Yokai = yokais[i]
-                if (Yokai.name == slotName){
-                    slotStats.BS_A_HP = Yokai.BS_A_HP || 0;
-                    slotStats.BS_A_Str = Yokai.BS_A_Str || 0;
-                    slotStats.BS_A_Spr = Yokai.BS_A_Spr || 0;
-                    slotStats.BS_A_Def = Yokai.BS_A_Def || 0;
-                    slotStats.BS_A_Spd = Yokai.BS_A_Spd || 0;
-                    slotStats.BS_B_HP = Yokai.BS_B_HP || 0;
-                    slotStats.BS_B_Str = Yokai.BS_B_Str || 0;
-                    slotStats.BS_B_Spr = Yokai.BS_B_Spr || 0;
-                    slotStats.BS_B_Def = Yokai.BS_B_Def || 0;
-                    slotStats.BS_B_Spd = Yokai.BS_B_Spd || 0;
-                    slotStats.equipment = Yokai.Equipment || 0;
-                    slotStats.rank = Yokai.rank || "";
-                    slotStats.tribe = Yokai.tribe || "";
-					console.log("Loaded yokai's stats")
-                    break;
-                }
-            }
+            slotStats.BS_A_HP = yokaiDatabase[slotParamID].baseA_HP || 0;
+			slotStats.BS_A_Str = yokaiDatabase[slotParamID].baseA_Strength || 0;
+			slotStats.BS_A_Spr = yokaiDatabase[slotParamID].baseA_Spirit || 0;
+			slotStats.BS_A_Def = yokaiDatabase[slotParamID].baseA_Defense || 0;
+			slotStats.BS_A_Spd = yokaiDatabase[slotParamID].baseA_Speed || 0;
+			slotStats.BS_B_HP = yokaiDatabase[slotParamID].baseB_HP || 0;
+			slotStats.BS_B_Str = yokaiDatabase[slotParamID].baseB_Strength || 0;
+			slotStats.BS_B_Spr = yokaiDatabase[slotParamID].baseB_Spirit || 0;
+			slotStats.BS_B_Def = yokaiDatabase[slotParamID].baseB_Defense || 0;
+			slotStats.BS_B_Spd = yokaiDatabase[slotParamID].baseB_Speed || 0;
+			slotStats.equipment = yokaiDatabase[slotParamID].ItemSlots || 0;
+			console.log(yokaiDatabase[slotParamID].Rank)
+			slotStats.Rank = yokaiDatabase[slotParamID].Rank || "Error";
+			slotStats.Tribe = yokaiDatabase[slotParamID].Tribe || "";
+			console.log("Loaded yokai's stats")
         }
         slots_stats[slotIndex] = slotStats;
     }
@@ -348,11 +429,13 @@ function ShowSlotInfo(slot){
         slotStats.level
     );
 	
+	console.log(slotStats)
+	
 	const details=`
 	<h2 class="SlotInfo-Text">${slotName}</h2>
 	<img src=${slot.src} width="74px" height="auto" alt="ChosenYokai">
-	<img src="Content/Graphics/Ranks/Rank_${slotStats.rank}_icon.png" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Rank">
-	<img src=${"Content/Graphics/tribes/"+TribeImages[slotStats.tribe]} style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Tribe">
+	<img src="Content/Graphics/Ranks/Rank_${Ranks[slotStats.Rank]}_icon.png" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Rank">
+	<img src=${"Content/Graphics/tribes/"+Tribes[slotStats.Tribe]+".png"} style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Tribe">
 	<div style="display:column">
 	<img width="75px" height="auto" src="Content/Graphics/Equip_Image.png">
 	<div class="SlotInfo-Text" style="display: flex;">
@@ -574,6 +657,103 @@ function AddEquipmentIntoSlot(eqSlot){
 	wheelSlotEq[`Slot${slotIndex}_Name`] = imgElement.value;
 }
 
+function showPage(yokais) {
+	const yokaiPage = document.getElementById("data-page");
+	yokaiPage.innerHTML = "";
+	const display_list = [];
+	console.log(yokais)
+	display_list.length = Object.keys(yokais).length;
+	var path_location = window.location.pathname;
+	var page = path_location.split("/").pop();
+	
+	for (const [key,yokai] of Object.entries(yokais)) {
+		if (legalCheck(yokai)==false){continue;}
+		const ID = document.createElement("div");
+		const divName = document.createElement("div")
+		const divMain = document.createElement("div");
+		
+		const anhr = document.createElement('a');
+		
+		if (page !== "TeamBuild.html"){
+		anhr.href=`./YoKaiInfoPage.html?yokai=${key}`;
+		}
+		const img = document.createElement("img");
+		const Div_HP = document.createElement("div");
+		const Div_STR = document.createElement("div");
+		const Div_SPR = document.createElement("div");
+		const Div_DEF = document.createElement("div");
+		const Div_SPD = document.createElement("div");
+		const Img_Tribe = document.createElement("img");
+		const Img_Rank = document.createElement("img");
+		
+		var [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(yokai, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, 60)
+		
+		divName.innerHTML = yokai.Name
+		divName.id = "div-name"
+		divName.setAttribute("paramID", key)
+		divName.style = `width: 12%; justify-self: center;`
+		ID.innerHTML = "NO. "+(yokai.MedalliumOffset).toString().padStart(3,'0')
+		divMain.className = "MiniYokaiInfo-div"
+		divMain.style = `width: 850px;
+		height: 80px;
+		margin: 5px;
+		border: 1px solid #000;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;`
+		if (yokai.Medallium_Image){
+			img.src = Path_Medal+yokai.Medallium_Image;
+		}
+		else{
+			img.src = Path_Medal+"Unknown.webp";
+		}
+		img.alt = yokai.Name;
+		img.style = "cursor: pointer; width: 50px; height: auto"
+		img.setAttribute('rank-index', yokai.Rank);
+		img.setAttribute('tribe-index', yokai.Tribe)
+		
+		img.onclick = () => {
+		selectImage(img);
+		}
+		Div_HP.innerHTML = "HP:"+Math.round(BHP);
+		Div_HP.style = `width: 12%; justify-self: center;`
+		Div_STR.innerHTML = "STR:"+Math.round(BSTR);
+		Div_STR.style = `width: 12%; justify-self: center;`
+		Div_SPR.innerHTML = "SPR:"+Math.round(BSPR);
+		Div_SPR.style = `width: 12%; justify-self: center;`
+		Div_DEF.innerHTML = "DEF:"+Math.round(BDEF);
+		Div_DEF.style = `width: 12%; justify-self: center;`
+		Div_SPD.innerHTML = "SPD:"+Math.round(BSPD);
+		Div_SPD.style = `width: 12%; justify-self: center;`
+		Img_Rank.src = `Content/Graphics/Ranks/Rank_${Ranks[yokai.Rank]}_icon.png`
+		Img_Rank.alt = yokai.Rank
+		Img_Tribe.src = "Content/Graphics/tribes/"+Tribes[yokai.Tribe]+".png"
+		Img_Tribe.alt = yokai.Tribe
+		divMain.appendChild(ID);
+		anhr.appendChild(img)
+		divMain.appendChild(anhr);
+		divMain.appendChild(divName);
+		divMain.appendChild(Div_HP);
+		divMain.appendChild(Div_STR);
+		divMain.appendChild(Div_SPR);
+		divMain.appendChild(Div_DEF);
+		divMain.appendChild(Div_SPD);
+		divMain.appendChild(Img_Tribe);
+		divMain.appendChild(Img_Rank)
+		display_list[parseInt(yokai.MedalliumOffset)] = divMain;
+		
+}
+
+for (i=0; i < display_list.length; i++){
+	if (display_list[i] !== undefined){
+		yokaiPage.appendChild(display_list[i])
+	}
+}
+}
+
 function ClearEquipment(){
 	let EquipmentSlot_1 = document.getElementById("EquipmentDiv-1").querySelector("#EquipmentImg")
 	let EquipmentSlot_2 = document.getElementById("EquipmentDiv-2").querySelector("#EquipmentImg")
@@ -590,8 +770,13 @@ function ClearEquipment(){
 
 var YokaiButton = document.getElementById("YokaiButton")
 
+
 if (YokaiButton){
-	YokaiButton.addEventListener('click', function (){
-		showPage()
-	})
+		loadScripts(Databases, () => {
+		YokaiButton.addEventListener('click', function (){
+			showPage(yokaiDatabase)
+		})
+		showPage(yokaiDatabase)
+    });
 }
+
