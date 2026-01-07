@@ -12,9 +12,6 @@
 	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
 	<script defer src='Content/JS/TeamBuild.js'></script>
 	<script src="Content/Libs/html2canvas.js"></script>
-    <style>
-	
-    </style>
 </head>
 <body>
     <nav id="nav-tab"></nav>
@@ -22,7 +19,7 @@
             
     <aside class="side-bar" id="side_bar"></aside>
     <main>
-	<div style="position: relative; display: flex; flex-direction: row">
+	<div style="position: relative; display: flex; flex-direction: row; padding-left: 40px;">
 	<div class="transparent-background" style="width: 26px; height: 126px;">
 	<img width="26px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.png">
 	<img width="26px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.png">
@@ -30,18 +27,18 @@
 	<img width="26px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
 	</div>
 	<div id="Wheel-div">
-	<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 1px 150px;">
-	<img id="Slot1" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="1" style="position: absolute;left: 212.5px;right:0px;top: 68px;bottom: 0px;">
-	<img id="Slot2" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="2" style="position: absolute;left: 294px;right:0px;top: 23px;bottom: 0px;">
-	<img id="Slot3" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="3" style="position: absolute;left: 375px;right:0px;top: 70px;bottom: 0px;">
-	<img id="Slot4" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="4" style="position: absolute;left: 375px;right:0px;top: 159px;bottom: 0px;">
-	<img id="Slot5" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="5" style="position: absolute;left: 294px;right:0px;top: 207px;bottom: 0px;">
-	<img id="Slot6" class="slot" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" width="74px" height="auto" alt="6" style="position: absolute;left: 212.5px;right:0px;top: 159px;bottom: 0px;">
+	<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" width="300px" height="300px" style="position:relative; margin: 0px 150px;">
+	<img id="Slot1" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="1" style="position: absolute;left: 262.5px;right:0px;top: 72px;bottom: 0px;">
+	<img id="Slot2" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="2" style="position: absolute;left: 336px;right:0px;top: 30px;bottom: 0px;">
+	<img id="Slot3" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="3" style="position: absolute;left: 409px;right:0px;top: 72px;bottom: 0px;">
+	<img id="Slot4" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="4" style="position: absolute;left: 409px;right:0px;top: 152px;bottom: 0px;">
+	<img id="Slot5" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="5" style="position: absolute;left: 336px;right:0px;top: 195px;bottom: 0px;">
+	<img id="Slot6" class="slot WheelMedal-img" data-name="0" onclick="selectSlot(this)" src="Content/Graphics/YokaiMedals/Unknown.webp" height="auto" alt="6" style="position: absolute;left: 262.5px;right:0px;top: 152px;bottom: 0px;">
 	<img id="ChosenYokaiRing" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing" style="width: 85px; height: auto; position: absolute; left: 195px; top: 64px; visibility: hidden">
 	</div>
 	<div class="transparent-background"id="SlotInfo-div"style="padding: 20px; width: 475px; height: 301px; overflow-y: scroll; visibility: hidden">
 	</div>
-	<div style="position: absolute; top:325px; left: 225px">
+	<div class="SaveOptions" style="position: absolute; top:325px; left: 225px">
 	<button class="main-button" onclick="EditTeam()" style="position:relative">Edit team</button>
 	
 	<button class="main-button" onclick="SaveTeam()" style="position:relative;" height="auto" width="auto">Copy</button>
