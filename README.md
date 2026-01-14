@@ -1,6 +1,6 @@
 **YO-GON ACADEMY**
 
-Version of the project: 1.1.0
+Version of the project: 2.0.0
 
 **Purpose**
 This website serves as a comprehensive resource for players offering: 
@@ -48,13 +48,45 @@ HTML5, CSS3, JavaScript
 
 ├── YokaiData.html # Page that contains all of Yokai Attacks and Skills
 
+├── imageRecources.html # Contains links to packages with all the assets that the website uses.
+
+├── YokaiCreator.html # Simple Yokai Creator that lets you, as said previously, make your own Yokai using move databases.
+
 ├── Content/
 
 │   ├── CSS/  # Stylesheets
 
+|   |   ├── Main.css # Main css stylesheet that majority of the pages use. Planned to be divided in the future to make the website more optimised.
+
+|   |   ├── TiersSheet.css # Used in tierSheet.html
+
+|   |   ├── YokaiCreator.css # Used in YokaiCreator.html 
+
 │   ├── JS/  # JavaScript modules
 
 │   │   ├── Databases/ # Holds all of databases that are used across the website
+
+│   │   │   ├── AttackDatabase.js # Database of all physical attacks of yokai
+
+│   │   │   ├── AttitudeDatabase.js # Database of all boosts that attitudes give
+
+│   │   │   ├── EquipmentDatabase.js
+
+│   │   │   ├── InspiritDatabase.js # Database of all legal yokai Inspirits
+
+│   │   │   ├── SoulGemDatabase.js # Database of all yokai Soul Gems
+
+│   │   │   ├── SoultimateDatabase.js # Database of all legal yokai Soultimates
+
+│   │   │   ├── TechniqueDatabase.js # Database of all elemental attacks of yokai
+
+│   │   │   ├── YoKaiDataBase.js # Database that contains majority of yokai from the game, including normal Yokai, Bosses, Yo-Criminal, Wickeds and misc.
+
+│   │   │   ├── YokaiAbilitiesDatabase.js # Database of all yokai skills, including the unused ones
+
+│   │   │   └── YokaiSameKindDatabase.js # Database that contains all "type rare" yokai and connects them with regular ones 
+
+│   │   ├── MedalliumPageScript.js # Used in medallium.html
 
 │   │   ├── DamageCalc.js # Has all of the main scripts for DamageCalc.html
 
@@ -64,7 +96,9 @@ HTML5, CSS3, JavaScript
 
 │   │   ├── TeamBuild.js # Used in TeamBuild.html
 
-│   │   ├── YokaiDataList.js # Used in YokaiData.html
+│   │   ├── MoveDataList.js # Used in YokaiData.html
+
+│   │   ├── YokaiCreator.js # Used in YokaiCreator.html
 
 │   │   └── TierSheet.js # Used to fill out tiers in tierSheet.html
 
