@@ -20,9 +20,9 @@ Unlike other Yo-kai Watch resources, this website also provides:
 
 - [ ] User accounts
 - [ ] Community tier voting system
-- [ ] Mobile app
+- [ ] Mobile support
 - [ ] Multi-language support (?)
-- [ ] Tournement hosting and stats storage
+- [ ] Tournament hosting and stats storage
 - [ ] Yo-kai Watch 3 support
 
 
