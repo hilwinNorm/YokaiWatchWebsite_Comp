@@ -23,6 +23,9 @@ Unlike other Yo-kai Watch resources, this website also provides:
 - [ ] Mobile app
 - [ ] Multi-language support (?)
 - [ ] Tournement hosting and stats storage
+- [ ] Mobile support
+- [ ] Multi-language support (?)
+- [ ] Tournament hosting and stats storage
 - [ ] Yo-kai Watch 3 support
 
 
