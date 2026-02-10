@@ -319,6 +319,11 @@
 	cursor: pointer;
 	background-color: var(--side-buttons-bg);
 	color: var(--side-buttons-color);
+	text-align: center;
+	text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -388,19 +393,7 @@
     width: max-content;
 }
 
-.yokai-ranks {
-	justify-content: center;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	margin: 20px 100px;
-	border-radius: 15px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
-}
-
-.yokai-tribes{
+.yokai-attributes {
 	justify-content: center;
 	display: flex;
 	align-items: center;
