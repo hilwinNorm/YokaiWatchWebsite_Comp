@@ -267,4 +267,3 @@ window.addEventListener('load', function () {
     });
 	}
 });
-
