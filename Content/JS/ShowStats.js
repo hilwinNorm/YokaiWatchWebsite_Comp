@@ -264,14 +264,14 @@ function showYokaiDetails(Yokai_Data) {
 			
 			<h4>Level <input id="yokai-level" type="text" value="${CurrentLVL}" placeholder="60"> Stats:</h4>
 			
-			<div style="${container_style}; margin:20px 0px; padding-left: 10px;">
-			<p>Attack: ${attack.Command} | Attack Power: ${attack.Lv10_power} | Attack Probability: ${yokai.BaseAttackPercent}%</p>
-			<p>Technique: ${technique.Command}${technique_element} | Technique Power: ${technique.Lv10_power} | Technique Probability: ${yokai.BaseTechniquePercent}%</p>
-			<p style="display: flex; align-items: center;">Inspirit: ${inspirit.Command} | description: ${inspirit.Effect[0].EffectDesc} <img style="position: relative;"src="Content/Graphics/InspiritImages/${inspirit.image}"> | Inspirit Probability: ${yokai.BaseInspiritPercent}%</p>
-			<p id="skill-name">Skill: ${skill.Name}</p>
+			<div style="${container_style}; margin:20px 0px; padding-left: 10px; display: grid; gap: 1px;">
+			<p><a href="./MoveiInfoPage.html?moveType=0&id=${attack.ID}" style="color:var(--side-buttons-color)">Attack: ${attack.Command}</a> | Attack Power: ${attack.Lv10_power} | Attack Probability: ${yokai.BaseAttackPercent}%</p>
+			<p><a href="./MoveiInfoPage.html?moveType=1&id=${technique.ID}" style="color:var(--side-buttons-color)">Technique: ${technique.Command}</a>${technique_element} | Technique Power: ${technique.Lv10_power} | Technique Probability: ${yokai.BaseTechniquePercent}%</p>
+			<p style="display: flex; align-items: center;"><a href="./MoveiInfoPage.html?moveType=2&id=${inspirit.ID}" style="color:var(--side-buttons-color)">Inspirit: ${inspirit.Command}</a> | description: ${inspirit.Effect[0].EffectDesc} <img style="position: relative;"src="Content/Graphics/InspiritImages/${inspirit.image}"> | Inspirit Probability: ${yokai.BaseInspiritPercent}%</p>
+			<p><a href="./MoveiInfoPage.html?moveType=4&id=${skill.ID}" style="color:var(--side-buttons-color)" id="skill-name">Skill: ${skill.Name}</a></p>
 			<p id="skill-desc">Skill Description: ${(skill.Description).replaceAll('\\n','\n')}</p>
 			<p>Guard Probability: ${yokai.BaseGuardPercent}%</p>
-			<p>Soultimate: ${soultimate.Command} | Soultimate Power: ${soultimate.Lv10_power} | Soultimate Charge Rate: ${soultimate.Lv10_soul_charge}</p>
+			<p><a href="./MoveiInfoPage.html?moveType=3&id=${soultimate.ID}" style="color:var(--side-buttons-color)">Soultimate: ${soultimate.Command}</a> | Soultimate Power: ${soultimate.Lv10_power} | Soultimate Charge Rate: ${soultimate.Lv10_soul_charge}</p>
 			</div>
 			<label for="Attitude">Choose Attitude:</label>
 			<select id="Attitude"></select>

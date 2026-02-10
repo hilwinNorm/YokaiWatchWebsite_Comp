@@ -18931,7 +18931,7 @@ window.yokaiDatabase={
     },
     "0x37A5351F": {
         "Name": "Tublappa",
-        "MedalliumDescription": "There's nothing he won't\\nlick\u0432\u0402\u201dthe ickier the better!\\nDon't get Inspirited by\\nTublappa if you value\\na clean tongue.",
+        "MedalliumDescription": "There's nothing he won't lick \"the ickier the better!\"\\nDon't get Inspirited by\\nTublappa if you value\\na clean tongue.",
         "ParamID": "0x37A5351F",
         "BaseID": "0x51AEC52A",
         "baseA_HP": 32,

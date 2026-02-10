@@ -13,14 +13,14 @@ var side_bar = document.getElementsByTagName('aside')[0];
 var nav_tab = document.getElementById('nav-tab');
 
 side_bar.innerHTML += `
-	<button style="position: absolute; right: 0px; top: 0px; border-radius: 15px; color: var(--side_button-color); background-color: var(--side-buttons-bg)"id="toggleSidebar">-</button>
-	<button class="side-button" id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></button>
-	<button class="side-button" id="tierSheet-btn">Tier Sheet</button>
-	<button class="side-button" id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></button>
-	<button class="side-button" id="equipment-btn">Equipment List <span class="icon icon-equipment"></button>
-	<button class="side-button" id="yokaiData-btn">Yo-Kai Data</button>
-	<button class="side-button" id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></button>
-	<button class="side-button" id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></button>
+	<button style="position: absolute; right: 0px; top: 0px; border-radius: 15px; color: var(--side_button-color); background-color: var(--side-buttons-bg)"id="toggleSidebar">+</button>
+	<a href='./medallium.html' class="side-button" id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
+	<a href='./tierSheet.html' class="side-button" id="tierSheet-btn">Tier Sheet</a>
+	<a href='./DamageCalc.html' class="side-button" id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></a>
+	<a href='./equipment.html' class="side-button" id="equipment-btn">Equipment List <span class="icon icon-equipment"></a>
+	<a href='./YokaiData.html' class="side-button" id="yokaiData-btn">Yo-Kai Data</a>
+	<a href='./TeamBuild.html' class="side-button" id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
+	<a href='./imageRecources.html' class="side-button" id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></a>
 `
 
 nav_tab.innerHTML += `
@@ -61,6 +61,8 @@ nav_tab.innerHTML += `
 
 var toggleSidebar_button = document.getElementById("toggleSidebar")
 
+side_bar.classList.toggle('hidden-sidebar');
+
 toggleSidebar_button.addEventListener('click', function(event){
     const element = document.getElementsByTagName('aside')[0];
     element.classList.toggle('hidden-sidebar');
@@ -70,10 +72,6 @@ toggleSidebar_button.addEventListener('click', function(event){
 	else{
 		toggleSidebar_button.textContent = '-'
 	}
-	
-	if (element.classList.contains('hidden-sidebar')){
-		localStorage.setItem("_sidebar_hidden", 1)
-	}else{localStorage.setItem("_sidebar_hidden", 0)}
 })
 if (localStorage.getItem("_sidebar_hidden") == 1){
 	const element = document.getElementsByTagName('aside')[0];
@@ -176,60 +174,83 @@ function noredirect(num){
 	}
 }
 
-medallium_btn.addEventListener('click', () => {
-	redirect("medallium")
-});
-
-damageCalc_btn.addEventListener('click', () => {
-	redirect("DamageCalc")
-})
-
-teamBuild_btn.addEventListener('click', () => {
-	redirect("TeamBuild")
-})
-
-equipment_btn.addEventListener('click', () => {
-	redirect("equipment")
-})
-tierSheet_btn.addEventListener('click', () => {
-	redirect("tierSheet")
-})
-yokaiData_btn.addEventListener('click', () => {
-	redirect("YokaiData")
-})
-
-imageRecources_btn.addEventListener('click', () => {
-	redirect("imageRecources")
-})
-
 var SearchInput = document.getElementById("search-input")
 var path_location = window.location.pathname;
 var page = path_location.split("/").pop();
+var originalOrder = [];
 
 if (SearchInput){
+		
+	const containers = (document.getElementById("data-page") || document.getElementById("yokaidata-page"))
 	
-	var Data_List = undefined;
-	
-	var Data_List_Len = undefined;
+	const FilterButtons = document.querySelectorAll(".yokai-attributes button")
 	
 	SearchInput.addEventListener('search', function(){
-		Data_List = document.getElementById("data-page") || document.getElementById("yokaidata-page")
+		
+		if (originalOrder.length == 0){originalOrder = Array.from(containers.children);}
+		
+		if (SearchInput.value.length === 0){
+			originalOrder.forEach(container => {
+                container.style.display = 'flex';
+                containers.appendChild(container); // Re-inserts in original order
+            });
+			FilterButtons.forEach(Button => {
+				Button.classList.remove("selected")
+				Button.style.background = "none"
+				AttributeType = Button.parentElement.dataset.type;
+				Selections[AttributeType] = Selections[AttributeType].filter(attribute 	=> attribute !== Button.id)
+			});
+			return;
+		}
+		
+		const searchWord = SearchInput.value
+		const searchLower = searchWord.toLowerCase();
+		const scoredContainers = [];
+		
+		Array.from(containers.children).forEach(container => {
+			const text = Array.from(container.children)
+				.map(child => child.textContent)
+				.join(" ")
+				.toLowerCase();
 
-		const searchTerm = SearchInput.value.toLowerCase();
-		Array.from(Data_List.children).forEach(div => {
-		  const targetElementName = div.querySelector('#div-name');
-		  const targetElementDesc = div.querySelector('#div-desc');
-		  const isVisible = targetElementName?.textContent?.toLowerCase().includes(searchTerm) || targetElementDesc?.textContent?.toLowerCase().includes(searchTerm)
-		  console.log(isVisible)
-		  if (isVisible==false || isVisible==undefined){
-			  div.style.display = "none"
-		  }
-		  else{
-			  div.style.display = "flex"
-		  }
+			let maxScore = 0;
+
+			for (let i = 0; i < text.length; i++) {
+				let currentScore = 0;
+				
+				// Check for consecutive match starting from the first symbol of searchWord
+				if (text[i] === searchLower[0]) {
+					let j = 0;
+					// Continue matching symbols as long as they align with searchWord
+					while (j < searchLower.length && (i + j) < text.length && text[i + j] === searchLower[j]) {
+						currentScore++;
+						j++;
+					}
+				}
+
+				if (currentScore > maxScore) {
+					maxScore = currentScore;
+				}
+			}
+
+			scoredContainers.push({ element: container, score: maxScore });
+		});
+
+		scoredContainers.sort((a, b) => b.score - a.score);
+
+		const parent = containers;
+		
+		scoredContainers.forEach(item => {
+			if (item.score < searchWord.length / 2) {
+				item.element.style.display = 'none';
+			} else {
+                if (item.element.classList.contains("Filtered") == false) {
+				item.element.style.display = 'flex';
+				parent.appendChild(item.element);
+				}
+			}
 		});
 	})
-	
 }
 
 var localStorage_Wallpaper = localStorage.getItem('selected_wallpaper');
