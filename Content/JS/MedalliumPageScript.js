@@ -69,7 +69,7 @@ var CurrentLVL = DefaultLVL;
 
 var Path = "Content/Graphics/YokaiMedals/"
 
-var TribePath = "Content/Graphics/tribes"
+var TribePath = "Content/Graphics/Tribes"
 
 var HP_IV = 8;
 
@@ -267,3 +267,4 @@ window.addEventListener('load', function () {
     });
 	}
 });
+
