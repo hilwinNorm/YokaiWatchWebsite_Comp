@@ -599,7 +599,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Lt. Gen\'s Medal',
@@ -607,7 +608,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Maj. Gen\'s Medal',
@@ -615,7 +617,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Colonel\'s Medal',
@@ -623,7 +626,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Major\'s Medal',
@@ -631,7 +635,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Captain\'s Medal',
@@ -639,7 +644,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'CDR.\'s Medal',
@@ -647,7 +653,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   },
   {
     name: 'Lt.\'s Medal',
@@ -655,7 +662,8 @@ const eqipment = [
     STR: '',
     SPR: '',
     DEF: '',
-    SPD: ''
+    SPD: '',
+	image: 'Other/Medal.png'
   }
 ]
 

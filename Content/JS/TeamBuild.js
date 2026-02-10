@@ -412,11 +412,13 @@ function ShowSlotInfo(slot){
 			slotStats.BS_B_Spd = yokaiDatabase[slotParamID].baseB_Speed || 0;
 			slotStats.equipment = yokaiDatabase[slotParamID].ItemSlots || 0;
 			console.log(yokaiDatabase[slotParamID].Rank)
-			slotStats.Rank = yokaiDatabase[slotParamID].Rank || "Error";
+			slotStats.Rank = yokaiDatabase[slotParamID].Rank;
 			slotStats.Tribe = yokaiDatabase[slotParamID].Tribe || "";
 			console.log("Loaded yokai's stats")
         }
         slots_stats[slotIndex] = slotStats;
+	
+		//console.log(slotStats)
     }
 	
 	var [BHP, BSTR, BSPR, BDEF, BSPD] = CalculateStats(
@@ -428,8 +430,6 @@ function ShowSlotInfo(slot){
         slotStats.SPD_IV, 
         slotStats.level
     );
-	
-	console.log(slotStats)
 	
 	const details=`
 	<h2 class="SlotInfo-Text">${slotName}</h2>
