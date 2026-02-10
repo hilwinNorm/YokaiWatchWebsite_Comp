@@ -6,7 +6,6 @@
     <title>Wiki</title>
     <link rel="stylesheet" href="Content/CSS/Main.css">
     <script defer src="Content/JS/Index.js"></script>
-	<script defer src='Content/JS/Databases/SkillDatabase.js'></script>	
 	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
 	<script defer src='Content/JS/DamageCalc.js'></script>
 </head>
@@ -19,10 +18,11 @@
             <div class="transparent-background" style="color: var(--side-buttons-color); padding: 20px; padding-left: 40px;">
 			<h3 style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 30px;"><u>Defender</u></h3> 
 			<img id="DefenderImg" alt="Defender Image" width="50px">
+			<div id="DefenderName"></div>
 			<p>
 			<label for="yokai_select1">Choose Defending YoKai:</label>
-			<select class="main-select" id="yokai_select1" name="yokai_select1"></span>
-			</select>
+			<div id="yokai_select1" name="yokai_select1" style="width: 100%; height: 150px; overflow-y: scroll; overflow-x: hidden; color: #c6c0ff; border: 1px solid #c6c0ff; margin-bottom: 20px;">
+            </div>
 			<input type="number" placeholder="LVL" id="yokai_select1-LVL" value="60">
 			</p>
 			
@@ -73,10 +73,11 @@
 			<input type="checkbox" id="isDefending">
 			<h3 style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 30px;"><u>Attacker</u></h3>
 			<img id="AttackerImg" alt="Attacker Image" width="50px">
+			<div id="AttackerName"></div>
 			<p>
 			<label for="yokai_select2">Choose Attacking YoKai:</label>
-			<select id="yokai_select2" name="yokai_select2">
-			</select>
+			<div id="yokai_select2" name="yokai_select2" style="width: 100%; height: 150px; overflow-y: scroll; overflow-x: hidden; color: #c6c0ff; border: 1px solid #c6c0ff; margin-bottom: 20px;">
+            </div>
 			<input type="number" placeholder="LVL" id="yokai_select2-LVL" value="60">
 			</p>
 			<label for="yokai_select2-Attitude">Choose Attitude:</label>

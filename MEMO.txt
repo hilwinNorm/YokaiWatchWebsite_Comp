@@ -1,0 +1,43 @@
+		Stat Formula
+
+	Uncorrected:
+
+StatA + (StatB-StatA+IV)*(Level-1)/98
+
+	Corrected:
+
+StatA + (StatB-StatA+IV)*(Level-1)/98 + Attitude * (1+Level/198) + Training * 5 * Items
+
+		Inspirit Effects
+
+0x61999483 - STR Boost
+
+0x169EA415 - SPR Boost
+
+0x8F97F5AF - DEF Boost
+
+0xF890C539 - SPD Boost
+
+0x66F4509A - ALL Boost
+
+0x63DF2ADA - Taunt
+
+0x14D81A4C - Stealth
+
+0x62792C28 - HP Regen
+
+0x605BFEB4 - STR Debuff
+
+0x175CCE22 - SPR Debuff
+
+0x8E559F98 - DEF Debuff
+
+0xF952AF0E - SPD Debuff
+
+0x67363AAD - ALL Debuff
+
+0x8AD8E32A - Money Throw
+
+0x64D68206 - Stun
+
+0xFDDFD3BC - Poison
