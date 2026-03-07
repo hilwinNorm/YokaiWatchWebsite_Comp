@@ -1,0 +1,30 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Test package for Yogon Website to add firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hilwinNorm/YokaiWatchWebsite_Comp.git"
+  },
+  "keywords": [
+    "frontend",
+    "firebase",
+    "ykw",
+    "wiki",
+    "github",
+    "local"
+  ],
+  "author": "Hilwin <hilwin256@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hilwinNorm/YokaiWatchWebsite_Comp/issues"
+  },
+  "homepage": "https://github.com/hilwinNorm/YokaiWatchWebsite_Comp#readme",
+  "dependencies": {
+    "firebase": "^12.10.0"
+  }
+}

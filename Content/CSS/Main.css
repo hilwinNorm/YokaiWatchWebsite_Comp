@@ -1,0 +1,518 @@
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiRoleFont';
+	src: url('../Fonts/Yokai_WatchFont/HOT-Bukotsu Std U.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	src: url('../Fonts/Yokai_WatchFont/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue2Font';
+	src: url('../Fonts/Yokai_WatchFont/FOT-Seurat Pro B.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
+	src: url('../Fonts/Yokai_WatchFont/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@media (max-height: 400px) {
+	main {
+		transform: scale(0.9);
+	}
+	nav{position: absolute !important; width: 100vw !important;}
+	.banner-container{transform: scale(1); height: 108px !important; width: 100vw !important;}
+	.nav-wallpaper-change{transform: scale(0.8); margin-left: 0px !important;}
+	#Logo-Text{font-size:26px !important;}
+	aside{top: 0 !important; height: 100vh !important; padding: 0px !important;}
+	#yokai-details{margin-left:0px !important;}
+	.yokai-tribes{transform: scale(0.55)}
+	.yokai-ranks{transform: scale(0.7)}
+	.yokai-list{width: 500px !important;}
+	.MiniYokaiInfo-div{transform: scale(0.55)}
+	.nav-button{transform: scale(0.8); padding: 0px 0px !important; width: 100px; font-size: 10px !important;}
+	.icon{transform: scale(0.7)}
+	#Wheel-div{width: 400px !important;}
+	#Wheel-img{margin: 0px 120px !important;}
+	.SaveOptions{left: 125px !important;}
+	#Slot1{top: 65px !important; left: 182.5px !important;}
+	#Slot2{top: 20px !important; left: 264px !important;}
+	#Slot3{top: 66px !important; left: 345px !important;}
+	#Slot4{top: 157px !important; left: 345px !important;}
+	#Slot5{top: 204px !important; left: 264px !important;}
+	#Slot6{top: 157px !important; left: 182.5px !important;}
+}
+
+
+.left-char {
+  grid-column: 1;
+  height: 108px;
+  width: auto;
+  justify-self: start;
+}
+
+.right-char {
+  grid-column: 3;
+  height: 108px;
+  width: auto;
+  justify-self: end;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Define individual icons */
+.icon-discord {
+  background-image: url('../Graphics/MenuIcons/Discord/discord_ico_color.png');
+}
+.icon-yokai {
+	background-image: url('../Graphics/MenuIcons/Yokai_Icon.png')
+}
+.icon-soulgems {
+	background-image: url('../Graphics/MenuIcons/SoulGems_Icon.png')
+}
+.icon-equipment {
+	background-image: url('../Graphics/MenuIcons/Equipment_Icon.png')
+}
+.icon-itemall {
+	background-image: url('../Graphics/MenuIcons/All_Icon.png')
+}
+.icon-dict {
+	background-image: url('../Graphics/MenuIcons/Dictionary_Icon.png')
+}
+.icon-damage {
+	background-image: url('../Graphics/MenuIcons/Damage_Icon.png')
+}
+.icon-home {
+	background-image: url('../Graphics/MenuIcons/Home_Icon.png')
+}
+.icon-dialoguequest {
+	background-image: url('../Graphics/MenuIcons/DialogueQuest_Icon.png')
+}
+.icon-search {
+	background-image: url('../Graphics/MenuIcons/Search_Icon.png')
+}
+.icon-misc {
+	background-image: url('../Graphics/MenuIcons/Misc.png')
+}
+
+.Cool_Blue {
+	--logo-color: #003c83;
+	--side-buttons-bg: #2879d3;
+	--side-buttons-color: #ffffff;
+	--side-bg: #255cce;
+	--nav-buttons-bg: #2879d3;
+	--nav-buttons-color: #000000;
+	--nav-bg: #20a5d8;
+	--transparent-bg: #255cce80;
+}
+
+.Antique_Blossoms {
+	--logo-color: #734b04;
+	--side-buttons-bg: #c68282;
+	--side-buttons-color: #251e20;
+	--side-bg: #ce6a6a;
+	--nav-buttons-bg: #f5e54c;
+	--nav-buttons-color: #48483e;
+	--nav-bg: #dbce53;
+	--transparent-bg: #ce6a6a80;
+}
+
+.Bamboo_Forest {
+	--logo-color: #154624;
+	--side-buttons-bg: #4a854d;
+	--side-buttons-color: #fcfcfc;
+	--side-bg: #33612b;
+	--nav-buttons-bg: #4a854d;
+	--nav-buttons-color: #fcfcfc;
+	--nav-bg: #33612b;
+	--transparent-bg: #33612b80;
+}
+.Merchant_Purple {
+	--logo-color: #441a47;
+	--side-buttons-bg: #915673;
+	--side-buttons-color: #ffe0ef;
+	--side-bg: #5a255e;
+	--nav-buttons-bg: #915673;
+	--nav-buttons-color: #ffe0ef;
+	--nav-bg: #5a255e;
+	--transparent-bg: #5a255e80;
+}
+.Classic_Gold {
+	--logo-color: #ebba4d;
+	--side-buttons-bg: #936722;
+	--side-buttons-color: #fff5de;
+	--side-bg: #614416;
+	--nav-buttons-bg: #936722;
+	--nav-buttons-color: #fff5de;
+	--nav-bg: #614416;
+	--transparent-bg: #61441680;
+}
+.Up_All_Night {
+	--logo-color: #6680fb;
+	--side-buttons-bg: #202c64;
+	--side-buttons-color: #c6c0ff;
+	--side-bg: #0c1334;
+	--nav-buttons-bg: #202c64;
+	--nav-buttons-color: #c6c0ff;
+	--nav-bg: #0c1334;
+	--transparent-bg: #0c133480;
+}
+.Galaxy_Cruise {
+	--logo-color: #102521;
+	--side-buttons-bg: #2f73c0;
+	--side-buttons-color: #fff4f8;
+	--side-bg: #24558d;
+	--nav-buttons-bg: #da2424;
+	--nav-buttons-color: #f7ffff;
+	--nav-bg: #d64c4c;
+	--transparent-bg: #24558d80;
+}
+.Small_Cream_Soda {
+	--logo-color: #153831;
+	--side-buttons-bg: #148d67;
+	--side-buttons-color: #ffffff;
+	--side-bg: #1ba479;
+	--nav-buttons-bg: #deb358;
+	--nav-buttons-color: #ffffff;
+	--nav-bg: #edc87a;
+	--transparent-bg: #1ba47980;
+}
+.HeartsAndFluff {
+	--logo-color: #6d0032;
+	--side-buttons-bg: #ff85ac;
+	--side-buttons-color: #341b23;
+	--side-bg: #e95585;
+	--nav-buttons-bg: #ff85ac;
+	--nav-buttons-color: #341b23;
+	--nav-bg: #e95585;
+	--transparent-bg: #e9558580;
+}
+.OhMySwirls {
+	--logo-color: #244913;
+	--side-buttons-bg: #368b27;
+	--side-buttons-color: #000000;
+	--side-bg: #28661d;
+	--nav-buttons-bg: #368b27;
+	--nav-buttons-color: #000000;
+	--nav-bg: #28661d;
+	--transparent-bg: #368b2780;
+}
+
+.SlotInfo-Text{
+	color: var(--side-buttons-color)
+}
+
+.MiniYokaiInfo-div{
+	width: 850px;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.WheelMedal-img{
+	width: 70px;
+}
+
+.MiniSoulGemInfo-div{
+	width: auto;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.MiniEqInfo-div{
+	width: auto;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.equipment-list{
+	justify-content: center
+}
+
+.nav-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    padding: 0px 30px;
+    border: none;
+    cursor: pointer;
+	border-radius: 15px;
+	height: 28px;
+	background-color: var(--nav-buttons-bg);
+	color: var(--nav-buttons-color);
+}
+
+.nav-wallpaper-change {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	padding: 0px 30px;
+    margin: 0 50px;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+#wallpaper-select{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	margin-left: 5px;
+	padding-bottom: 3px;
+	border: none;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.side-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 10px;
+    margin-top: 15px;
+    position: static;
+    width: 165px;
+    height: 40px;
+    border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	text-align: center;
+	text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.side-button:disabled {
+    color: gray;
+	cursor: not-allowed;
+}
+
+.main-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    position: static;
+    width: auto;
+    height: auto;
+    /*margin: 5px 20px;*/
+	border-width: 1px; 
+	border-style: solid;
+	border-radius: 30px;
+	border-color: var(--side-buttons-color);
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.main-select{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+.banner-container {
+	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
+	position: absolute;
+	left: 0px;
+	top: 37px;
+	z-index: 2; 
+	display: grid;
+	grid-template-columns: 1fr auto 1fr; /* Left character | Logo | Right character */
+	width: 100%;
+    align-items: center;
+	height: 108px
+}
+
+#logo-js {
+  justify-self: center; /* Centers logo horizontally */
+  
+}
+
+#Logo-Text{
+	font-family: 'YokaiWatch_YokaiRoleFont'; 
+	font-size: 40px; 
+	color: var(--logo-color);
+}
+
+.transparent-background{
+	background-color: var(--transparent-bg);
+	border-radius: 15px;
+	border-style: solid; /* Or dashed, dotted, etc. */
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	margin: 20px 100px;
+    width: max-content;
+}
+
+.yokai-attributes {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list img {
+	width: 47px;
+	height: auto;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.main-tabs {
+	display: flex;
+	justify-content: space-between; /* Pushes children to edges */
+	padding: 5px 0;
+	height: 27px;
+	z-index: 4;
+}
+
+main {
+	width: 100%;
+	height: calc(100vh - 145px);
+	position: absolute;
+	bottom: 0;
+}
+
+body {
+    font-family: 'YokaiWatch_YokaiDialogue2Font'; 
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+    "nav nav";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 145px auto;
+    height: 100%;
+    width: 100%;
+    
+    /* Two-layer background */
+    background: url('../Graphics/Wallpapers/Bamboo_Forest_Pattern.png') repeat, url('../Graphics/Wallpapers/Bamboo_Forest.png') fixed;
+    
+    background-size: 
+        auto 100%,  /* Pattern size */
+        cover;       /* Static background size */
+    
+    animation: scrollBackground 180s linear infinite;
+}
+
+aside {
+	padding-top: 10px;
+	padding-left: 10px;
+	display: flex;
+	transition: transform 0.8s ease-in-out;
+	border-top-right-radius: 10px;
+	color: #fff;
+	top: 145px;
+	width: 200px;
+	height: calc(100vh - 145px);
+	background: var(--side-bg);
+	overflow-y: auto;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 3;
+	position: fixed;
+}
+
+.hidden-sidebar {
+    transform: translateX(-87%);
+}
+
+nav {
+	background: var(--nav-bg);
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	grid-area: nav;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+input {
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+select{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+#search-input{
+	width:250px;
+	height: 25px;
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: 
+            0px 0px,    /* Pattern starts at top-left */
+            0px 0px;    /* Static background remains fixed */
+    }
+	
+    100% {
+        background-position: 
+            100% 100%,  /* Pattern moves diagonally */
+            0px 0px;    /* Static background stays in place */
+    }
+}
