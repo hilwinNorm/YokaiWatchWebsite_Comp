@@ -189,7 +189,7 @@ function showPage(yokais) {
 		Div_SPD.style = `width: 9%; text-align: center;`
 		Img_Rank.src = `Content/Graphics/Ranks/Rank_${Ranks[yokai.Rank]}_icon.png`
 		Img_Rank.alt = yokai.Rank
-		Img_Tribe.src = "Content/Graphics/tribes/"+Tribes[yokai.Tribe]+".png"
+		Img_Tribe.src = "Content/Graphics/Tribes/"+Tribes[yokai.Tribe]+".png"
 		Img_Tribe.alt = yokai.Tribe
 		
 		divMain.appendChild(yokaiID);
