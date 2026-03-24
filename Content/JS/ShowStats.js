@@ -271,7 +271,7 @@ function showYokaiDetails(Yokai_Data) {
 			</div>
 			<div style="display: flex; background-color: var(--side-buttons-bg); border-radius: 25px; justify-content: center;">
 			<p style="display: flex; align-items: center; gap: 5px; ${stat_style}">Rank: <img style="width:25px; height:auto" src="Content/Graphics/Ranks/DictionaryRanks/Rank_${Ranks[yokai.Rank]}_icon.png"></p>
-			<p style="display: flex; align-items: center; gap: 5px; ${stat_style}">Tribe: ${Tribes[yokai.Tribe]} <img style="width:35px; height:auto"src="Content/Graphics/tribes/${Tribes[yokai.Tribe]}.png"></p>
+			<p style="display: flex; align-items: center; gap: 5px; ${stat_style}">Tribe: ${Tribes[yokai.Tribe]} <img style="width:35px; height:auto"src="Content/Graphics/Tribes/${Tribes[yokai.Tribe]}.png"></p>
 			</div>
 			</div style="display: column; flex-direction: row; align-items: center">
 			</div>
