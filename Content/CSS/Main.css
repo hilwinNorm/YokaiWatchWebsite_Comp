@@ -118,7 +118,7 @@
 	--side-buttons-color: #ffffff;
 	--side-bg: #255cce;
 	--nav-buttons-bg: #2879d3;
-	--nav-buttons-color: #000000;
+	--nav-buttons-color: #ffffff;
 	--nav-bg: #20a5d8;
 	--transparent-bg: #255cce80;
 }
@@ -232,10 +232,6 @@
 	align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.WheelMedal-img{
-	width: 70px;
 }
 
 .MiniSoulGemInfo-div{
@@ -396,6 +392,24 @@
     width: max-content;
 }
 
+.team-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	margin: 20px 100px;
+    width: max-content;
+}
+
+.team-wheel-display-container{
+	align-self: center;
+	position: relative;
+}
+
+.wheel-medal-slot{
+	position: absolute;
+	width: 48px;
+}
+
 .yokai-attributes {
 	justify-content: center;
 	display: flex;
@@ -423,24 +437,14 @@
 	z-index: 4;
 }
 
-main {
-	width: 100%;
-	height: calc(100vh - 145px);
-	position: absolute;
-	bottom: 0;
-}
-
 body {
     font-family: 'YokaiWatch_YokaiDialogue2Font'; 
     font-size: 12px;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-areas:
-    "nav nav";
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 145px auto;
-    height: 100%;
+    display: flex;
+	flex-direction: column;
+    min-height: 100vh;
     width: 100%;
     
     /* Two-layer background */
@@ -453,26 +457,30 @@ body {
     animation: scrollBackground 180s linear infinite;
 }
 
+main {
+	flex: 1;
+	overflow-y: auto;
+}
+
 aside {
 	padding-top: 10px;
 	padding-left: 10px;
+	
+	position: fixed;
 	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	
+	width: 200px;
+	height: 80vh;
+	
 	transition: transform 0.8s ease-in-out;
 	border-top-right-radius: 10px;
 	color: #fff;
 	top: 145px;
-	width: 200px;
-	height: calc(100vh - 145px);
 	background: var(--side-bg);
-	overflow-y: auto;
-	flex-direction: column;
-	align-items: flex-start;
 	z-index: 3;
-	position: fixed;
-}
-
-.hidden-sidebar {
-    transform: translateX(-87%);
+	overflow-y: auto;
 }
 
 nav {
@@ -482,10 +490,38 @@ nav {
 	border-right: 0px;
 	border-bottom: 0px;
 	grid-area: nav;
-	position: fixed;
+	position: sticky;
 	top: 0;
 	width: 100%;
+	height: 145px;
 	z-index: 2;
+}
+
+button{
+	font-family: 'YokaiWatch_YokaiDialogue2Font';
+	background-color: var(--nav-buttons-bg); 
+	color: var(--nav-buttons-color); 
+	padding: 0px 15px; 
+	border: none; 
+	cursor: pointer;
+	border-radius: 15px;
+}
+button:hover{
+	color: white;
+}
+button:disabled{
+	color: grey;
+	cursor: default;
+}
+
+.wrapper {
+    display: flex;
+    flex: 1; /* Растягивается на всю оставшуюся высоту */
+    position: relative;
+}
+
+.hidden-sidebar {
+    transform: translateX(-87%);
 }
 
 input {
@@ -496,6 +532,22 @@ input {
 select{
 	background-color: var(--side-buttons-bg); 
 	color: var(--side-buttons-color);
+}
+
+label{
+	color: var(--side-buttons-color);
+}
+
+textarea{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
+}
+
+hr{
+	width: 100%;
+	flex-shrink: 0;
+	border: 1px var(--side-buttons-color) solid;
+	
 }
 
 #search-input{
@@ -515,4 +567,14 @@ select{
             100% 100%,  /* Pattern moves diagonally */
             0px 0px;    /* Static background stays in place */
     }
+}
+
+#authDiv{
+	height: 100%;
+	gap: 5px;
+}
+
+#userPfpImg{
+	width: auto;
+	height: 120%;
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/main.js"></script>
+    <script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+    <script defer src='Content/JS/Databases/YokaiAbilitiesDatabase.js'></script>
+    <script defer src='Content/JS/skill-data.js'></script>
+	<style>
+	.transparent-background{
+		width: 80%;
+		height: auto;
+		
+		margin: 20px 100px;
+		padding: 20px 50px;
+		
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		
+		color: var(--side-buttons-color);
+		list-style: none;
+		overflow-y: visible;
+		overflow-x: hidden;
+		
+		text-align: center;
+	}
+	.info-container{
+		padding: 5px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--side-buttons-bg);
+		border-radius: 25px;
+		border: 1px solid rgb(0, 0, 0);
+	}
+	.box:first-child > div {margin-right: auto;}
+	
+	.box:last-child > div {margin-left: auto;}
+	</style>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+     <div class="wrapper;">
+		<aside class="side-bar" id="side_bar"></aside>
+		<main>
+			<div class="transparent-background" id="skill-details">
+				<u><h1 id="skill-name"></h1></u>
+				<div style="display: flex; gap: 5px;">
+					<div class="info-container">
+						<h2>Main Info</h2>
+						<hr>
+
+						<p id="skill-id"></p>
+						<hr>
+						<p id="skill-text"></p>
+						<p id="skill-text-id"></p>
+						<hr>
+						<p id="skill-description"></p>
+						<p id="skill-description-id"></p>
+						<hr>
+						<p id="skill-trigger-text"></p>
+						<p id="skill-trigger-text-id"></p>
+					</div>
+					
+					<div class="info-container">
+						<h2>Effect Data</h2>
+
+						<div id="effect-container">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="transparent-background" id="related-yokai-container">
+				<h1>Owned by:</h1>
+				<div id="owner-yokai-list"></div>
+				<h1 id="similar-skill-title">Yokai with similar skill:</h1>
+				<div id="related-yokai-list"></div>
+			</div>
+		</main>            
+	</div>
+</body>                                                                    
+</html>                                                                    
+

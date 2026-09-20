@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <script defer src="Content/JS/main.js"></script>
+    <script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+    <script defer src='Content/JS/Databases/SKILL_GROWTH_INFO.js'></script>
+    <script defer src='Content/JS/Databases/SPSKILL_POINT_INFO.js'></script>
+    <script defer src='Content/JS/Databases/SteffInfoDatabase.js'></script>
+    <script defer src='Content/JS/move-data.js'></script>
+	<style>
+	.transparent-background{
+		width: 80%;
+		height: auto;
+		
+		margin: 20px 100px;
+		padding: 20px 50px;
+		
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		
+		color: var(--side-buttons-color);
+		list-style: none;
+		overflow-y: visible;
+		overflow-x: hidden;
+		
+		text-align: center;
+	}
+	.info-container{
+		padding: 5px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--side-buttons-bg);
+		border-radius: 25px;
+		border: 1px solid rgb(0, 0, 0);
+	}
+	.box:first-child > div {margin-right: auto;}
+	
+	.box:last-child > div {margin-left: auto;}
+	</style>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+     <div class="wrapper;">
+		<aside class="side-bar" id="side_bar"></aside>
+		<main>
+			<div class="transparent-background" id="move-details">
+				<u><h1 id="move-name"></h1></u>
+				<div style="display: flex; gap: 5px;">
+					<div class="info-container">
+						<h2>Misc Info</h2>
+						<hr>
+
+						<p id="skill-config-id"></p>
+						<p id="torituku-index"></p>
+						<p id="skill-growth-index"></p>
+						<p id="soult-charge-tier"></p>
+
+						<p id="effect-behaviour-mask"></p>
+						<p id="battle-command-cond"></p>
+						<p id="animation-speed"></p>
+						<p id="texture-name"></p>
+					</div>
+					
+					<div class="info-container">
+						<h2>Main Info</h2>
+						<hr>
+
+						<p id="move-id"></p>
+						<hr>
+						<p id="move-text"></p>
+						<p id="move-text-id"></p>
+						<hr>
+						<p id="move-description"></p>
+						<p id="move-description-id"></p>
+						<hr>
+
+						<span id="power-container">
+							<p id="power-lv1"></p>
+							<p id="power-lv10"></p>
+						</span>
+						
+						<span style="display: none" id="charge-container">
+							<p id="charge-lv1"></p>
+							<p id="charge-lv10"></p>
+						</span>
+						
+						<span id="inspirit-container">
+							<span style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+								<p id="inspirit-type"></p>
+								<img id="inspirit-img">
+							</span>
+							<p id="inspirit-tier"></p>
+							<p id="inspirit-precision"></p>
+						</span>
+						
+						<p id="move-base-power"></p>
+						<span id="move-element-container" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+							<p id="move-element"></p>
+							<img id="move-element-img">
+						</span>
+						<p id="move-hit-amount"></p>
+					</div>
+					
+					<div class="info-container">
+						<h2>Steff Info</h2>
+
+						<div id="steff-container">
+							<hr>
+							<p id="steff-1"></p>
+							<p id="steff-1-effectID"></p>
+							<p id="steff-1-target"></p>
+							<p id="steff-1-amount"></p>
+							<hr>
+							<p id="steff-2"></p>
+							<p style="display: none" id="steff-2-effectID"></p>
+							<p style="display: none" id="steff-2-target"></p>
+							<p style="display: none" id="steff-2-amount"></p>
+							<hr>
+							<p id="steff-3"></p>
+							<p style="display: none" id="steff-3-effectID"></p>
+							<p style="display: none" id="steff-3-target"></p>
+							<p style="display: none" id="steff-3-amount"></p>
+							<hr>
+							<p id="steff-4"></p>
+							<p style="display: none" id="steff-4-effectID"></p>
+							<p style="display: none" id="steff-4-target"></p>
+							<p style="display: none" id="steff-4-amount"></p>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="transparent-background" id="related-yokai-container">
+				<h1>Owned by:</h1>
+				<div id="owner-yokai-list"></div>
+				<h1 style="display: none;" id="similar-move-title">Yokai with similar move:</h1>
+				<div id="related-yokai-list"></div>
+			</div>
+		</main>            
+	</div>
+</body>                                                                    
+</html>                                                                    
+

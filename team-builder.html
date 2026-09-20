@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+	<link rel="stylesheet" href="Content/CSS/Main.css">
+	<script defer src="Content/JS/main.js"></script>
+	<script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/Databases/SoulGemDatabase.js'></script>
+	<script defer src='Content/JS/Databases/EquipmentDatabase.js'></script>
+	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
+	<script defer src='Content/JS/team-builder.js'></script>
+	<style>
+	h3{
+		color: var(--side-buttons-color);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	h4{
+		color: var(--side-buttons-color);
+	}
+	.main-button{
+		position: relative;
+	}
+	.wheel-img{
+		width: 70px;
+		height: auto;
+		position: absolute;
+	}
+	#alertWindow{
+		color: var(--side-buttons-color);
+		position: absolute;
+		display: none;
+		align-items: flex-start;
+		justify-content: center;
+		width: 30vw;
+		height: 60vh;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 15;
+		margin-top: 50px;
+	}
+	#inputForm{
+		display: grid;
+		justify-items: center;
+		align-self: center;
+	}
+
+	#close-btn{
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+	.menuButton{
+		border-radius: 50%; 
+		color: var(--side-buttons-color); 
+		background: var(--side-buttons-bg); 
+		height: 4vh; 
+		width: 4vh;
+	}
+	#slot-info{
+		display: flex; 
+		padding: 20px; 
+		width: 50vw; 
+		height: 301px; 
+		visibility: hidden;
+	}
+	#team-options{
+		position: absolute; 
+		top:325px; 
+		left: 225px;
+	}
+	</style>
+</head>
+<body>
+	
+    <nav id="nav-tab"></nav>
+	
+	<div id="alertWindow" class="transparent-background">
+		<button id="close-btn" onclick="closePopup()" class="menuButton">X</button>
+		<button class="main-button" onclick="saveTeam()" style="margin-top: 40px; height: auto; width: auto;">Copy</button>
+		<button class="main-button" onclick="loadTeam()" style="height: auto; width: auto;">Load</button>
+		<button class="main-button" onclick="copyAsText()" style="height: auto; width: auto;">Copy as Text</button>
+	</div>
+	
+    <div class="wrapper;">        
+		<aside class="side-bar" id="side_bar"></aside>
+		<main>
+			<div style="position: relative; display: flex; flex-direction: row; padding-left: 40px;">
+				<div class="transparent-background" style="width: 26px; height: 126px;">
+					<img width="26px" height="auto" id="S_Rank1" src="Content/Graphics/S_RankUnincluded.png">
+					<img width="26px" height="auto" id="S_Rank2" src="Content/Graphics/S_RankUnincluded.png">
+					<img width="26px" height="auto" id="A_Rank1" src="Content/Graphics/A_RankUnincluded.png">
+					<img width="26px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
+				</div>
+				<div id="Wheel-div">
+					<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" style="height: 300px; width: 300px; position:relative; margin: 0px 150px;">
+					<img id="Slot1" class="wheel-img" data-index='0' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="1" style="left: 262.5px;right:0px;top: 72px;bottom: 0px;">
+					<img id="Slot2" class="wheel-img" data-index='1' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="2" style="left: 336px;right:0px;top: 30px;bottom: 0px;">
+					<img id="Slot3" class="wheel-img" data-index='2' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="3" style="left: 409px;right:0px;top: 72px;bottom: 0px;">
+					<img id="Slot4" class="wheel-img" data-index='3' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="4" style="left: 409px;right:0px;top: 152px;bottom: 0px;">
+					<img id="Slot5" class="wheel-img" data-index='4' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="5" style="left: 336px;right:0px;top: 195px;bottom: 0px;">
+					<img id="Slot6" class="wheel-img" data-index='5' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="6" style="left: 262.5px;right:0px;top: 152px;bottom: 0px;">
+					<img id="ChosenYokaiRing" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing" style="width: 85px; height: auto; position: absolute; left: 195px; top: 64px; visibility: hidden">
+				</div>
+				<div class="transparent-background" id="slot-info">
+					<div style="display: grid;">
+						<div style="display: grid; align-items: center;">
+							<div style="display: flex; align-items: center; gap: 10px;">
+								<img id="yokai-img" width="74px" height="auto" alt="Yokai Medal">
+								<h3 id="yokai-title"></h3>
+							</div>
+							<div style="display: flex;">
+								<img id="yokai-rank" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Rank">
+								<img id="yokai-tribe" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Tribe">
+							</div>
+						</div>
+						<div style="display:grid; justify-items: center;">
+							<img width="55px" height="auto" src="Content/Graphics/Equip_Image.png">
+							<div style="display: flex;">
+								<div id="equip-slot-1" style="position: relative; visibility: hidden;">
+									<img onclick="AddEquipmentIntoSlot(this)" data-index="1" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+									<img id="equipment-1" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
+								</div>
+								<div id="equip-slot-2" style="position: relative; visibility: hidden;">
+									<img onclick="AddEquipmentIntoSlot(this)" data-index="2" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+									<img id="equipment-2" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="SlotInfo-Text" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+						<h4 for="yokai-attitude">Attitude: <select id="yokai-attitude"></select></h4>
+						<h4>Level <input style="width: 30px" id="yokai-level" type="text" placeholder="60"></h4>
+						<button class="main-button" onclick="ClearEquipment()">Clear Equipment</button>
+					</div>
+					<div style="display: flex">
+						<div class="yokai-attributes" style="display: grid; margin: 10px; padding: 0px 8px;">
+							<h3 id="yokai-max-hp"></h3>
+							<h3 id="yokai-strength"></h3>
+							<h3 id="yokai-spirit"></h3>
+							<h3 id="yokai-defense"></h3>
+							<h3 id="yokai-speed"></h3>
+						</div>
+						<div class="yokai-attributes" style="justify-content: flex-start; flex-direction: column; margin: 10px; width: 120px;">
+							<h3>Gym STR: <input id="gym-str" style="width:30px" type="number" placeholder="0" class="gym"></h3>
+							<h3>Gym SPR: <input id="gym-spr" style="width:30px" type="number" placeholder="0" class="gym"></h3>
+							<h3>Gym DEF: <input id="gym-def" style="width:30px" type="number" placeholder="0" class="gym"></h3>
+							<h3>Gym SPD: <input id="gym-spd" style="width:30px" type="number" placeholder="0" class="gym"></h3>
+						</div>
+						<div class="yokai-attributes" style="justify-content: flex-start; flex-direction: column; margin: 10px; width: 120px;">
+							<h3>IV HP: <input id="iv-hp" style="width:30px;" type="number" placeholder="16" class="IV"></h3>
+							<h3>IV STR: <input id="iv-str" style="width:30px" type="number" placeholder="8" class="IV"></h3>
+							<h3>IV SPR: <input id="iv-spr" style="width:30px" type="number" placeholder="8" class="IV"></h3>
+							<h3>IV DEF: <input id="iv-def" style="width:30px" type="number" placeholder="8" class="IV"></h3>
+							<h3>IV SPD: <input id="iv-spd" style="width:30px" type="number" placeholder="8" class="IV"></h3>
+						</div>
+					</div>
+				</div>
+				
+				<div id="team-options">
+					<button class="main-button" onclick="editTeam()" style="position:relative">Edit team</button>
+					<button class="main-button" onclick="showPopup()" style="position:relative">More options</button>
+				</div>
+			</div>
+			<div style="display: flex;">
+				<div style="display: grid; align-content: center; justify-content: center; gap: 10px; width: 50%;">
+					<button class="main-button" id="YokaiButton">Yokai  <span class="icon icon-yokai"></span></button>
+					<button class="main-button" id="EquipmentButton">Equipment  <span class="icon icon-equipment"></span></button>
+					<button class="main-button" id="SoulGemButton">Soul Gems  <span class="icon icon-soulgems"></span></button>
+					<input type="search" id="search-input" name="query" placeholder="Search...">
+				</div>
+				
+				
+				<div class="container yokai-list transparent-background" id="data-page" style="height: 230px; width:86%; margin:0px; flex-wrap: nowrap; list-style: none; margin-right:40px; margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

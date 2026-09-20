@@ -3,3 +3,9 @@ main.py
 MEMO.txt
 ToDoList.txt
 authorisation.html
+create-team-post.html
+password-reset.html
+posted-teams-list.html
+profile.html
+Content/JS/authentication-system.js
+Content/JS/create-team-post.js

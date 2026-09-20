@@ -1,0 +1,155 @@
+
+h1{
+	text-align: center;
+}
+
+a{
+	color:var(--side-buttons-color);
+}
+
+.header-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: var(--side-buttons-bg);
+	border-radius: 30px;
+	padding: 8px 20px;
+	margin-bottom: 15px;
+	flex-wrap: wrap;
+}
+
+.main-info-grid {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 15px;
+	align-items: center;
+	border-radius: 25px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.stats-column {
+	background-color: var(--side-buttons-bg);
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.stat-item {
+	font-size: 1.4rem;
+	background: var(--side-buttons-bg);
+	padding: 4px 12px;
+	border-radius: 15px;
+	text-align: center;
+}
+.stat-type {
+	color: white; 
+	background-color: #ffe327; 
+	border-radius: 15px; 
+	-webkit-text-stroke-width: 1.6px;
+	padding: 0px 6px;
+}
+
+.artwork-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.artwork-column img {
+	max-height: 250px;
+	width: auto;
+}
+.description-column {
+	font-size: 1.2rem;
+	background: var(--side-buttons-bg);
+	border-radius: 25px;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	min-height: 150px;
+}
+
+.rarity-properties{
+	display: flex;
+	align-items: center;
+	padding-bottom: 10px;
+}
+
+.cell-section{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 15px;
+}
+
+.cell-item{
+	width: 45%;
+	padding: 1%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-between;
+	background: var(--side-buttons-bg);
+	border-radius: 5px;
+}
+
+.misc-container{
+	width: 45%;
+	margin-top: 10px;
+	padding: 1%;
+	background: var(--side-buttons-bg);
+	align-self: center;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+.food-container{
+	display: flex;
+}
+
+.base-stats{
+	width: 45%;
+	margin-top: 10px;
+	padding: 1%;
+	background: var(--side-buttons-bg);
+	align-self: center;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+.move-size-1{
+	min-height: 50px;
+}
+
+.move-size-2{
+	min-height: 75px;
+}
+
+.move-size-3{
+	min-height: 100px;
+}
+
+#yokai-title{
+	display: flex;
+	align-items: center;
+}
+
+#yokai-alliance{
+	height: 30px;
+	text-align: center;
+}
+
+#yokai-alliance img{
+	width: auto;
+	height: 100%;
+}
+
+#yokai-rarity{
+	width: auto;
+	height: 20px;
+}
+#yokai-classic{
+	width: auto;
+	height: 40px;
+}

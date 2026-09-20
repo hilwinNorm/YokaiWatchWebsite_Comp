@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <link rel="stylesheet" href="Content/CSS/YokaiInfoPage.css">
+    <script defer src="Content/JS/main.js"></script>
+	<script defer src='Content/JS/Databases/AttackDatabase.js'></script>
+    <script defer src='Content/JS/Databases/TechniqueDatabase.js'></script>
+	<script defer src='Content/JS/Databases/InspiritDatabase.js'></script>	
+	<script defer src='Content/JS/Databases/SoultimateDatabase.js'></script>
+	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
+	<script defer src='Content/JS/Databases/YokaiAbilitiesDatabase.js'></script>
+	<script defer src='Content/JS/Databases/YokaiSameKindDatabase.js'></script>
+	<script defer src="Content/JS/Databases/tierDatabase.js"></script>
+	<script defer src="Content/JS/Databases/SKILL_GROWTH_INFO.js"></script>
+	<script defer src="Content/JS/Databases/SPSKILL_POINT_INFO.js"></script>
+	<script defer src="Content/JS/Databases/SteffInfoDatabase.js"></script>
+	<script defer src="Content/JS/Databases/ItemConsumeDatabase.js"></script>
+	<script defer src="Content/JS/Databases/EquipmentDatabase.js"></script>
+	<script defer src="Content/JS/Databases/WorldMapPosDatabase.js"></script>
+	<script defer src="Content/JS/Databases/FriendRateDatabase.js"></script>
+	<script defer src="Content/JS/Databases/YokaiRandomActDatabase.js"></script>
+	<script defer src="Content/JS/Databases/AttitudeDatabase.js"></script>
+	<script defer src="Content/JS/Databases/YoKaiDataBase.js"></script>
+    <script defer src='Content/JS/yokai-data.js'></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+    
+	<div class="wrapper;">
+		<aside class="side-bar" id="side_bar"></aside>
+		<main>
+			<div class="transparent-background" id="yokai-details" style="color: var(--side-buttons-color); display: flex; margin: 20px 100px; padding: 20px 50px; width: 80%; flex-direction: column; list-style: none; overflow-y: visible; height: auto; flex-wrap: wrap;">
+				<div class="header-bar">
+					<h1 id="yokai-title"></h1>
+					<h1 id="yokai-no"></h1>
+					<h1 id="yokai-tribe" style="display: flex; align-items: center;"></h1>
+					<h1 id="yokai-rank" style="display: flex; align-items: center;"></h1>
+				</div>
+				
+				<span id="yokai-alliance">
+					<a id="link-bony" hidden><img id="img-bony" src="./Content/Graphics/alliances/BonySpirits1.webp"></a>
+					<a id="link-fleshy" hidden><img id="img-fleshy" src="./Content/Graphics/alliances/FleshySouls1.webp"></a>
+				</span>
+				
+				<div class="main-info-grid">
+					<div class="stats-column">
+						<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #a14290;">HP</span><span id="yokai-max-hp"></span></div>
+						<div style="width: 100%; display: flex; justify-content: space-between;">
+							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #9b3232;">STR</span><span id="yokai-strength"></span></div>
+							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #70329b;">SPR</span><span id="yokai-spirit"></span></div>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: space-between;">
+							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #1a46bc;">DEF</span><span id="yokai-defense"></span></div>
+							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #184f16;">SPD</span><span id="yokai-speed"></span></div>
+						</div>
+					</div>
+					<div class="artwork-column">
+						<div class="rarity-properties">
+							<img id="yokai-rarity" />
+							<img id="yokai-isclassic" />
+						</div>
+						<img id="yokai-img"/>
+					</div>
+					<div class="description-column" id="yokai-description"></div>
+				</div>
+				
+				<div class="cell-section">
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Attack</legend>
+						<p id="attack"></p>
+						<p id="attack-prob"></p>
+						<p id="attack-power"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Technique</legend>
+						<p id="technique"></p>
+						<p id="technique-prob"></p>
+						<p id="technique-power"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-3">
+						<legend style="padding: 0 10px; font-weight: bold;">Soultimate</legend>
+						<p id="soultimate"></p>
+						<p id="soultimate-desc"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-3">
+						<legend style="padding: 0 10px; font-weight: bold;">Inspirit</legend>
+						<p id="inspirit"></p>
+						<p id="inspirit-prob"></p>
+						<p id="inspirit-desc"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-1">
+						<legend style="padding: 0 10px; font-weight: bold;">Skill</legend>
+						<p id="skill"></p>
+						<p id="skill-desc"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-1">
+						<legend style="padding: 0 10px; font-weight: bold;">Guard</legend>
+						<p id="guard"></p>
+					</fieldset>
+				</div>
+				
+				<div>
+					<h1>Advanced Parameters</h1>
+					<div class="advanced-section">
+						<label>Level: <input id="yokai-level-input" type="number" value="60" placeholder="60"></label>
+						<!--
+						<label>Attitude: <select id="attitude-select"></select></label>
+						<div id="attitude-display"></div>
+						-->
+						<h3>Gym Training</h3>
+						<div class="gym-section">
+							<span>STR:</span>
+							<input type="number" value=0 placeholder="STR" id="gym-str" class="gym">
+							<span>SPR:</span>
+							<input type="number" value=0 placeholder="SPR" id="gym-spr" class="gym">
+							<span>DEF:</span>
+							<input type="number" value=0 placeholder="DEF" id="gym-def" class="gym">
+							<span>SPD:</span>
+							<input type="number" value=0 placeholder="SPD" id="gym-spd" class="gym">
+						</div>
+						<h3>IV:</h3>
+						<div class="iv-section">
+							<span>HP IV:</span>
+							<input type="number" value=16 placeholder="HP IV" id="iv-hp" class="IV">
+							<span>STR IV:</span>
+							<input type="number" value=8 placeholder="STR IV" id="iv-str" class="IV">
+							<span>SPR IV:</span>
+							<input type="number" value=8 placeholder="SPR IV" id="iv-spr" class="IV">
+							<span>DEF IV:</span>
+							<input type="number" value=8 placeholder="DEF IV" id="iv-def" class="IV">
+							<span>SPD IV:</span>
+							<input type="number" value=8 placeholder="SPD IV" id="iv-spd" class="IV">
+						</div>
+						<h3>EV</h3>
+						<div class="ev-section">
+							<span>HP EV:</span>
+							<input type="number" value=0 placeholder="HP EV" id="ev-hp" class="EV">
+							<span>STR EV:</span>
+							<input type="number" value=0 placeholder="STR EV" id="ev-str" class="EV">
+							<span>SPR EV:</span>
+							<input type="number" value=0 placeholder="SPR EV" id="ev-spr" class="EV">
+							<span>DEF EV:</span>
+							<input type="number" value=0 placeholder="DEF EV" id="ev-def" class="EV">
+							<span>SPD EV:</span>
+							<input type="number" value=0 placeholder="SPD EV" id="ev-spd" class="EV">
+						</div>
+					</div>
+				</div>
+				<h1>Misc Data:</h1>
+				<div class="cell-section">
+					<fieldset class="cell-item move-size-3">
+						<legend style="padding: 0 10px; font-weight: bold;">Battle Data</legend>
+						<p id="item-slots"></p>
+						<p id="enemy-inspirit-hit-chance"></p>
+						<p id="base-loaf-attitude"></p>
+						<p id="money-drop"></p>
+						<p id="exp-drop"></p>
+						<p id="exp-curve"></p>
+						<p id="befriend-chance"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-3">
+						<legend style="padding: 0 10px; font-weight: bold;">Element Resistance</legend>
+						<p id="fire-res"></p>
+						<p id="ice-res"></p>
+						<p id="earth-res"></p>
+						<p id="lightning-res"></p>
+						<p id="water-res"></p>
+						<p id="wind-res"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Food Data</legend>
+						<p id="food-quote"></p>
+						<p id="fav-food"></p>
+						<p id="fav-food-quote"></p>
+						<p id="hated-food"></p>
+						<p id="hated-food-quote"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Item Drop</legend>
+						<p id="common-item"></p>
+						<p id="common-item-chance"></p>
+						<p id="rare-item"></p>
+						<p id="rare-item-chance"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Appearance Data</legend>
+						<p id="inspirit-battle-text-type"></p>
+						<p id="trade-quote"></p>
+						<p id="capsule-unlock-quote"></p>
+						<p id="loaf-quote"></p>
+						<p id="befriend-quote"></p>
+						<p id="worldmap-pos"></p>
+						<u><p id="chara-same-kind"></p></u>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Base Data</legend>
+						<p id="yokai-paramID"></p>
+						<p id="yokai-baseID"></p>
+						<p id="yokai-MDL"></p>
+						<p id="yokai-baseHP"></p>
+						<p id="yokai-baseStr"></p>
+						<p id="yokai-baseSpr"></p>
+						<p id="yokai-baseDef"></p>
+						<p id="yokai-baseSpd"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Friend Rate Data</legend>
+						<p id="base-friend-rate"></p>
+						<p id="friend-food1"></p>
+						<p id="friend-food2"></p>
+						<p id="friend-food3"></p>
+						<p id="friend-food4"></p>
+						<p id="friend-popularity"></p>
+						<p id="friend-unpopularity"></p>
+						<p id="friend-blue-whist"></p>
+						<p id="friend-gold-whist"></p>
+						<p id="friend-poke"></p>
+						<p id="friend-shrine"></p>
+					</fieldset>
+					<fieldset class="cell-item move-size-2">
+						<legend style="padding: 0 10px; font-weight: bold;">Random Act Data</legend>
+						<p id="randomact-type"></p>
+						<p id="attitudeA"></p>
+						<p id="attitudeA-prob"></p>
+						<p id="attitudeB"></p>
+						<p id="attitudeB-prob"></p>
+						<p id="attitudeC"></p>
+						<p id="attitudeC-prob"></p>
+						<p id="attitudeD"></p>
+						<p id="attitudeD-prob"></p>
+					</fieldset>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>                                                                    
+</html>                                                                    

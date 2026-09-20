@@ -1,50 +1,54 @@
-const Attitudes = [
+window.attiduteDatabase = [
 {
-	name: "Gentle",
-	boost: [26, 0, 13, 0, 0]
-},
-{
-	name: "Tender",
-	boost: [52, 0, 0, 0, 0]
+	text: "None",
+	boost: [0, 0, 0, 0, 0]
 },
 {	
-	name: "Grouchy",
+	text: "Grouchy",
 	boost: [26, 13, 0, 0, 0]
 },
 {		
-	name:"Rough",
-	boost: [0, 26, 0, 0, 0]
-},
-{		
-	name:"Logical",
+	text:"Logical",
 	boost: [0, 0, 13, 0, 13]
 },
 {		
-	name:"Brainy",
-	boost: [0, 0, 26, 0, 0]
-},
-{		
-	name:"Careful",
+	text:"Careful",
 	boost: [0, 0, 13, 13, 0]
 },
-{		
-	name:"Calm",
-	boost: [0, 0, 0, 26, 0]
+{
+	text: "Gentle",
+	boost: [26, 0, 13, 0, 0]
 },
 {		
-	name:"Twisted",
+	text:"Twisted",
 	boost: [0, 13, 0, 0,13]
 },
 {		
-	name:"Cruel",
-	boost: [0, 0, 0, 0, 26]
-},
-{		
-	name:"Helpful",
+	text:"Helpful",
 	boost: [26, 0, 0, 0, 13]
 },
 {		
-	name:"Devoted",
+	text:"Rough",
+	boost: [0, 26, 0, 0, 0]
+},
+{		
+	text:"Brainy",
+	boost: [0, 0, 26, 0, 0]
+},
+{		
+	text:"Calm",
+	boost: [0, 0, 0, 26, 0]
+},
+{
+	text: "Tender",
+	boost: [52, 0, 0, 0, 0]
+},
+{		
+	text:"Cruel",
+	boost: [0, 0, 0, 0, 26]
+},
+{		
+	text:"Devoted",
 	boost: [0, 13, 0, 13, 0]
 }
 ]

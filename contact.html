@@ -5,26 +5,37 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Wiki</title>
 		<link rel="stylesheet" href="Content/CSS/Main.css">
-		<script defer src="Content/JS/Index.js"></script>
+		<script defer src="Content/JS/main.js"></script>
+		<style>
+			.pfp{
+				width: 100px; 
+				height: auto;
+				border-radius: 50%;
+			}
+		</style>
 	</head>
 	<body>
 		<nav id="nav-tab">
 		</nav>
 		
+		<div class="wrapper;">	
+			<aside class="side-bar" id="side_bar">
+			</aside>
+			<main style="display: flex;flex-direction: column; align-items: center;">
+				<div class="transparent-background" style="width: 90%; font-size: 15px; color: var(--side-buttons-color); padding:5px; white-space: pre-wrap">
 				
-		<aside class="side-bar" id="side_bar">
-		</aside>
-		<main>
-		<div style="display: flex;flex-direction: column; align-items: center;">
-		<div class="transparent-background" style="width: 90%; font-size: 15px; color: var(--side-buttons-color); padding:5px; white-space: pre-wrap">
-		
-		<b style="font-size: 20px; font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';">Contact List:</b>
-		
-		<img src="Content/Graphics/contacts_pfp/hilwin_pfp.png" style="width: 100px; height: auto;">	Founder of the website: Hilwin
-		How to contact: Discord: @hilwin
-		<img src="Content/Graphics/contacts_pfp/n123_pfp.png" style="width: 100px; height: auto;">	Big contributor: n123
-		How to contact: Discord: @n123original
+				<b style="font-size: 20px; font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';">Contacts:</b>
+				
+				<img src="Content/Graphics/contacts_pfp/hilwin_pfp2.png" class="pfp">	Hilwin (Creator) 
+				How to contact: 
+					Discord: @hilwin
+					Github: <a href="https://github.com/hilwinNorm">https://github.com/hilwinNorm</a>
+				<img src="Content/Graphics/contacts_pfp/n123_pfp.png" class="pfp">	n123 (Contributor)
+				How to contact: 
+					Discord: @n123original
+					Github: <a href="https://github.com/n123git">https://github.com/n123git</a>
+				</div>
+			</main>
 		</div>
-		</main>
 	</body>
 	</html>
