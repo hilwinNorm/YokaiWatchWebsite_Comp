@@ -11,10 +11,10 @@ function loadStats(yokaiDatabase, abilitiesDatabase, yokaiSameKindDatabase){
 	
 	let attack, technique, skill, inspirit, soultimate;
 	
-	attack=attackDatabase[yokaiData?.AttackID];
-	technique=techniqueDatabase[yokaiData?.TechniqueID];
-	inspirit=inspiritDatabase[yokaiData?.InspiritID];
-	soultimate=soultimateDatabase[yokaiData?.SoultimateBtlCommandID];
+	attack=moveDatabase[yokaiData?.AttackID];
+	technique=moveDatabase[yokaiData?.TechniqueID];
+	inspirit=moveDatabase[yokaiData?.InspiritID];
+	soultimate=moveDatabase[yokaiData?.SoultimateBtlCommandID];
 	skill = abilitiesDatabase[yokaiData?.SkillID];
 	
 	return {yokaiData, attack, technique, skill, inspirit, soultimate};
@@ -93,7 +93,9 @@ const formatText = text => text?.replaceAll('\\n','\n') ?? '';
 function renderPage({
 	yokaiData, 
 	attack, technique, skill,
-	inspirit, soultimate
+	inspirit, soultimate,
+	attackConfig, techniqueConfig, 
+	inspiritConfig, soultimateConfig
 	}){
 	
 	let pathArtwork = "Content/Graphics/Artwork/";
@@ -128,13 +130,13 @@ function renderPage({
 		
 	let techniqueElement=``;
 	
-	if (technique?.SkillConfig.Element != 0) techniqueElement = `<img style="height:20px; width: auto;
-		"src="${pathElement(element[technique?.SkillConfig.Element])}" alt="elementImg">`
+	if (techniqueConfig?.Element != 0) techniqueElement = `<img style="height:20px; width: auto;
+		"src="${pathElement(element[techniqueConfig?.Element])}" alt="elementImg">`
 	
 	let soultimateElement=``;
 	
-	if (soultimate?.SkillConfig.Element != 0) soultimateElement = `<img style="height:20px; width: auto;
-		"src="${pathElement(element[soultimate?.SkillConfig.Element])}" alt="elementImg">`
+	if (soultimateConfig?.Element != 0) soultimateElement = `<img style="height:20px; width: auto;
+		"src="${pathElement(element[soultimateConfig?.Element])}" alt="elementImg">`
 
 	let tier = tierDatabase[yokaiData.ParamID] ? `(${tierDatabase[yokaiData.ParamID]})` : '';
 	$("yokai-title").innerHTML = `<img src="${pathMedal}y${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp"> ${yokaiData.Name} ${tier}`;
@@ -202,16 +204,16 @@ function renderPage({
 		hatedFoodImg.src = `${pathItem}item_${(hatedFood.IconPosX + (hatedFood.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
 	}
 	
-	attackLink.href = `./move-data.html?moveType=0&id=${attack?.BattleCommandID}`;
-	attackLink.innerText = `Attack: ${attack?.SkillConfig.Text}`;
-	techniqueLink.href = `./move-data.html?moveType=1&id=${technique?.BattleCommandID}`;
-	techniqueLink.innerText = `Technique: ${technique?.SkillConfig.Text}`;
-	inspiritLink.href = `./move-data.html?moveType=2&id=${inspirit?.BattleCommandID}`;
-	inspiritLink.innerText = `Inspirit: ${inspirit?.SkillConfig.Text}`;
-	//guardLink.href = `./move-data.html?moveType=0&id=${attack.ID}`;
-	soultimateLink.href = `./move-data.html?moveType=3&id=${soultimate?.BattleCommandID}`;
-	soultimateLink.innerText = `Soultimate: ${soultimate?.SkillConfig.Text}`;
-	skillLink.href = `./skill-data.html?id=${skill?.SkillID}`;
+	attackLink.href = `./move-info.html?moveType=0&id=${attack?.BattleCommandID}`;
+	attackLink.innerText = `Attack: ${attackConfig?.Text.TextString}`;
+	techniqueLink.href = `./move-info.html?moveType=1&id=${technique?.BattleCommandID}`;
+	techniqueLink.innerText = `Technique: ${techniqueConfig?.Text.TextString}`;
+	inspiritLink.href = `./move-info.html?moveType=2&id=${inspirit?.BattleCommandID}`;
+	inspiritLink.innerText = `Inspirit: ${inspiritConfig?.Text.TextString}`;
+	//guardLink.href = `./move-info.html?moveType=0&id=${attack.ID}`;
+	soultimateLink.href = `./move-info.html?moveType=3&id=${soultimate?.BattleCommandID}`;
+	soultimateLink.innerText = `Soultimate: ${soultimateConfig?.Text.TextString}`;
+	skillLink.href = `./skill-info.html?id=${skill?.SkillID}`;
 	skillLink.innerText = `Skill: ${skill?.Name}`;
 	
 	const commonItemID = yokaiData.CommonDropItemID;
@@ -226,7 +228,7 @@ function renderPage({
 		if(equipmentDatabase[commonItemID]) typeIndex = 0;
 		else if (itemConsumeDatabase[commonItemID]) typeIndex = 1;
 		else typeIndex = 2;
-		commonItemLink.href = `./item-data.html?item=${commonItemID}&type=${typeIndex}`;
+		commonItemLink.href = `./item-info.html?item=${commonItemID}&type=${typeIndex}`;
 		commonItemLink.innerText = commonItem.NounText;
 		commonItemImg.src = `${pathItem}item_${(commonItem.IconPosX + (commonItem.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
 	}
@@ -239,17 +241,17 @@ function renderPage({
 		if(equipmentDatabase[rareItemID]) typeIndex = 0;
 		else if (itemConsumeDatabase[rareItemID]) typeIndex = 1;
 		else typeIndex = 2;
-		rareItemLink.href = `./item-data.html?item=${rareItemID}&type=${typeIndex}`;
+		rareItemLink.href = `./item-info.html?item=${rareItemID}&type=${typeIndex}`;
 		rareItemLink.innerText = rareItem.NounText;
 		rareItemImg.src = `${pathItem}item_${(rareItem.IconPosX + (rareItem.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
 	}
 	
 	let attackLv10, techniqueLv10, soultimateLv10, soultimateChargeLv10, inspiritSteff;
 	
-	if(attack) attackLv10 = Math.floor(attack.SkillConfig.BasePower * moveGrowthList[attack.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
-	if(technique) techniqueLv10 = Math.floor(technique.SkillConfig.BasePower * moveGrowthList[technique.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
-	if(soultimate) soultimateLv10 = Math.floor(soultimate.SkillConfig.BasePower * moveGrowthList[soultimate.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
-	if(soultimate) soultimateChargeLv10 = Math.floor(soultimateChargeList[soultimate.SkillConfig.SoultChargeTier - 1] * moveGrowthList[soultimate.SkillConfig.SkillGrowthIndex - 1].soultChargeMulti[9]/100);
+	if(attack) attackLv10 = Math.floor(attackConfig?.BasePower * moveGrowthList[attackConfig?.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
+	if(technique) techniqueLv10 = Math.floor(techniqueConfig?.BasePower * moveGrowthList[techniqueConfig?.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
+	if(soultimate) soultimateLv10 = Math.floor(soultimateConfig?.BasePower * moveGrowthList[soultimateConfig?.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
+	if(soultimate) soultimateChargeLv10 = Math.floor(soultimateChargeList[soultimateConfig?.SoultChargeTier - 1] * moveGrowthList[soultimateConfig?.SkillGrowthIndex - 1].soultChargeMulti[9]/100);
 	if(inspirit) inspiritSteff = steffInfoDatabase[inspirit.Steff1];
 	
 	let inspiritPrecision = ``;
@@ -282,7 +284,7 @@ function renderPage({
 			${inspiritPrecision} | Inspirit Level: ${Math.floor(inspiritSteff.FloatB)} 
 			(ID: ${inspirit.BattleCommandID})`;
 		$("inspirit-prob").innerHTML = `Probability: ${yokaiData.BaseInspirit_Percent}%`;
-		$("inspirit-desc").innerHTML = `Description: ${formatText(inspirit.SkillConfig.Description)}`;
+		$("inspirit-desc").innerHTML = `Description: ${formatText(inspiritConfig?.Desc.TextString)}`;
 	}
 	
 	if(skill){
@@ -295,11 +297,11 @@ function renderPage({
 	if(soultimate){
 		$("soultimate").innerHTML = `${soultimateLink.outerHTML}${soultimateElement} | Soultimate Power: ${soultimateLv10}${soultHits}  
 														| Soultimate Charge: ${soultimateChargeLv10} | (ID: ${soultimate.BattleCommandID})`;
-		$("soultimate-desc").innerHTML = `Description: ${formatText(soultimate.SkillConfig.Description)}`;
+		$("soultimate-desc").innerHTML = `Description: ${formatText(soultimateConfig?.Desc.TextString)}`;
 	}
 	
 	$("item-slots").innerText = `Equipment Slots Amount: ${yokaiData.EquipmentSlots}`;
-	$("money-drop").innerText = `Money Drop: ${yokaiData.DropMoney / 100}$`;
+	$("money-drop").innerText = `Money Drop: ${(yokaiData.DropMoney / 100).toFixed(2)}$`;
 	$("exp-drop").innerText = `Experience Drop: ${yokaiData.DropExperience}`;
 	if (commonItem){
 		$("common-item").innerHTML = `Common Item Drop: ${commonItemLink.outerHTML} ${commonItemImg.outerHTML} (ID: ${yokaiData.CommonDropItemID})`;
@@ -388,11 +390,11 @@ function loadYokaiData({
 		if (Object.values(sameKindData).includes(yokaiData.ParamID)){
 			
 			if (yokaiDatabase[sameKindData.ParamID1].LegalAlliances==1){
-				$("link-bony").href=`yokai-data.html?yokai=${sameKindData.ParamID1}`;
-				$("link-fleshy").href=`yokai-data.html?yokai=${sameKindData.ParamID2}`;
+				$("link-bony").href=`yokai-info.html?yokai=${sameKindData.ParamID1}`;
+				$("link-fleshy").href=`yokai-info.html?yokai=${sameKindData.ParamID2}`;
 			}else{
-				$("link-bony").href=`yokai-data.html?yokai=${sameKindData.ParamID2}`;
-				$("link-fleshy").href=`yokai-data.html?yokai=${sameKindData.ParamID1}`;
+				$("link-bony").href=`yokai-info.html?yokai=${sameKindData.ParamID2}`;
+				$("link-fleshy").href=`yokai-info.html?yokai=${sameKindData.ParamID1}`;
 			}
 			//console.debug('Pass!')
 			$("link-bony").removeAttribute('hidden');
@@ -400,7 +402,13 @@ function loadYokaiData({
 		}
 	}
 	
-	renderPage({yokaiData, attack, technique, skill, inspirit, soultimate});
+	const attackConfig = skillConfigDatabase[attack.SkillConfigID];
+	const techniqueConfig = skillConfigDatabase[technique.SkillConfigID];
+	const inspiritConfig = skillConfigDatabase[inspirit.SkillConfigID];
+	const soultimateConfig = skillConfigDatabase[soultimate.SkillConfigID];
+	
+	renderPage({yokaiData, attack, technique, skill, inspirit, soultimate,
+		attackConfig, techniqueConfig, inspiritConfig, soultimateConfig});
 	
 	const yokaiManager = new YokaiStatsManager({yokaiData});
 	if(yokaiData.HasNoBossParts == 0) {yokaiManager.level = 0; $("yokai-level-input").value = 0}

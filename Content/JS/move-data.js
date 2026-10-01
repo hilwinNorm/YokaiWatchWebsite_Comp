@@ -26,14 +26,6 @@ const pathDatabase = "Content/JS/Databases/";
 const pathGraphics = "Content/Graphics/";
 const pathArtwork = "Content/Graphics/YokaiMedals/"
 
-const moveDatabases = [
-    'AttackDatabase.js',
-    'TechniqueDatabase.js',
-    'InspiritDatabase.js',
-    'SoultimateDatabase.js',
-    'YokaiAbilitiesDatabase.js'
-];
-
 
 const GenericInspiritIDs = {
     "0x61999483": "STR_Buff",
@@ -86,7 +78,7 @@ function steffSig(move, keys = ['EffectID', 'Effect7', 'Effect8']) {
         const info = steffInfoDatabase[id];
         parts.push(keys.map(k => info[k]).join('|'));
     }
-    return parts.join(';') + '#' + move.SkillConfig.element;
+    return parts.join(';') + '#' + skillConfigDatabase[move.SkillConfigID]?.Element;
 }
 
 function setText(id, text) {
@@ -134,7 +126,7 @@ function createYokaiLink(key, yokai) {
 
     const link = document.createElement('a');
 
-    link.href = `./yokai-data.html?yokai=${key}`;
+    link.href = `./yokai-info.html?yokai=${key}`;
 
     link.appendChild(yokaiImg);
 
@@ -250,7 +242,7 @@ function findRelatedYokai(database, move) {
         else if (databaseType === 3) {
 
             if (steffSig(yokaiMove) !== steffSig(move)
-				|| yokaiMove.SkillConfig.Element !== move.SkillConfig.Element) continue;
+				|| skillConfigDatabase[yokaiMove.SkillConfig]?.Element !== skillConfigDatabase[move.SkillConfig]?.Element) continue;
         }
 
 
@@ -277,7 +269,7 @@ function showMoveDetails(database, move) {
         return;
     }
 
-    const skillConfig = move.SkillConfig;
+    const skillConfig = skillConfigDatabase[move.SkillConfigID];
 	
 	const steffList = [move.Steff1, move.Steff2, move.Steff3, move.Steff4];
 	
@@ -288,15 +280,15 @@ function showMoveDetails(database, move) {
 	if(skillConfig?.Element) {$("move-element-img").src = `Content/Graphics/elements/InGameIcons/${elementList[skillConfig.Element]}.png`; 
 		elementText=`(${elementList[skillConfig.Element]})`};
 
-    setText('move-name',skillConfig?.Text || move.Text || "Unknown Move");
+    setText('move-name',skillConfig?.Text?.TextString || move?.Text?.TextString || "Unknown Move");
 
     setText('move-id',`Battle Command ID: ${move.BattleCommandID}`);
 
-    setText('move-text',`Text: ${skillConfig.Text ?? "None"}`);
+    setText('move-text',`Text: ${skillConfig?.Text?.TextString ?? "None"}`);
 
     setText('move-text-id',`Text ID: ${move.TextID ?? "None"}`);
 	
-    setText('move-description',`Description: ${skillConfig?.Description || "None"}`);
+    setText('move-description',`Description: ${skillConfig?.Desc?.TextString ?? "None"}`);
 
     setText('move-description-id',`Description ID: ${skillConfig?.DescID ?? "None"}`);
 
@@ -317,32 +309,41 @@ function showMoveDetails(database, move) {
     setText('texture-name',`Texture Name: ${move.TextureName ?? "None"}`);
 
     setText('move-hit-amount',`Number of Hits: ${move.HitsPerTarget ?? "None"}`);
-
-    if (databaseType != 2) {
-		const attackLv1 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[0]/100);
-		const attackLv10 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
-		
-        setText('power-lv1',`Level 1 Power: ${attackLv1 ?? "None"}`);
-		
-        setText('power-lv10',`Level 10 Power: ${attackLv10 ?? "None"}`);
-    }
 	
-	if (databaseType == 3){
-		$("charge-container").style.display = "block";
-		const soultimateChargeLv = lvl => Math.floor(soultimateChargeList[skillConfig.SoultChargeTier - 1] 
-			* moveGrowthList[skillConfig.SkillGrowthIndex - 1].soultChargeMulti[lvl]/100);
-		const soultimateChargeLv1 = soultimateChargeLv(0);
-		const soultimateChargeLv10 = soultimateChargeLv(9);
+	if (skillConfig) {
+		if (databaseType != 2) {
+			const attackLv1 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[0]/100);
+			const attackLv10 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
+			
+			setText('power-lv1',`Level 1 Power: ${attackLv1 ?? "None"}`);
+			
+			setText('power-lv10',`Level 10 Power: ${attackLv10 ?? "None"}`);
+		}
 		
-        setText('charge-lv1',`Level 1 Soutlimate Charge: ${soultimateChargeLv1 ?? "None"}`);
-		
-        setText('charge-lv10',`Level 10 Soutlimate Charge: ${soultimateChargeLv10 ?? "None"}`);
+		if (databaseType == 3){
+			$("charge-container").style.display = "block";
+			const soultimateChargeLv = lvl => Math.floor(soultimateChargeList[skillConfig.SoultChargeTier - 1] 
+				* moveGrowthList[skillConfig.SkillGrowthIndex - 1].soultChargeMulti[lvl]/100);
+			const soultimateChargeLv1 = soultimateChargeLv(0);
+			const soultimateChargeLv10 = soultimateChargeLv(9);
+			
+			setText('charge-lv1',`Level 1 Soutlimate Charge: ${soultimateChargeLv1 ?? "None"}`);
+			
+			setText('charge-lv10',`Level 10 Soutlimate Charge: ${soultimateChargeLv10 ?? "None"}`);
+		}
 	}
+    
 
     if (databaseType != 2) {
-        setText('move-base-power',`Base Power: ${skillConfig.BasePower ?? "None"}`);
-		
-		setHTML('move-element',`Element: ${skillConfig.Element ?? "None"} ${elementText}`);
+		if (skillConfig) {
+			setText('move-base-power',`Base Power: ${skillConfig.BasePower ?? "None"}`);
+			
+			setHTML('move-element',`Element: ${skillConfig.Element ?? "None"} ${elementText}`);
+		}
+		else {
+			$("move-base-power").style.display = "none";
+			$("move-element-container").style.display = "none";
+		}
 		
 		$("inspirit-container").style.display = "none";
 	}
@@ -399,18 +400,18 @@ function showMoveDetails(database, move) {
 		document.getElementById('similar-move-title').style.display = "block";
 		findRelatedYokai(database, move);
 	}
-	else{
-		console.error("Couldn't identify move type");
-	}
+	else if (databaseType != 4) console.error("Couldn't identify move type");
 
 }
-if (databaseType < 0 || databaseType >= moveDatabases.length) console.error("Invalid moveType:", databaseType);
-else{
-    loadScript(moveDatabases[databaseType], (database, names) => {
-			//console.debug(database, names);
-			
-            const databaseName = moveDatabases[databaseType];
 
+document.addEventListener("DOMContentLoaded", function() {
+	let databaseName = "MoveDatabase.js";
+    loadScript(databaseName, (database, names) => {
+			// Even though at this point `databaseType` can only be 0, 1, 2 or 3. I'm still keeping this structure
+			// In case if it's needed again or I change my mind
+			// (And also it just looks cool)
+			
+			//console.debug(database, names);
             if (!database) {
                 console.error("Could not find database global:", databaseName);
                 console.log(Object.keys(window));
@@ -423,6 +424,8 @@ else{
             console.log("Move:", move);
 
             showMoveDetails(database, move);
-        }
-    );
-}
+	});
+
+
+});
+

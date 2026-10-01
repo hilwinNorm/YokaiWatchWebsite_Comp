@@ -1,10 +1,10 @@
-const YokaiDataPage = document.getElementById("yokaidata-page");
+const dataPage = document.getElementById("data-page");
 
-const attack_btn = document.getElementById("attack-btn");
-const technique_btn = document.getElementById("technique-btn");
-const inspirit_btn = document.getElementById("inspirit-btn");
-const soultimate_btn = document.getElementById("soultimate-btn");
-const skill_btn = document.getElementById("skill-btn");
+const attackBtn = document.getElementById("attack-btn");
+const techniqueBtn = document.getElementById("technique-btn");
+const inspiritBtn = document.getElementById("inspirit-btn");
+const soultimateBtn = document.getElementById("soultimate-btn");
+const skillBtn = document.getElementById("skill-btn");
 
 
 const anhrStyle =
@@ -45,16 +45,6 @@ const GenericInspiritIDs = {
     "0xFDDFD3BC": "Poison",
     "0x13D1B290": "Confuse"
 };
-
-
-let attack_list = [];
-let technique_list = [];
-let inspirit_list = [];
-let soultimate_list = [];
-let skill_list = [];
-
-let included_skill_list = [];
-
 
 function getMoveName(move) {
 	
@@ -139,29 +129,13 @@ function getSoultimateCharge(move, level) {
 }
 
 
-function createMoveDiv(content, fontSize = "125%") {
+function createMoveDiv(content, fontSize = "1.2em") {
 
-    const divMain =
-        document.createElement("div");
+    const divMain = document.createElement("div");
 
-    divMain.className =
-        "MiniYokaiInfo-div";
-
-
-    divMain.style = `
-        width: auto;
-        min-height: 80px;
-        margin: 5px;
-        border: 1px solid #000;
-        display: flex;
-        place-content: center;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        font-size: ${fontSize};
-        padding: 10px;
-    `;
-
+    divMain.className = "mini-info-div";
+	
+    divMain.style.fontSize = fontSize;
 
     divMain.innerHTML = content;
 
@@ -177,8 +151,7 @@ function createElementHTML(element) {
     }
 
 
-    const name =
-        elementList[element] ?? element;
+    const name = elementList[element] ?? element;
 
 
     return `
@@ -208,7 +181,7 @@ function createMoveLink(moveType, key, move) {
     return `
         <a
             style="${anhrStyle}"
-            href="./move-data.html?moveType=${moveType}&id=${encodeURIComponent(id)}"
+            href="./move-info.html?moveType=${moveType}&id=${encodeURIComponent(id)}"
         >
             ${name}
         </a>
@@ -217,19 +190,14 @@ function createMoveLink(moveType, key, move) {
 
 function buildAttackList() {
 
-    attack_list = [];
-
-
-    delete attackDatabase["0x00000000"];
+    attackList = [];
 
 
     for (const [key, attack] of Object.entries(attackDatabase)) {
 
-        const powerLv1 =
-            getLevelPower(attack, 1);
+        const powerLv1 = getLevelPower(attack, 1);
 
-        const powerLv10 =
-            getLevelPower(attack, 10);
+        const powerLv10 = getLevelPower(attack, 10);
 
 
         const content = `
@@ -247,32 +215,22 @@ function buildAttackList() {
         `;
 
 
-        attack_list.push(
-            createMoveDiv(content)
-        );
+        attackList.push(createMoveDiv(content));
     }
 }
 function buildTechniqueList() {
 
-    technique_list = [];
-
-
-    delete techniqueDatabase["0x00000000"];
+    techniqueList = [];
 
 
     for (const [key, technique] of Object.entries(techniqueDatabase)) {
 
-        const powerLv1 =
-            getLevelPower(technique, 1);
+        const powerLv1 = getLevelPower(technique, 1);
 
-        const powerLv10 =
-            getLevelPower(technique, 10);
+        const powerLv10 = getLevelPower(technique, 10);
 
 
-        const element =
-            createElementHTML(
-                technique.SkillConfig?.Element
-            );
+        const element =createElementHTML(technique.SkillConfig?.Element);
 
 
         const content = `
@@ -292,54 +250,32 @@ function buildTechniqueList() {
         `;
 
 
-        technique_list.push(
+        techniqueList.push(
             createMoveDiv(content)
         );
     }
 }
 function buildInspiritList() {
 
-    inspirit_list = [];
-
-
-    delete inspiritDatabase["0x00000000"];
+    inspiritList = [];
 
 
     for (const [key, inspirit] of Object.entries(inspiritDatabase)) {
 
-        const skillConfig =
-            inspirit.SkillConfig;
+        const skillConfig = inspirit.SkillConfig;
 
 
-        let inspiritType =
-            "Unknown";
+        let inspiritType = "Unknown";
 
 
-        let inspiritTier =
-            "Unknown";
+        let inspiritTier = "Unknown";
 
-
-        /*
-         * Inspirit information comes from the
-         * Steff referenced by Steff1.
-         */
-
-        const steff =
-            steffInfoDatabase?.[inspirit.Steff1];
+        const steff = steffInfoDatabase?.[inspirit.Steff1];
 
 
         if (steff) {
-
-            inspiritType =
-                GenericInspiritIDs[steff.EffectID]
-                ?.replaceAll("_", " ")
-                ?? steff.EffectID;
-
-
-            if (steff.FloatB != null) {
-                inspiritTier =
-                    Math.floor(steff.FloatB);
-            }
+            inspiritType = GenericInspiritIDs[steff.EffectID] ?.replaceAll("_", " ") ?? steff.EffectID;
+            if (steff.FloatB != null) { inspiritTier = Math.floor(steff.FloatB);}
         }
 
 
@@ -361,44 +297,30 @@ function buildInspiritList() {
         `;
 
 
-        inspirit_list.push(
-            createMoveDiv(content)
-        );
+        inspiritList.push(createMoveDiv(content));
     }
 }
 
 
 function buildSoultimateList() {
 
-    soultimate_list = [];
+    soultimateList = [];
 
 
-    delete soultimateDatabase["0x00000000"];
+    for (const [key, soultimate]of Object.entries(soultimateDatabase)) 
+	{
+
+        const powerLv1 = getLevelPower(soultimate, 1);
+
+        const powerLv10 = getLevelPower(soultimate, 10);
 
 
-    for (
-        const [key, soultimate]
-        of Object.entries(soultimateDatabase)
-    ) {
+        const chargeLv1 = getSoultimateCharge(soultimate, 1);
 
-        const powerLv1 =
-            getLevelPower(soultimate, 1);
-
-        const powerLv10 =
-            getLevelPower(soultimate, 10);
+        const chargeLv10 = getSoultimateCharge(soultimate, 10);
 
 
-        const chargeLv1 =
-            getSoultimateCharge(soultimate, 1);
-
-        const chargeLv10 =
-            getSoultimateCharge(soultimate, 10);
-
-
-        const element =
-            createElementHTML(
-                soultimate.SkillConfig?.Element
-            );
+        const element = createElementHTML(soultimate.SkillConfig?.Element);
 
 
         const content = `
@@ -424,45 +346,31 @@ function buildSoultimateList() {
         `;
 
 
-        soultimate_list.push(
-            createMoveDiv(content, "95%")
-        );
+        soultimateList.push(createMoveDiv(content));
     }
 }
 
 
 function buildSkillList() {
 
-    skill_list = [];
-    included_skill_list = [];
+    skillList = [];
+    let includedSkillList = [];
 
 
-    for (
-        const [key, yokai]
-        of Object.entries(yokaiDatabase)
-    ) {
+    for (const [key, yokai] of Object.entries(yokaiDatabase)) {
 
-        if (yokai.LegalAlliances == 0) {
-            continue;
-        }
+        if (yokai.LegalAlliances == 0) continue;
 
 
-        const skill =
-            abilitiesDatabase[yokai.SkillID];
+        const skill = abilitiesDatabase[yokai.SkillID];
 
 
-        if (!skill) {
-            continue;
-        }
+        if (!skill) continue;
 
-        const skillID =
-            skill.ID ??
-            skill.SkillID ??
-            yokai.SkillID ??
-            key;
+        const skillID = skill.ID ?? skill.SkillID ?? yokai.SkillID ?? key;
 
 
-        if (included_skill_list.includes(skillID)) {
+        if (includedSkillList.includes(skillID)) {
             continue;
         }
 
@@ -484,7 +392,8 @@ function buildSkillList() {
 
             <a
                 style="${anhrStyle}"
-                href="./skill-data.html?id=${encodeURIComponent(skillID)}"
+                href="./skill-info.html?id=${encodeURIComponent(skillID)}"
+				class="info-name"
             >
                 ${skillName}
             </a>
@@ -497,26 +406,33 @@ function buildSkillList() {
         `;
 
 
-        skill_list.push(
+        skillList.push(
             createMoveDiv(content, "140%")
         );
 
 
-        included_skill_list.push(skillID);
+        includedSkillList.push(skillID);
     }
 }
 
 
 function ShowYokaiData(data) {
 
-    YokaiDataPage.innerHTML = "";
+    dataPage.innerHTML = "";
 
 
     for (const element of data) {
 
-        YokaiDataPage.appendChild(element);
+        dataPage.appendChild(element);
     }
 }
+
+let attackList = [];
+let techniqueList = [];
+let inspiritList = [];
+let soultimateList = [];
+let skillList = [];
+
 
 
 buildAttackList();
@@ -526,34 +442,20 @@ buildSoultimateList();
 buildSkillList();
 
 
-if (attack_btn) {
-    attack_btn.onclick =
-        () => ShowYokaiData(attack_list);
-}
+if (attackBtn) attackBtn.onclick = () => ShowYokaiData(attackList);
+
+if (techniqueBtn) techniqueBtn.onclick = () => ShowYokaiData(techniqueList);
+
+if (inspiritBtn) inspiritBtn.onclick = () => ShowYokaiData(inspiritList);
+
+if (soultimateBtn) soultimateBtn.onclick = () => ShowYokaiData(soultimateList);
+
+if (skillBtn) skillBtn.onclick = () => ShowYokaiData(skillList);
+
+$("search-input")?.addEventListener('search', () => {
+	filterYokai($("search-input").value);
+});
 
 
-if (technique_btn) {
-    technique_btn.onclick =
-        () => ShowYokaiData(technique_list);
-}
 
-
-if (inspirit_btn) {
-    inspirit_btn.onclick =
-        () => ShowYokaiData(inspirit_list);
-}
-
-
-if (soultimate_btn) {
-    soultimate_btn.onclick =
-        () => ShowYokaiData(soultimate_list);
-}
-
-
-if (skill_btn) {
-    skill_btn.onclick =
-        () => ShowYokaiData(skill_list);
-}
-
-
-ShowYokaiData(attack_list);
+ShowYokaiData(attackList);

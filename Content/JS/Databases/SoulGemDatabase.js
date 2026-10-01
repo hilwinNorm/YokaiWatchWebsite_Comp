@@ -1,7 +1,7 @@
 window.soulgemDatabase={
     "0x10F16846": {
         "ItemID": "0x10F16846",
-        "NounText": "Pandle Soul",
+        "NounText": "Pandle",
         "NounTextID": "0x17931FBD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -33,7 +33,7 @@ window.soulgemDatabase={
     },
     "0x67F658D0": {
         "ItemID": "0x67F658D0",
-        "NounText": "Undy Soul",
+        "NounText": "Undy",
         "NounTextID": "0x0526B053",
         "InventorySort": 40,
         "ItemType": 30,
@@ -65,7 +65,7 @@ window.soulgemDatabase={
     },
     "0xFEFF096A": {
         "ItemID": "0xFEFF096A",
-        "NounText": "Tanbo Soul",
+        "NounText": "Tanbo",
         "NounTextID": "0x1C3D8112",
         "InventorySort": 40,
         "ItemType": 30,
@@ -97,7 +97,7 @@ window.soulgemDatabase={
     },
     "0x89F839FC": {
         "ItemID": "0x89F839FC",
-        "NounText": "D'wanna Soul",
+        "NounText": "D'wanna",
         "NounTextID": "0xBD9AD736",
         "InventorySort": 40,
         "ItemType": 30,
@@ -129,7 +129,7 @@ window.soulgemDatabase={
     },
     "0x179CAC5F": {
         "ItemID": "0x179CAC5F",
-        "NounText": "N'more Soul",
+        "NounText": "N'more",
         "NounTextID": "0x204DEF8F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -161,7 +161,7 @@ window.soulgemDatabase={
     },
     "0x609B9CC9": {
         "ItemID": "0x609B9CC9",
-        "NounText": "Q'wit Soul",
+        "NounText": "Q'wit",
         "NounTextID": "0x3956DECE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -193,7 +193,7 @@ window.soulgemDatabase={
     },
     "0xF992CD73": {
         "ItemID": "0xF992CD73",
-        "NounText": "Mochismo Soul",
+        "NounText": "Mochismo",
         "NounTextID": "0x98F188EA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -225,7 +225,7 @@ window.soulgemDatabase={
     },
     "0x8E95FDE5": {
         "ItemID": "0x8E95FDE5",
-        "NounText": "Minochi Soul",
+        "NounText": "Minochi",
         "NounTextID": "0x81EAB9AB",
         "InventorySort": 40,
         "ItemType": 30,
@@ -257,7 +257,7 @@ window.soulgemDatabase={
     },
     "0x1E2AE074": {
         "ItemID": "0x1E2AE074",
-        "NounText": "Cutta-nah Soul",
+        "NounText": "Cutta-nah",
         "NounTextID": "0x8A442704",
         "InventorySort": 40,
         "ItemType": 30,
@@ -289,7 +289,7 @@ window.soulgemDatabase={
     },
     "0x692DD0E2": {
         "ItemID": "0x692DD0E2",
-        "NounText": "Cutta-nah-nah Soul",
+        "NounText": "Cutta-nah-nah",
         "NounTextID": "0x32F84061",
         "InventorySort": 40,
         "ItemType": 30,
@@ -321,7 +321,7 @@ window.soulgemDatabase={
     },
     "0x09EA5907": {
         "ItemID": "0x09EA5907",
-        "NounText": "Slacka-slash Soul",
+        "NounText": "Slacka-slash",
         "NounTextID": "0x2BE37120",
         "InventorySort": 40,
         "ItemType": 30,
@@ -353,7 +353,7 @@ window.soulgemDatabase={
     },
     "0x7EED6991": {
         "ItemID": "0x7EED6991",
-        "NounText": "Chansin Soul",
+        "NounText": "Chansin",
         "NounTextID": "0x6A9B5037",
         "InventorySort": 40,
         "ItemType": 30,
@@ -385,7 +385,7 @@ window.soulgemDatabase={
     },
     "0xE7E4382B": {
         "ItemID": "0xE7E4382B",
-        "NounText": "Sheen Soul",
+        "NounText": "Sheen",
         "NounTextID": "0xD2273752",
         "InventorySort": 40,
         "ItemType": 30,
@@ -417,7 +417,7 @@ window.soulgemDatabase={
     },
     "0x90E308BD": {
         "ItemID": "0x90E308BD",
-        "NounText": "Gleam Soul",
+        "NounText": "Gleam",
         "NounTextID": "0xCB3C0613",
         "InventorySort": 40,
         "ItemType": 30,
@@ -449,7 +449,7 @@ window.soulgemDatabase={
     },
     "0x0E879D1E": {
         "ItemID": "0x0E879D1E",
-        "NounText": "Snee Soul",
+        "NounText": "Snee",
         "NounTextID": "0x924F5168",
         "InventorySort": 40,
         "ItemType": 30,
@@ -481,7 +481,7 @@ window.soulgemDatabase={
     },
     "0x7980AD88": {
         "ItemID": "0x7980AD88",
-        "NounText": "Helmsman Soul",
+        "NounText": "Helmsman",
         "NounTextID": "0x2AF3360D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -513,7 +513,7 @@ window.soulgemDatabase={
     },
     "0xE089FC32": {
         "ItemID": "0xE089FC32",
-        "NounText": "Reuknight Soul",
+        "NounText": "Reuknight",
         "NounTextID": "0x384699E3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -545,7 +545,7 @@ window.soulgemDatabase={
     },
     "0x978ECCA4": {
         "ItemID": "0x978ECCA4",
-        "NounText": "Corptain Soul",
+        "NounText": "Corptain",
         "NounTextID": "0x215DA8A2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -577,7 +577,7 @@ window.soulgemDatabase={
     },
     "0x0731D135": {
         "ItemID": "0x0731D135",
-        "NounText": "Blazion Soul",
+        "NounText": "Blazion",
         "NounTextID": "0x80FAFE86",
         "InventorySort": 40,
         "ItemType": 30,
@@ -609,7 +609,7 @@ window.soulgemDatabase={
     },
     "0x7036E1A3": {
         "ItemID": "0x7036E1A3",
-        "NounText": "Quaken Soul",
+        "NounText": "Quaken",
         "NounTextID": "0x99E1CFC7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -641,7 +641,7 @@ window.soulgemDatabase={
     },
     "0x22C70AC4": {
         "ItemID": "0x22C70AC4",
-        "NounText": "Siro Soul",
+        "NounText": "Siro",
         "NounTextID": "0xB2CC9C04",
         "InventorySort": 40,
         "ItemType": 30,
@@ -673,7 +673,7 @@ window.soulgemDatabase={
     },
     "0x55C03A52": {
         "ItemID": "0x55C03A52",
-        "NounText": "Beetler Soul",
+        "NounText": "Beetler",
         "NounTextID": "0x1D2DC63F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -705,7 +705,7 @@ window.soulgemDatabase={
     },
     "0xCCC96BE8": {
         "ItemID": "0xCCC96BE8",
-        "NounText": "Beetall Soul",
+        "NounText": "Beetall",
         "NounTextID": "0xA591A15A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -737,7 +737,7 @@ window.soulgemDatabase={
     },
     "0xBBCE5B7E": {
         "ItemID": "0xBBCE5B7E",
-        "NounText": "Beetall Soul",
+        "NounText": "Beetall",
         "NounTextID": "0xA591A15A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -769,7 +769,7 @@ window.soulgemDatabase={
     },
     "0x25AACEDD": {
         "ItemID": "0x25AACEDD",
-        "NounText": "Cruncha Soul",
+        "NounText": "Cruncha",
         "NounTextID": "0xBC8A901B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -801,7 +801,7 @@ window.soulgemDatabase={
     },
     "0x52ADFE4B": {
         "ItemID": "0x52ADFE4B",
-        "NounText": "Benkei Soul",
+        "NounText": "Benkei",
         "NounTextID": "0xB7240EB4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -833,7 +833,7 @@ window.soulgemDatabase={
     },
     "0xCBA4AFF1": {
         "ItemID": "0xCBA4AFF1",
-        "NounText": "B3-NK1 Soul",
+        "NounText": "B3-NK1",
         "NounTextID": "0xAE3F3FF5",
         "InventorySort": 40,
         "ItemType": 30,
@@ -865,7 +865,7 @@ window.soulgemDatabase={
     },
     "0xBCA39F67": {
         "ItemID": "0xBCA39F67",
-        "NounText": "Zerberker Soul",
+        "NounText": "Zerberker",
         "NounTextID": "0x0F9869D1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -897,7 +897,7 @@ window.soulgemDatabase={
     },
     "0x2C1C82F6": {
         "ItemID": "0x2C1C82F6",
-        "NounText": "Snartle Soul",
+        "NounText": "Snartle",
         "NounTextID": "0x16835890",
         "InventorySort": 40,
         "ItemType": 30,
@@ -929,7 +929,7 @@ window.soulgemDatabase={
     },
     "0x5B1BB260": {
         "ItemID": "0x5B1BB260",
-        "NounText": "Snotsolong Soul",
+        "NounText": "Snotsolong",
         "NounTextID": "0x57FB7987",
         "InventorySort": 40,
         "ItemType": 30,
@@ -961,7 +961,7 @@ window.soulgemDatabase={
     },
     "0x3BDC3B85": {
         "ItemID": "0x3BDC3B85",
-        "NounText": "Duchoo Soul",
+        "NounText": "Duchoo",
         "NounTextID": "0x4EE048C6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -993,7 +993,7 @@ window.soulgemDatabase={
     },
     "0x4CDB0B13": {
         "ItemID": "0x4CDB0B13",
-        "NounText": "Espy Soul",
+        "NounText": "Espy",
         "NounTextID": "0xEF471EE2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1025,7 +1025,7 @@ window.soulgemDatabase={
     },
     "0xD5D25AA9": {
         "ItemID": "0xD5D25AA9",
-        "NounText": "Infour Soul",
+        "NounText": "Infour",
         "NounTextID": "0xF65C2FA3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1057,7 +1057,7 @@ window.soulgemDatabase={
     },
     "0xA2D56A3F": {
         "ItemID": "0xA2D56A3F",
-        "NounText": "Wazzat Soul",
+        "NounText": "Wazzat",
         "NounTextID": "0xD5EF2BB8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1089,7 +1089,7 @@ window.soulgemDatabase={
     },
     "0x3CB1FF9C": {
         "ItemID": "0x3CB1FF9C",
-        "NounText": "Dummkap Soul",
+        "NounText": "Dummkap",
         "NounTextID": "0xCCF41AF9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1121,7 +1121,7 @@ window.soulgemDatabase={
     },
     "0x4BB6CF0A": {
         "ItemID": "0x4BB6CF0A",
-        "NounText": "Lafalotta Soul",
+        "NounText": "Lafalotta",
         "NounTextID": "0x6D534CDD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1153,7 +1153,7 @@ window.soulgemDatabase={
     },
     "0xD2BF9EB0": {
         "ItemID": "0xD2BF9EB0",
-        "NounText": "Blips Soul",
+        "NounText": "Blips",
         "NounTextID": "0x74487D9C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1185,7 +1185,7 @@ window.soulgemDatabase={
     },
     "0xA5B8AE26": {
         "ItemID": "0xA5B8AE26",
-        "NounText": "Sushiyama Soul",
+        "NounText": "Sushiyama",
         "NounTextID": "0x7FE6E333",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1217,7 +1217,7 @@ window.soulgemDatabase={
     },
     "0x3507B3B7": {
         "ItemID": "0x3507B3B7",
-        "NounText": "Kapunki Soul",
+        "NounText": "Kapunki",
         "NounTextID": "0x66FDD272",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1249,7 +1249,7 @@ window.soulgemDatabase={
     },
     "0x42008321": {
         "ItemID": "0x42008321",
-        "NounText": "Cupistol Soul",
+        "NounText": "Cupistol",
         "NounTextID": "0xC75A8456",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1281,7 +1281,7 @@ window.soulgemDatabase={
     },
     "0x749DAD42": {
         "ItemID": "0x749DAD42",
-        "NounText": "Casanuva Soul",
+        "NounText": "Casanuva",
         "NounTextID": "0x5A8DBCEF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1313,7 +1313,7 @@ window.soulgemDatabase={
     },
     "0x039A9DD4": {
         "ItemID": "0x039A9DD4",
-        "NounText": "Casanono Soul",
+        "NounText": "Casanono",
         "NounTextID": "0x43968DAE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1345,7 +1345,7 @@ window.soulgemDatabase={
     },
     "0x9A93CC6E": {
         "ItemID": "0x9A93CC6E",
-        "NounText": "Tattletell Soul",
+        "NounText": "Tattletell",
         "NounTextID": "0xE231DB8A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1377,7 +1377,7 @@ window.soulgemDatabase={
     },
     "0xED94FCF8": {
         "ItemID": "0xED94FCF8",
-        "NounText": "Skranny Soul",
+        "NounText": "Skranny",
         "NounTextID": "0xFB2AEACB",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1409,7 +1409,7 @@ window.soulgemDatabase={
     },
     "0x73F0695B": {
         "ItemID": "0x73F0695B",
-        "NounText": "Tattlecast Soul",
+        "NounText": "Tattlecast",
         "NounTextID": "0xF0847464",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1441,7 +1441,7 @@ window.soulgemDatabase={
     },
     "0x04F759CD": {
         "ItemID": "0x04F759CD",
-        "NounText": "Baku Soul",
+        "NounText": "Baku",
         "NounTextID": "0x48381301",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1473,7 +1473,7 @@ window.soulgemDatabase={
     },
     "0x9DFE0877": {
         "ItemID": "0x9DFE0877",
-        "NounText": "Whapir Soul",
+        "NounText": "Whapir",
         "NounTextID": "0x51232240",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1505,7 +1505,7 @@ window.soulgemDatabase={
     },
     "0xEAF938E1": {
         "ItemID": "0xEAF938E1",
-        "NounText": "Signibble Soul",
+        "NounText": "Signibble",
         "NounTextID": "0x105B0357",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1537,7 +1537,7 @@ window.soulgemDatabase={
     },
     "0x7A462570": {
         "ItemID": "0x7A462570",
-        "NounText": "Signiton Soul",
+        "NounText": "Signiton",
         "NounTextID": "0xA8E76432",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1569,7 +1569,7 @@ window.soulgemDatabase={
     },
     "0x0D4115E6": {
         "ItemID": "0x0D4115E6",
-        "NounText": "Statiking Soul",
+        "NounText": "Statiking",
         "NounTextID": "0xB1FC5573",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1601,7 +1601,7 @@ window.soulgemDatabase={
     },
     "0x6D869C03": {
         "ItemID": "0x6D869C03",
-        "NounText": "Mirapo Soul",
+        "NounText": "Mirapo",
         "NounTextID": "0xE88F0208",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1633,7 +1633,7 @@ window.soulgemDatabase={
     },
     "0x1A81AC95": {
         "ItemID": "0x1A81AC95",
-        "NounText": "Mircle Soul",
+        "NounText": "Mircle",
         "NounTextID": "0xF1943349",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1665,7 +1665,7 @@ window.soulgemDatabase={
     },
     "0x8388FD2F": {
         "ItemID": "0x8388FD2F",
-        "NounText": "Illoo Soul",
+        "NounText": "Illoo",
         "NounTextID": "0x5033656D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1697,7 +1697,7 @@ window.soulgemDatabase={
     },
     "0xF48FCDB9": {
         "ItemID": "0xF48FCDB9",
-        "NounText": "Elloo Soul",
+        "NounText": "Elloo",
         "NounTextID": "0x4928542C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1729,7 +1729,7 @@ window.soulgemDatabase={
     },
     "0x6AEB581A": {
         "ItemID": "0x6AEB581A",
-        "NounText": "Alloo Soul",
+        "NounText": "Alloo",
         "NounTextID": "0x620507EF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1761,7 +1761,7 @@ window.soulgemDatabase={
     },
     "0x1DEC688C": {
         "ItemID": "0x1DEC688C",
-        "NounText": "Frostina Soul",
+        "NounText": "Frostina",
         "NounTextID": "0x4286CA83",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1793,7 +1793,7 @@ window.soulgemDatabase={
     },
     "0x84E53936": {
         "ItemID": "0x84E53936",
-        "NounText": "Blizzaria Soul",
+        "NounText": "Blizzaria",
         "NounTextID": "0xFA3AADE6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1825,7 +1825,7 @@ window.soulgemDatabase={
     },
     "0xF3E209A0": {
         "ItemID": "0xF3E209A0",
-        "NounText": "Damona Soul",
+        "NounText": "Damona",
         "NounTextID": "0xE3219CA7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1857,7 +1857,7 @@ window.soulgemDatabase={
     },
     "0x635D1431": {
         "ItemID": "0x635D1431",
-        "NounText": "Kyubi Soul",
+        "NounText": "Kyubi",
         "NounTextID": "0x67ED955F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1889,7 +1889,7 @@ window.soulgemDatabase={
     },
     "0x145A24A7": {
         "ItemID": "0x145A24A7",
-        "NounText": "Frostail Soul",
+        "NounText": "Frostail",
         "NounTextID": "0x7EF6A41E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1921,7 +1921,7 @@ window.soulgemDatabase={
     },
     "0x46ABCFC0": {
         "ItemID": "0x46ABCFC0",
-        "NounText": "Dulluma Soul",
+        "NounText": "Dulluma",
         "NounTextID": "0xDF51F23A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1953,7 +1953,7 @@ window.soulgemDatabase={
     },
     "0x31ACFF56": {
         "ItemID": "0x31ACFF56",
-        "NounText": "Darumacho Soul",
+        "NounText": "Darumacho",
         "NounTextID": "0xCDE45DD4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -1985,7 +1985,7 @@ window.soulgemDatabase={
     },
     "0xA8A5AEEC": {
         "ItemID": "0xA8A5AEEC",
-        "NounText": "Goruma Soul",
+        "NounText": "Goruma",
         "NounTextID": "0xD4FF6C95",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2017,7 +2017,7 @@ window.soulgemDatabase={
     },
     "0xDFA29E7A": {
         "ItemID": "0xDFA29E7A",
-        "NounText": "Coughkoff Soul",
+        "NounText": "Coughkoff",
         "NounTextID": "0x75583AB1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2049,7 +2049,7 @@ window.soulgemDatabase={
     },
     "0x41C60BD9": {
         "ItemID": "0x41C60BD9",
-        "NounText": "Hurchin Soul",
+        "NounText": "Hurchin",
         "NounTextID": "0x6C430BF0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2081,7 +2081,7 @@ window.soulgemDatabase={
     },
     "0x36C13B4F": {
         "ItemID": "0x36C13B4F",
-        "NounText": "Dazzabel Soul",
+        "NounText": "Dazzabel",
         "NounTextID": "0x2D3B2AE7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2113,7 +2113,7 @@ window.soulgemDatabase={
     },
     "0xAFC86AF5": {
         "ItemID": "0xAFC86AF5",
-        "NounText": "Rattelle Soul",
+        "NounText": "Rattelle",
         "NounTextID": "0x95874D82",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2145,7 +2145,7 @@ window.soulgemDatabase={
     },
     "0xD8CF5A63": {
         "ItemID": "0xD8CF5A63",
-        "NounText": "Skelebella Soul",
+        "NounText": "Skelebella",
         "NounTextID": "0x8C9C7CC3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2177,7 +2177,7 @@ window.soulgemDatabase={
     },
     "0x487047F2": {
         "ItemID": "0x487047F2",
-        "NounText": "Noway Soul",
+        "NounText": "Noway",
         "NounTextID": "0x5AAFDE18",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2209,7 +2209,7 @@ window.soulgemDatabase={
     },
     "0x3F777764": {
         "ItemID": "0x3F777764",
-        "NounText": "Impass Soul",
+        "NounText": "Impass",
         "NounTextID": "0xE213B97D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2241,7 +2241,7 @@ window.soulgemDatabase={
     },
     "0x5FB0FE81": {
         "ItemID": "0x5FB0FE81",
-        "NounText": "Walldin Soul",
+        "NounText": "Walldin",
         "NounTextID": "0xFB08883C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2273,7 +2273,7 @@ window.soulgemDatabase={
     },
     "0x28B7CE17": {
         "ItemID": "0x28B7CE17",
-        "NounText": "Blowkade Soul",
+        "NounText": "Blowkade",
         "NounTextID": "0xF0A61693",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2305,7 +2305,7 @@ window.soulgemDatabase={
     },
     "0xB1BE9FAD": {
         "ItemID": "0xB1BE9FAD",
-        "NounText": "Ledballoon Soul",
+        "NounText": "Ledballoon",
         "NounTextID": "0xE9BD27D2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2337,7 +2337,7 @@ window.soulgemDatabase={
     },
     "0xC6B9AF3B": {
         "ItemID": "0xC6B9AF3B",
-        "NounText": "Armsman Soul",
+        "NounText": "Armsman",
         "NounTextID": "0x481A71F6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2369,7 +2369,7 @@ window.soulgemDatabase={
     },
     "0x58DD3A98": {
         "ItemID": "0x58DD3A98",
-        "NounText": "Mad Mountain Soul",
+        "NounText": "Mad Mountain",
         "NounTextID": "0xD5CD494F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2401,7 +2401,7 @@ window.soulgemDatabase={
     },
     "0x2FDA0A0E": {
         "ItemID": "0x2FDA0A0E",
-        "NounText": "Lava Lord Soul",
+        "NounText": "Lava Lord",
         "NounTextID": "0xCCD6780E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2433,7 +2433,7 @@ window.soulgemDatabase={
     },
     "0xB6D35BB4": {
         "ItemID": "0xB6D35BB4",
-        "NounText": "Rhinoggin Soul",
+        "NounText": "Rhinoggin",
         "NounTextID": "0x6D712E2A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2465,7 +2465,7 @@ window.soulgemDatabase={
     },
     "0xC1D46B22": {
         "ItemID": "0xC1D46B22",
-        "NounText": "Rhinormous Soul",
+        "NounText": "Rhinormous",
         "NounTextID": "0x7FC481C4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2497,7 +2497,7 @@ window.soulgemDatabase={
     },
     "0x516B76B3": {
         "ItemID": "0x516B76B3",
-        "NounText": "Hornaplenty Soul",
+        "NounText": "Hornaplenty",
         "NounTextID": "0x66DFB085",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2529,7 +2529,7 @@ window.soulgemDatabase={
     },
     "0x266C4625": {
         "ItemID": "0x266C4625",
-        "NounText": "Castelius I Soul",
+        "NounText": "Castelius I",
         "NounTextID": "0xC778E6A1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2561,7 +2561,7 @@ window.soulgemDatabase={
     },
     "0xD828E24E": {
         "ItemID": "0xD828E24E",
-        "NounText": "Castelius III Soul",
+        "NounText": "Castelius III",
         "NounTextID": "0xDE63D7E0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2593,7 +2593,7 @@ window.soulgemDatabase={
     },
     "0xAF2FD2D8": {
         "ItemID": "0xAF2FD2D8",
-        "NounText": "Castelius II Soul",
+        "NounText": "Castelius II",
         "NounTextID": "0xF54E8423",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2625,7 +2625,7 @@ window.soulgemDatabase={
     },
     "0x36268362": {
         "ItemID": "0x36268362",
-        "NounText": "Castelius Max Soul",
+        "NounText": "Castelius Max",
         "NounTextID": "0xEC55B562",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2657,7 +2657,7 @@ window.soulgemDatabase={
     },
     "0x4121B3F4": {
         "ItemID": "0x4121B3F4",
-        "NounText": "Dromp Soul",
+        "NounText": "Dromp",
         "NounTextID": "0x9F1BF6F7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2689,7 +2689,7 @@ window.soulgemDatabase={
     },
     "0xDF452657": {
         "ItemID": "0xDF452657",
-        "NounText": "Swosh Soul",
+        "NounText": "Swosh",
         "NounTextID": "0x8600C7B6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2721,7 +2721,7 @@ window.soulgemDatabase={
     },
     "0xA84216C1": {
         "ItemID": "0xA84216C1",
-        "NounText": "Cadin Soul",
+        "NounText": "Cadin",
         "NounTextID": "0x27A79192",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2753,7 +2753,7 @@ window.soulgemDatabase={
     },
     "0x314B477B": {
         "ItemID": "0x314B477B",
-        "NounText": "Cadable Soul",
+        "NounText": "Cadable",
         "NounTextID": "0x67CFF7A8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2785,7 +2785,7 @@ window.soulgemDatabase={
     },
     "0x464C77ED": {
         "ItemID": "0x464C77ED",
-        "NounText": "Singcada Soul",
+        "NounText": "Singcada",
         "NounTextID": "0x7ED4C6E9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2817,7 +2817,7 @@ window.soulgemDatabase={
     },
     "0xD6F36A7C": {
         "ItemID": "0xD6F36A7C",
-        "NounText": "Buhu Soul",
+        "NounText": "Buhu",
         "NounTextID": "0xDF7390CD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2849,7 +2849,7 @@ window.soulgemDatabase={
     },
     "0xA1F45AEA": {
         "ItemID": "0xA1F45AEA",
-        "NounText": "Flumpy Soul",
+        "NounText": "Flumpy",
         "NounTextID": "0xC668A18C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2881,7 +2881,7 @@ window.soulgemDatabase={
     },
     "0xC133D30F": {
         "ItemID": "0xC133D30F",
-        "NounText": "Skreek Soul",
+        "NounText": "Skreek",
         "NounTextID": "0xED45F24F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2913,7 +2913,7 @@ window.soulgemDatabase={
     },
     "0xB634E399": {
         "ItemID": "0xB634E399",
-        "NounText": "Jibanyan Soul",
+        "NounText": "Jibanyan",
         "NounTextID": "0xCDC63F23",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2945,7 +2945,7 @@ window.soulgemDatabase={
     },
     "0x2F3DB223": {
         "ItemID": "0x2F3DB223",
-        "NounText": "Thornyan Soul",
+        "NounText": "Thornyan",
         "NounTextID": "0x757A5846",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2977,7 +2977,7 @@ window.soulgemDatabase={
     },
     "0x583A82B5": {
         "ItemID": "0x583A82B5",
-        "NounText": "Baddinyan Soul",
+        "NounText": "Baddinyan",
         "NounTextID": "0xE8AD60FF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -2991,7 +2991,7 @@ window.soulgemDatabase={
         "IconPosX": 13,
         "IconPosY": 30,
         "DescTextID": "0x4E66CC18",
-        "DescText": "Own Soultimate Moves\\nare more powerful.",
+        "DescText": "Owntimate Moves\\nare more powerful.",
         "SoulEffectID": "0xB0B6D0AC",
         "SoulEffect": {
             "SoulEffectID": "0xB0B6D0AC",
@@ -3009,7 +3009,7 @@ window.soulgemDatabase={
     },
     "0xC65E1716": {
         "ItemID": "0xC65E1716",
-        "NounText": "Robonyan Soul",
+        "NounText": "Robonyan",
         "NounTextID": "0x5011079A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3041,7 +3041,7 @@ window.soulgemDatabase={
     },
     "0xB1592780": {
         "ItemID": "0xB1592780",
-        "NounText": "Goldenyan Soul",
+        "NounText": "Goldenyan",
         "NounTextID": "0x490A36DB",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3073,7 +3073,7 @@ window.soulgemDatabase={
     },
     "0x2850763A": {
         "ItemID": "0x2850763A",
-        "NounText": "Dianyan Soul",
+        "NounText": "Dianyan",
         "NounTextID": "0x42A4A874",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3105,7 +3105,7 @@ window.soulgemDatabase={
     },
     "0x5F5746AC": {
         "ItemID": "0x5F5746AC",
-        "NounText": "Sapphinyan Soul",
+        "NounText": "Sapphinyan",
         "NounTextID": "0x5BBF9935",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3137,7 +3137,7 @@ window.soulgemDatabase={
     },
     "0xCFE85B3D": {
         "ItemID": "0xCFE85B3D",
-        "NounText": "Emenyan Soul",
+        "NounText": "Emenyan",
         "NounTextID": "0x7092CAF6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3169,7 +3169,7 @@ window.soulgemDatabase={
     },
     "0xB8EF6BAB": {
         "ItemID": "0xB8EF6BAB",
-        "NounText": "Rubinyan Soul",
+        "NounText": "Rubinyan",
         "NounTextID": "0x6989FBB7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3201,7 +3201,7 @@ window.soulgemDatabase={
     },
     "0x11330271": {
         "ItemID": "0x11330271",
-        "NounText": "Topanyan Soul",
+        "NounText": "Topanyan",
         "NounTextID": "0x26C86D70",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3233,7 +3233,7 @@ window.soulgemDatabase={
     },
     "0x663432E7": {
         "ItemID": "0x663432E7",
-        "NounText": "Walkappa Soul",
+        "NounText": "Walkappa",
         "NounTextID": "0xFA18CF11",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3265,7 +3265,7 @@ window.soulgemDatabase={
     },
     "0xFF3D635D": {
         "ItemID": "0xFF3D635D",
-        "NounText": "Appak Soul",
+        "NounText": "Appak",
         "NounTextID": "0xA27BDF47",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3297,7 +3297,7 @@ window.soulgemDatabase={
     },
     "0x883A53CB": {
         "ItemID": "0x883A53CB",
-        "NounText": "Supyo Soul",
+        "NounText": "Supyo",
         "NounTextID": "0xBB60EE06",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3329,7 +3329,7 @@ window.soulgemDatabase={
     },
     "0x165EC668": {
         "ItemID": "0x165EC668",
-        "NounText": "Komasan Soul",
+        "NounText": "Komasan",
         "NounTextID": "0x1AC7B822",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3361,7 +3361,7 @@ window.soulgemDatabase={
     },
     "0x6159F6FE": {
         "ItemID": "0x6159F6FE",
-        "NounText": "Komajiro Soul",
+        "NounText": "Komajiro",
         "NounTextID": "0x03DC8963",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3393,7 +3393,7 @@ window.soulgemDatabase={
     },
     "0xF850A744": {
         "ItemID": "0xF850A744",
-        "NounText": "Komane Soul",
+        "NounText": "Komane",
         "NounTextID": "0x206F8D78",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3425,7 +3425,7 @@ window.soulgemDatabase={
     },
     "0x8F5797D2": {
         "ItemID": "0x8F5797D2",
-        "NounText": "Komiger Soul",
+        "NounText": "Komiger",
         "NounTextID": "0x1259EFFA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3457,7 +3457,7 @@ window.soulgemDatabase={
     },
     "0x1FE88A43": {
         "ItemID": "0x1FE88A43",
-        "NounText": "Daiz Soul",
+        "NounText": "Daiz",
         "NounTextID": "0x98D3EA1D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3489,7 +3489,7 @@ window.soulgemDatabase={
     },
     "0x68EFBAD5": {
         "ItemID": "0x68EFBAD5",
-        "NounText": "Confuze Soul",
+        "NounText": "Confuze",
         "NounTextID": "0x81C8DB5C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3521,7 +3521,7 @@ window.soulgemDatabase={
     },
     "0x08283330": {
         "ItemID": "0x08283330",
-        "NounText": "Pupsicle Soul",
+        "NounText": "Pupsicle",
         "NounTextID": "0x8A6645F3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3553,7 +3553,7 @@ window.soulgemDatabase={
     },
     "0x7F2F03A6": {
         "ItemID": "0x7F2F03A6",
-        "NounText": "Chilhuahua Soul",
+        "NounText": "Chilhuahua",
         "NounTextID": "0x32DA2296",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3585,7 +3585,7 @@ window.soulgemDatabase={
     },
     "0xE626521C": {
         "ItemID": "0xE626521C",
-        "NounText": "Swelterrier Soul",
+        "NounText": "Swelterrier",
         "NounTextID": "0x2BC113D7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3617,7 +3617,7 @@ window.soulgemDatabase={
     },
     "0x9121628A": {
         "ItemID": "0x9121628A",
-        "NounText": "Fidgephant Soul",
+        "NounText": "Fidgephant",
         "NounTextID": "0xAF0D1A2F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3649,7 +3649,7 @@ window.soulgemDatabase={
     },
     "0x0F45F729": {
         "ItemID": "0x0F45F729",
-        "NounText": "Touphant Soul",
+        "NounText": "Touphant",
         "NounTextID": "0xB6162B6E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3681,7 +3681,7 @@ window.soulgemDatabase={
     },
     "0x7842C7BF": {
         "ItemID": "0x7842C7BF",
-        "NounText": "Rollen Soul",
+        "NounText": "Rollen",
         "NounTextID": "0x17B17D4A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3713,7 +3713,7 @@ window.soulgemDatabase={
     },
     "0xE14B9605": {
         "ItemID": "0xE14B9605",
-        "NounText": "Dubbles Soul",
+        "NounText": "Dubbles",
         "NounTextID": "0x0EAA4C0B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3745,7 +3745,7 @@ window.soulgemDatabase={
     },
     "0x964CA693": {
         "ItemID": "0x964CA693",
-        "NounText": "Tengu Soul",
+        "NounText": "Tengu",
         "NounTextID": "0x0504D2A4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3777,7 +3777,7 @@ window.soulgemDatabase={
     },
     "0x06F3BB02": {
         "ItemID": "0x06F3BB02",
-        "NounText": "Flengu Soul",
+        "NounText": "Flengu",
         "NounTextID": "0x1C1FE3E5",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3809,7 +3809,7 @@ window.soulgemDatabase={
     },
     "0x71F48B94": {
         "ItemID": "0x71F48B94",
-        "NounText": "Hungramps Soul",
+        "NounText": "Hungramps",
         "NounTextID": "0xBDB8B5C1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3841,7 +3841,7 @@ window.soulgemDatabase={
     },
     "0x230560F3": {
         "ItemID": "0x230560F3",
-        "NounText": "Grainpa Soul",
+        "NounText": "Grainpa",
         "NounTextID": "0xA4A38480",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3873,7 +3873,7 @@ window.soulgemDatabase={
     },
     "0x54025065": {
         "ItemID": "0x54025065",
-        "NounText": "Hungorge Soul",
+        "NounText": "Hungorge",
         "NounTextID": "0xE5DBA597",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3905,7 +3905,7 @@ window.soulgemDatabase={
     },
     "0xCD0B01DF": {
         "ItemID": "0xCD0B01DF",
-        "NounText": "Manjimutt Soul",
+        "NounText": "Manjimutt",
         "NounTextID": "0x5D67C2F2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3937,7 +3937,7 @@ window.soulgemDatabase={
     },
     "0xBA0C3149": {
         "ItemID": "0xBA0C3149",
-        "NounText": "Multimutt Soul",
+        "NounText": "Multimutt",
         "NounTextID": "0x1D0FA4C8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -3969,7 +3969,7 @@ window.soulgemDatabase={
     },
     "0x2468A4EA": {
         "ItemID": "0x2468A4EA",
-        "NounText": "Sir Berus Soul",
+        "NounText": "Sir Berus",
         "NounTextID": "0x04149589",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4001,7 +4001,7 @@ window.soulgemDatabase={
     },
     "0x536F947C": {
         "ItemID": "0x536F947C",
-        "NounText": "Heheheel Soul",
+        "NounText": "Heheheel",
         "NounTextID": "0xA5B3C3AD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4033,7 +4033,7 @@ window.soulgemDatabase={
     },
     "0xCA66C5C6": {
         "ItemID": "0xCA66C5C6",
-        "NounText": "Croonger Soul",
+        "NounText": "Croonger",
         "NounTextID": "0xBCA8F2EC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4065,7 +4065,7 @@ window.soulgemDatabase={
     },
     "0xBD61F550": {
         "ItemID": "0xBD61F550",
-        "NounText": "Urnaconda Soul",
+        "NounText": "Urnaconda",
         "NounTextID": "0x9785A12F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4097,7 +4097,7 @@ window.soulgemDatabase={
     },
     "0x2DDEE8C1": {
         "ItemID": "0x2DDEE8C1",
-        "NounText": "Enerfly Soul",
+        "NounText": "Enerfly",
         "NounTextID": "0xB7066C43",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4129,7 +4129,7 @@ window.soulgemDatabase={
     },
     "0x5AD9D857": {
         "ItemID": "0x5AD9D857",
-        "NounText": "Enefly Soul",
+        "NounText": "Enefly",
         "NounTextID": "0xAE1D5D02",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4161,7 +4161,7 @@ window.soulgemDatabase={
     },
     "0x3A1E51B2": {
         "ItemID": "0x3A1E51B2",
-        "NounText": "Betterfly Soul",
+        "NounText": "Betterfly",
         "NounTextID": "0x0FBA0B26",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4193,7 +4193,7 @@ window.soulgemDatabase={
     },
     "0x4D196124": {
         "ItemID": "0x4D196124",
-        "NounText": "Peppillon Soul",
+        "NounText": "Peppillon",
         "NounTextID": "0x16A13A67",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4225,7 +4225,7 @@ window.soulgemDatabase={
     },
     "0xD410309E": {
         "ItemID": "0xD410309E",
-        "NounText": "Wiglin Soul",
+        "NounText": "Wiglin",
         "NounTextID": "0x926D339F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4257,7 +4257,7 @@ window.soulgemDatabase={
     },
     "0xA3170008": {
         "ItemID": "0xA3170008",
-        "NounText": "Steppa Soul",
+        "NounText": "Steppa",
         "NounTextID": "0x8B7602DE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4289,7 +4289,7 @@ window.soulgemDatabase={
     },
     "0x3D7395AB": {
         "ItemID": "0x3D7395AB",
-        "NounText": "Rhyth Soul",
+        "NounText": "Rhyth",
         "NounTextID": "0xA05B511D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4321,7 +4321,7 @@ window.soulgemDatabase={
     },
     "0x4A74A53D": {
         "ItemID": "0x4A74A53D",
-        "NounText": "Shmoopie Soul",
+        "NounText": "Shmoopie",
         "NounTextID": "0x2AD154FA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4353,7 +4353,7 @@ window.soulgemDatabase={
     },
     "0xD37DF487": {
         "ItemID": "0xD37DF487",
-        "NounText": "Pinkipoo Soul",
+        "NounText": "Pinkipoo",
         "NounTextID": "0x3864FB14",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4385,7 +4385,7 @@ window.soulgemDatabase={
     },
     "0xA47AC411": {
         "ItemID": "0xA47AC411",
-        "NounText": "Pookivil Soul",
+        "NounText": "Pookivil",
         "NounTextID": "0x217FCA55",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4417,7 +4417,7 @@ window.soulgemDatabase={
     },
     "0x34C5D980": {
         "ItemID": "0x34C5D980",
-        "NounText": "Happierre Soul",
+        "NounText": "Happierre",
         "NounTextID": "0x80D89C71",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4449,7 +4449,7 @@ window.soulgemDatabase={
     },
     "0x43C2E916": {
         "ItemID": "0x43C2E916",
-        "NounText": "Reversa Soul",
+        "NounText": "Reversa",
         "NounTextID": "0xD8BB8C27",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4481,7 +4481,7 @@ window.soulgemDatabase={
     },
     "0x755FC775": {
         "ItemID": "0x755FC775",
-        "NounText": "Reversette Soul",
+        "NounText": "Reversette",
         "NounTextID": "0xC1A0BD66",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4513,7 +4513,7 @@ window.soulgemDatabase={
     },
     "0x0258F7E3": {
         "ItemID": "0x0258F7E3",
-        "NounText": "Ol' Saint Trick Soul",
+        "NounText": "Ol' Saint Trick",
         "NounTextID": "0x6007EB42",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4545,7 +4545,7 @@ window.soulgemDatabase={
     },
     "0x9B51A659": {
         "ItemID": "0x9B51A659",
-        "NounText": "Ol' Fortune Soul",
+        "NounText": "Ol' Fortune",
         "NounTextID": "0x791CDA03",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4577,7 +4577,7 @@ window.soulgemDatabase={
     },
     "0xEC5696CF": {
         "ItemID": "0xEC5696CF",
-        "NounText": "Mama Aura Soul",
+        "NounText": "Mama Aura",
         "NounTextID": "0x9F5F3319",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4609,7 +4609,7 @@ window.soulgemDatabase={
     },
     "0x7232036C": {
         "ItemID": "0x7232036C",
-        "NounText": "Auntie Heart Soul",
+        "NounText": "Auntie Heart",
         "NounTextID": "0x86440258",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4641,7 +4641,7 @@ window.soulgemDatabase={
     },
     "0x053533FA": {
         "ItemID": "0x053533FA",
-        "NounText": "Papa Bolt Soul",
+        "NounText": "Papa Bolt",
         "NounTextID": "0x27E3547C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4673,7 +4673,7 @@ window.soulgemDatabase={
     },
     "0x9C3C6240": {
         "ItemID": "0x9C3C6240",
-        "NounText": "Uncle Infinite Soul",
+        "NounText": "Uncle Infinite",
         "NounTextID": "0x3EF8653D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4705,7 +4705,7 @@ window.soulgemDatabase={
     },
     "0xEB3B52D6": {
         "ItemID": "0xEB3B52D6",
-        "NounText": "Ake Soul",
+        "NounText": "Ake",
         "NounTextID": "0x3556FB92",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4737,7 +4737,7 @@ window.soulgemDatabase={
     },
     "0x7B844F47": {
         "ItemID": "0x7B844F47",
-        "NounText": "Payn Soul",
+        "NounText": "Payn",
         "NounTextID": "0x8DEA9CF7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4769,7 +4769,7 @@ window.soulgemDatabase={
     },
     "0x0C837FD1": {
         "ItemID": "0x0C837FD1",
-        "NounText": "Agon Soul",
+        "NounText": "Agon",
         "NounTextID": "0x94F1ADB6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4783,7 +4783,7 @@ window.soulgemDatabase={
         "IconPosX": 15,
         "IconPosY": 30,
         "DescTextID": "0x4E66CC18",
-        "DescText": "Own Soultimate Moves\\nare more powerful.",
+        "DescText": "Owntimate Moves\\nare more powerful.",
         "SoulEffectID": "0xCCEA1DE5",
         "SoulEffect": {
             "SoulEffectID": "0xCCEA1DE5",
@@ -4801,7 +4801,7 @@ window.soulgemDatabase={
     },
     "0x6C44F634": {
         "ItemID": "0x6C44F634",
-        "NounText": "Negatibuzz Soul",
+        "NounText": "Negatibuzz",
         "NounTextID": "0x103DA44E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4833,7 +4833,7 @@ window.soulgemDatabase={
     },
     "0x1B43C6A2": {
         "ItemID": "0x1B43C6A2",
-        "NounText": "Moskevil Soul",
+        "NounText": "Moskevil",
         "NounTextID": "0xA881C32B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4865,7 +4865,7 @@ window.soulgemDatabase={
     },
     "0x824A9718": {
         "ItemID": "0x824A9718",
-        "NounText": "Scritchy Soul",
+        "NounText": "Scritchy",
         "NounTextID": "0xB19AF26A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4897,7 +4897,7 @@ window.soulgemDatabase={
     },
     "0xF54DA78E": {
         "ItemID": "0xF54DA78E",
-        "NounText": "Leadoni Soul",
+        "NounText": "Leadoni",
         "NounTextID": "0xBA346CC5",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4929,7 +4929,7 @@ window.soulgemDatabase={
     },
     "0x6B29322D": {
         "ItemID": "0x6B29322D",
-        "NounText": "Mynimo Soul",
+        "NounText": "Mynimo",
         "NounTextID": "0xA32F5D84",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4961,7 +4961,7 @@ window.soulgemDatabase={
     },
     "0x1C2E02BB": {
         "ItemID": "0x1C2E02BB",
-        "NounText": "Peckpocket Soul",
+        "NounText": "Peckpocket",
         "NounTextID": "0x02880BA0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -4993,7 +4993,7 @@ window.soulgemDatabase={
     },
     "0x85275301": {
         "ItemID": "0x85275301",
-        "NounText": "Rockabelly Soul",
+        "NounText": "Rockabelly",
         "NounTextID": "0x1B933AE1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5025,7 +5025,7 @@ window.soulgemDatabase={
     },
     "0xF2206397": {
         "ItemID": "0xF2206397",
-        "NounText": "Chatalie Soul",
+        "NounText": "Chatalie",
         "NounTextID": "0x5AEB1BF6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5057,7 +5057,7 @@ window.soulgemDatabase={
     },
     "0x629F7E06": {
         "ItemID": "0x629F7E06",
-        "NounText": "Nagatha Soul",
+        "NounText": "Nagatha",
         "NounTextID": "0x43F02AB7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5089,7 +5089,7 @@ window.soulgemDatabase={
     },
     "0x15984E90": {
         "ItemID": "0x15984E90",
-        "NounText": "Roughraff Soul",
+        "NounText": "Roughraff",
         "NounTextID": "0xE2577C93",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5121,7 +5121,7 @@ window.soulgemDatabase={
     },
     "0x4769A5F7": {
         "ItemID": "0x4769A5F7",
-        "NounText": "Badude Soul",
+        "NounText": "Badude",
         "NounTextID": "0xA23F1AA9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5153,7 +5153,7 @@ window.soulgemDatabase={
     },
     "0x306E9561": {
         "ItemID": "0x306E9561",
-        "NounText": "Bruff Soul",
+        "NounText": "Bruff",
         "NounTextID": "0x9009782B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5185,7 +5185,7 @@ window.soulgemDatabase={
     },
     "0xA967C4DB": {
         "ItemID": "0xA967C4DB",
-        "NounText": "Negasus Soul",
+        "NounText": "Negasus",
         "NounTextID": "0x1A837DCC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5217,7 +5217,7 @@ window.soulgemDatabase={
     },
     "0xDE60F44D": {
         "ItemID": "0xDE60F44D",
-        "NounText": "Neighfarious Soul",
+        "NounText": "Neighfarious",
         "NounTextID": "0x03984C8D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5249,7 +5249,7 @@ window.soulgemDatabase={
     },
     "0x400461EE": {
         "ItemID": "0x400461EE",
-        "NounText": "Grumples Soul",
+        "NounText": "Grumples",
         "NounTextID": "0x0836D222",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5281,7 +5281,7 @@ window.soulgemDatabase={
     },
     "0x37035178": {
         "ItemID": "0x37035178",
-        "NounText": "Everfore Soul",
+        "NounText": "Everfore",
         "NounTextID": "0xB08AB547",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5313,7 +5313,7 @@ window.soulgemDatabase={
     },
     "0xAE0A00C2": {
         "ItemID": "0xAE0A00C2",
-        "NounText": "Eterna Soul",
+        "NounText": "Eterna",
         "NounTextID": "0xA9918406",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5345,7 +5345,7 @@ window.soulgemDatabase={
     },
     "0xD90D3054": {
         "ItemID": "0xD90D3054",
-        "NounText": "Cheeksqueek Soul",
+        "NounText": "Cheeksqueek",
         "NounTextID": "0x2D5D8DFE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5359,7 +5359,7 @@ window.soulgemDatabase={
         "IconPosX": 0,
         "IconPosY": 31,
         "DescTextID": "0xC521BA2A",
-        "DescText": "Gradually refills Yo-kai's\\nown Soul Meter.",
+        "DescText": "Gradually refills Yo-kai's\\nown Meter.",
         "SoulEffectID": "0x75463DAD",
         "SoulEffect": {
             "SoulEffectID": "0x75463DAD",
@@ -5377,7 +5377,7 @@ window.soulgemDatabase={
     },
     "0x49B22DC5": {
         "ItemID": "0x49B22DC5",
-        "NounText": "Cuttincheez Soul",
+        "NounText": "Cuttincheez",
         "NounTextID": "0x3446BCBF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5409,7 +5409,7 @@ window.soulgemDatabase={
     },
     "0x3EB51D53": {
         "ItemID": "0x3EB51D53",
-        "NounText": "Compunzer Soul",
+        "NounText": "Compunzer",
         "NounTextID": "0x95E1EA9B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5441,7 +5441,7 @@ window.soulgemDatabase={
     },
     "0x5E7294B6": {
         "ItemID": "0x5E7294B6",
-        "NounText": "Lamedian Soul",
+        "NounText": "Lamedian",
         "NounTextID": "0x8CFADBDA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5473,7 +5473,7 @@ window.soulgemDatabase={
     },
     "0x2975A420": {
         "ItemID": "0x2975A420",
-        "NounText": "Insomni Soul",
+        "NounText": "Insomni",
         "NounTextID": "0x87544575",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5505,7 +5505,7 @@ window.soulgemDatabase={
     },
     "0xB07CF59A": {
         "ItemID": "0xB07CF59A",
-        "NounText": "Sandi Soul",
+        "NounText": "Sandi",
         "NounTextID": "0x9E4F7434",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5537,7 +5537,7 @@ window.soulgemDatabase={
     },
     "0xC77BC50C": {
         "ItemID": "0xC77BC50C",
-        "NounText": "Dimmy Soul",
+        "NounText": "Dimmy",
         "NounTextID": "0x3FE82210",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5569,7 +5569,7 @@ window.soulgemDatabase={
     },
     "0x591F50AF": {
         "ItemID": "0x591F50AF",
-        "NounText": "Blandon Soul",
+        "NounText": "Blandon",
         "NounTextID": "0x678B3246",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5601,7 +5601,7 @@ window.soulgemDatabase={
     },
     "0x2E186039": {
         "ItemID": "0x2E186039",
-        "NounText": "Nul Soul",
+        "NounText": "Nul",
         "NounTextID": "0x7E900307",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5633,7 +5633,7 @@ window.soulgemDatabase={
     },
     "0xB7113183": {
         "ItemID": "0xB7113183",
-        "NounText": "Droplette Soul",
+        "NounText": "Droplette",
         "NounTextID": "0xDF375523",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5665,7 +5665,7 @@ window.soulgemDatabase={
     },
     "0xC0160115": {
         "ItemID": "0xC0160115",
-        "NounText": "Slush Soul",
+        "NounText": "Slush",
         "NounTextID": "0xC62C6462",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5697,7 +5697,7 @@ window.soulgemDatabase={
     },
     "0x50A91C84": {
         "ItemID": "0x50A91C84",
-        "NounText": "Gush Soul",
+        "NounText": "Gush",
         "NounTextID": "0xED0137A1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5729,7 +5729,7 @@ window.soulgemDatabase={
     },
     "0x27AE2C12": {
         "ItemID": "0x27AE2C12",
-        "NounText": "Drizzle Soul",
+        "NounText": "Drizzle",
         "NounTextID": "0x29BB0A76",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5761,7 +5761,7 @@ window.soulgemDatabase={
     },
     "0xD9EA8879": {
         "ItemID": "0xD9EA8879",
-        "NounText": "Alhail Soul",
+        "NounText": "Alhail",
         "NounTextID": "0x30A03B37",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5793,7 +5793,7 @@ window.soulgemDatabase={
     },
     "0xAEEDB8EF": {
         "ItemID": "0xAEEDB8EF",
-        "NounText": "Dismarelda Soul",
+        "NounText": "Dismarelda",
         "NounTextID": "0x91076D13",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5825,7 +5825,7 @@ window.soulgemDatabase={
     },
     "0x37E4E955": {
         "ItemID": "0x37E4E955",
-        "NounText": "Wantston Soul",
+        "NounText": "Wantston",
         "NounTextID": "0x83B2C2FD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5857,7 +5857,7 @@ window.soulgemDatabase={
     },
     "0x40E3D9C3": {
         "ItemID": "0x40E3D9C3",
-        "NounText": "Grubsnitch Soul",
+        "NounText": "Grubsnitch",
         "NounTextID": "0x9AA9F3BC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5889,7 +5889,7 @@ window.soulgemDatabase={
     },
     "0xDE874C60": {
         "ItemID": "0xDE874C60",
-        "NounText": "Hidabat Soul",
+        "NounText": "Hidabat",
         "NounTextID": "0x3B0EA598",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5921,7 +5921,7 @@ window.soulgemDatabase={
     },
     "0xA9807CF6": {
         "ItemID": "0xA9807CF6",
-        "NounText": "Abodabat Soul",
+        "NounText": "Abodabat",
         "NounTextID": "0xA6D99D21",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5953,7 +5953,7 @@ window.soulgemDatabase={
     },
     "0x30892D4C": {
         "ItemID": "0x30892D4C",
-        "NounText": "Belfree Soul",
+        "NounText": "Belfree",
         "NounTextID": "0xBFC2AC60",
         "InventorySort": 40,
         "ItemType": 30,
@@ -5985,7 +5985,7 @@ window.soulgemDatabase={
     },
     "0x478E1DDA": {
         "ItemID": "0x478E1DDA",
-        "NounText": "Lodo Soul",
+        "NounText": "Lodo",
         "NounTextID": "0x1E65FA44",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6017,7 +6017,7 @@ window.soulgemDatabase={
     },
     "0xD731004B": {
         "ItemID": "0xD731004B",
-        "NounText": "Chippa Soul",
+        "NounText": "Chippa",
         "NounTextID": "0x077ECB05",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6049,7 +6049,7 @@ window.soulgemDatabase={
     },
     "0xA03630DD": {
         "ItemID": "0xA03630DD",
-        "NounText": "Tengloom Soul",
+        "NounText": "Tengloom",
         "NounTextID": "0x0CD055AA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6081,7 +6081,7 @@ window.soulgemDatabase={
     },
     "0xC0F1B938": {
         "ItemID": "0xC0F1B938",
-        "NounText": "Nird Soul",
+        "NounText": "Nird",
         "NounTextID": "0x15CB64EB",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6113,7 +6113,7 @@ window.soulgemDatabase={
     },
     "0xB7F689AE": {
         "ItemID": "0xB7F689AE",
-        "NounText": "Suspicioni Soul",
+        "NounText": "Suspicioni",
         "NounTextID": "0xB46C32CF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6145,7 +6145,7 @@ window.soulgemDatabase={
     },
     "0x2EFFD814": {
         "ItemID": "0x2EFFD814",
-        "NounText": "Tantroni Soul",
+        "NounText": "Tantroni",
         "NounTextID": "0xAD77038E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6177,7 +6177,7 @@ window.soulgemDatabase={
     },
     "0x59F8E882": {
         "ItemID": "0x59F8E882",
-        "NounText": "Contrarioni Soul",
+        "NounText": "Contrarioni",
         "NounTextID": "0x865A504D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6191,7 +6191,7 @@ window.soulgemDatabase={
         "IconPosX": 15,
         "IconPosY": 30,
         "DescTextID": "0x3961FC8E",
-        "DescText": "Own Soultimate Moves are\\nslightly more powerful.",
+        "DescText": "Owntimate Moves are\\nslightly more powerful.",
         "SoulEffectID": "0xDE41E01E",
         "SoulEffect": {
             "SoulEffectID": "0xDE41E01E",
@@ -6209,7 +6209,7 @@ window.soulgemDatabase={
     },
     "0xC79C7D21": {
         "ItemID": "0xC79C7D21",
-        "NounText": "Timidevil Soul",
+        "NounText": "Timidevil",
         "NounTextID": "0xEC0F2299",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6241,7 +6241,7 @@ window.soulgemDatabase={
     },
     "0xB09B4DB7": {
         "ItemID": "0xB09B4DB7",
-        "NounText": "Beelzebold Soul",
+        "NounText": "Beelzebold",
         "NounTextID": "0x54B345FC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6273,7 +6273,7 @@ window.soulgemDatabase={
     },
     "0x29921C0D": {
         "ItemID": "0x29921C0D",
-        "NounText": "Count Cavity Soul",
+        "NounText": "Count Cavity",
         "NounTextID": "0x4DA874BD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6305,7 +6305,7 @@ window.soulgemDatabase={
     },
     "0x5E952C9B": {
         "ItemID": "0x5E952C9B",
-        "NounText": "Greesel Soul",
+        "NounText": "Greesel",
         "NounTextID": "0x14DB23C6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6319,7 +6319,7 @@ window.soulgemDatabase={
         "IconPosX": 15,
         "IconPosY": 30,
         "DescTextID": "0xD76F9DA2",
-        "DescText": "Own Soultimate Moves are\\na lot more powerful.",
+        "DescText": "Owntimate Moves are\\na lot more powerful.",
         "SoulEffectID": "0x4CC09395",
         "SoulEffect": {
             "SoulEffectID": "0x4CC09395",
@@ -6337,7 +6337,7 @@ window.soulgemDatabase={
     },
     "0xCE2A310A": {
         "ItemID": "0xCE2A310A",
-        "NounText": "Awevil Soul",
+        "NounText": "Awevil",
         "NounTextID": "0x0DC01287",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6369,7 +6369,7 @@ window.soulgemDatabase={
     },
     "0xB92D019C": {
         "ItemID": "0xB92D019C",
-        "NounText": "Noko Soul",
+        "NounText": "Noko",
         "NounTextID": "0xAC6744A3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6401,7 +6401,7 @@ window.soulgemDatabase={
     },
     "0x1375BC28": {
         "ItemID": "0x1375BC28",
-        "NounText": "Pandanoko Soul",
+        "NounText": "Pandanoko",
         "NounTextID": "0xB57C75E2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6433,7 +6433,7 @@ window.soulgemDatabase={
     },
     "0x64728CBE": {
         "ItemID": "0x64728CBE",
-        "NounText": "Bloominoko Soul",
+        "NounText": "Bloominoko",
         "NounTextID": "0xBED2EB4D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6465,7 +6465,7 @@ window.soulgemDatabase={
     },
     "0xFD7BDD04": {
         "ItemID": "0xFD7BDD04",
-        "NounText": "Draggie Soul",
+        "NounText": "Draggie",
         "NounTextID": "0x066E8C28",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6497,7 +6497,7 @@ window.soulgemDatabase={
     },
     "0x8A7CED92": {
         "ItemID": "0x8A7CED92",
-        "NounText": "Dragon Lord Soul",
+        "NounText": "Dragon Lord",
         "NounTextID": "0x9BB9B491",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6529,7 +6529,7 @@ window.soulgemDatabase={
     },
     "0x14187831": {
         "ItemID": "0x14187831",
-        "NounText": "Azure Dragon Soul",
+        "NounText": "Azure Dragon",
         "NounTextID": "0x82A285D0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6561,7 +6561,7 @@ window.soulgemDatabase={
     },
     "0x631F48A7": {
         "ItemID": "0x631F48A7",
-        "NounText": "Fishpicable Soul",
+        "NounText": "Fishpicable",
         "NounTextID": "0x2305D3F4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6593,7 +6593,7 @@ window.soulgemDatabase={
     },
     "0xFA16191D": {
         "ItemID": "0xFA16191D",
-        "NounText": "Rageon Soul",
+        "NounText": "Rageon",
         "NounTextID": "0x31B07C1A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6625,7 +6625,7 @@ window.soulgemDatabase={
     },
     "0x8D11298B": {
         "ItemID": "0x8D11298B",
-        "NounText": "Tunatic Soul",
+        "NounText": "Tunatic",
         "NounTextID": "0x28AB4D5B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6657,7 +6657,7 @@ window.soulgemDatabase={
     },
     "0x1DAE341A": {
         "ItemID": "0x1DAE341A",
-        "NounText": "Chummer Soul",
+        "NounText": "Chummer",
         "NounTextID": "0x890C1B7F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6689,7 +6689,7 @@ window.soulgemDatabase={
     },
     "0x6AA9048C": {
         "ItemID": "0x6AA9048C",
-        "NounText": "Shrook Soul",
+        "NounText": "Shrook",
         "NounTextID": "0x90172A3E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6721,7 +6721,7 @@ window.soulgemDatabase={
     },
     "0x0A6E8D69": {
         "ItemID": "0x0A6E8D69",
-        "NounText": "Spenp Soul",
+        "NounText": "Spenp",
         "NounTextID": "0xD16F0B29",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6753,7 +6753,7 @@ window.soulgemDatabase={
     },
     "0x7D69BDFF": {
         "ItemID": "0x7D69BDFF",
-        "NounText": "Almi Soul",
+        "NounText": "Almi",
         "NounTextID": "0xC8743A68",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6785,7 +6785,7 @@ window.soulgemDatabase={
     },
     "0xE460EC45": {
         "ItemID": "0xE460EC45",
-        "NounText": "Babblong Soul",
+        "NounText": "Babblong",
         "NounTextID": "0x69D36C4C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6817,7 +6817,7 @@ window.soulgemDatabase={
     },
     "0x9367DCD3": {
         "ItemID": "0x9367DCD3",
-        "NounText": "Bananose Soul",
+        "NounText": "Bananose",
         "NounTextID": "0x70C85D0D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6849,7 +6849,7 @@ window.soulgemDatabase={
     },
     "0x0D034970": {
         "ItemID": "0x0D034970",
-        "NounText": "Copperled Soul",
+        "NounText": "Copperled",
         "NounTextID": "0x537B5916",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6881,7 +6881,7 @@ window.soulgemDatabase={
     },
     "0x7A0479E6": {
         "ItemID": "0x7A0479E6",
-        "NounText": "Slitheref Soul",
+        "NounText": "Slitheref",
         "NounTextID": "0x4A606857",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6913,7 +6913,7 @@ window.soulgemDatabase={
     },
     "0xE30D285C": {
         "ItemID": "0xE30D285C",
-        "NounText": "Cynake Soul",
+        "NounText": "Cynake",
         "NounTextID": "0x614D3B94",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6945,7 +6945,7 @@ window.soulgemDatabase={
     },
     "0x940A18CA": {
         "ItemID": "0x940A18CA",
-        "NounText": "Venoct Soul",
+        "NounText": "Venoct",
         "NounTextID": "0xEBC73E73",
         "InventorySort": 40,
         "ItemType": 30,
@@ -6977,7 +6977,7 @@ window.soulgemDatabase={
     },
     "0x04B5055B": {
         "ItemID": "0x04B5055B",
-        "NounText": "Shad. Venoct Soul",
+        "NounText": "Shad. Venoct",
         "NounTextID": "0xF2DC0F32",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7009,7 +7009,7 @@ window.soulgemDatabase={
     },
     "0x73B235CD": {
         "ItemID": "0x73B235CD",
-        "NounText": "Shogunyan Soul",
+        "NounText": "Shogunyan",
         "NounTextID": "0xF972919D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7041,7 +7041,7 @@ window.soulgemDatabase={
     },
     "0x2143DEAA": {
         "ItemID": "0x2143DEAA",
-        "NounText": "Komashura Soul",
+        "NounText": "Komashura",
         "NounTextID": "0x41CEF6F8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7073,7 +7073,7 @@ window.soulgemDatabase={
     },
     "0x5644EE3C": {
         "ItemID": "0x5644EE3C",
-        "NounText": "Dandoodle Soul",
+        "NounText": "Dandoodle",
         "NounTextID": "0xDC19CE41",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7105,7 +7105,7 @@ window.soulgemDatabase={
     },
     "0xCF4DBF86": {
         "ItemID": "0xCF4DBF86",
-        "NounText": "Elder Bloom Soul",
+        "NounText": "Elder Bloom",
         "NounTextID": "0x64A5A924",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7137,7 +7137,7 @@ window.soulgemDatabase={
     },
     "0xB84A8F10": {
         "ItemID": "0xB84A8F10",
-        "NounText": "Gilgaros Soul",
+        "NounText": "Gilgaros",
         "NounTextID": "0x761006CA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7169,7 +7169,7 @@ window.soulgemDatabase={
     },
     "0x262E1AB3": {
         "ItemID": "0x262E1AB3",
-        "NounText": "Lie-in Soul",
+        "NounText": "Lie-in",
         "NounTextID": "0xD6A717C3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7201,7 +7201,7 @@ window.soulgemDatabase={
     },
     "0x51292A25": {
         "ItemID": "0x51292A25",
-        "NounText": "Brushido Soul",
+        "NounText": "Brushido",
         "NounTextID": "0xC412B82D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7233,7 +7233,7 @@ window.soulgemDatabase={
     },
     "0xC8207B9F": {
         "ItemID": "0xC8207B9F",
-        "NounText": "Hissfit Soul",
+        "NounText": "Hissfit",
         "NounTextID": "0x7CAEDF48",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7265,7 +7265,7 @@ window.soulgemDatabase={
     },
     "0xBF274B09": {
         "ItemID": "0xBF274B09",
-        "NounText": "Slicenrice Soul",
+        "NounText": "Slicenrice",
         "NounTextID": "0xE179E7F1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7297,7 +7297,7 @@ window.soulgemDatabase={
     },
     "0x2F985698": {
         "ItemID": "0x2F985698",
-        "NounText": "Tublappa Soul",
+        "NounText": "Tublappa",
         "NounTextID": "0x59C58094",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7329,7 +7329,7 @@ window.soulgemDatabase={
     },
     "0x589F660E": {
         "ItemID": "0x589F660E",
-        "NounText": "Grublappa Soul",
+        "NounText": "Grublappa",
         "NounTextID": "0x5F0E427F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7361,7 +7361,7 @@ window.soulgemDatabase={
     },
     "0x3858EFEB": {
         "ItemID": "0x3858EFEB",
-        "NounText": "Hovernyan Soul",
+        "NounText": "Hovernyan",
         "NounTextID": "0x4B702F7A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7393,7 +7393,7 @@ window.soulgemDatabase={
     },
     "0x4F5FDF7D": {
         "ItemID": "0x4F5FDF7D",
-        "NounText": "Mudmunch Soul",
+        "NounText": "Mudmunch",
         "NounTextID": "0xF3CC481F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7425,7 +7425,7 @@ window.soulgemDatabase={
     },
     "0xD6568EC7": {
         "ItemID": "0xD6568EC7",
-        "NounText": "Madmunch Soul",
+        "NounText": "Madmunch",
         "NounTextID": "0xF5078AF4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7457,7 +7457,7 @@ window.soulgemDatabase={
     },
     "0xA151BE51": {
         "ItemID": "0xA151BE51",
-        "NounText": "Sgt. Burly Soul",
+        "NounText": "Sgt. Burly",
         "NounTextID": "0xABAF5849",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7489,7 +7489,7 @@ window.soulgemDatabase={
     },
     "0x3F352BF2": {
         "ItemID": "0x3F352BF2",
-        "NounText": "Washogun Soul",
+        "NounText": "Washogun",
         "NounTextID": "0x13133F2C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7521,7 +7521,7 @@ window.soulgemDatabase={
     },
     "0x48321B64": {
         "ItemID": "0x48321B64",
-        "NounText": "Lie-in Heart Soul",
+        "NounText": "Lie-in Heart",
         "NounTextID": "0xDC3BACB6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7553,7 +7553,7 @@ window.soulgemDatabase={
     },
     "0xD13B4ADE": {
         "ItemID": "0xD13B4ADE",
-        "NounText": "Flamurice Soul",
+        "NounText": "Flamurice",
         "NounTextID": "0x6487CBD3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7585,7 +7585,7 @@ window.soulgemDatabase={
     },
     "0xA63C7A48": {
         "ItemID": "0xA63C7A48",
-        "NounText": "Demuncher Soul",
+        "NounText": "Demuncher",
         "NounTextID": "0x7632643D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7617,7 +7617,7 @@ window.soulgemDatabase={
     },
     "0x368367D9": {
         "ItemID": "0x368367D9",
-        "NounText": "Devourer Soul",
+        "NounText": "Devourer",
         "NounTextID": "0x6F29557C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7649,7 +7649,7 @@ window.soulgemDatabase={
     },
     "0x4184574F": {
         "ItemID": "0x4184574F",
-        "NounText": "Brokenbrella Soul",
+        "NounText": "Brokenbrella",
         "NounTextID": "0xCE8E0358",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7681,7 +7681,7 @@ window.soulgemDatabase={
     },
     "0x7719792C": {
         "ItemID": "0x7719792C",
-        "NounText": "Smogling Soul",
+        "NounText": "Smogling",
         "NounTextID": "0x53593BE1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7713,7 +7713,7 @@ window.soulgemDatabase={
     },
     "0x001E49BA": {
         "ItemID": "0x001E49BA",
-        "NounText": "So-Sorree Soul",
+        "NounText": "So-Sorree",
         "NounTextID": "0xEBE55C84",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7745,7 +7745,7 @@ window.soulgemDatabase={
     },
     "0x99171800": {
         "ItemID": "0x99171800",
-        "NounText": "Mimikin Soul",
+        "NounText": "Mimikin",
         "NounTextID": "0xF950F36A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7777,7 +7777,7 @@ window.soulgemDatabase={
     },
     "0xEE102896": {
         "ItemID": "0xEE102896",
-        "NounText": "Failian Soul",
+        "NounText": "Failian",
         "NounTextID": "0x41EC940F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7809,7 +7809,7 @@ window.soulgemDatabase={
     },
     "0x7074BD35": {
         "ItemID": "0x7074BD35",
-        "NounText": "Houzzat Soul",
+        "NounText": "Houzzat",
         "NounTextID": "0x198F8459",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7841,7 +7841,7 @@ window.soulgemDatabase={
     },
     "0x07738DA3": {
         "ItemID": "0x07738DA3",
-        "NounText": "Smogmella Soul",
+        "NounText": "Smogmella",
         "NounTextID": "0xA133E33C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7873,7 +7873,7 @@ window.soulgemDatabase={
     },
     "0x9E7ADC19": {
         "ItemID": "0x9E7ADC19",
-        "NounText": "Badsmella Soul",
+        "NounText": "Badsmella",
         "NounTextID": "0xA7F821D7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7905,7 +7905,7 @@ window.soulgemDatabase={
     },
     "0xE97DEC8F": {
         "ItemID": "0xE97DEC8F",
-        "NounText": "Master Oden Soul",
+        "NounText": "Master Oden",
         "NounTextID": "0xE15B8506",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7937,7 +7937,7 @@ window.soulgemDatabase={
     },
     "0x79C2F11E": {
         "ItemID": "0x79C2F11E",
-        "NounText": "Bowminos Soul",
+        "NounText": "Bowminos",
         "NounTextID": "0x59E7E263",
         "InventorySort": 40,
         "ItemType": 30,
@@ -7969,7 +7969,7 @@ window.soulgemDatabase={
     },
     "0x0EC5C188": {
         "ItemID": "0x0EC5C188",
-        "NounText": "Miradox Soul",
+        "NounText": "Miradox",
         "NounTextID": "0x4B524D8D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8001,7 +8001,7 @@ window.soulgemDatabase={
     },
     "0x6E02486D": {
         "ItemID": "0x6E02486D",
-        "NounText": "Chymera Soul",
+        "NounText": "Chymera",
         "NounTextID": "0xF3EE2AE8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8033,7 +8033,7 @@ window.soulgemDatabase={
     },
     "0x190578FB": {
         "ItemID": "0x190578FB",
-        "NounText": "Kingmera Soul",
+        "NounText": "Kingmera",
         "NounTextID": "0xEAF51BA9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8065,7 +8065,7 @@ window.soulgemDatabase={
     },
     "0x800C2941": {
         "ItemID": "0x800C2941",
-        "NounText": "Terrorpotta Soul",
+        "NounText": "Terrorpotta",
         "NounTextID": "0x6E391251",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8097,7 +8097,7 @@ window.soulgemDatabase={
     },
     "0xF70B19D7": {
         "ItemID": "0xF70B19D7",
-        "NounText": "Wotchagot Soul",
+        "NounText": "Wotchagot",
         "NounTextID": "0xD6857534",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8129,7 +8129,7 @@ window.soulgemDatabase={
     },
     "0x696F8C74": {
         "ItemID": "0x696F8C74",
-        "NounText": "Swelton Soul",
+        "NounText": "Swelton",
         "NounTextID": "0xC430DADA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8161,7 +8161,7 @@ window.soulgemDatabase={
     },
     "0x1E68BCE2": {
         "ItemID": "0x1E68BCE2",
-        "NounText": "Zappary Soul",
+        "NounText": "Zappary",
         "NounTextID": "0x7C8CBDBF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8193,7 +8193,7 @@ window.soulgemDatabase={
     },
     "0x8761ED58": {
         "ItemID": "0x8761ED58",
-        "NounText": "No-Go Kart Soul",
+        "NounText": "No-Go Kart",
         "NounTextID": "0x24EFADE9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8225,7 +8225,7 @@ window.soulgemDatabase={
     },
     "0xF066DDCE": {
         "ItemID": "0xF066DDCE",
-        "NounText": "Gimme Soul",
+        "NounText": "Gimme",
         "NounTextID": "0x9C53CA8C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8257,7 +8257,7 @@ window.soulgemDatabase={
     },
     "0x60D9C05F": {
         "ItemID": "0x60D9C05F",
-        "NounText": "Pride Shrimp Soul",
+        "NounText": "Pride Shrimp",
         "NounTextID": "0xA6FBFFD6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8289,7 +8289,7 @@ window.soulgemDatabase={
     },
     "0x17DEF0C9": {
         "ItemID": "0x17DEF0C9",
-        "NounText": "Mistank Soul",
+        "NounText": "Mistank",
         "NounTextID": "0x1E4798B3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8321,7 +8321,7 @@ window.soulgemDatabase={
     },
     "0x452F1BAE": {
         "ItemID": "0x452F1BAE",
-        "NounText": "Eyesoar Soul",
+        "NounText": "Eyesoar",
         "NounTextID": "0x0CF2375D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8353,7 +8353,7 @@ window.soulgemDatabase={
     },
     "0x32282B38": {
         "ItemID": "0x32282B38",
-        "NounText": "Eyellure Soul",
+        "NounText": "Eyellure",
         "NounTextID": "0x15E9061C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8385,7 +8385,7 @@ window.soulgemDatabase={
     },
     "0xAB217A82": {
         "ItemID": "0xAB217A82",
-        "NounText": "Carniboy Soul",
+        "NounText": "Carniboy",
         "NounTextID": "0xB44E5038",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8417,7 +8417,7 @@ window.soulgemDatabase={
     },
     "0xDC264A14": {
         "ItemID": "0xDC264A14",
-        "NounText": "Frazzel Soul",
+        "NounText": "Frazzel",
         "NounTextID": "0x29996881",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8449,7 +8449,7 @@ window.soulgemDatabase={
     },
     "0x4242DFB7": {
         "ItemID": "0x4242DFB7",
-        "NounText": "Enduriphant Soul",
+        "NounText": "Enduriphant",
         "NounTextID": "0x91250FE4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8481,7 +8481,7 @@ window.soulgemDatabase={
     },
     "0x3545EF21": {
         "ItemID": "0x3545EF21",
-        "NounText": "Toadal Dude Soul",
+        "NounText": "Toadal Dude",
         "NounTextID": "0x8390A00A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8513,7 +8513,7 @@ window.soulgemDatabase={
     },
     "0xAC4CBE9B": {
         "ItemID": "0xAC4CBE9B",
-        "NounText": "Uber Geeko Soul",
+        "NounText": "Uber Geeko",
         "NounTextID": "0x9A8B914B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8545,7 +8545,7 @@ window.soulgemDatabase={
     },
     "0xDB4B8E0D": {
         "ItemID": "0xDB4B8E0D",
-        "NounText": "Faysoff Soul",
+        "NounText": "Faysoff",
         "NounTextID": "0x3B2CC76F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8577,7 +8577,7 @@ window.soulgemDatabase={
     },
     "0x4BF4939C": {
         "ItemID": "0x4BF4939C",
-        "NounText": "Boyclops Soul",
+        "NounText": "Boyclops",
         "NounTextID": "0x634FD739",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8609,7 +8609,7 @@ window.soulgemDatabase={
     },
     "0x3CF3A30A": {
         "ItemID": "0x3CF3A30A",
-        "NounText": "Leggly Soul",
+        "NounText": "Leggly",
         "NounTextID": "0xDBF3B05C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8641,7 +8641,7 @@ window.soulgemDatabase={
     },
     "0x5C342AEF": {
         "ItemID": "0x5C342AEF",
-        "NounText": "Nekidspeed Soul",
+        "NounText": "Nekidspeed",
         "NounTextID": "0x9B9BD666",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8673,7 +8673,7 @@ window.soulgemDatabase={
     },
     "0x2B331A79": {
         "ItemID": "0x2B331A79",
-        "NounText": "Drizzelda Soul",
+        "NounText": "Drizzelda",
         "NounTextID": "0x2327B103",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8705,7 +8705,7 @@ window.soulgemDatabase={
     },
     "0xB23A4BC3": {
         "ItemID": "0xB23A4BC3",
-        "NounText": "Jumbelina Soul",
+        "NounText": "Jumbelina",
         "NounTextID": "0x31921EED",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8719,7 +8719,7 @@ window.soulgemDatabase={
         "IconPosX": 13,
         "IconPosY": 30,
         "DescTextID": "0xC521BA2A",
-        "DescText": "Gradually refills Yo-kai's\\nown Soul Meter.",
+        "DescText": "Gradually refills Yo-kai's\\nown Meter.",
         "SoulEffectID": "0x6989AEBE",
         "SoulEffect": {
             "SoulEffectID": "0x6989AEBE",
@@ -8737,7 +8737,7 @@ window.soulgemDatabase={
     },
     "0xC53D7B55": {
         "ItemID": "0xC53D7B55",
-        "NounText": "Bakulia Soul",
+        "NounText": "Bakulia",
         "NounTextID": "0x892E7988",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8769,7 +8769,7 @@ window.soulgemDatabase={
     },
     "0x5B59EEF6": {
         "ItemID": "0x5B59EEF6",
-        "NounText": "Faux Kappa Soul",
+        "NounText": "Faux Kappa",
         "NounTextID": "0x14F94131",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8801,7 +8801,7 @@ window.soulgemDatabase={
     },
     "0x2C5EDE60": {
         "ItemID": "0x2C5EDE60",
-        "NounText": "Tigappa Soul",
+        "NounText": "Tigappa",
         "NounTextID": "0x0DE27070",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8833,7 +8833,7 @@ window.soulgemDatabase={
     },
     "0xB5578FDA": {
         "ItemID": "0xB5578FDA",
-        "NounText": "Mad Kappa Soul",
+        "NounText": "Mad Kappa",
         "NounTextID": "0x123283DA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8865,7 +8865,7 @@ window.soulgemDatabase={
     },
     "0xC250BF4C": {
         "ItemID": "0xC250BF4C",
-        "NounText": "Master Nyada Soul",
+        "NounText": "Master Nyada",
         "NounTextID": "0xAC452654",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8897,7 +8897,7 @@ window.soulgemDatabase={
     },
     "0x52EFA2DD": {
         "ItemID": "0x52EFA2DD",
-        "NounText": "Tongus Soul",
+        "NounText": "Tongus",
         "NounTextID": "0xBEF089BA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8929,7 +8929,7 @@ window.soulgemDatabase={
     },
     "0x25E8924B": {
         "ItemID": "0x25E8924B",
-        "NounText": "Pallysol Soul",
+        "NounText": "Pallysol",
         "NounTextID": "0x064CEEDF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8961,7 +8961,7 @@ window.soulgemDatabase={
     },
     "0xDBAC3620": {
         "ItemID": "0xDBAC3620",
-        "NounText": "Shamasol Soul",
+        "NounText": "Shamasol",
         "NounTextID": "0x00872C34",
         "InventorySort": 40,
         "ItemType": 30,
@@ -8993,7 +8993,7 @@ window.soulgemDatabase={
     },
     "0xACAB06B6": {
         "ItemID": "0xACAB06B6",
-        "NounText": "Sandmeh Soul",
+        "NounText": "Sandmeh",
         "NounTextID": "0x5E2FFE89",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9025,7 +9025,7 @@ window.soulgemDatabase={
     },
     "0x35A2570C": {
         "ItemID": "0x35A2570C",
-        "NounText": "Don Chan Soul",
+        "NounText": "Don Chan",
         "NounTextID": "0xE69399EC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9057,7 +9057,7 @@ window.soulgemDatabase={
     },
     "0x42A5679A": {
         "ItemID": "0x42A5679A",
-        "NounText": "Predictabull Soul",
+        "NounText": "Predictabull",
         "NounTextID": "0x19CB41B7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9089,7 +9089,7 @@ window.soulgemDatabase={
     },
     "0xDCC1F239": {
         "ItemID": "0xDCC1F239",
-        "NounText": "Defectabull Soul",
+        "NounText": "Defectabull",
         "NounTextID": "0x1F00835C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9121,7 +9121,7 @@ window.soulgemDatabase={
     },
     "0xABC6C2AF": {
         "ItemID": "0xABC6C2AF",
-        "NounText": "Gnomey Soul",
+        "NounText": "Gnomey",
         "NounTextID": "0xA17726D2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9153,7 +9153,7 @@ window.soulgemDatabase={
     },
     "0x32CF9315": {
         "ItemID": "0x32CF9315",
-        "NounText": "Gnomine Soul",
+        "NounText": "Gnomine",
         "NounTextID": "0xA7BCE439",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9185,7 +9185,7 @@ window.soulgemDatabase={
     },
     "0x45C8A383": {
         "ItemID": "0x45C8A383",
-        "NounText": "Ray O'Light Soul",
+        "NounText": "Ray O'Light",
         "NounTextID": "0xB3C2893C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9217,7 +9217,7 @@ window.soulgemDatabase={
     },
     "0xD577BE12": {
         "ItemID": "0xD577BE12",
-        "NounText": "Kelpacabana Soul",
+        "NounText": "Kelpacabana",
         "NounTextID": "0x0B7EEE59",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9249,7 +9249,7 @@ window.soulgemDatabase={
     },
     "0xA2708E84": {
         "ItemID": "0xA2708E84",
-        "NounText": "Nurse Tongus Soul",
+        "NounText": "Nurse Tongus",
         "NounTextID": "0x96A9D6E0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9281,7 +9281,7 @@ window.soulgemDatabase={
     },
     "0xC2B70761": {
         "ItemID": "0xC2B70761",
-        "NounText": "Mr. Sandmeh Soul",
+        "NounText": "Mr. Sandmeh",
         "NounTextID": "0x2E15B185",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9313,7 +9313,7 @@ window.soulgemDatabase={
     },
     "0xB5B037F7": {
         "ItemID": "0xB5B037F7",
-        "NounText": "Scarasol Soul",
+        "NounText": "Scarasol",
         "NounTextID": "0x3CA01E6B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9345,7 +9345,7 @@ window.soulgemDatabase={
     },
     "0x2CB9664D": {
         "ItemID": "0x2CB9664D",
-        "NounText": "High Gnomey Soul",
+        "NounText": "High Gnomey",
         "NounTextID": "0x841C790E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9377,7 +9377,7 @@ window.soulgemDatabase={
     },
     "0x5BBE56DB": {
         "ItemID": "0x5BBE56DB",
-        "NounText": "Supoor Hero Soul",
+        "NounText": "Supoor Hero",
         "NounTextID": "0xDC7F6958",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9409,7 +9409,7 @@ window.soulgemDatabase={
     },
     "0xC5DAC378": {
         "ItemID": "0xC5DAC378",
-        "NounText": "Smashibull Soul",
+        "NounText": "Smashibull",
         "NounTextID": "0x64C30E3D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9441,7 +9441,7 @@ window.soulgemDatabase={
     },
     "0xB2DDF3EE": {
         "ItemID": "0xB2DDF3EE",
-        "NounText": "Kyryn Soul",
+        "NounText": "Kyryn",
         "NounTextID": "0x24AB6807",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9473,7 +9473,7 @@ window.soulgemDatabase={
     },
     "0x2BD4A254": {
         "ItemID": "0x2BD4A254",
-        "NounText": "Unikirin Soul",
+        "NounText": "Unikirin",
         "NounTextID": "0x3DB05946",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9505,7 +9505,7 @@ window.soulgemDatabase={
     },
     "0x5CD392C2": {
         "ItemID": "0x5CD392C2",
-        "NounText": "Pittapatt Soul",
+        "NounText": "Pittapatt",
         "NounTextID": "0x9C170F62",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9537,7 +9537,7 @@ window.soulgemDatabase={
     },
     "0xCC6C8F53": {
         "ItemID": "0xCC6C8F53",
-        "NounText": "Wydeawake Soul",
+        "NounText": "Wydeawake",
         "NounTextID": "0x8EA2A08C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9569,7 +9569,7 @@ window.soulgemDatabase={
     },
     "0xBB6BBFC5": {
         "ItemID": "0xBB6BBFC5",
-        "NounText": "Yoink Soul",
+        "NounText": "Yoink",
         "NounTextID": "0x361EC7E9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9601,7 +9601,7 @@ window.soulgemDatabase={
     },
     "0x12B7D61F": {
         "ItemID": "0x12B7D61F",
-        "NounText": "Herbiboy Soul",
+        "NounText": "Herbiboy",
         "NounTextID": "0xABC9FF50",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9633,7 +9633,7 @@ window.soulgemDatabase={
     },
     "0x65B0E689": {
         "ItemID": "0x65B0E689",
-        "NounText": "K'mon-K'mon Soul",
+        "NounText": "K'mon-K'mon",
         "NounTextID": "0x13759835",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9665,7 +9665,7 @@ window.soulgemDatabase={
     },
     "0xFCB9B733": {
         "ItemID": "0xFCB9B733",
-        "NounText": "Yoodooit Soul",
+        "NounText": "Yoodooit",
         "NounTextID": "0x01C037DB",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9697,7 +9697,7 @@ window.soulgemDatabase={
     },
     "0x8BBE87A5": {
         "ItemID": "0x8BBE87A5",
-        "NounText": "Count Zapaway Soul",
+        "NounText": "Count Zapaway",
         "NounTextID": "0xB97C50BE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9729,7 +9729,7 @@ window.soulgemDatabase={
     },
     "0x15DA1206": {
         "ItemID": "0x15DA1206",
-        "NounText": "Slimamander Soul",
+        "NounText": "Slimamander",
         "NounTextID": "0xE11F40E8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9761,7 +9761,7 @@ window.soulgemDatabase={
     },
     "0x62DD2290": {
         "ItemID": "0x62DD2290",
-        "NounText": "Snobetty Soul",
+        "NounText": "Snobetty",
         "NounTextID": "0x59A3278D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9793,7 +9793,7 @@ window.soulgemDatabase={
     },
     "0xFBD4732A": {
         "ItemID": "0xFBD4732A",
-        "NounText": "Dracunyan Soul",
+        "NounText": "Dracunyan",
         "NounTextID": "0xE2E7D9D3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9825,7 +9825,7 @@ window.soulgemDatabase={
     },
     "0x8CD343BC": {
         "ItemID": "0x8CD343BC",
-        "NounText": "Allnyta Soul",
+        "NounText": "Allnyta",
         "NounTextID": "0x5A5BBEB6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9857,7 +9857,7 @@ window.soulgemDatabase={
     },
     "0x1C6C5E2D": {
         "ItemID": "0x1C6C5E2D",
-        "NounText": "Wobblewok Soul",
+        "NounText": "Wobblewok",
         "NounTextID": "0x48EE1158",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9889,7 +9889,7 @@ window.soulgemDatabase={
     },
     "0x6B6B6EBB": {
         "ItemID": "0x6B6B6EBB",
-        "NounText": "Furgus Soul",
+        "NounText": "Furgus",
         "NounTextID": "0xF052763D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9921,7 +9921,7 @@ window.soulgemDatabase={
     },
     "0x0BACE75E": {
         "ItemID": "0x0BACE75E",
-        "NounText": "Feargus Soul",
+        "NounText": "Feargus",
         "NounTextID": "0xF699B4D6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9953,7 +9953,7 @@ window.soulgemDatabase={
     },
     "0x7CABD7C8": {
         "ItemID": "0x7CABD7C8",
-        "NounText": "Nosirs Soul",
+        "NounText": "Nosirs",
         "NounTextID": "0x6D854E84",
         "InventorySort": 40,
         "ItemType": 30,
@@ -9985,7 +9985,7 @@ window.soulgemDatabase={
     },
     "0xE5A28672": {
         "ItemID": "0xE5A28672",
-        "NounText": "Papa Windbag Soul",
+        "NounText": "Papa Windbag",
         "NounTextID": "0xD53929E1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10017,7 +10017,7 @@ window.soulgemDatabase={
     },
     "0x92A5B6E4": {
         "ItemID": "0x92A5B6E4",
-        "NounText": "Toiletta Soul",
+        "NounText": "Toiletta",
         "NounTextID": "0xC78C860F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10049,7 +10049,7 @@ window.soulgemDatabase={
     },
     "0x0CC12347": {
         "ItemID": "0x0CC12347",
-        "NounText": "Ben Tover Soul",
+        "NounText": "Ben Tover",
         "NounTextID": "0x7F30E16A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10081,7 +10081,7 @@ window.soulgemDatabase={
     },
     "0x7BC613D1": {
         "ItemID": "0x7BC613D1",
-        "NounText": "Robbinyu Soul",
+        "NounText": "Robbinyu",
         "NounTextID": "0x2753F13C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10113,7 +10113,7 @@ window.soulgemDatabase={
     },
     "0xE2CF426B": {
         "ItemID": "0xE2CF426B",
-        "NounText": "Sproink Soul",
+        "NounText": "Sproink",
         "NounTextID": "0x9FEF9659",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10145,7 +10145,7 @@ window.soulgemDatabase={
     },
     "0x95C872FD": {
         "ItemID": "0x95C872FD",
-        "NounText": "Rawry Soul",
+        "NounText": "Rawry",
         "NounTextID": "0xDF87F063",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10177,7 +10177,7 @@ window.soulgemDatabase={
     },
     "0x05776F6C": {
         "ItemID": "0x05776F6C",
-        "NounText": "Furdinand Soul",
+        "NounText": "Furdinand",
         "NounTextID": "0x673B9706",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10191,7 +10191,7 @@ window.soulgemDatabase={
         "IconPosX": 0,
         "IconPosY": 31,
         "DescTextID": "0xC521BA2A",
-        "DescText": "Gradually refills Yo-kai's\\nown Soul Meter.",
+        "DescText": "Gradually refills Yo-kai's\\nown Meter.",
         "SoulEffectID": "0x3F202755",
         "SoulEffect": {
             "SoulEffectID": "0x3F202755",
@@ -10209,7 +10209,7 @@ window.soulgemDatabase={
     },
     "0x72705FFA": {
         "ItemID": "0x72705FFA",
-        "NounText": "Foiletta Soul",
+        "NounText": "Foiletta",
         "NounTextID": "0x758E38E8",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10241,7 +10241,7 @@ window.soulgemDatabase={
     },
     "0x2081B49D": {
         "ItemID": "0x2081B49D",
-        "NounText": "Arachnus Soul",
+        "NounText": "Arachnus",
         "NounTextID": "0xCD325F8D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10273,7 +10273,7 @@ window.soulgemDatabase={
     },
     "0x5786840B": {
         "ItemID": "0x5786840B",
-        "NounText": "Arachnia Soul",
+        "NounText": "Arachnia",
         "NounTextID": "0xD4296ECC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10305,7 +10305,7 @@ window.soulgemDatabase={
     },
     "0xCE8FD5B1": {
         "ItemID": "0xCE8FD5B1",
-        "NounText": "Harry Barry Soul",
+        "NounText": "Harry Barry",
         "NounTextID": "0x50E56734",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10337,7 +10337,7 @@ window.soulgemDatabase={
     },
     "0xB988E527": {
         "ItemID": "0xB988E527",
-        "NounText": "Cricky Soul",
+        "NounText": "Cricky",
         "NounTextID": "0xE8590051",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10369,7 +10369,7 @@ window.soulgemDatabase={
     },
     "0x27EC7084": {
         "ItemID": "0x27EC7084",
-        "NounText": "Snaggly Soul",
+        "NounText": "Snaggly",
         "NounTextID": "0xFAECAFBF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10401,7 +10401,7 @@ window.soulgemDatabase={
     },
     "0x50EB4012": {
         "ItemID": "0x50EB4012",
-        "NounText": "Squeeky Soul",
+        "NounText": "Squeeky",
         "NounTextID": "0x4250C8DA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10433,7 +10433,7 @@ window.soulgemDatabase={
     },
     "0xC9E211A8": {
         "ItemID": "0xC9E211A8",
-        "NounText": "Flushback Soul",
+        "NounText": "Flushback",
         "NounTextID": "0x1A33D88C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10465,7 +10465,7 @@ window.soulgemDatabase={
     },
     "0xBEE5213E": {
         "ItemID": "0xBEE5213E",
-        "NounText": "SV Snaggerjag Soul",
+        "NounText": "SV Snaggerjag",
         "NounTextID": "0xA28FBFE9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10497,7 +10497,7 @@ window.soulgemDatabase={
     },
     "0x2E5A3CAF": {
         "ItemID": "0x2E5A3CAF",
-        "NounText": "Irewig Soul",
+        "NounText": "Irewig",
         "NounTextID": "0x98278AB3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10529,7 +10529,7 @@ window.soulgemDatabase={
     },
     "0x595D0C39": {
         "ItemID": "0x595D0C39",
-        "NounText": "Mermaidyn Soul",
+        "NounText": "Mermaidyn",
         "NounTextID": "0x209BEDD6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10561,7 +10561,7 @@ window.soulgemDatabase={
     },
     "0x399A85DC": {
         "ItemID": "0x399A85DC",
-        "NounText": "Scaremaiden Soul",
+        "NounText": "Scaremaiden",
         "NounTextID": "0x26502F3D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10593,7 +10593,7 @@ window.soulgemDatabase={
     },
     "0x4E9DB54A": {
         "ItemID": "0x4E9DB54A",
-        "NounText": "Lady Longnek Soul",
+        "NounText": "Lady Longnek",
         "NounTextID": "0x322E4238",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10625,7 +10625,7 @@ window.soulgemDatabase={
     },
     "0xD794E4F0": {
         "ItemID": "0xD794E4F0",
-        "NounText": "Wrongnek Soul",
+        "NounText": "Wrongnek",
         "NounTextID": "0x34E580D3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10657,7 +10657,7 @@ window.soulgemDatabase={
     },
     "0xA093D466": {
         "ItemID": "0xA093D466",
-        "NounText": "Draaagin Soul",
+        "NounText": "Draaagin",
         "NounTextID": "0x8A92255D",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10689,7 +10689,7 @@ window.soulgemDatabase={
     },
     "0x3EF741C5": {
         "ItemID": "0x3EF741C5",
-        "NounText": "Firewig Soul",
+        "NounText": "Firewig",
         "NounTextID": "0x17451DE4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10721,7 +10721,7 @@ window.soulgemDatabase={
     },
     "0x49F07153": {
         "ItemID": "0x49F07153",
-        "NounText": "Vacuumory Soul",
+        "NounText": "Vacuumory",
         "NounTextID": "0xAFF97A81",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10753,7 +10753,7 @@ window.soulgemDatabase={
     },
     "0xD0F920E9": {
         "ItemID": "0xD0F920E9",
-        "NounText": "Whinona Soul",
+        "NounText": "Whinona",
         "NounTextID": "0xBD4CD56F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10785,7 +10785,7 @@ window.soulgemDatabase={
     },
     "0xA7FE107F": {
         "ItemID": "0xA7FE107F",
-        "NounText": "Mermadonna Soul",
+        "NounText": "Mermadonna",
         "NounTextID": "0x05F0B20A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10817,7 +10817,7 @@ window.soulgemDatabase={
     },
     "0x37410DEE": {
         "ItemID": "0x37410DEE",
-        "NounText": "Mermother Soul",
+        "NounText": "Mermother",
         "NounTextID": "0x1CEB834B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10849,7 +10849,7 @@ window.soulgemDatabase={
     },
     "0x40463D78": {
         "ItemID": "0x40463D78",
-        "NounText": "Spoilerina Soul",
+        "NounText": "Spoilerina",
         "NounTextID": "0xE52FC539",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10881,7 +10881,7 @@ window.soulgemDatabase={
     },
     "0x76DB131B": {
         "ItemID": "0x76DB131B",
-        "NounText": "Poofessor Soul",
+        "NounText": "Poofessor",
         "NounTextID": "0xA547A303",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10913,7 +10913,7 @@ window.soulgemDatabase={
     },
     "0x01DC238D": {
         "ItemID": "0x01DC238D",
-        "NounText": "Slurpent Soul",
+        "NounText": "Slurpent",
         "NounTextID": "0x1DFBC466",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10945,7 +10945,7 @@ window.soulgemDatabase={
     },
     "0x98D57237": {
         "ItemID": "0x98D57237",
-        "NounText": "Unfairy Soul",
+        "NounText": "Unfairy",
         "NounTextID": "0x92995331",
         "InventorySort": 40,
         "ItemType": 30,
@@ -10977,7 +10977,7 @@ window.soulgemDatabase={
     },
     "0xEFD242A1": {
         "ItemID": "0xEFD242A1",
-        "NounText": "Unkaind Soul",
+        "NounText": "Unkaind",
         "NounTextID": "0x802CFCDF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11009,7 +11009,7 @@ window.soulgemDatabase={
     },
     "0x71B6D702": {
         "ItemID": "0x71B6D702",
-        "NounText": "Untidy Soul",
+        "NounText": "Untidy",
         "NounTextID": "0x38909BBA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11041,7 +11041,7 @@ window.soulgemDatabase={
     },
     "0x06B1E794": {
         "ItemID": "0x06B1E794",
-        "NounText": "Unpleasant Soul",
+        "NounText": "Unpleasant",
         "NounTextID": "0x60F38BEC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11073,7 +11073,7 @@ window.soulgemDatabase={
     },
     "0x9FB8B62E": {
         "ItemID": "0x9FB8B62E",
-        "NounText": "Unkeen Soul",
+        "NounText": "Unkeen",
         "NounTextID": "0xD84FEC89",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11105,7 +11105,7 @@ window.soulgemDatabase={
     },
     "0xE8BF86B8": {
         "ItemID": "0xE8BF86B8",
-        "NounText": "Tyrat Soul",
+        "NounText": "Tyrat",
         "NounTextID": "0x17677F13",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11137,7 +11137,7 @@ window.soulgemDatabase={
     },
     "0x78009B29": {
         "ItemID": "0x78009B29",
-        "NounText": "Apelican Soul",
+        "NounText": "Apelican",
         "NounTextID": "0xAFDB1876",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11169,7 +11169,7 @@ window.soulgemDatabase={
     },
     "0x0F07ABBF": {
         "ItemID": "0x0F07ABBF",
-        "NounText": "Darknyan Soul",
+        "NounText": "Darknyan",
         "NounTextID": "0xBD6EB798",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11201,7 +11201,7 @@ window.soulgemDatabase={
     },
     "0x6FC0225A": {
         "ItemID": "0x6FC0225A",
-        "NounText": "Buchinyan Soul",
+        "NounText": "Buchinyan",
         "NounTextID": "0x05D2D0FD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11233,7 +11233,7 @@ window.soulgemDatabase={
     },
     "0x18C712CC": {
         "ItemID": "0x18C712CC",
-        "NounText": "Verygoodsir Soul",
+        "NounText": "Verygoodsir",
         "NounTextID": "0x9805E844",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11265,7 +11265,7 @@ window.soulgemDatabase={
     },
     "0x81CE4376": {
         "ItemID": "0x81CE4376",
-        "NounText": "Robonyan F Soul",
+        "NounText": "Robonyan F",
         "NounTextID": "0x20B98F21",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11297,7 +11297,7 @@ window.soulgemDatabase={
     },
     "0xF6C973E0": {
         "ItemID": "0xF6C973E0",
-        "NounText": "Sailornyan Soul",
+        "NounText": "Sailornyan",
         "NounTextID": "0x320C20CF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11329,7 +11329,7 @@ window.soulgemDatabase={
     },
     "0x68ADE643": {
         "ItemID": "0x68ADE643",
-        "NounText": "Machonyan Soul",
+        "NounText": "Machonyan",
         "NounTextID": "0x8AB047AA",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11361,7 +11361,7 @@ window.soulgemDatabase={
     },
     "0x1FAAD6D5": {
         "ItemID": "0x1FAAD6D5",
-        "NounText": "Jibakoma Soul",
+        "NounText": "Jibakoma",
         "NounTextID": "0xD2D357FC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11393,7 +11393,7 @@ window.soulgemDatabase={
     },
     "0x86A3876F": {
         "ItemID": "0x86A3876F",
-        "NounText": "Grumpus Khan Soul",
+        "NounText": "Grumpus Khan",
         "NounTextID": "0xC1CAFCA0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11425,7 +11425,7 @@ window.soulgemDatabase={
     },
     "0xF1A4B7F9": {
         "ItemID": "0xF1A4B7F9",
-        "NounText": "Groupus Khan Soul",
+        "NounText": "Groupus Khan",
         "NounTextID": "0xD37F534E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11457,7 +11457,7 @@ window.soulgemDatabase={
     },
     "0x611BAA68": {
         "ItemID": "0x611BAA68",
-        "NounText": "Slumberhog Soul",
+        "NounText": "Slumberhog",
         "NounTextID": "0x6BC3342B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11471,7 +11471,7 @@ window.soulgemDatabase={
         "IconPosX": 10,
         "IconPosY": 30,
         "DescTextID": "0xC521BA2A",
-        "DescText": "Gradually refills Yo-kai's\\nown Soul Meter.",
+        "DescText": "Gradually refills Yo-kai's\\nown Meter.",
         "SoulEffectID": "0x33D88478",
         "SoulEffect": {
             "SoulEffectID": "0x33D88478",
@@ -11489,7 +11489,7 @@ window.soulgemDatabase={
     },
     "0x161C9AFE": {
         "ItemID": "0x161C9AFE",
-        "NounText": "Snortlehog Soul",
+        "NounText": "Snortlehog",
         "NounTextID": "0xF6140C92",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11521,7 +11521,7 @@ window.soulgemDatabase={
     },
     "0x44ED7199": {
         "ItemID": "0x44ED7199",
-        "NounText": "Panja Pupil Soul",
+        "NounText": "Panja Pupil",
         "NounTextID": "0x4EA86BF7",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11553,7 +11553,7 @@ window.soulgemDatabase={
     },
     "0x33EA410F": {
         "ItemID": "0x33EA410F",
-        "NounText": "Panja Pro Soul",
+        "NounText": "Panja Pro",
         "NounTextID": "0x5C1DC419",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11585,7 +11585,7 @@ window.soulgemDatabase={
     },
     "0xAAE310B5": {
         "ItemID": "0xAAE310B5",
-        "NounText": "Samureel Soul",
+        "NounText": "Samureel",
         "NounTextID": "0xE4A1A37C",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11617,7 +11617,7 @@ window.soulgemDatabase={
     },
     "0xDDE42023": {
         "ItemID": "0xDDE42023",
-        "NounText": "Time Keeler Soul",
+        "NounText": "Time Keeler",
         "NounTextID": "0xBCC2B32A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11649,7 +11649,7 @@ window.soulgemDatabase={
     },
     "0x4380B580": {
         "ItemID": "0x4380B580",
-        "NounText": "Takoyakid Soul",
+        "NounText": "Takoyakid",
         "NounTextID": "0x047ED44F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11681,7 +11681,7 @@ window.soulgemDatabase={
     },
     "0x34878516": {
         "ItemID": "0x34878516",
-        "NounText": "Takoyaking Soul",
+        "NounText": "Takoyaking",
         "NounTextID": "0x4416B275",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11713,7 +11713,7 @@ window.soulgemDatabase={
     },
     "0xAD8ED4AC": {
         "ItemID": "0xAD8ED4AC",
-        "NounText": "Danke Sand Soul",
+        "NounText": "Danke Sand",
         "NounTextID": "0xFCAAD510",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11745,7 +11745,7 @@ window.soulgemDatabase={
     },
     "0xDA89E43A": {
         "ItemID": "0xDA89E43A",
-        "NounText": "No Sandkyu Soul",
+        "NounText": "No Sandkyu",
         "NounTextID": "0xEE1F7AFE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11777,7 +11777,7 @@ window.soulgemDatabase={
     },
     "0x4A36F9AB": {
         "ItemID": "0x4A36F9AB",
-        "NounText": "Sumodon Soul",
+        "NounText": "Sumodon",
         "NounTextID": "0x56A31D9B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11809,7 +11809,7 @@ window.soulgemDatabase={
     },
     "0x3D31C93D": {
         "ItemID": "0x3D31C93D",
-        "NounText": "Yokozudon Soul",
+        "NounText": "Yokozudon",
         "NounTextID": "0xCB742522",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11841,7 +11841,7 @@ window.soulgemDatabase={
     },
     "0x5DF640D8": {
         "ItemID": "0x5DF640D8",
-        "NounText": "Whateverest Soul",
+        "NounText": "Whateverest",
         "NounTextID": "0x73C84247",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11873,7 +11873,7 @@ window.soulgemDatabase={
     },
     "0x2AF1704E": {
         "ItemID": "0x2AF1704E",
-        "NounText": "Whatuption Soul",
+        "NounText": "Whatuption",
         "NounTextID": "0x617DEDA9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11905,7 +11905,7 @@ window.soulgemDatabase={
     },
     "0xB3F821F4": {
         "ItemID": "0xB3F821F4",
-        "NounText": "Happycane Soul",
+        "NounText": "Happycane",
         "NounTextID": "0xD9C18ACC",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11937,7 +11937,7 @@ window.soulgemDatabase={
     },
     "0xC4FF1162": {
         "ItemID": "0xC4FF1162",
-        "NounText": "Starrycane Soul",
+        "NounText": "Starrycane",
         "NounTextID": "0x81A29A9A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -11969,7 +11969,7 @@ window.soulgemDatabase={
     },
     "0x5A9B84C1": {
         "ItemID": "0x5A9B84C1",
-        "NounText": "Robokapp Soul",
+        "NounText": "Robokapp",
         "NounTextID": "0x391EFDFF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12001,7 +12001,7 @@ window.soulgemDatabase={
     },
     "0x2D9CB457": {
         "ItemID": "0x2D9CB457",
-        "NounText": "Robokoma Soul",
+        "NounText": "Robokoma",
         "NounTextID": "0x03B6C8A5",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12033,7 +12033,7 @@ window.soulgemDatabase={
     },
     "0xB495E5ED": {
         "ItemID": "0xB495E5ED",
-        "NounText": "Robogramps Soul",
+        "NounText": "Robogramps",
         "NounTextID": "0xBB0AAFC0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12065,7 +12065,7 @@ window.soulgemDatabase={
     },
     "0xC392D57B": {
         "ItemID": "0xC392D57B",
-        "NounText": "Robomutt Soul",
+        "NounText": "Robomutt",
         "NounTextID": "0xA9BF002E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12097,7 +12097,7 @@ window.soulgemDatabase={
     },
     "0x532DC8EA": {
         "ItemID": "0x532DC8EA",
-        "NounText": "Robonoko Soul",
+        "NounText": "Robonoko",
         "NounTextID": "0x1103674B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12129,7 +12129,7 @@ window.soulgemDatabase={
     },
     "0x242AF87C": {
         "ItemID": "0x242AF87C",
-        "NounText": "Robodraggie Soul",
+        "NounText": "Robodraggie",
         "NounTextID": "0x8CD45FF2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12143,7 +12143,7 @@ window.soulgemDatabase={
         "IconPosX": 1,
         "IconPosY": 31,
         "DescTextID": "0xD76F9DA2",
-        "DescText": "Own Soultimate Moves are\\na lot more powerful.",
+        "DescText": "Owntimate Moves are\\na lot more powerful.",
         "SoulEffectID": "0xD4CFEFA1",
         "SoulEffect": {
             "SoulEffectID": "0xD4CFEFA1",
@@ -12161,7 +12161,7 @@ window.soulgemDatabase={
     },
     "0xDA6E5C17": {
         "ItemID": "0xDA6E5C17",
-        "NounText": "Melonyan Soul",
+        "NounText": "Melonyan",
         "NounTextID": "0x34683897",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12193,7 +12193,7 @@ window.soulgemDatabase={
     },
     "0xAD696C81": {
         "ItemID": "0xAD696C81",
-        "NounText": "Oranyan Soul",
+        "NounText": "Oranyan",
         "NounTextID": "0x2D7309D6",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12225,7 +12225,7 @@ window.soulgemDatabase={
     },
     "0x34603D3B": {
         "ItemID": "0x34603D3B",
-        "NounText": "Kiwinyan Soul",
+        "NounText": "Kiwinyan",
         "NounTextID": "0x065E5A15",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12257,7 +12257,7 @@ window.soulgemDatabase={
     },
     "0x43670DAD": {
         "ItemID": "0x43670DAD",
-        "NounText": "Grapenyan Soul",
+        "NounText": "Grapenyan",
         "NounTextID": "0x1F456B54",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12289,7 +12289,7 @@ window.soulgemDatabase={
     },
     "0xDD03980E": {
         "ItemID": "0xDD03980E",
-        "NounText": "Strawbnyan Soul",
+        "NounText": "Strawbnyan",
         "NounTextID": "0x5004FD93",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12321,7 +12321,7 @@ window.soulgemDatabase={
     },
     "0xAA04A898": {
         "ItemID": "0xAA04A898",
-        "NounText": "Watermelnyan Soul",
+        "NounText": "Watermelnyan",
         "NounTextID": "0x491FCCD2",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12353,7 +12353,7 @@ window.soulgemDatabase={
     },
     "0x330DF922": {
         "ItemID": "0x330DF922",
-        "NounText": "Jetnyan Soul",
+        "NounText": "Jetnyan",
         "NounTextID": "0x6A6F3099",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12385,7 +12385,7 @@ window.soulgemDatabase={
     },
     "0x440AC9B4": {
         "ItemID": "0x440AC9B4",
-        "NounText": "Wondernyan Soul",
+        "NounText": "Wondernyan",
         "NounTextID": "0x2A0756A3",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12417,7 +12417,7 @@ window.soulgemDatabase={
     },
     "0xA84D0F23": {
         "ItemID": "0xA84D0F23",
-        "NounText": "Stealth Soul",
+        "NounText": "Stealth",
         "NounTextID": "0xDF3CE01A",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12450,7 +12450,7 @@ window.soulgemDatabase={
     },
     "0xDF4A3FB5": {
         "ItemID": "0xDF4A3FB5",
-        "NounText": "Soldier's Soul",
+        "NounText": "Soldier's",
         "NounTextID": "0x4635B1A0",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12483,7 +12483,7 @@ window.soulgemDatabase={
     },
     "0x46436E0F": {
         "ItemID": "0x46436E0F",
-        "NounText": "Stout Soul",
+        "NounText": "Stout",
         "NounTextID": "0x31328136",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12516,7 +12516,7 @@ window.soulgemDatabase={
     },
     "0x31445E99": {
         "ItemID": "0x31445E99",
-        "NounText": "Stubborn Soul",
+        "NounText": "Stubborn",
         "NounTextID": "0xAF561495",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12549,7 +12549,7 @@ window.soulgemDatabase={
     },
     "0xAF20CB3A": {
         "ItemID": "0xAF20CB3A",
-        "NounText": "Scatter Soul",
+        "NounText": "Scatter",
         "NounTextID": "0xD8512403",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12582,7 +12582,7 @@ window.soulgemDatabase={
     },
     "0xD827FBAC": {
         "ItemID": "0xD827FBAC",
-        "NounText": "Stinging Soul",
+        "NounText": "Stinging",
         "NounTextID": "0x415875B9",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12615,7 +12615,7 @@ window.soulgemDatabase={
     },
     "0x412EAA16": {
         "ItemID": "0x412EAA16",
-        "NounText": "Speed Soul",
+        "NounText": "Speed",
         "NounTextID": "0x365F452F",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12648,7 +12648,7 @@ window.soulgemDatabase={
     },
     "0x36299A80": {
         "ItemID": "0x36299A80",
-        "NounText": "Slippery Soul",
+        "NounText": "Slippery",
         "NounTextID": "0xA6E058BE",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12681,7 +12681,7 @@ window.soulgemDatabase={
     },
     "0xA6968711": {
         "ItemID": "0xA6968711",
-        "NounText": "Surly Soul",
+        "NounText": "Surly",
         "NounTextID": "0xD1E76828",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12714,7 +12714,7 @@ window.soulgemDatabase={
     },
     "0xD191B787": {
         "ItemID": "0xD191B787",
-        "NounText": "Scorching Soul",
+        "NounText": "Scorching",
         "NounTextID": "0xB120E1CD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12747,7 +12747,7 @@ window.soulgemDatabase={
     },
     "0xB1563E62": {
         "ItemID": "0xB1563E62",
-        "NounText": "Soaking Soul",
+        "NounText": "Soaking",
         "NounTextID": "0xC627D15B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12780,7 +12780,7 @@ window.soulgemDatabase={
     },
     "0xC6510EF4": {
         "ItemID": "0xC6510EF4",
-        "NounText": "Sparking Soul",
+        "NounText": "Sparking",
         "NounTextID": "0x5F2E80E1",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12813,7 +12813,7 @@ window.soulgemDatabase={
     },
     "0x5F585F4E": {
         "ItemID": "0x5F585F4E",
-        "NounText": "Spacedust Soul",
+        "NounText": "Spacedust",
         "NounTextID": "0x2829B077",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12846,7 +12846,7 @@ window.soulgemDatabase={
     },
     "0x285F6FD8": {
         "ItemID": "0x285F6FD8",
-        "NounText": "Subzero Soul",
+        "NounText": "Subzero",
         "NounTextID": "0xB64D25D4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12879,7 +12879,7 @@ window.soulgemDatabase={
     },
     "0xB63BFA7B": {
         "ItemID": "0xB63BFA7B",
-        "NounText": "Spin Soul",
+        "NounText": "Spin",
         "NounTextID": "0xC14A1542",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12912,7 +12912,7 @@ window.soulgemDatabase={
     },
     "0x58359B57": {
         "ItemID": "0x58359B57",
-        "NounText": "Searing Soul",
+        "NounText": "Searing",
         "NounTextID": "0x2F44746E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12945,7 +12945,7 @@ window.soulgemDatabase={
     },
     "0x2F32ABC1": {
         "ItemID": "0x2F32ABC1",
-        "NounText": "Sodden Soul",
+        "NounText": "Sodden",
         "NounTextID": "0xBFFB69FF",
         "InventorySort": 40,
         "ItemType": 30,
@@ -12978,7 +12978,7 @@ window.soulgemDatabase={
     },
     "0xBF8DB650": {
         "ItemID": "0xBF8DB650",
-        "NounText": "Storm Soul",
+        "NounText": "Storm",
         "NounTextID": "0xC8FC5969",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13011,7 +13011,7 @@ window.soulgemDatabase={
     },
     "0xC88A86C6": {
         "ItemID": "0xC88A86C6",
-        "NounText": "Sprouting Soul",
+        "NounText": "Sprouting",
         "NounTextID": "0x9A0DB20E",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13044,7 +13044,7 @@ window.soulgemDatabase={
     },
     "0x9A7B6DA1": {
         "ItemID": "0x9A7B6DA1",
-        "NounText": "Snow Soul",
+        "NounText": "Snow",
         "NounTextID": "0xED0A8298",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13077,7 +13077,7 @@ window.soulgemDatabase={
     },
     "0xED7C5D37": {
         "ItemID": "0xED7C5D37",
-        "NounText": "Squall Soul",
+        "NounText": "Squall",
         "NounTextID": "0x7403D322",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13110,7 +13110,7 @@ window.soulgemDatabase={
     },
     "0x74750C8D": {
         "ItemID": "0x74750C8D",
-        "NounText": "Supernatural Soul",
+        "NounText": "Supernatural",
         "NounTextID": "0x0304E3B4",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13143,7 +13143,7 @@ window.soulgemDatabase={
     },
     "0x03723C1B": {
         "ItemID": "0x03723C1B",
-        "NounText": "Sinister Soul",
+        "NounText": "Sinister",
         "NounTextID": "0x9D607617",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13176,7 +13176,7 @@ window.soulgemDatabase={
     },
     "0x9D16A9B8": {
         "ItemID": "0x9D16A9B8",
-        "NounText": "Shielding Soul",
+        "NounText": "Shielding",
         "NounTextID": "0xEA674681",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13209,7 +13209,7 @@ window.soulgemDatabase={
     },
     "0xEA11992E": {
         "ItemID": "0xEA11992E",
-        "NounText": "Summoner's Soul",
+        "NounText": "Summoner's",
         "NounTextID": "0x736E173B",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13242,7 +13242,7 @@ window.soulgemDatabase={
     },
     "0x7318C894": {
         "ItemID": "0x7318C894",
-        "NounText": "Surrender Soul",
+        "NounText": "Surrender",
         "NounTextID": "0x046927AD",
         "InventorySort": 40,
         "ItemType": 30,
@@ -13275,7 +13275,7 @@ window.soulgemDatabase={
     },
     "0x041FF802": {
         "ItemID": "0x041FF802",
-        "NounText": "Superstar Soul",
+        "NounText": "Superstar",
         "NounTextID": "0x94D63A3C",
         "InventorySort": 40,
         "ItemType": 30,

@@ -27,6 +27,27 @@
 	font-style: normal;
 }
 
+@font-face{
+	font-family: 'SN_Pro';
+	src: url('../Fonts/SN_Pro/SNPro-Italic-VariableFont_wght.ttf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: 
+            0px 0px,    /* Pattern starts at top-left */
+            0px 0px;    /* Static background remains fixed */
+    }
+	
+    100% {
+        background-position: 
+            100% 100%,  /* Pattern moves diagonally */
+            0px 0px;    /* Static background stays in place */
+    }
+}
+
 @media (max-height: 400px) {
 	main {
 		transform: scale(0.9);
@@ -54,21 +75,6 @@
 	#Slot6{top: 157px !important; left: 182.5px !important;}
 }
 
-
-.left-char {
-  grid-column: 1;
-  height: 108px;
-  width: auto;
-  justify-self: start;
-}
-
-.right-char {
-  grid-column: 3;
-  height: 108px;
-  width: auto;
-  justify-self: end;
-}
-
 .icon {
   display: inline-block;
   width: 20px;
@@ -77,7 +83,6 @@
   vertical-align: middle;
 }
 
-/* Define individual icons */
 .icon-discord {
   background-image: url('../Graphics/MenuIcons/Discord/discord_ico_color.png');
 }
@@ -215,228 +220,6 @@
 	--transparent-bg: #368b2780;
 }
 
-.SlotInfo-Text{
-	color: var(--side-buttons-color)
-}
-
-.MiniYokaiInfo-div{
-	width: 850px;
-    height: 80px;
-	padding: 0px 15px;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 15px;
-    display: flex;
-    place-content: center;
-	align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.MiniSoulGemInfo-div{
-	width: auto;
-    height: 80px;
-	padding: 0px 15px;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 15px;
-    display: flex;
-    place-content: center;
-	align-items: center;
-	justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.MiniEqInfo-div{
-	width: auto;
-    height: 80px;
-	padding: 0px 15px;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 15px;
-    display: flex;
-    place-content: center;
-	align-items: center;
-	justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.equipment-list{
-	justify-content: center
-}
-
-.nav-button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-    padding: 0px 30px;
-    border: none;
-    cursor: pointer;
-	border-radius: 15px;
-	height: 28px;
-	background-color: var(--nav-buttons-bg);
-	color: var(--nav-buttons-color);
-}
-
-.nav-wallpaper-change {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-	display: flex;
-	padding: 0px 30px;
-    margin: 0 50px;
-	border-radius: 15px;
-	cursor: pointer;
-	background-color: var(--nav-buttons-bg);
-	color: var(--side-buttons-color);
-}
-
-#wallpaper-select{
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-	display: flex;
-	margin-left: 5px;
-	padding-bottom: 3px;
-	border: none;
-	cursor: pointer;
-	background-color: var(--nav-buttons-bg);
-	color: var(--side-buttons-color);
-}
-
-.side-button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 10px;
-    margin-top: 15px;
-    position: static;
-    width: 165px;
-    height: 40px;
-    border: none;
-	border-radius: 30px;
-	cursor: pointer;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	text-align: center;
-	text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.side-button:disabled {
-    color: gray;
-	cursor: not-allowed;
-}
-
-.main-button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-    position: static;
-    width: auto;
-    height: auto;
-    /*margin: 5px 20px;*/
-	border-width: 1px; 
-	border-style: solid;
-	border-radius: 30px;
-	border-color: var(--side-buttons-color);
-	cursor: pointer;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-}
-
-.main-select{
-	background-color: var(--side-buttons-bg); 
-	color: var(--side-buttons-color);
-}
-
-.banner-container {
-	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
-	position: absolute;
-	left: 0px;
-	top: 37px;
-	z-index: 2; 
-	display: grid;
-	grid-template-columns: 1fr auto 1fr; /* Left character | Logo | Right character */
-	width: 100%;
-    align-items: center;
-	height: 108px
-}
-
-#logo-js {
-  justify-self: center; /* Centers logo horizontally */
-  
-}
-
-#Logo-Text{
-	font-family: 'YokaiWatch_YokaiRoleFont'; 
-	font-size: 40px; 
-	color: var(--logo-color);
-}
-
-.transparent-background{
-	background-color: var(--transparent-bg);
-	border-radius: 15px;
-	border-style: solid; /* Or dashed, dotted, etc. */
-	border-width: 3px;
-	border-color: black;
-}
-
-.yokai-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center; 
-	margin: 20px 100px;
-    width: max-content;
-}
-
-.team-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center; 
-	margin: 20px 100px;
-    width: max-content;
-}
-
-.team-wheel-display-container{
-	align-self: center;
-	position: relative;
-}
-
-.wheel-medal-slot{
-	position: absolute;
-	width: 48px;
-}
-
-.yokai-attributes {
-	justify-content: center;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	margin: 20px 100px;
-	border-radius: 15px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
-}
-
-.yokai-list img {
-	width: 47px;
-	height: auto;
-	cursor: pointer;
-	margin: 5px;
-}
-
-.main-tabs {
-	display: flex;
-	justify-content: space-between; /* Pushes children to edges */
-	padding: 5px 0;
-	height: 27px;
-	z-index: 4;
-}
-
 body {
     font-family: 'YokaiWatch_YokaiDialogue2Font'; 
     font-size: 12px;
@@ -458,8 +241,35 @@ body {
 }
 
 main {
+	padding: 0 3vw;
+	
+	color: var(--nav-buttons-color); 
+	
 	flex: 1;
+	
 	overflow-y: auto;
+	
+	box-sizing: border-box;
+}
+
+main button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    position: static;
+    width: auto;
+    height: auto;
+	border-width: 1px; 
+	border-style: solid;
+	border-radius: 30px;
+	border-color: var(--side-buttons-color);
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+main select{
+	background-color: var(--side-buttons-bg); 
+	color: var(--side-buttons-color);
 }
 
 aside {
@@ -514,16 +324,6 @@ button:disabled{
 	cursor: default;
 }
 
-.wrapper {
-    display: flex;
-    flex: 1; /* Растягивается на всю оставшуюся высоту */
-    position: relative;
-}
-
-.hidden-sidebar {
-    transform: translateX(-87%);
-}
-
 input {
 	background-color: var(--side-buttons-bg); 
 	color: var(--side-buttons-color);
@@ -550,23 +350,130 @@ hr{
 	
 }
 
-#search-input{
-	width:250px;
-	height: 25px;
+.wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
 }
 
-@keyframes scrollBackground {
-    0% {
-        background-position: 
-            0px 0px,    /* Pattern starts at top-left */
-            0px 0px;    /* Static background remains fixed */
-    }
-	
-    100% {
-        background-position: 
-            100% 100%,  /* Pattern moves diagonally */
-            0px 0px;    /* Static background stays in place */
-    }
+.main-tabs{
+	display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    height: 27px;
+    z-index: 4;
+}
+
+#left-char {
+  grid-column: 1;
+  height: 108px;
+  width: auto;
+  justify-self: start;
+}
+
+#right-char {
+  grid-column: 3;
+  height: 108px;
+  width: auto;
+  justify-self: end;
+}
+
+.banner-container {
+	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
+	position: absolute;
+	left: 0px;
+	top: 37px;
+	z-index: 2; 
+	display: grid;
+	grid-template-columns: 1fr auto 1fr; /* Left character | Logo | Right character */
+	width: 100%;
+    align-items: center;
+	height: 108px
+}
+
+#logo-js {
+  justify-self: center;
+  
+}
+
+#Logo-Text{
+	font-family: 'YokaiWatch_YokaiRoleFont'; 
+	font-size: 40px; 
+	color: var(--logo-color);
+}
+
+.nav-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+    padding: 0px 30px;
+    border: none;
+    cursor: pointer;
+	border-radius: 15px;
+	height: 28px;
+	background-color: var(--nav-buttons-bg);
+	color: var(--nav-buttons-color);
+}
+
+.nav-wallpaper-change {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	padding: 0px 30px;
+    margin: 0 50px;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+#wallpaper-select{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 12px;
+	display: flex;
+	margin-left: 5px;
+	padding-bottom: 3px;
+	border: none;
+	cursor: pointer;
+	background-color: var(--nav-buttons-bg);
+	color: var(--side-buttons-color);
+}
+
+.hidden-sidebar {
+    transform: translateX(-87%);
+}
+
+.side-button {
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	font-size: 10px;
+    margin-top: 15px;
+    position: static;
+    width: 165px;
+    height: 40px;
+    border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	text-align: center;
+	text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.side-button:disabled {
+    color: gray;
+	cursor: not-allowed;
+}
+
+.transparent-background{
+	background-color: var(--transparent-bg);
+	color: var(--side-buttons-color);
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
 }
 
 #authDiv{
@@ -577,4 +484,8 @@ hr{
 #userPfpImg{
 	width: auto;
 	height: 120%;
+}
+
+.verticalLine {
+  border-left: 2px solid var(--side-buttons-color);
 }

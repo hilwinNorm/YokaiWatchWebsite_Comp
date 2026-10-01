@@ -3,6 +3,22 @@ let pathDatabase = "Content/JS/Databases/";
 
 let pathMedal = 'Content/Graphics/YokaiMedals/';
 
+const elementList = [
+	"None",
+	"Fire",
+	"Water",
+	"Lightning",
+	"Earth",
+	"Ice",
+	"Wind",
+	"Drain"
+];
+
+const state = {
+	selectedManager: undefined,
+	selectedDatabase: undefined
+}
+
 function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, ivDef = 8, ivSpd = 8,
                           gymStr = 0, gymSpr = 0, gymDef = 0, gymSpd = 0,
                           evHp = 0, evStr = 0, evSpr = 0, evDef = 0, evSpd = 0 }) {
@@ -30,15 +46,12 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     return { baseHp, baseStr, baseSpr, baseDef, baseSpd };
 }
 
-function updateDisplay({side, posX, posY, name, baseHp, baseStr, baseSpr, baseDef, baseSpd}) {
-	
+function updateDisplay({side, posX, posY, name, values}) {
 	$(`${side}Img`).src = `Content/Graphics/YokaiMedals/y${String(posX + posY * 23).padStart(3, '0')}.webp`;
     $(`${side}Name`).innerText = name;
-	$(`${side}-hp`).value = Math.floor(baseHp);
-	$(`${side}-str`).value = Math.floor(baseStr);
-	$(`${side}-spr`).value = Math.floor(baseSpr);
-	$(`${side}-def`).value = Math.floor(baseDef);
-	$(`${side}-spd`).value = Math.floor(baseSpd);
+	for (const [key, yokaiValue] of Object.entries(values)) {
+		$(`${side}-${key}`).value = Math.floor(yokaiValue);
+	}
 }
 
 function validateAndStyleInputs(manager) {
@@ -85,7 +98,19 @@ function getRandomNumberWithTwoDecimals() {
   return parseFloat(randomValue.toFixed(2));
 }
 
+function selectCombatant(manager) {
+    state.selectedManager = manager;
+
+    document.querySelectorAll(".combatant-panel").forEach(panel => panel.classList.remove("selected"));
+
+    $(`${manager.side}-container`).classList.add("selected");
+
+    $("selectedSideDisplay").innerText = `Selected side: ${manager.side}`;
+}
+
 function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
+	const moveConfig = skillConfigDatabase[moveData?.SkillConfigID];
+	
 	let attackerStats = yokaiAttackerData.getStats();
 	let defenderStats = yokaiDefenderData.getStats();
 	
@@ -96,9 +121,9 @@ function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
 	let isDefenseSkill = $("isDefenseSkill");
 	//let moveTypeInput = parseInt($("move-type"));
 	let attackerStatValue;
-	let power = Math.floor(moveData?.SkillConfig.BasePower * moveGrowthList[moveData.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100); // Power set to lvl 10 by default
+	let power = Math.floor(moveConfig.BasePower * moveGrowthList[moveData.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100); // Power set to lvl 10 by default
 	
-	let moveEl = moveData?.SkillConfig.Element ?? 0;
+	let moveEl = moveConfig.Element ?? 0;
 	let elementResist= moveEl == 0 ? 1 : yokaiDefenderData.yokaiData[`${elementList[moveEl]}AttributeMultiplier`];
 	
 	let hitAmount = moveData.HitsPerTarget;
@@ -139,22 +164,23 @@ function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
 	
 	//let rawDamage = Math.max(((attackerStatValue + power)/2 - defenderStats.baseDef*defenceScale),1);
 	let rawDamage = Math.max(((attackerStatValue + power)/2 - parseInt($("defender-def").value)*defenceScale),1);
-	let totalDamage = rawDamage*RandMulti*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
+	//let totalDamage = rawDamage*RandMulti*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
 	let minTotalDamage = rawDamage*0.9*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
 	let maxTotalDamage = rawDamage*1.1*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
+	let defenderHp = parseInt($("defender-hp").value);
 	//console.log("Raw Damage: ", rawDamage)
-	totalDamage = Math.floor(totalDamage) ;
-	$("DamageOutput").innerText = `Minimum Damage: ${minTotalDamage}\nMaximum Damage: ${maxTotalDamage}\nRandom Damage: ${totalDamage}`;
+	//totalDamage = Math.floor(totalDamage);
+	minTotalDamage = Math.floor(minTotalDamage);
+	maxTotalDamage = Math.floor(maxTotalDamage);
+	$("DamageOutput").innerText = `Minimum Damage: ${minTotalDamage} x ${hitAmount} | Max Damage: ${maxTotalDamage} x ${hitAmount}`;
 	//$('HitsDiv').innerText = Math.ceil(defenderStats.baseHp / totalDamage);
-	$('HitsDiv').innerText = Math.ceil(parseInt($("defender-hp").value) / totalDamage);
+	$('HitsDiv').innerText = `Minimum Hits: ${Math.ceil(defenderHp / minTotalDamage)} | Max Hits: ${Math.ceil(defenderHp / maxTotalDamage)}`;
 }
 
 function loadYokaiList(yokais, attackerMng, defenderMng) {
-    const defenderContainer = $('defender-div');
-    const attackerContainer = $('attacker-div');
+    const yokaiPage = $('data-page');
 
-    let defenderHTML = '';
-    let attackerHTML = '';
+    let pageHTML = '';
 	
 	const sortedEntries = Object.entries(yokais)
     .filter(([, yokai]) => yokai.InMedallium === 1 && yokai.LegalAlliances != 0)
@@ -175,12 +201,25 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
         const spr = Math.round(stats.baseSpr);
         const def = Math.round(stats.baseDef);
         const spd = Math.round(stats.baseSpd);
+		
+		let alliance = ``;
+		
+		if ([1,2].includes(yokai.LegalAlliances)){
+			//console.debug('pass');
+			const allianceTag = document.createElement('img');
+			allianceTag.style = `width: auto; height: 30px;`;
+			
+			if (yokai.LegalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`;}
+			else if (yokai.LegalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`;}
+			
+			alliance = allianceTag.outerHTML;
+		}
 
         const itemHTML = `
-            <div class="MiniYokaiInfo-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;flex-wrap:wrap;">
+            <div class="mini-info-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;flex-wrap:wrap;">
                 <div style="width:12%;justify-self:center;">NO. ${medalId}</div>
-                <img class="defender-list-img" src="${imgSrc}" alt="${name}" style="cursor:pointer;width:50px;height:auto;" data-role="defender" data-yokai-key="${key}">
-                <div style="width:12%;justify-self:center;" paramID="${key}">${name}</div>
+                <img class="yokai-list-img" src="${imgSrc}" alt="${name}" style="cursor:pointer;width:50px;height:auto;" data-yokai-key="${key}">
+                <div style="width:12%;justify-self:center;" paramID="${key}">${name}${alliance}</div>
                 <div style="width:12%;justify-self:center;">HP:${hp}</div>
                 <div style="width:12%;justify-self:center;">STR:${str}</div>
                 <div style="width:12%;justify-self:center;">SPR:${spr}</div>
@@ -189,37 +228,17 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
             </div>
         `;
 
-        defenderHTML += itemHTML;
-        let attackerItemHTML = itemHTML
-            .replace(/defender-list-img/g, 'attacker-list-img')
-            .replace(/data-role="defender"/g, 'data-role="attacker"');
-        attackerHTML += attackerItemHTML;
+        pageHTML += itemHTML;
     }
 
-    defenderContainer.innerHTML = defenderHTML;
-    attackerContainer.innerHTML = attackerHTML;
+    yokaiPage.innerHTML = pageHTML;
 
-    defenderContainer.querySelectorAll('.defender-list-img').forEach(img => {
+    yokaiPage.querySelectorAll('.yokai-list-img').forEach(img => {
         img.addEventListener('click', function(e) {
             const key = this.dataset.yokaiKey;
             const yokai = yokais[key];
-            if (yokai) {
-                setYokaiData(yokai, defenderMng);
-            } else {
-                console.warn('Defender: Yokai not found for key', key);
-            }
-        });
-    });
-
-    attackerContainer.querySelectorAll('.attacker-list-img').forEach(img => {
-        img.addEventListener('click', function(e) {
-            const key = this.dataset.yokaiKey;
-            const yokai = yokais[key];
-            if (yokai) {
-                setYokaiData(yokai, attackerMng);
-            } else {
-                console.warn('Attacker: Yokai not found for key', key);
-            }
+            if (yokai) setYokaiData(yokai, state.selectedManager);
+            else console.warn('Yokai not found for key', key);
         });
     });
 
@@ -255,7 +274,8 @@ class YokaiStatsManager {
 
 	updateIV(stat, value) {
 		const num = parseInt(value, 10);
-		if (isNaN(num) || num < 0 || ((3 >= num || num > 16) && stat != "hp") || ((6 >= num || num > 31) && stat == "hp")) return null; // (IV can't be higher than 16 legally and can't be lower than 3 in comp, though possible in game)
+		//if (isNaN(num) || num < 0 || ((3 >= num || num > 16) && stat != "hp") || ((6 >= num || num > 31) && stat == "hp")) return null; // (IV can't be higher than 16 legally and can't be lower than 3 in comp, though possible in game)
+		if (isNaN(num) || num < 0) return null;
 		this.ivs[stat] = num;
 		this.onUpdate();
 	}
@@ -267,7 +287,7 @@ class YokaiStatsManager {
 	}
 	updateGym(stat, value) {
 		const num = parseInt(value, 10);
-		if (isNaN(num) || num < 0 || num > 5) return null; // Yokai can have only 5 Gym Trainings
+		if (isNaN(num) || num < 0) return null; // Yokai can have only 5 Gym Trainings
 		this.gym[stat] = num;
 		this.onUpdate();
 	}
@@ -280,16 +300,16 @@ class YokaiStatsManager {
 
 	onUpdate() {
 		const stats = this.getStats();
+		let values = undefined;
+		if (this.side == `defender`) values = {hp: stats.baseHp, def: stats.baseDef};
+		else values = {str: stats.baseStr, spr: stats.baseSpr};
+		
 		updateDisplay({
 			side: this.side, 
 			name: this.yokaiData.Name, 
 			posX: this.yokaiData.MedalPosX, 
-			posY: this.yokaiData.MedalPosY, 
-			baseHp: stats.baseHp, 
-			baseStr: stats.baseStr, 
-			baseSpr: stats.baseSpr, 
-			baseDef: stats.baseDef, 
-			baseSpd: stats.baseSpd
+			posY: this.yokaiData.MedalPosY,
+			values: values
 		});
 		validateAndStyleInputs(this);
 	}
@@ -299,31 +319,34 @@ function setupEventListeners(){
 	const attackerManager = new YokaiStatsManager({ yokaiData: yokaiDatabase["0x79F3AA36"], side: 'attacker' });
 	const defenderManager = new YokaiStatsManager({ yokaiData: yokaiDatabase["0x79F3AA36"], side: 'defender' });
 	const moveTypeInput = $("move-type");
-	let selectedDatabase = attackDatabase;
+	state.selectedDatabase = attackDatabase;
+	state.selectedManager = defenderManager;
 	
 	loadYokaiList(yokaiDatabase, attackerManager, defenderManager);
 		
 	moveTypeInput.addEventListener('change', function(event){
-		if (moveTypeInput.value == "soultimate") $("isMoxie").disabled = false;
+		if (moveTypeInput.value == "SoultimateBtlCommandID") $("isMoxie").disabled = false;
 		else $("isMoxie").disabled = true;
 		switch (moveTypeInput.value){
 			case "AttackID":
-				selectedDatabase = attackDatabase;
+				state.selectedDatabase = attackDatabase;
 				break;
 			case "TechniqueID":
-				selectedDatabase = techniqueDatabase;
+				state.selectedDatabase = techniqueDatabase;
 				break;
 			case "SoultimateBtlCommandID":
-				selectedDatabase = soultimateDatabase;
+				state.selectedDatabase = soultimateDatabase;
 				break;
 			default:
-				selectedDatabase = attackDatabase;
+				state.selectedDatabase = attackDatabase;
 		}
 	});
 	
+	selectCombatant(defenderManager);
+	
 	
 	$("calcButton").addEventListener("click", () => getAttack({
-		moveData: selectedDatabase[attackerManager.yokaiData[moveTypeInput.value]], 
+		moveData: state.selectedDatabase[attackerManager.yokaiData[moveTypeInput.value]], 
 		yokaiAttackerData: attackerManager, 
 		yokaiDefenderData: defenderManager}));
 		
@@ -334,65 +357,42 @@ function setupEventListeners(){
 	$('attacker-lvl-input').addEventListener('input', function(e) {
 		attackerManager.updateLevel(this.value);
 	});
-
-
-	document.querySelectorAll('.defender-IV').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('defender-iv-', '').toLowerCase();
-		  defenderManager.updateIV(stat, this.value);
-		});
+	
+	for (const stat of ["hp", "def"]){
+		for (const type of ["Gym", "IV", "EV"]){
+			let key = String(type).toLowerCase()
+			
+			$(`defender-${key}-${stat}`).addEventListener("input", function() {
+				defenderManager[`update${type}`](stat, this.value);
+			});
+		}
+	}
+	
+	for (const stat of ["str", "spr"]){
+		for (const type of ["Gym", "IV", "EV"]){
+			let key = String(type).toLowerCase()
+			
+			$(`attacker-${key}-${stat}`).addEventListener("input", function() {
+				attackerManager[`update${type}`](stat, this.value);
+			});
+		}
+	}
+	
+	$("defenderImg").addEventListener("click", function() {
+		selectCombatant(defenderManager);
 	});
-	
-	document.querySelectorAll('.defender-gym').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('defender-gym-', '').toLowerCase();
-		  defenderManager.updateGym(stat, this.value);
-		});
+	$("attackerImg").addEventListener("click", function() {
+		selectCombatant(attackerManager);
 	});
-	
-	document.querySelectorAll('.defender-EV').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('defender-ev-', '').toLowerCase();
-		  defenderManager.updateEV(stat, this.value);
-		});
-	})
-	
-	document.querySelectorAll('.attacker-IV').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('attacker-iv-', '').toLowerCase();
-		  attackerManager.updateIV(stat, this.value);
-		});
-	});
-	
-	document.querySelectorAll('.attacker-gym').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('attacker-gym-', '').toLowerCase();
-		  attackerManager.updateGym(stat, this.value);
-		});
-	});
-	
-	document.querySelectorAll('.attacker-EV').forEach(input => {
-		input.addEventListener('input', function(e) {
-		  const stat = this.id.replace('attacker-ev-', '').toLowerCase();
-		  attackerManager.updateEV(stat, this.value);
-		});
-	})
 };
 
-const elementList = [
-	"None",
-	"Fire",
-	"Water",
-	"Lightning",
-	"Earth",
-	"Ice",
-	"Wind",
-	"Drain"
-];
-
-window.addEventListener('load', function (){
+document.addEventListener('DOMContentLoaded', function (){
 	//yokaiDatabase;
 	//(STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard
+	
+	const searchInput = document.getElementById('search-input');
+	if (!searchInput) console.warn('Search input (#search-input) not found – filtering will not work.');
+	searchInput?.addEventListener('search', () => {filterYokai(searchInput.value)});
 	
     console.log("All databases loaded. Initializing game...");
 	setupEventListeners();

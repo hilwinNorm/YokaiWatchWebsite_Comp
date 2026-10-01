@@ -1,6 +1,8 @@
 
 const $ = id => document.getElementById(id);
 
+const bannerPath = "Content/Graphics/BannerYokai/";
+
 const meta = document.createElement('meta');
 
 meta.name = "viewport";
@@ -43,7 +45,7 @@ if (nav_tab){
 nav_tab.innerHTML += `
 	<div class="main-tabs">
 		<div style="display: flex; gap: 10px;">
-			<a href='./index.html'><button style="margin-left: 50px;"class="nav-button" id="home-btn">Home</button></a>
+			<a href='./index.html' style="margin-left: 50px;"><button class="nav-button" id="home-btn">Home</button></a>
 			<a href='./about.html'><button class="nav-button">About Project</button></a>
 			<a href='./contact.html'><button class="nav-button">Contacts</button></a>
 			<a href='https://discord.gg/wyWbEhhGwm'><button class="nav-button" style="background-color: #5972ff; color: white;">Discord <span style="height: 25px; width: 25px;" class="icon icon-discord"></span></button></a>
@@ -67,15 +69,14 @@ nav_tab.innerHTML += `
 			
 		</div>
 	</div>
-		
-        <a href="./index.html" id='logo-js' class="nav-brand">
-		<div id="banner-container" class="banner-container">
-			<img src="Content/Graphics/BannerYokai/LeftYokai4.png" class="left-char" alt="Left Character">
-			
-				<div id="Logo-Text" style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 45px;">Yo-gon Academy</div>
-			
-			<img src="Content/Graphics/BannerYokai/RightYokai4.png" class="right-char" alt="Right Character">
-		</div>
+		<a href="./index.html" id="logo-js" class="nav-brand">
+			<div id="banner-container" class="banner-container">
+				<img id="left-char" alt="Left Character">
+				
+					<div id="Logo-Text" style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 45px;">Yo-gon Academy</div>
+				
+				<img id="right-char" alt="Right Character">
+			</div>
 		</a>
 `
 
@@ -177,6 +178,11 @@ function changeTheme(wallpaper){
 	localStorage.setItem("selected_wallpaper", wallpaper);
 }
 
+function setBannerYokai(name){
+	$("left-char").src = `${bannerPath}LeftYokai${name}.png`;
+	$("right-char").src = `${bannerPath}RightYokai${name}.png`
+}
+
 
 function redirect(name){
 	if (page != `${name}.html`){
@@ -204,36 +210,33 @@ function noredirect(num){
 	}
 }
 
-const SearchInput = $("search-input");
-let pathLocation = window.location.pathname;
-let page = pathLocation.split("/").pop();
-let originalOrder = [];
-
 function filterYokai(searchTerm) {
 	const terms = searchTerm.toLowerCase().split(/\s+/);
-	const divs = document.querySelectorAll('#data-page .MiniYokaiInfo-div');
+	const divs = document.querySelectorAll('#data-page .mini-info-div');
 	const filterRanks = ['E', 'D', 'C', 'B', 'A', 'S'];
 	const filterTribes = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
 
 	divs.forEach(div => {
 		const img = div.querySelector('a img');
-		if (!img) return;
 
-		const name = div.querySelector('#div-name')?.textContent || '';
-		const rank = img.getAttribute('rank-value') || '';
-		const tribe = img.getAttribute('tribe-value') || '';
-		const element = img.getAttribute('element-value') || '';
-		const inspirit = img.getAttribute('inspirit-value') || '';
-		const alliance = img.getAttribute('alliance-value') || '';
-		const rarity = img.getAttribute('rarity-value') || '';
-		const classic = img.getAttribute('classic-value') || '';
+		const name = div.querySelector('#info-name')?.textContent || '';
+		const rank = img?.getAttribute('rank-value') || '';
+		const tribe = img?.getAttribute('tribe-value') || '';
+		const element = img?.getAttribute('element-value') || '';
+		const inspirit = img?.getAttribute('inspirit-value') || '';
+		const alliance = img?.getAttribute('alliance-value') || '';
+		const rarity = img?.getAttribute('rarity-value') || '';
+		const classic = img?.getAttribute('classic-value') || '';
 		
 		const fullText = `${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
+		const divText = div.innerText.toLowerCase();
+		
+		//console.debug(`${fullText}\n${divText}`);
 
 		let match = 0;
 		for (term of terms){
 			if (term.includes(`"`)){
-				if (!fullText.includes(term.replaceAll(`"`,``))){
+				if (!fullText.includes(term.replaceAll(`"`,``))  || divText.includes(term.replaceAll(`"`,``))){
 					match=0;
 					break;
 				}
@@ -241,12 +244,17 @@ function filterYokai(searchTerm) {
 				continue;
 			}
 			else{
-				if (fullText.includes(term)) match=1;
+				if (fullText.includes(term) || divText.includes(term)) match=1;
 			}
 		}
 		div.style.display = match ? 'flex' : 'none';
 	});
 }
+
+const SearchInput = $("search-input");
+let pathLocation = window.location.pathname;
+let page = pathLocation.split("/").pop();
+let originalOrder = [];
 
 let localStorage_Wallpaper = localStorage.getItem('selected_wallpaper');
 
@@ -257,6 +265,18 @@ if (localStorage_Wallpaper){
 else{
 	changeTheme("Small_Cream_Soda")
 }
+
+const curDate = new Date();
+
+if(curDate.getMonth() == 11){
+	setBannerYokai("_December");
+}
+else{
+	setBannerYokai('4');
+}
+
 console.log( page );
 
 console.log('JS LOADED UP');
+
+//addEventListener("DOMContentLoaded", (event) => { });

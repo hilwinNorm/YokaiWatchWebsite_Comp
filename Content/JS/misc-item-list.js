@@ -19,7 +19,7 @@ function Show_ConsumableItems_Page(){
 		const divDesc = document.createElement("div")
 		const img = document.createElement("img");
 		const ItemAnhr = document.createElement("a");
-		ItemAnhr.href=`./item-data.html?item=${key}&type=1`;
+		ItemAnhr.href=`./item-info.html?item=${key}&type=1`;
 		
 
 		ItemAnhr.style = divInfoStyle
@@ -28,7 +28,7 @@ function Show_ConsumableItems_Page(){
 		divDesc.style = divInfoStyle
 		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n')
 		divDesc.id = "div-desc"
-		divMain.className = "MiniEqInfo-div"
+		divMain.className = "mini-info-div"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		if (item.ImageIcon !== undefined){
 		img.src = ImagePath+item.ImageIcon;
@@ -47,4 +47,9 @@ function Show_ConsumableItems_Page(){
 		}
 }
 
-window.addEventListener('load', function () {Show_ConsumableItems_Page()})
+document.addEventListener('DOMContentLoaded', function(){
+	const searchInput = document.getElementById('search-input');
+	if (!searchInput) console.warn('Search input (#search-input) not found – filtering will not work.');
+	searchInput?.addEventListener('search', () => {filterYokai(searchInput.value)});
+	Show_ConsumableItems_Page()
+});

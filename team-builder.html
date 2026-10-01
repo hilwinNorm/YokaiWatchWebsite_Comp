@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki</title>
-	<link rel="stylesheet" href="Content/CSS/Main.css">
+	<link rel="stylesheet" href="Content/CSS/main.css">
+	<link rel="stylesheet" href="Content/CSS/team-builder.css">
+	<link rel="stylesheet" href="Content/CSS/info-list-style.css">
 	<script defer src="Content/JS/main.js"></script>
-	<script defer src='Content/JS/Databases/YoKaiDataBase.js'></script>
+	<script defer src='Content/JS/Databases/YokaiDatabase.js'></script>
 	<script defer src='Content/JS/Databases/SoulGemDatabase.js'></script>
 	<script defer src='Content/JS/Databases/EquipmentDatabase.js'></script>
 	<script defer src='Content/JS/Databases/AttitudeDatabase.js'></script>
+	<script defer src='Content/JS/Databases/YokaiAbilitiesDatabase.js'></script>
 	<script defer src='Content/JS/team-builder.js'></script>
 	<style>
 	h3{
@@ -24,7 +27,7 @@
 	.main-button{
 		position: relative;
 	}
-	.wheel-img{
+	.wheel-medal-img{
 		width: 70px;
 		height: auto;
 		position: absolute;
@@ -84,9 +87,10 @@
 		<button class="main-button" onclick="saveTeam()" style="margin-top: 40px; height: auto; width: auto;">Copy</button>
 		<button class="main-button" onclick="loadTeam()" style="height: auto; width: auto;">Load</button>
 		<button class="main-button" onclick="copyAsText()" style="height: auto; width: auto;">Copy as Text</button>
+		<button class="main-button" onclick="copyAsImage()" style="height: auto; width: auto;">Copy as Image</button>
 	</div>
 	
-    <div class="wrapper;">        
+    <div class="wrapper">        
 		<aside class="side-bar" id="side_bar"></aside>
 		<main>
 			<div style="position: relative; display: flex; flex-direction: row; padding-left: 40px;">
@@ -97,13 +101,13 @@
 					<img width="26px" height="auto" id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
 				</div>
 				<div id="Wheel-div">
-					<img id="Wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" style="height: 300px; width: 300px; position:relative; margin: 0px 150px;">
-					<img id="Slot1" class="wheel-img" data-index='0' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="1" style="left: 262.5px;right:0px;top: 72px;bottom: 0px;">
-					<img id="Slot2" class="wheel-img" data-index='1' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="2" style="left: 336px;right:0px;top: 30px;bottom: 0px;">
-					<img id="Slot3" class="wheel-img" data-index='2' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="3" style="left: 409px;right:0px;top: 72px;bottom: 0px;">
-					<img id="Slot4" class="wheel-img" data-index='3' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="4" style="left: 409px;right:0px;top: 152px;bottom: 0px;">
-					<img id="Slot5" class="wheel-img" data-index='4' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="5" style="left: 336px;right:0px;top: 195px;bottom: 0px;">
-					<img id="Slot6" class="wheel-img" data-index='5' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="6" style="left: 262.5px;right:0px;top: 152px;bottom: 0px;">
+					<img id="wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel" style="height: 300px; width: 300px; position:relative; margin: 0px 150px;">
+					<img id="Slot1" class="wheel-medal-img" data-index='0' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="1" style="left: 262.5px;right:0px;top: 72px;bottom: 0px;">
+					<img id="Slot2" class="wheel-medal-img" data-index='1' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="2" style="left: 336px;right:0px;top: 30px;bottom: 0px;">
+					<img id="Slot3" class="wheel-medal-img" data-index='2' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="3" style="left: 409px;right:0px;top: 72px;bottom: 0px;">
+					<img id="Slot4" class="wheel-medal-img" data-index='3' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="4" style="left: 409px;right:0px;top: 152px;bottom: 0px;">
+					<img id="Slot5" class="wheel-medal-img" data-index='4' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="5" style="left: 336px;right:0px;top: 195px;bottom: 0px;">
+					<img id="Slot6" class="wheel-medal-img" data-index='5' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/y252.webp" alt="6" style="left: 262.5px;right:0px;top: 152px;bottom: 0px;">
 					<img id="ChosenYokaiRing" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing" style="width: 85px; height: auto; position: absolute; left: 195px; top: 64px; visibility: hidden">
 				</div>
 				<div class="transparent-background" id="slot-info">
@@ -114,26 +118,27 @@
 								<h3 id="yokai-title"></h3>
 							</div>
 							<div style="display: flex;">
-								<img id="yokai-rank" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Rank">
-								<img id="yokai-tribe" style="margin-left: 10px ;margin-right: 10px" width="50px" height="auto" alt="Tribe">
+								<img id="yokai-rank" style="margin-left: 10px ;margin-right: 10px; width: 50px; height: auto;" alt="Rank">
+								<img id="yokai-tribe" style="margin-left: 10px ;margin-right: 10px; width: 50px; height: auto;" alt="Tribe">
+								<img id="yokai-alliance" style="margin-left: 10px ;margin-right: 10px; width: 23px; visibility: hidden;">
 							</div>
 						</div>
 						<div style="display:grid; justify-items: center;">
 							<img width="55px" height="auto" src="Content/Graphics/Equip_Image.png">
 							<div style="display: flex;">
 								<div id="equip-slot-1" style="position: relative; visibility: hidden;">
-									<img onclick="AddEquipmentIntoSlot(this)" data-index="1" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+									<img onclick="addEquipmentIntoSlot(this)" data-index="1" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
 									<img id="equipment-1" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
 								</div>
 								<div id="equip-slot-2" style="position: relative; visibility: hidden;">
-									<img onclick="AddEquipmentIntoSlot(this)" data-index="2" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+									<img onclick="addEquipmentIntoSlot(this)" data-index="2" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
 									<img id="equipment-2" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="SlotInfo-Text" style="display: flex; flex-direction: column; justify-content: space-evenly;">
-						<h4 for="yokai-attitude">Attitude: <select id="yokai-attitude"></select></h4>
+						<label for="yokai-attitude">Attitude: <select id="yokai-attitude"></select></label>
 						<h4>Level <input style="width: 30px" id="yokai-level" type="text" placeholder="60"></h4>
 						<button class="main-button" onclick="ClearEquipment()">Clear Equipment</button>
 					</div>
@@ -168,14 +173,14 @@
 			</div>
 			<div style="display: flex;">
 				<div style="display: grid; align-content: center; justify-content: center; gap: 10px; width: 50%;">
-					<button class="main-button" id="YokaiButton">Yokai  <span class="icon icon-yokai"></span></button>
-					<button class="main-button" id="EquipmentButton">Equipment  <span class="icon icon-equipment"></span></button>
-					<button class="main-button" id="SoulGemButton">Soul Gems  <span class="icon icon-soulgems"></span></button>
+					<button class="main-button" id="yokai-button">Yokai  <span class="icon icon-yokai"></span></button>
+					<button class="main-button" id="equipment-button">Equipment  <span class="icon icon-equipment"></span></button>
+					<button class="main-button" id="soulgem-button">Soul Gems  <span class="icon icon-soulgems"></span></button>
 					<input type="search" id="search-input" name="query" placeholder="Search...">
 				</div>
 				
 				
-				<div class="container yokai-list transparent-background" id="data-page" style="height: 230px; width:86%; margin:0px; flex-wrap: nowrap; list-style: none; margin-right:40px; margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
+				<div class="container yokai-list transparent-background" id="data-page" style="height: 230px; width:86%; margin:0px; flex-wrap: nowrap; list-style: none; margin-right:40px; margin-top: 10px; overflow-y: scroll; overflow-x: hidden; overflow-y: visible;">
 				</div>
 			</div>
 		</main>

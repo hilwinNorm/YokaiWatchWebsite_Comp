@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki</title>
-    <link rel="stylesheet" href="Content/CSS/Main.css">
+    <link rel="stylesheet" href="Content/CSS/main.css">
+    <link rel="stylesheet" href="Content/CSS/info-list-style.css"/>
     <script defer src="Content/JS/main.js"></script>
-    <script defer src='Content/JS/Databases/YokaiDataBase.js'></script>
+    <script defer src='Content/JS/Databases/YokaiDatabase.js'></script>
     <script defer src='Content/JS/Databases/AttackDatabase.js'></script>
     <script defer src='Content/JS/Databases/TechniqueDatabase.js'></script>
     <script defer src='Content/JS/Databases/InspiritDatabase.js'></script>
     <script defer src='Content/JS/Databases/SoultimateDatabase.js'></script>
     <script defer src='Content/JS/Databases/YokaiAbilitiesDatabase.js'></script>
-    <script defer src='Content/JS/Databases/SKILL_GROWTH_INFO.js'></script>
-    <script defer src='Content/JS/Databases/SPSKILL_POINT_INFO.js'></script>
+    <script defer src='Content/JS/Databases/skill_config_0.03p/SKILL_CONFIG_INFO.js'></script>
+    <script defer src='Content/JS/Databases/skill_config_0.03p/SKILL_GROWTH_INFO.js'></script>
+    <script defer src='Content/JS/Databases/skill_config_0.03p/SPSKILL_POINT_INFO.js'></script>
     <script defer src='Content/JS/Databases/SteffInfoDatabase.js'></script>
     <script defer src='Content/JS/move-list.js'></script>
-	<script defer type="module" src="Content/JS/AuthenticationSys.js"></script>
 </head>
 <body>
     <nav id="nav-tab">
@@ -33,7 +34,7 @@
 				<input type="search" id="search-input" name="query" placeholder="Search...">
 			</div>
 			<div class="container" style="display: flex; flex-wrap: nowrap; margin: 1px 100px; margin-top: 1px; list-style: none; overflow-y: visible; height: auto; justify-content: center;">
-				<div id="yokaidata-page"></div>
+				<div id="data-page"></div>
 			</div>
 		</main>
 	</div>

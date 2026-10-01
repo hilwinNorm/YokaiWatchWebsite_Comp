@@ -63,27 +63,18 @@ const rankList = [
 	'S'
 ];
 
-const SkillTextConfig={
-	"0x4257EF55": " + 20.",
-	"0xDB5EBEEF": " + 30.",
-	"0xAC598E79": " + 40.",
-	"0x323D1BDA": " + 45.",
-	
-	"0x453A2B4C": " + 20.",
-	"0xDC337AF6": " + 30.",
-	"0xAB344A60": " + 40.",
-	"0x3B8B57F1": " + 45.",
-	
-	"0xB542BF38": " + 20.",
-	"0x2B262A9B": " + 25.",
-	"0x5C211A0D": " + 30.",
-	"0xC5284BB7": " + 35.",
-	
-	"0x4C8C6767": " + 20.",
-	"0x2C4BEE82": " + 30.",
-	"0x5B4CDE14": " + 40.",
-	"0xC2458FAE": " + 45.",
-};
+const skillTextConfig=[
+	0x1880DCDC,
+	0x81898D66,
+	0x68EA2853,
+	0xF68EBDF0
+];
+
+function setBuffText(effect) {
+	//console.debug(skillTextConfig.includes(parseInt(effect.EffectID, 16)),  effect.EffectID);
+	if (!skillTextConfig.includes(parseInt(effect.EffectID, 16))) return '';
+	return ` +${effect.C10}`;
+}
 
 const colorCodes = {
     '0-59'     : 'red',
@@ -133,10 +124,6 @@ const state = {
 
 // Assigning elements:
 
-const equipmentButton = $("EquipmentButton")
-
-const soulGemButton = $("SoulGemButton")
-
 const alertWindow = $('alertWindow');
 
 const popupCloseButton  = $('close-btn');
@@ -145,22 +132,44 @@ const main = document.getElementsByTagName('main')[0];
 
 // Main Function List:
 
-function editTeam(){
-	state.editingSlots=true;
-	state.selected.yokaiId=null;
-}
-		
-function selectYokai(yokaiId) {
-	$("ChosenYokaiRing").style.visibility = "hidden";
-	
-	state.editingSlots = false;
-	
-	state.selected.yokaiId = yokaiId;
+function createTeamCanvas(bgImg, medals = []) {
+    const canvas = document.createElement("canvas");
+
+    canvas.width = bgImg.naturalWidth;
+    canvas.height = bgImg.naturalHeight;
+
+    const ctx = canvas.getContext("2d");
+
+    const bgRect = bgImg.getBoundingClientRect();
+
+    const scaleX = bgImg.naturalWidth / bgRect.width;
+    const scaleY = bgImg.naturalHeight / bgRect.height;
+
+    ctx.drawImage(bgImg, 0, 0, bgImg.naturalWidth, bgImg.naturalHeight);
+
+    for (const medal of medals) {
+        const medalRect = medal.getBoundingClientRect();
+
+        const relativeX = medalRect.left - bgRect.left;
+        const relativeY = medalRect.top - bgRect.top;
+
+        const x = relativeX * scaleX;
+        const y = relativeY * scaleY;
+
+        const width = medalRect.width * scaleX;
+        const height = medalRect.height * scaleY;
+
+        ctx.drawImage(medal, x, y, width, height);
+    }
+
+    return canvas;
 }
 
-function selectEquipment(equipmentId) {
-    state.selected.equipmentId = equipmentId;
-} 	
+const editTeam = () => (state.editingSlots = true, state.selected.yokaiId = null);
+
+const selectYokai = yokaiId => ($("ChosenYokaiRing").style.visibility = "hidden", state.editingSlots = false, state.selected.yokaiId = yokaiId);
+
+const selectEquipment = equipmentId => state.selected.equipmentId = equipmentId;
 	
 function selectWheelSlot(slot) {
 
@@ -210,17 +219,10 @@ function selectWheelSlot(slot) {
 
 function updateRankCounter(yokai, amount) {
 
-    if (!yokai) {
-        return;
-    }
+    if (!yokai) return;
 
-    if (yokai.Rank === 5) {
-        state.rankCounter.S += amount;
-    }
-    else if (yokai.Rank === 4) {
-        state.rankCounter.A += amount;
-    }
-
+    if (yokai.Rank === 5) state.rankCounter.S += amount;
+    else if (yokai.Rank === 4) state.rankCounter.A += amount;
 
     updateRankDisplay();
 }
@@ -263,7 +265,7 @@ function loadTeam(){
 	
 	state.rankCounter = team.rankCounter;
 	
-	const wheelImages = document.getElementsByClassName("wheel-img");
+	const wheelImages = document.getElementsByClassName("wheel-medal-img");
 	
 	for (const img of wheelImages){
 		const yokaiData = yokaiDatabase[state.slots[img.dataset.index].yokaiId];
@@ -335,9 +337,41 @@ function saveTeam() {
 	});
 }
 
+function copyAsImage(){
+	const wheelImage = $("wheel-img");
+	
+	const medals = document.getElementsByClassName("wheel-medal-img");
+	
+	if(!wheelImage || !medals) throw new Error("Couldn't find DOM elements");
+	
+	const canvas = createTeamCanvas(wheelImage, medals)
+	
+	canvas.toBlob(async (blob) => {
+		if (!blob){
+			alert("Failed to process image.");
+			return;
+		}
+		try{
+			const data = [new ClipboardItem({
+				[blob.type]: blob
+			})];
+			await navigator.clipboard.write(data);
+			alert("Successfully copied image to clipboard!");
+		}
+		catch(error){
+			console.error("Error copying to clipboard:", error);
+			alert("Could not copy image. Ensure you are using HTTPS and a modern browser.");	
+		}
+		
+	}, 'image/png');
+	//copyAsText();
+}
+
 function copyAsText(){
 
 	const SavingTextTeam = createTeamText();
+	
+	// Try out: document.execCommand('copy')
             
 	try {
 		navigator.clipboard.writeText(SavingTextTeam);
@@ -358,21 +392,33 @@ function createTeamText() {
     const lines = state.slots.map((slot, index) => {
 
             const yokai = yokaiDatabase[slot.yokaiId];
+			
+			let yokaiName = yokai?.Name;
+			
+			if (yokaiName){
+				if (yokai.LegalAlliances==1) yokaiName += ` (FS)`;
+				
+				else if(yokai.LegalAlliances==2) yokaiName += ` (BS)`;
+			}
+			else{
+				yokaiName = "Empty"
+			}
 
             const equipment = state.equipment[index];
 
+			
+			let item1 = "";
+			if (equipment.slot1) item1 = equipmentDatabase[equipment.slot1]?.NounText || `${soulgemDatabase[equipment.slot1]?.NounText} Soul`;
 
-            const item1 = equipmentDatabase[equipment.slot1] || soulgemDatabase[equipment.slot1];
-
-            const item2 = equipmentDatabase[equipment.slot2] || soulgemDatabase[equipment.slot2];
-
+			let item2 = "";
+			if (equipment.slot1) item2 = equipmentDatabase[equipment.slot2]?.NounText || `${soulgemDatabase[equipment.slot2]?.NounText} Soul`;
 
             const attitude = attiduteDatabase[slot.attitude ?? 0]?.text ?? "Unknown";
 
 
-            return `${yokai?.Name ?? "Empty"} @ ${attitude}; ` +
-                   `${item1?.NounText ?? ""} ` +
-                   `${item2?.NounText ?? ""}`;
+            return `${yokaiName} @ ${attitude}; ` +
+                   `${item1}} ` +
+                   `${item2}`;
         });
 
 
@@ -436,12 +482,24 @@ function showSlotInfo(){
 	//const prefix = yokaiData.FileNamePrefix;
 	//const number = (yokaiData.FileNameNumber).toString();
 	//const variant = (yokaiData.FileNameVariant).toString();
+	
+	$("yokai-title").innerText = yokaiData.Name;
 	$("yokai-img").src = `${pathMedal}y${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
 	$("yokai-img").alt = `${yokaiData.Name}`;
 	$("yokai-rank").src = `./Content/Graphics/tribes/${tribeList[yokaiData.Tribe]}.png`;
 	$("yokai-tribe").src = `./Content/Graphics/ranks/${rankList[yokaiData.Rank]}.png`
 	
-	$("yokai-title").innerText = yokaiData.Name;
+	let allianceImg = $("yokai-alliance");
+	
+	if ([1,2].includes(yokaiData.LegalAlliances)){
+		//console.debug('pass');
+		
+		if (yokaiData.LegalAlliances == 1) allianceImg.src=`./Content/Graphics/alliances/bonyTag.webp`;
+		else if (yokaiData.LegalAlliances == 2) allianceImg.src=`./Content/Graphics/alliances/fleshyTag.webp`;
+		
+		allianceImg.style.visibility = "visible";
+	}
+	else allianceImg.style.visibility = "hidden";
 	
 	/*
 	$("slot-info").querySelectorAll('.Stats').forEach(function(stat){
@@ -460,7 +518,6 @@ function showSlotInfo(){
 	});
 	*/
 	
-	let yokaiAttitude = document.getElementById("yokai-attitude");
 	let equipment1 = equipmentDatabase[equipmentData.slot1] || soulgemDatabase[equipmentData.slot1];
 	let equipment2 = equipmentDatabase[equipmentData.slot2] || soulgemDatabase[equipmentData.slot2];
 	
@@ -486,44 +543,34 @@ function showSlotInfo(){
 		}
 	}
 	
-	
-    yokaiAttitude.innerHTML = '';
-    for (let i = 0; i < attiduteDatabase.length; i++){
-        const selected = i === slotData.attitude ? 'selected' : '';
-        const option = `<option value="${i}" ${selected}>${attiduteDatabase[i].text}</option>`;
-        yokaiAttitude.innerHTML += option;
-    }
 	updateDisplay();
-	setupSlotEventListeners();
+	assignSlotValues();
+	validateAndStyleInputs();
 }
 
 
 
 function setupSlotEventListeners() {
-	
-	const slotIndex = state.selected.wheelSlot;
-
-    const slotData = state.slots[slotIndex];
-	
-	
-	const yokaiLevelInput = $("yokai-level");
-	yokaiLevelInput.value = slotData.level;
-    yokaiLevelInput.addEventListener("input", function () {
+    $("yokai-level").addEventListener("input", function () {
+		const slotIndex = state.selected.wheelSlot;
+		const slotData = state.slots[slotIndex];
 		slotData.level = parseInt(this.value, 10) || 60;
 		validateAndStyleInputs();
 	});
 	
     $("yokai-attitude").addEventListener('change', function() {
+		const slotIndex = state.selected.wheelSlot;
+		const slotData = state.slots[slotIndex];
         slotData.attitude = parseInt(this.value, 10);
 		validateAndStyleInputs();
     });
 	
     const classIV = document.getElementsByClassName("IV");
     for (const input of classIV) {
-		const attr = input.id.replace("iv-", "");
-
-		input.value = slotData.ivs[attr];
 		input.addEventListener("input", function () {
+			const attr = input.id.replace("iv-", "");
+			const slotIndex = state.selected.wheelSlot;
+			const slotData = state.slots[slotIndex];	
 			slotData.ivs[attr] = parseInt(this.value, 10) || 0;
 			validateAndStyleInputs();
 		});
@@ -531,13 +578,39 @@ function setupSlotEventListeners() {
     
     const classGym = document.getElementsByClassName("gym");
     for (const input of classGym) {
-		const attr = input.id.replace("gym-", "");
-
-		input.value = slotData.gym[attr];
 		input.addEventListener("input", function () {
+			const attr = input.id.replace("iv-", "");
+			const slotIndex = state.selected.wheelSlot;
+			const slotData = state.slots[slotIndex];
 			slotData.gym[attr] = parseInt(this.value, 10) || 0;
 			validateAndStyleInputs();
 		});
+	}
+}
+
+function assignSlotValues(){
+	const slotIndex = state.selected.wheelSlot;
+    const slotData = state.slots[slotIndex];
+	
+	$("yokai-level").value = slotData.level;
+	
+	const yokaiAttitude = $("yokai-attitude");
+    yokaiAttitude.innerHTML = '';
+    for (let i = 0; i < attiduteDatabase.length; i++){
+        const selected = i === slotData.attitude ? 'selected' : '';
+        const option = `<option value="${i}" ${selected}>${attiduteDatabase[i].text}</option>`;
+        yokaiAttitude.innerHTML += option;
+    }
+	
+    const classIV = document.getElementsByClassName("IV");
+	for (const input of classIV) {
+		const attr = input.id.replace("iv-", "");
+		input.value = slotData.ivs[attr];
+	}
+	const classGym = document.getElementsByClassName("gym");
+    for (const input of classGym) {
+		const attr = input.id.replace("gym-", "");
+		input.value = slotData.gym[attr];
 	}
 }
 
@@ -611,7 +684,7 @@ function updateDisplay(){
 	$('yokai-speed').innerText = "SPD: "+Math.max(Math.floor(stats.baseSpd), 1);
 }
 
-function AddEquipmentIntoSlot(eqSlot){
+function addEquipmentIntoSlot(eqSlot){
 	const slotIndex = state.selected.wheelSlot;
 	const equipmentData = state.equipment[slotIndex];
 	const equipmentId = state.selected.equipmentId;
@@ -651,11 +724,11 @@ function showEquipmentPage(){
 		const divSPD = document.createElement("div")
 		
 		divName.style = `width: auto; margin-left: 10px ;margin-right: 10px`;
-		divName.id = "div-name";
+		divName.className = "div-name";
 		divName.innerHTML = item.NounText;
 		divDesc.style = `width: auto; margin-left: 10px ;margin-right: 10px`
 		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n');
-		divDesc.id = "div-desc";
+		divDesc.className = "div-desc";
 		divSTR.style=`width: auto; margin-left: 10px ;margin-right: 10px`;
 		divSTR.innerHTML = "STR: "+item.STRBuff;
 		divSPR.style=`width: auto; margin-left: 10px ;margin-right: 10px;`;
@@ -664,7 +737,7 @@ function showEquipmentPage(){
 		divDEF.innerHTML = "DEF: "+item.DEFBuff;
 		divSPD.style=`width: auto; margin-left: 10px ;margin-right: 10px;`;
 		divSPD.innerHTML = "SPD: "+item.SPDBuff;
-		divMain.className = "MiniEqInfo-div";
+		divMain.className = "mini-info-div";
 		divMain.style = "min-width: 850px; justify-content: space-between;";
 		if (item.ImageIcon !== undefined){
 		img.src = Path+item.ImageIcon;
@@ -673,7 +746,7 @@ function showEquipmentPage(){
 		img.setAttribute("ItemName", item.NounText);
 		img.style = "width: 70px; height: auto"
 		img.onclick = () => {
-		selectEquipment(key);
+			selectEquipment(key);
 		};
 		
 		divMain.appendChild(img);
@@ -711,20 +784,22 @@ function showSoulgemPage(){
 	var page = path_location.split("/").pop();
 	
 	for (const [key,item] of Object.entries(soulgemDatabase)) {
-		const divMain = document.createElement("div")
-		const divName = document.createElement("div")
+		const divMain = document.createElement("div");
+		const divName = document.createElement("div");
 		const img = document.createElement("img");
-		const divDesc = document.createElement("div")
+		const divDesc = document.createElement("div");
 		
-		const DescConfig = SkillTextConfig[item.SoulEffect.SkillID] || ""
+		const abilityData = abilitiesDatabase[item.SoulEffect.SkillID];
+		
+		const descConfig = setBuffText(abilityData.EffectData[0]);
 		
 		divName.style = `width: auto; margin-left: 10px ;margin-right: 10px`
-		divName.id = "div-name"
-		divName.innerHTML = item.NounText
+		divName.className = "div-name"
+		divName.innerText = `${item.NounText} Soul`;
 		divDesc.style = `width: auto`
-		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n') + DescConfig;
-		divDesc.id = "div-desc"
-		divMain.className = "MiniEqInfo-div"
+		divDesc.innerText = (item.DescText).replaceAll('\\n','\n') + descConfig;
+		divDesc.className = "div-desc"
+		divMain.className = "mini-info-div"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		img.src = Path+item.ImageIcon;
 		img.alt = item.NounText;
@@ -738,14 +813,13 @@ function showSoulgemPage(){
 		divMain.appendChild(divName);
 		divMain.appendChild(divDesc);
 		list[item.ItemNum] = divMain;
-}
-		console.log(list, list.length)
 		for (i=0; i < list.length; i++){
 			if (list[i] !== undefined){
 				//console.log(list[i])
 				soulPage.appendChild(list[i])
 			}
 		}
+	}
 }
 
 window.addEventListener('load', function () {
@@ -753,19 +827,23 @@ window.addEventListener('load', function () {
 		console.log('!')
 		showEquipmentPage()
 	}
-})
+});
+
+const equipmentButton = $("equipment-button");
+
+const soulGemButton = $("soulgem-button");
 
 if (equipmentButton){
 	equipmentButton.addEventListener('click', function (){
 		showEquipmentPage()
 	})
-}
+};
 
 if (soulGemButton){
 	soulGemButton.addEventListener('click', function (){
 		showSoulgemPage()
 	})
-}
+};
 
 function showPage(yokais) {
 	const yokaiPage = document.getElementById("data-page");
@@ -783,10 +861,34 @@ function showPage(yokais) {
 
         const stats = calculateStats({yokaiData: yokai});
 
-        const imgSrc = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
-
         const medalId = String(yokai.MedalliumOffset).padStart(3, '0');
-        const name = yokai.Name;
+        let name = yokai.Name;
+		
+		const medalImg = document.createElement('img');
+		
+		medalImg.src = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+		medalImg.alt = yokai.Name;
+		medalImg.className = "yokai-img";
+		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
+		medalImg.setAttribute('data-index', key);
+		medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
+		medalImg.setAttribute('tribe-value', tribeList[yokai.Tribe]);
+		if(yokai.IsRare) medalImg.setAttribute('rarity-value', "rare");
+		if(yokai.IsLegendary) medalImg.setAttribute('rarity-value', "legendary");
+		
+		let alliance = ``;
+		
+		if ([1,2].includes(yokai.LegalAlliances)){
+			//console.debug('pass');
+			const allianceTag = document.createElement('img');
+			allianceTag.style = `width: auto; height: 30px;`;
+			
+			if (yokai.LegalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; medalImg.setAttribute('alliance-value', "bony");}
+			else if (yokai.LegalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; medalImg.setAttribute('alliance-value', "fleshy");}
+			
+			alliance = allianceTag.outerHTML;
+		}
+		
         const hp = Math.floor(stats.baseHp);
         const str = Math.floor(stats.baseStr);
         const spr = Math.floor(stats.baseSpr);
@@ -794,10 +896,11 @@ function showPage(yokais) {
         const spd = Math.floor(stats.baseSpd);
 
         const itemHTML = `
-            <div class="MiniYokaiInfo-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:space-between;align-items:center;flex-direction:row;flex-wrap:nowrap;">
+            <div class="mini-info-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:space-between;align-items:center;flex-direction:row;flex-wrap:nowrap;">
                 <div>NO. ${medalId}</div>
-				<img class="yokai-img" src="${imgSrc}" alt="${name}" style="cursor:pointer;width:50px;height:auto;" data-index="${key}">
-                <div paramID="${key}">${name}</div>
+				${medalImg.outerHTML}
+				${alliance}
+                <div class="info-name" paramID="${key}">${name}</div>
                 <div>HP:${hp}</div>
                 <div>STR:${str}</div>
                 <div>SPR:${spr}</div>
@@ -815,7 +918,7 @@ function showPage(yokais) {
 
     yokaiPage.querySelectorAll('.yokai-img').forEach(img => {
         img.addEventListener('click', function(e) {
-            state.selected.yokaiId = img.dataset.index;
+			selectYokai(img.dataset.index);
         });
     });
 }
@@ -837,25 +940,38 @@ function clearEquipment(){
 
 function closePopup(){
 	alertWindow.style.display="none";
-	main.style.display="block";
+	main.style.visibility="visible";
+	$("slot-info").style.display = "flex";
+	$("ChosenYokaiRing").style.display = "block";
 }
 
 function showPopup(){
-	main.style.display = "none";
 	alertWindow.style.display = "grid";
+	main.style.visibility = "hidden";
+	$("slot-info").style.display = "none";
+	$("ChosenYokaiRing").style.display = "none";
 }
 
 
-var YokaiButton = document.getElementById("YokaiButton")
+const yokaiButton = document.getElementById("yokai-button");
 
 
-if (YokaiButton){
-	YokaiButton.addEventListener('click', function(){
+if (yokaiButton){
+	yokaiButton.addEventListener('click', function(){
 		showPage(yokaiDatabase)
-	})
-	showPage(yokaiDatabase)
+	});
+	
+	const searchInput = $("search-input");
+	
+	searchInput.addEventListener('search', () => {
+		filterYokai(searchInput.value);
+	});
+	
+	showPage(yokaiDatabase);
+	/* Deprecated
 	if (urlParams.get('team')){
 		loadTeamFromURL();
 	}
+	*/
+	setupSlotEventListeners();
 }
-

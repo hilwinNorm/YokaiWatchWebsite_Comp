@@ -73,6 +73,15 @@ function formatText(text) {
     return String(text).replaceAll('\\n', '\n');
 }
 
+function createElementFromList(list){
+	let text = ``;
+	//console.debug(list);
+	for (const [key, value] of Object.entries(list)){
+		text += `<p>${key}: ${value}</p>`
+	}
+	return text;
+}
+
 function createYokaiLink(key, yokai) {
 
     const yokaiImg = document.createElement('img');
@@ -90,7 +99,7 @@ function createYokaiLink(key, yokai) {
 
     const link = document.createElement('a');
 
-    link.href = `./yokai-data.html?yokai=${key}`;
+    link.href = `./yokai-info.html?yokai=${key}`;
 
     link.appendChild(yokaiImg);
 
@@ -206,30 +215,21 @@ function showSkillDetails(skill) {
     setText('skill-trigger-text-id',`Triggered Text ID: ${skill?.TriggeredTextID ?? "None"}`);
 	
 	const effectContainer = $("effect-container");
+	const effectConfigContainer = $("effect-config-container")
 	
 	for (let i = 0; i < skill.EffectData.length; i++){
 		const effect = skill.EffectData[i];
+		const effectConfig = effectConfigDatabase[effect.EffectID];
+		const effectText = createElementFromList(effect);
+		const effectConfigText = createElementFromList(effectConfig);
 		effectContainer.innerHTML +=`
 		<hr>
-		<p>EffectID: ${effect.EffectID}</p>
-		<p>UnkNum: ${effect.UnkNum}</p>
-		<p>Unk2: ${effect.Unk2}</p>
-		<p>Unk3: ${effect.Unk3}</p>
-		<p>Unk4: ${effect.Unk4}</p>
-		<p>Unk5: ${effect.Unk5}</p>
-		<p>Unk6: ${effect.Unk6}</p>
-		<p>Unk7: ${effect.Unk7}</p>
-		<p>UnkNumA: ${effect.UnkNumA}</p>
-		<p>C1: ${effect.C1}</p>
-		<p>C2: ${effect.C2}</p>
-		<p>C3: ${effect.C3}</p>
-		<p>C4: ${effect.C4}</p>
-		<p>C5: ${effect.C5}</p>
-		<p>C6: ${effect.C6}</p>
-		<p>C7: ${effect.C7}</p>
-		<p>C8: ${effect.C8}</p>
-		<p>C9: ${effect.C9}</p>
-		<p>C10: ${effect.C10}</p>
+		${effectText}
+		`
+		
+		effectConfigContainer.innerHTML +=`
+		<hr>
+		${effectConfigText}
 		`
 	}
 	

@@ -37,33 +37,45 @@ To contribute code to the project, fork the project and create a pull request. P
 <summary><b>Project info for developers</b></summary>
     <ul>
         <li>index.html — Main entry point/homepage</li>
-        <li>medallium.html — Lists all Yo-kai w/search options</li>
         <li>contact.html — Contact/credits page</li>
         <li>about.html — Web version of the README</li>
-        <li>tierSheet.html — Yo-Gon's rankings</li>
-        <li>TeamBuild.html — Yo-kai team builder </li>
-        <li>PageNotFound.html — 404 page</li>
-        <li>DamageCalc.html — Damage calcuator</li>
-        <li>equipment.html — Lists equipment and soul gems</li>
-        <li>YoKaiInfoPage.html — Individual Yo-kai info</li>
-        <li>YokaiData.html — Yo-kai attacks and skills</li>
-        <li>imageRecources — Links to external assets and resources</li>
-        <li>YokaiCreator.html — Yo-kai teambuilder</li>
+        <li>medallium.html — Lists all Yo-kai w/search options</li>
+        <li>damage-calculator.html — Damage calcuator</li>
+        <li>yokai-info.html — Individual Yo-kai info</li>
+        <li>move-info.html — Individual Battle Command info</li>
+        <li>skill-info.html — Individual Ability info</li>
+        <li>item-info.html — Individual Equipment info</li>
+        <li>misc-info.html — Individual misc. Item info</li>
+        <li>team-builder.html — Yo-kai team builder </li>
+        <li>tier-sheet.html — Yo-Gon's rankings</li>
+        <li>equipment-list.html — Lists equipment and soul gems</li>
+        <li>move-list.html — Yo-kai attacks and skills</li>
+        <li>misc-list.html — Lists all Items</li>
+        <li>image-recources.html — Links to external assets and resources</li>
+        <li>page-not-found.html — 404 page</li>
+        <li>yokai-creator.html — Yo-kai Creator **(Deprecated)**</li>
         <ul>
         <b>/Content/CSS:</b>
-            <li>Main.css — Site-wide stylesheet. Planned to be depricated in favour of multiple ones</li>
-            <li>TierSheet.css — Stylesheet used in tierSheet.html</li>
-            <li>YokaiCreator.css — Stylesheet used in YokaiCreator.html</li>
+            <li>main.css — Site-wide stylesheet. Planned to be depricated in favour of multiple ones</li>
+            <li>TierSheet.css — Stylesheet used in tier-sheet.html</li>
+            <li>yokai-creator.css — Stylesheet used in yokai-creator.html</li>
+            <li>profile-menu.css — Stylesheet used in profile.html</li>
+            <li>yokai-info-page.css — Stylesheet used in yokai-info.html</li>
             <b>/Content/JS/Databases</b> — various databases<br>
             <b>/Content/JS:</b>
-            <li>MedalliumPageScript — used in medallium.html</li>
-            <li>DamageCalc — used in DamageCalc.html</li>
-            <li>Index.js — sitewide script for funcionality (e.g. wallpapers)</li>
-            <li>ShowStats.js — used in YokaiInfoPage.html</li>
-            <li>TeamBuild.js — used in TeamBuild.html</li>
-            <li>MoveDataList.js — used in YokaiData.html</li>
-            <li>YokaiCreator.js — used in YokaiCreator.html</li>
-            <li>TierSheet.js — used in tiersheet.html</li>
+            <li>medallium-script.js — used in medallium.html</li>
+            <li>damage-calculator.js — used in damage-calculator.html</li>
+            <li>main.js — sitewide script for funcionality (e.g. wallpapers)</li>
+            <li>yokai-data.js — used in yokai-info.html</li>
+            <li>item-data.js — used in item-info.html</li>
+            <li>move-data.js — used in move-info.html</li>
+            <li>skill-data.js — used in move-info.html</li>
+            <li>team-builder.js — used in team-builder.html</li>
+            <li>equipment-list.js — used in equipment-list.html</li>
+            <li>move-list.js — used in move-list.html</li>
+            <li>misc-item-list.js — used in misc-list.html</li>
+            <li>yokai-creator.js — used in yokai-creator.html</li>
+            <li>tier-sheet.js — used in tier-sheet.html</li>
             <b>Content/Graphics</b> — Images and other assets<br>
             <b>Content/Fonts</b> — Site fonts<br>
             <b>Content/Libs</b> — external dependancies

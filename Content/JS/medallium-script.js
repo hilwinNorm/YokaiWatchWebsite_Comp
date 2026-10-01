@@ -1,8 +1,8 @@
 
 // Global Constants
 
-const ranks = ['E', 'D', 'C', 'B', 'A', 'S'];
-const tribes = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
+const rankList = ['E', 'D', 'C', 'B', 'A', 'S'];
+const tribeList = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
 const elementList = [
 	"None",
 	"Fire",
@@ -36,7 +36,7 @@ const foodTypeList = [
 	"Chocobar"
 ];
 
-const GenericInspiritIDs = {"0x61999483": "STR_Buff", "0x169EA415": "SPR_Buff", "0x8F97F5AF": "DEF_Buff", "0xF890C539":"SPD_Buff", "0x66F4509A":"ALL_Buff","0x605BFEB4": "STR_Debuff", "0x175CCE22": "SPR_Debuff", "0x8E559F98": "DEF_Debuff", "0xF952AF0E":"SPD_Debuff", "0x67363AAD":"ALL_Debuff", "0x63DF2ADA": "Attract", "0x14D81A4C": "Stealth", "0x62792C28": "Recover", "0x8AD8E32A":"Throw","0x64D68206":"Loaf","0xFDDFD3BC":"Poison", "0x13D1B290": "Confuse"};
+const GenericInspiritIDs = {"0x61999483": "STR_Buff", "0x169EA415": "SPR_Buff", "0x8F97F5AF": "DEF_Buff", "0xF890C539":"SPD_Buff", "0x66F4509A":"ALL_Buff","0x605BFEB4": "STR_Debuff", "0x175CCE22": "SPR_Debuff", "0x8E559F98": "DEF_Debuff", "0xF952AF0E":"SPD_Debuff", "0x67363AAD":"ALL_Debuff", "0x63DF2ADA": "Attract", "0x14D81A4C": "Stealth", "0x62792C28": "Recover", "0x8AD8E32A":"Scatter","0x64D68206":"Loaf","0xFDDFD3BC":"Poison", "0x13D1B290": "Confuse"};
 
 
 function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, ivDef = 8, ivSpd = 8,
@@ -84,7 +84,7 @@ function buildYokaiList(yokais) {
     const stats = calculateStats({ yokaiData: yokai, lvl: level});
 
     const divMain = document.createElement('div');
-    divMain.className = 'MiniYokaiInfo-div';
+    divMain.className = 'mini-info-div';
     divMain.style.cssText = `
       min-width: 1100px; height: 80px; margin: 5px;
       border: 1px solid #000;
@@ -96,23 +96,22 @@ function buildYokaiList(yokais) {
     `;
 
     const idSpan = document.createElement('div');
-    idSpan.id = 'yokai-index';
+    idSpan.className = 'yokai-index';
     idSpan.style.cssText = 'width: 6%; text-align: center;';
     idSpan.textContent = `NO. ${String(yokai.MedalliumOffset).padStart(3, '0')}`;
     divMain.appendChild(idSpan);
 
     const link = document.createElement('a');
-    link.href = `./yokai-data.html?yokai=${key}`;
+    link.href = `./yokai-info.html?yokai=${key}`;
 	
     const medalImg = document.createElement('img');
     medalImg.src = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
     medalImg.alt = yokai.Name;
     medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
-    medalImg.setAttribute('rank-value', `rank_${ranks[yokai.Rank]}`);
-    medalImg.setAttribute('tribe-value', tribes[yokai.Tribe]);
+    medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
+    medalImg.setAttribute('tribe-value', tribeList[yokai.Tribe]);
 	if(yokai.IsRare) medalImg.setAttribute('rarity-value', "rare");
 	if(yokai.IsLegendary) medalImg.setAttribute('rarity-value', "legendary");
-    medalImg.id = 'yokaiImage';
     link.appendChild(medalImg);
     divMain.appendChild(link);
 	
@@ -129,13 +128,13 @@ function buildYokaiList(yokais) {
 	if(yokai.IsClassic){
 		const classicTag = document.createElement('img');
 		classicTag.style = `width: auto; height: 25px;`;
-		classicTag.src = `./Content/Graphics/Rarities/classicTag.webp`;
+		classicTag.src = `./Content/Graphics/rarities/classicTag.webp`;
 		medalImg.setAttribute('classic-value', "classic");
 		divMain.appendChild(classicTag);
 	}
 
     const nameDiv = document.createElement('div');
-    nameDiv.id = 'div-name';
+    nameDiv.className = 'info-name';
     nameDiv.style.cssText = 'width: 12%; text-align: center;';
     nameDiv.textContent = yokai.Name;
     divMain.appendChild(nameDiv);
@@ -150,30 +149,31 @@ function buildYokaiList(yokais) {
     });
 
     const tribeImg = document.createElement('img');
-    tribeImg.src = `Content/Graphics/tribes/${tribes[yokai.Tribe]}.png`;
-    tribeImg.alt = tribes[yokai.Tribe];
+    tribeImg.src = `Content/Graphics/tribes/${tribeList[yokai.Tribe]}.png`;
+    tribeImg.alt = tribeList[yokai.Tribe];
     divMain.appendChild(tribeImg);
 
     const rankImg = document.createElement('img');
-    rankImg.src = `Content/Graphics/ranks/${ranks[yokai.Rank]}.png`;
-    rankImg.alt = ranks[yokai.Rank];
+    rankImg.src = `Content/Graphics/ranks/${rankList[yokai.Rank]}.png`;
+    rankImg.alt = rankList[yokai.Rank];
     divMain.appendChild(rankImg);
 
     if (legalAlliances) {
-      const attack = attackDatabase[yokai.AttackID];
-      const technique = techniqueDatabase[yokai.TechniqueID];
-      const inspirit = inspiritDatabase[yokai.InspiritID];
+      const attack = moveDatabase[yokai.AttackID];
+      const technique = moveDatabase[yokai.TechniqueID];
+	  const techniqueConfig = skillConfigDatabase[technique.SkillConfigID];
+      const inspirit = moveDatabase[yokai.InspiritID];
 
       const atkLink = document.createElement('a');
-      atkLink.href = `./move-data.html?moveType=0&id=${yokai.AttackID}`;
-      atkLink.textContent = attack.SkillConfig.Text;
+      atkLink.href = `./move-info.html?moveType=0&id=${yokai.AttackID}`;
+      atkLink.textContent = skillConfigDatabase[attack.SkillConfigID]?.Text.TextString;
       atkLink.style.cssText =
         'width: 15%; text-align: center; background-color: #e6903bc2; color: white; border-radius: 10px; border: 2px solid black; padding: 0 6px;';
       divMain.appendChild(atkLink);
 
       const techLink = document.createElement('a');
-      techLink.href = `./move-data.html?moveType=1&id=${yokai.TechniqueID}`;
-      let element = elementList[technique.SkillConfig.Element];
+      techLink.href = `./move-info.html?moveType=1&id=${yokai.TechniqueID}`;
+      let element = elementList[techniqueConfig.Element];
 	  'Restoration';
       const span = document.createElement('span');
       if (element !== "None") {
@@ -183,13 +183,13 @@ function buildYokaiList(yokais) {
         medalImg.setAttribute('element-value', element);
       }else{element = "Restoration"};
       techLink.appendChild(span);
-      techLink.appendChild(document.createTextNode(technique.SkillConfig.Text));
+      techLink.appendChild(document.createTextNode(techniqueConfig.Text.TextString));
       techLink.style.cssText =
         'width: 15%; text-align: center; background-color: #84c6cfc2; color: white; border-radius: 10px; border: 2px solid black; padding: 0 6px;';
       divMain.appendChild(techLink);
 
       const inspLink = document.createElement('a');
-      inspLink.href = `./move-data.html?moveType=2&id=${yokai.InspiritID}`;
+      inspLink.href = `./move-info.html?moveType=2&id=${yokai.InspiritID}`;
 	  const inspiritSteff = steffInfoDatabase[inspirit.Steff1];
       const inspiritType = GenericInspiritIDs[inspiritSteff.EffectID] || '';
       const inspImg = document.createElement('img');
@@ -213,7 +213,7 @@ function setupSearchAndFilters() {
     return;
   }
 
-  searchInput.addEventListener('search', () => {
+  searchInput?.addEventListener('search', () => {
     filterYokai(searchInput.value);
   });
 
