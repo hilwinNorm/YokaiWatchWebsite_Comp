@@ -105,7 +105,7 @@ function buildYokaiList(yokais) {
     link.href = `./yokai-info.html?yokai=${key}`;
 	
     const medalImg = document.createElement('img');
-    medalImg.src = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+    medalImg.src = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
     medalImg.alt = yokai.Name;
     medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
     medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);

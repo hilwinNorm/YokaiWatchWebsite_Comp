@@ -212,7 +212,7 @@ function selectWheelSlot(slot) {
 
     slotState.yokaiId = state.selected.yokaiId;
 
-    slot.src = `${pathMedal}y${String(newYokai.MedalPosX + newYokai.MedalPosY * 23).padStart(3,'0')}.webp`;
+    slot.src = `${pathMedal}${String(newYokai.MedalPosX + newYokai.MedalPosY * 23).padStart(3,'0')}.webp`;
 
     showSlotInfo();
 }
@@ -269,7 +269,7 @@ function loadTeam(){
 	
 	for (const img of wheelImages){
 		const yokaiData = yokaiDatabase[state.slots[img.dataset.index].yokaiId];
-		if (yokaiData) img.src = `${pathMedal}y${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
+		if (yokaiData) img.src = `${pathMedal}${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
 	}
 	
 	updateRankDisplay()
@@ -484,7 +484,7 @@ function showSlotInfo(){
 	//const variant = (yokaiData.FileNameVariant).toString();
 	
 	$("yokai-title").innerText = yokaiData.Name;
-	$("yokai-img").src = `${pathMedal}y${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
+	$("yokai-img").src = `${pathMedal}${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
 	$("yokai-img").alt = `${yokaiData.Name}`;
 	$("yokai-rank").src = `./Content/Graphics/tribes/${tribeList[yokaiData.Tribe]}.png`;
 	$("yokai-tribe").src = `./Content/Graphics/ranks/${rankList[yokaiData.Rank]}.png`
@@ -866,7 +866,7 @@ function showPage(yokais) {
 		
 		const medalImg = document.createElement('img');
 		
-		medalImg.src = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+		medalImg.src = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
 		medalImg.alt = yokai.Name;
 		medalImg.className = "yokai-img";
 		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';

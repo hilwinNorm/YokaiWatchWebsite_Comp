@@ -118,7 +118,7 @@ function createYokaiLink(key, yokai) {
 	const variant = (yokai.FileNameVariant).toString();
 
     //yokaiImg.src = `${pathArtwork}${prefixArray[prefix]}${number.padStart(3,'0')}${variant.padStart(2,'0')}0.png`;
-    yokaiImg.src = `${pathArtwork}y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+    yokaiImg.src = `${pathArtwork}${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
     yokaiImg.alt = yokai.Name;
     yokaiImg.title = yokai.Name;
 

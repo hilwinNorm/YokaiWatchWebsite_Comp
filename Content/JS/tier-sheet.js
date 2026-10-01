@@ -44,7 +44,7 @@ function loadYokaiIntoCells(){
 		
 		if(tierValue == "UUBL") divName.innerText += ` (UUBL)`;
 		
-		imgNormal.src = `${medalPath}y${String(yokai.MedalPosX + yokai.MedalPosY*23).padStart(3, '0')}.webp`;
+		imgNormal.src = `${medalPath}${String(yokai.MedalPosX + yokai.MedalPosY*23).padStart(3, '0')}.webp`;
 		imgNormal.alt = yokai.Name;
 		imgNormal.className = "medal-img";
 		imgNormal.style = "cursor: pointer; width: 50px; height: auto";

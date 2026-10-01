@@ -139,7 +139,7 @@ function renderPage({
 		"src="${pathElement(element[soultimateConfig?.Element])}" alt="elementImg">`
 
 	let tier = tierDatabase[yokaiData.ParamID] ? `(${tierDatabase[yokaiData.ParamID]})` : '';
-	$("yokai-title").innerHTML = `<img src="${pathMedal}y${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp"> ${yokaiData.Name} ${tier}`;
+	$("yokai-title").innerHTML = `<img src="${pathMedal}${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp"> ${yokaiData.Name} ${tier}`;
 	$("yokai-no").innerText = `NO.: ${(yokaiData.MedalliumOffset).toString().padStart(3,'0')}`;
 	
 	const prefix = yokaiData.FileNamePrefix;

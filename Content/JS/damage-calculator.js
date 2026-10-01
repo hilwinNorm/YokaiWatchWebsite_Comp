@@ -47,7 +47,7 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
 }
 
 function updateDisplay({side, posX, posY, name, values}) {
-	$(`${side}Img`).src = `Content/Graphics/YokaiMedals/y${String(posX + posY * 23).padStart(3, '0')}.webp`;
+	$(`${side}Img`).src = `Content/Graphics/YokaiMedals/${String(posX + posY * 23).padStart(3, '0')}.webp`;
     $(`${side}Name`).innerText = name;
 	for (const [key, yokaiValue] of Object.entries(values)) {
 		$(`${side}-${key}`).value = Math.floor(yokaiValue);
@@ -192,7 +192,7 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
 
         const stats = calculateStats({yokaiData: yokai});
 
-        const imgSrc = `Content/Graphics/YokaiMedals/y${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+        const imgSrc = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
 
         const medalId = String(yokai.MedalliumOffset).padStart(3, '0');
         const name = yokai.Name;
