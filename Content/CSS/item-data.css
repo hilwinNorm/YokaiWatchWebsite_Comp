@@ -1,0 +1,125 @@
+
+
+main {
+	display: grid;
+	justify-items: center;
+}
+		
+a {
+	color: var(--side-buttons-color);
+}
+
+#item-details {
+	height: auto;
+	width: 80%;
+	
+	display: grid;
+	
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: auto auto;
+	
+	grid-template-areas:
+		".	header	."
+		"misc main extra";
+	justify-items: center;
+	
+	padding: 20px 50px;
+	gap: 1vw;
+	list-style: none; 
+	overflow-y: visible; 
+}
+
+#item-img {
+	height: auto; 
+	width: 4vw;
+}
+
+#main-container {
+	grid-area: main;
+}
+
+#equipment-container {
+	grid-area: extra;
+	display: none;
+}
+
+#effect-container {
+	grid-area: extra;
+	display: none;
+}
+
+#soul-container {
+	grid-area: extra;
+	display: none;
+}
+
+#misc-container {
+	grid-area: misc;
+}
+
+#item-can-fuse {
+	display: none;
+}
+
+#item-skill-1 {
+	display: none;
+}
+
+#item-skill-2 {
+	display: none;
+}
+
+#item-ally-effect-battle-command {
+	display: none;
+}
+
+#item-foe-effect-battle-command {
+	display: none;
+}
+
+#soul-ingridient-1-id {
+	display: none;
+}
+
+#soul-ingridient-2-id {
+	display: none;
+}
+
+#soul-ingridient-1 {
+	display: none;
+}
+
+#soul-ingridient-2 {
+	display: none;
+}
+
+#soul-yokai {
+	display: none;
+}
+
+#soul-skill {
+	display: none;
+}
+
+.info-container {
+	min-width: 20vw;
+	width: 23vw;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	padding: 5px;
+	
+	background-color: var(--side-buttons-bg);
+	
+	border-radius: 25px;
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.item-header {
+	display: flex; 
+	align-items: center;
+	
+	grid-area: header;
+}

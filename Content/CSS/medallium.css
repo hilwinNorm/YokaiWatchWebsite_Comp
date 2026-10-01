@@ -1,0 +1,30 @@
+
+details{
+	padding: 10px;
+	text-align: center;
+	color: var(--side-buttons-color);
+	cursor: pointer;
+	font-size: 16px;
+}
+
+li {
+	list-style: none;
+}
+
+.attribute-button {
+	cursor: pointer; 
+	background: none; 
+	border: none;
+	height: 100px;
+	width: auto;
+}
+
+.attribute-button img {
+	width: auto;
+	height: 80px;
+}
+
+.yokai-attributes > img{
+	width: auto; 
+	height:70px;
+}

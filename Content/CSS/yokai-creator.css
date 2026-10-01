@@ -1,0 +1,201 @@
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiRoleFont';
+	src: url('../Fonts/Yokai_WatchFont/HOT-Bukotsu Std U.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue1Font';
+	src: url('../Fonts/Yokai_WatchFont/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiDialogue2Font';
+	src: url('../Fonts/Yokai_WatchFont/FOT-Seurat Pro B.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
+	src: url('../Fonts/Yokai_WatchFont/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@media (max-height: 400px) {
+	main {
+		transform: scale(0.9);
+	}
+	nav{position: absolute !important; width: 100vw !important;}
+	.banner-container{transform: scale(1); height: 108px !important; width: 100vw !important;}
+	.nav-wallpaper-change{transform: scale(0.8); margin-left: 0px !important;}
+	#Logo-Text{font-size:26px !important;}
+	aside{top: 0 !important; height: 100vh !important; padding: 0px !important;}
+	#yokai-details{margin-left:0px !important;}
+	.yokai-tribes{transform: scale(0.55)}
+	.yokai-ranks{transform: scale(0.7)}
+	.yokai-list{width: 500px !important;}
+	.MiniYokaiInfo-div{transform: scale(0.55)}
+	.nav-button{transform: scale(0.8); padding: 0px 0px !important; width: 100px; font-size: 10px !important;}
+	.icon{transform: scale(0.7)}
+	#Wheel-div{width: 400px !important;}
+	#Wheel-img{margin: 0px 120px !important;}
+	.SaveOptions{left: 125px !important;}
+	#Slot1{top: 65px !important; left: 182.5px !important;}
+	#Slot2{top: 20px !important; left: 264px !important;}
+	#Slot3{top: 66px !important; left: 345px !important;}
+	#Slot4{top: 157px !important; left: 345px !important;}
+	#Slot5{top: 204px !important; left: 264px !important;}
+	#Slot6{top: 157px !important; left: 182.5px !important;}
+}
+
+.Background{
+	width: 60vw; 
+	height: 100%; 
+	position: absolute;
+	inset: 0;
+	
+	clip-path: polygon(
+	/* 1. Outer boundary (clockwise) */ 
+	35% 0%, 55% 0%, 70% 100%, 0% 100%, 0% 0%, 
+	/* 2. Inner cutout shape (counter-clockwise) */ 
+	20% 100%, 100% 100%, 100% 0%, 0% 0%, 20% 100%); 
+}
+
+.GameBackground{
+	background-image: url(../Graphics/TitleMenu_Background.png); 
+	position:relative; 
+	background-size: cover, cover; 
+	width: 100%; 
+	height: 100%
+}
+
+.stat-row { display: flex; align-items: center; padding: 5px; color: #c6c0ff; gap: 10px; }
+.stat-row input, .stat-row select { background: #0b0b1a; color: #fff; border: 1px solid #c6c0ff; padding: 2px 5px; }
+.stat-row label { width: 50px; font-weight: bold; }
+.move-info {
+	font-size: 0.8em;
+	color: #a099ff;
+	margin-bottom: 10px;
+	margin-left: 120px;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+.info-label { color: #ffffff; font-weight: bold; margin-right: 4px; }
+
+.MiniYokaiInfo-div{
+	width: 850px;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.MiniSoulGemInfo-div{
+	width: auto;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.MiniEqInfo-div{
+	width: auto;
+    height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+	justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.transparent-background{
+	background-color: var(--transparent-bg);
+	border-radius: 15px;
+	border-style: solid; /* Or dashed, dotted, etc. */
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	margin: 20px 100px;
+    width: max-content;
+}
+
+.yokai-ranks {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-tribes{
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+.yokai-list img {
+	width: 47px;
+	height: auto;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.main-tabs {
+	display: flex;
+	justify-content: space-between; /* Pushes children to edges */
+	padding: 5px 0;
+	height: 27px;
+	z-index: 4;
+}
+
+#search-input{
+	width:250px;
+	height: 25px;
+}
+
+main{
+	
+}

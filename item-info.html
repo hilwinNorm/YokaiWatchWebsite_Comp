@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="Content/CSS/main.css">
+    <link rel="stylesheet" href="Content/CSS/item-data.css">
+    <script defer src="Content/JS/main.js"></script>
+    <script defer src="Content/JS/Databases/ItemConsumeDatabase.js"></script>
+    <script defer src="Content/JS/Databases/EquipmentDatabase.js"></script>
+    <script defer src="Content/JS/Databases/SoulGemDatabase.js"></script>
+    <script defer src="Content/JS/Databases/skill_config_0.03p/SKILL_CONFIG_INFO.js"></script>
+    <script defer src="Content/JS/Databases/YokaiDatabase.js"></script>
+    <script defer src="Content/JS/item-data.js"></script>
+</head>
+<body>
+    <nav id="nav-tab">
+    </nav>
+    <div class="wrapper">
+		<aside class="side-bar" id="side_bar"></aside>
+		<main>
+			<div class="transparent-background" id="item-details">
+				<div class="item-header">
+					<u><h1 id="item-name"></h1></u> 
+					<img id="item-img">
+				</div>
+				<div id="misc-container" class="info-container">
+					<h2>Misc Info</h2>
+					<hr>
+					<p id="item-inv-text"></p>
+					<p id="item-inv-text-id"></p>
+					<hr>
+					<p id="item-inv-sort"></p>
+					<p id="item-global-index"></p>
+					<p id="item-type"></p>
+					<p id="item-num"></p>
+					<p id="item-carry-cap"></p>
+					
+				</div>
+				<div id="main-container" class="info-container">
+					<h2>Main Info</h2>
+					<hr>
+					
+					<p id="item-id"></p>
+					<hr>
+					<p id="item-text"></p>
+					<p id="item-text-id"></p>
+					<hr>
+					<p id="item-desc"></p>
+					<p id="item-desc-id"></p>
+					<hr>
+					<p id="item-sell"></p>
+					<p id="item-buy"></p>
+					<p id="item-can-fuse"></p>
+					<p id="item-can-sell"></p>
+					<p id="item-can-buy"></p>
+				</div>
+				
+				<div id="equipment-container" class="info-container">
+					<h2>Equipment Info</h2>
+					<hr>
+					<p id="item-str"></p>
+					<p id="item-spr"></p>
+					<p id="item-def"></p>
+					<p id="item-spd"></p>
+					<p id="item-skill-1-id"></p>
+					<a id="item-skill-1"></a>
+					<p id="item-skill-2-id"></p>
+					<a id="item-skill-2"></a>
+					<hr>
+					<p id="item-equip-requirement"></p>
+				</div>
+				
+				<div id="soul-container" class="info-container">
+					<h2>Soul Gem Info</h2>
+					<hr>
+					<p id="soul-effect-id"></p>
+					<hr>
+					<p id="soul-yokai-id"></p>
+					<a id="soul-yokai"></a>
+					<p id="soul-ingridient-1-id"></p>
+					<a id="soul-ingridient-1"></a>
+					<p id="soul-ingridient-2-id"></p>
+					<a id="soul-ingridient-2"></a>
+					<hr>
+					<p id="soul-skill-id"></p>
+					<a id="soul-skill"></a>
+				</div>
+				
+				<div id="effect-container" class="info-container">
+					<h2>Item Effect Info</h2>
+					<hr>
+					<p id="item-consume-text"></p>
+					<p id="item-consume-text-id"></p>
+					<hr>
+					<p id="item-ally-effect-text"></p>
+					<p id="item-ally-effect-id"></p>
+					<p id="item-foe-effect-text"></p>
+					<p id="item-foe-effect-id"></p>
+					<hr>
+					<p id="item-ally-effect-index"></p>
+					<p id="item-foe-effect-index"></p>
+					<hr>
+					<p id="item-ally-effect-battle-command-id"></p>
+					<a id="item-ally-effect-battle-command"></a>
+					<p id="item-foe-effect-battle-command-id"></p>
+					<a id="item-foe-effect-battle-command"></a>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>                                                                    
+</html>                                                                    

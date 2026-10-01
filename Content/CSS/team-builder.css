@@ -1,0 +1,13 @@
+.SlotInfo-Text{
+	color: var(--side-buttons-color)
+}
+
+.team-wheel-display-container{
+	align-self: center;
+	position: relative;
+}
+
+.wheel-medal-slot{
+	position: absolute;
+	width: 48px;
+}

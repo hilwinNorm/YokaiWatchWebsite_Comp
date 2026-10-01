@@ -1,0 +1,74 @@
+
+#pfpMenu{
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	margin: 5vh 20vw;
+}
+
+#pageMedalList{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 30px;
+}
+
+#alertWindow{
+	color: var(--side-buttons-color);
+	position: absolute;
+	display: none;
+	align-items: flex-start;
+	justify-content: center;
+	width: 30vw;
+	height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 15;
+}
+
+#inputForm{
+	display: grid;
+    justify-items: center;
+	align-self: center;
+}
+
+#closeBtn{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.propertyDiv {
+	display: flex;
+	align-items: center; 
+	left: 50px;
+	gap: 10px;
+}
+
+.settingsDiv {
+	display: flex;
+	align-items: center; 
+	left: 50px;
+	gap: 10px;
+}
+
+.menuButton{
+	border-radius: 50%; 
+	color: var(--side-buttons-color); 
+	background: var(--side-buttons-bg); 
+	height: 4vh; 
+	width: 4vh;
+}
+
+.settingButton{
+	border-radius:15%; 
+	background-color: var(--side-buttons-bg); 
+	height: 25px;
+	width: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+p{
+	color: var(--side-buttons-color);
+}

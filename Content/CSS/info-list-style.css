@@ -1,0 +1,71 @@
+
+.yokai-list {
+	display: grid;
+	justify-items: center;
+	gap: 1vh;
+}
+
+.mini-info-div{
+	width: stretch;
+    min-height: 80px;
+	padding: 0px 15px;
+	background-color: var(--side-buttons-bg);
+	color: var(--side-buttons-color);
+	border: 1px solid #000;
+	border-radius: 15px;
+    display: flex;
+    place-content: center;
+	align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mini-info-div img {
+	width: 47px;
+	height: auto;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.team-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	margin: 20px 100px;
+    width: max-content;
+}
+
+.yokai-attributes {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	margin: 20px 100px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: black;
+}
+
+#data-page{
+	width: 100%;
+	min-width: 0;
+	min-height: 0;
+	
+	gap: 1vh;
+	margin: 0; 
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	flex-wrap: nowrap; 
+	list-style: none; 
+	
+	overflow-y: visible; 
+	overflow-x: hidden;
+}
+
+#search-input{
+	width:250px;
+	height: 25px;
+}

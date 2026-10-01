@@ -1,0 +1,125 @@
+
+input {
+	width: 6ch;
+}
+
+.damage-calculator {
+	height: calc(100dvh - 145px);
+	
+	gap: 16px;
+	
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: auto minmax(0, 1fr);
+}
+
+.combatants {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+	padding: 15px;
+}
+
+.combatant-panel {	
+	min-width: 0;
+	
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	
+	gap: 16px;
+}
+
+.combatant-panel legend {
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.combatant-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.combatant-header img {
+    width: 60px;
+    height: auto;
+}
+
+.combatant-header img:hover{
+	cursor: pointer;
+}
+
+.combatant-header p {
+    margin: 0 0 8px;
+}
+
+.combatant-panel.selected {
+    border: solid;
+    border-width: 3px;
+}
+
+.combatant-panel.selected legend {
+    color: white;
+	text-decoration: solid underline white 1.5px;
+}
+
+.stat-group {
+	text-align: center;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+	justify-items: end;
+    gap: 6px 12px;
+}
+
+.attack-panel {
+	display: grid;
+	gap: 12px;
+	padding: 14px;
+}
+
+.attack-settings {
+	display: flex;
+	justify-content: center;
+	gap: 8px 16px;
+}
+
+.attack-settings label{
+	font-weight: bold; 
+	font-size: 115%;
+}
+
+.attack-settings input[type="checkbox"] {
+	accent-color: var(--nav-buttons-color);
+}
+
+.attack-result {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	gap: 16px;
+}
+
+.bottom-field {
+	min-height: 0;
+	display: grid;
+	grid-template-rows: auto minmax(0, 1fr);
+	gap: 16px;
+}
+
+#calcButton{
+    margin: 5px auto;
+    font-size: 15px;
+}
+
+#selectedSideDisplay {
+    justify-self: center;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: var(--side-buttons-bg);
+    color: var(--side-buttons-color);
+}
