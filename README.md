@@ -57,7 +57,13 @@ To contribute code to the project, fork the project and create a pull request. P
         <ul>
         <b>/Content/CSS:</b>
             <li>main.css — Site-wide stylesheet. Planned to be depricated in favour of multiple ones</li>
-            <li>TierSheet.css — Stylesheet used in tier-sheet.html</li>
+            <li>info-list-style.css — Site-wide stylesheet used for listing pages</li>
+            <li>damage-calculator.css — Stylesheet used in damage-calculator.html</li>
+            <li>equipment.css — Stylesheet used in equipment-list.html</li>
+            <li>medallium.css — Stylesheet used in medallium.html</li>
+            <li>team-builder.css — Stylesheet used in team-builder.html</li>
+            <li>item-data.css — Stylesheet used in item-info.html</li>
+            <li>tier-sheet.css — Stylesheet used in tier-sheet.html</li>
             <li>yokai-creator.css — Stylesheet used in yokai-creator.html</li>
             <li>profile-menu.css — Stylesheet used in profile.html</li>
             <li>yokai-info-page.css — Stylesheet used in yokai-info.html</li>
@@ -76,6 +82,7 @@ To contribute code to the project, fork the project and create a pull request. P
             <li>misc-item-list.js — used in misc-list.html</li>
             <li>yokai-creator.js — used in yokai-creator.html</li>
             <li>tier-sheet.js — used in tier-sheet.html</li>
+            <li>platform.js — currently unused. Exports data about user's platform</li>
             <b>Content/Graphics</b> — Images and other assets<br>
             <b>Content/Fonts</b> — Site fonts<br>
             <b>Content/Libs</b> — external dependancies

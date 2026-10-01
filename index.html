@@ -6,6 +6,14 @@
 		<title>Wiki</title>
 		<link rel="stylesheet" href="Content/CSS/main.css">
 		<script defer src="Content/JS/main.js"></script>
+		<style>
+			h2 {
+				text-align: center;
+			}
+			h3 {
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		<nav id="nav-tab">
@@ -19,22 +27,20 @@
 		<h1 style="height: 50px; font-family: 'YokaiWatch_YokaiSoutlimateMiscFont'; font-size: 36px; color: var(--logo-color)">What's new?</h1>
 		<div class="transparent-background" style="width: 90%; font-size: 15px; color: var(--side-buttons-color); padding:5px; white-space: pre-wrap">
 		
+		<div id="news-main">
 		Hello everyone! It's been a while since I released the last update (half a year at this point 😅). 
 		However, in the meantime, I was able to improve many aspects of the website, as well as overcome 
-		difficulties with migrating to the new databases.  <img style="height: auto; width: 250px; float: right; margin-right : 170px;" src="Content/Graphics/Artwork/y119000.png">
-		
-		<u>What's new (2.2.0):</u>
-		• Updated the structure of several pages, including:
-			- <a href="./medallium.html">Medallium</a>
-			- <a href="./yokai-data?yokai=0x79F3AA36">Yokai Info Page</a>
-			- <a href="./damage-calculator">Damage calculator</a>
-			- <a href="./move-list">Move List</a>
-			- <a href="./move-data?moveType=0&id=0xB0B0A793">Move Info Page</a>
-		• Improved the internal structure of the website (JS, CSS)
-		• Updated visuals to use higher-resolution graphics (Medals, Yokai artwork, etc.)
-		• Added more details to the Yokai Info Page
-		• Fixed minor bugs
-		
+		difficulties with migrating to the new databases. <img style="height: auto; width: 20vw; float: right; margin-right : 170px;" src="Content/Graphics/Artwork/y119000.png">
+		<h2>Version 2.3.0 Update</h2>
+		<ul>
+		  <li><strong>Damage Calculator:</strong> Optimized the page performance and added the <strong>UUBL</strong> tier.</li>
+		  <li><strong>QOL:</strong> Added option for the <strong>"Copy to Clipboard"</strong> feature (copy wheel image).</li>
+		  <li><strong>Database:</strong> Separated <strong>Torituki</strong>, Skill Config, and Moves into independent categories; added skill info for equipment and an Effect info list for skills.</li>
+		  <li><strong>Visual & Text Fixes:</strong> Refreshed overall UI layouts, updated seasonal December banners, and fixed text encoding for Yo-kai descriptions.</li>
+		  <li><strong>Modular UI & Styling:</strong> Restructured site-wide <strong>CSS</strong> into clean, modular files for some pages, refreshing the overall UI layout.</li>
+		</ul>
+		</div>
+		<div id="news-bottom">
 		I might add more features in the future, depending on what you would like to see next.
 		This website is focused on creating tools and providing information to players.
 		However, if you're interested in other features like RAM editing, feel free to message me!
@@ -42,36 +48,80 @@
 		
 		Hope all of you will have a great day!
 		
-		Below you can see all content that was added previously. <img style="height: auto; width: 250px; float: right; margin-right: 300px;" src="Content/Graphics/Artwork/y151600.png">
-		If you have any questions, you can contact me through my discord: @hilwin
-		
-		Update History:
-		2.1.0:
-			• Update for move, item, yokai databases
-			• Updated UI for Team Builder page
-		2.0.0:
-			• Overhaul to the various databases with new data
-			• Minor change to damage calculator
-			• New yokai medals and artwork
-			• Added in yokai creator
-		1.1.0:
-			• Added Yo-Kai Data, that contains all of Yokai attacks and skills!
-			• Added two more Wallpapers: "Oh My Swirls! Pattern", "Hearts and Fluff"
-			• Divided Background into two separate parts
-			• Added new icons to various pages!
-			• Fixed various bugs related to IV, GYM and Attitude inputs
-			• Fixed bug related to techniques not being found in damage calculator
-			• Added missing Yokai to Yokai Database
-		1.0.0:
-			• Added Tier Sheet, showing where each yokai is in the tiers.
-			• Added moving Wallpapers! (Can be changed in top right corner; See below to see all new Wallpapers)
-			• New design for Strategy Medallium
-			• New design for Team Builder, added option to edit Yokai's stats, added Equipment (and Soul Gem) list
-			• Added search option for some pages
-			• Added Equipment List page
-			• Added more fonts (See below for more information)
+		Below you can see all content that was added previously. <img style="height: auto; width: 20vw; float: right; margin-right: 300px;" src="Content/Graphics/Artwork/y151600.png">
+		If you have any questions, you can contact me through my discord: @hilwin</div>
+		<div class="update-history">
+			<h2>Update History:</h2>
 			
-		<img style="height: auto; width: 250px; float: right; margin-right: 50px;" src="Content/Graphics/Artwork/x191000.png">
+			<div class="update-version">
+				<h3>2.3.0:</h3>
+				<ul>
+					<li>• Optimized <strong>Damage Calculator</strong> and added <strong>UUBL tier</strong></li>
+					<li>• Added option for <strong>"Copy to Clipboard"</strong> (copy wheel image)</li>
+					<li>• Split <strong>Torituki</strong> and moves into separate database categories</li>
+					<li>• Restructured site-wide <strong>CSS</strong> into clean, modular files</li>
+					<li>• Fixed Yo-kai description text encoding and added December banners</li>
+				</ul>
+			</div>
+			
+			<div class="update-version">
+				<h3>2.2.0:</h3>
+				<ul>
+					<li>• Updated the structure of key pages: <a href="./medallium.html"><strong>Medallium</strong></a>, <a href="./yokai-data?yokai=0x79F3AA36"><strong>Yo-kai Info</strong></a>, <a href="./damage-calculator"><strong>Damage Calculator</strong></a>, <a href="./move-list"><strong>Move List</strong></a>, and <a href="./move-data?moveType=0&id=0xB0B0A793"><strong>Move Info</strong></a></li>
+					<li>• Improved internal website architecture (cleaner <strong>JS and CSS</strong>)</li>
+					<li>• Upgraded visuals to <strong>higher-resolution graphics</strong> (Medals, Yo-kai artwork, etc.)</li>
+					<li>• Added more detailed statistics to the <strong>Yo-kai Info Page</strong></li>
+					<li>• Fixed minor bugs and optimized performance</li>
+				</ul>
+			</div>
+
+
+			<div class="update-version">
+				<h3>2.1.0:</h3>
+				<ul>
+					<li>• Update for <strong>move, item, and yokai databases</strong></li>
+					<li>• Updated UI for <strong>Team Builder</strong> page</li>
+				</ul>
+			</div>
+
+			<div class="update-version">
+				<h3>2.0.0:</h3>
+				<ul>
+					<li>• Overhaul to the various <strong>databases</strong> with new data</li>
+					<li>• Minor change to <strong>damage calculator</strong></li>
+					<li>• New <strong>yokai medals</strong> and artwork</li>
+					<li>• Added <strong>Yokai Creator</strong></li>
+				</ul>
+			</div>
+			
+			<div class="update-version">
+				<h3>1.1.0:</h3>
+				<ul>
+					<li>• New <strong>Yo-Kai Data</strong> that contains all of Yokai attacks and skills</li>
+					<li>• Two new Wallpapers: <strong>"Oh My Swirls! Pattern"</strong> and <strong>"Hearts and Fluff"</strong></li>
+					<li>• Divided <strong>Background</strong> into two separate parts</li>
+					<li>• Added <strong>new icons</strong> to various pages</li>
+					<li>• Fixed various bugs related to <strong>IV, GYM and Attitude inputs</strong></li>
+					<li>• Fixed bug related to techniques not being found in damage calculator</li>
+					<li>• Added missing Yokai to Yokai Database</li>
+				</ul>
+			</div>
+			
+			<div class="update-version">
+				<h3>1.0.0:</h3>
+				<ul>
+					<li>• Added <strong>Tier Sheet</strong> showing where each yokai is in the tiers</li>
+					<li>• Added <strong>moving Wallpapers</strong> can be changed in top right corner</li>
+					<li>• New design for <strong>Strategy Medallium</strong></li>
+					<li>• New design for <strong>Team Builder</strong> added option to edit <strong>Yokai's stats</strong> added <strong>Equipment (and Soul Gem) list</strong></li>
+					<li>• Added <strong>search option</strong> for some pages</li>
+					<li>• Added <strong>Equipment List</strong> page</li>
+					<li>• Added more <strong>fonts</strong></li>
+				</ul>
+			</div>
+		</div>
+			
+		<img style="height: auto; width: 40vw; float: right; margin-right: 50px;" src="Content/Graphics/Artwork/x191000.png">
 		</div>
 		</div>
 		</main>

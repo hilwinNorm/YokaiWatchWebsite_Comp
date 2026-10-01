@@ -13,7 +13,7 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 
 let WV={
 	"Major": 2,
-	"Minor": 2,
+	"Minor": 3,
 	"Patch": 0
 }
 
