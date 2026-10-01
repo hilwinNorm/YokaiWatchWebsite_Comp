@@ -18,12 +18,11 @@ Unlike other Yo-kai Watch resources, this website also provides:
 
 ## Site Roadmap 
 
-- [ ] User accounts
-- [ ] Community tier voting system
 - [ ] Mobile support
 - [ ] Multi-language support (?)
 - [ ] Tournament hosting and stats storage
 - [ ] Yo-kai Watch 3 support
+- [ ] Yo-kai Watch 1 support
 
 
 
