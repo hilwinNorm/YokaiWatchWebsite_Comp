@@ -207,7 +207,7 @@ function buildYokaiList(yokais) {
       const inspImg = document.createElement('img');
       inspImg.src = `Content/Graphics/InspiritImages/${inspiritType}.png`;
       inspImg.alt = 'Inspirit';
-      medalImg.setAttribute('inspirit-value', GenericInspiritIDs[inspirit.GenericEffectID] || '');
+      medalImg.setAttribute('inspirit-value', GenericInspiritIDs[inspiritSteff.EffectID] || '');
       inspLink.appendChild(inspImg);
       divMain.appendChild(inspLink);
     }
