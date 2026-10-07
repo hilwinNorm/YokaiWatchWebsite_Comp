@@ -1,21 +1,31 @@
+/* =========================================================
+   1. Base/Document
+   ========================================================= */
 
-h1{
+h1 {
 	text-align: center;
 }
 
-a{
+a {
 	color:var(--side-buttons-color);
+}
+
+/* =========================================================
+   2. Global Layout Shell
+   ========================================================= */
+   
+main {
+	padding: 1vh 3vw;
+	display: grid;
+	justify-items: center;
 }
 
 .header-bar {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background: var(--side-buttons-bg);
-	border-radius: 30px;
-	padding: 8px 20px;
-	margin-bottom: 15px;
-	flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--side-buttons-bg);
+    border-radius: 30px;
+    padding: 8px 20px;
 }
 
 .main-info-grid {
@@ -44,11 +54,33 @@ a{
 	text-align: center;
 }
 .stat-type {
+	border-radius: 15px; 
+	
+	padding: 0px 6px;
+	-webkit-text-stroke-width: 1.6px;
+	
 	color: white; 
 	background-color: #ffe327; 
-	border-radius: 15px; 
-	-webkit-text-stroke-width: 1.6px;
-	padding: 0px 6px;
+}
+
+.yokai-title {
+    align-items: center;
+	display: flex;
+	
+	container-type: inline-size;
+	
+	width: 18vw;
+}
+
+#yokai-medal{
+	height: 44px;
+}
+
+#yokai-name{
+	margin: 0;
+	transform-origin: left center;
+    white-space: nowrap;
+	font-size: 2em;
 }
 
 .artwork-column {
@@ -61,7 +93,8 @@ a{
 	width: auto;
 }
 .description-column {
-	font-size: 1.2rem;
+	container-type: inline-size;
+    font-size: var(--font-size-resizable);
 	background: var(--side-buttons-bg);
 	border-radius: 25px;
 	padding: 15px;
@@ -74,24 +107,6 @@ a{
 	display: flex;
 	align-items: center;
 	padding-bottom: 10px;
-}
-
-.cell-section{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 15px;
-}
-
-.cell-item{
-	width: 45%;
-	padding: 1%;
-	display: flex;
-	align-items: flex-start;
-	flex-direction: column;
-	justify-content: space-between;
-	background: var(--side-buttons-bg);
-	border-radius: 5px;
 }
 
 .misc-container{
@@ -118,21 +133,24 @@ a{
 	border-radius: 5px;
 }
 
-.move-size-1{
-	min-height: 50px;
+.common-drop-info {
+	display: none;
 }
 
-.move-size-2{
-	min-height: 75px;
+.rare-drop-info {
+	display: none;
 }
 
-.move-size-3{
-	min-height: 100px;
-}
-
-#yokai-title{
-	display: flex;
-	align-items: center;
+#yokai-details{
+    display: flex;
+    padding: 20px 50px;
+    width: 80vw;
+    flex-direction: column;
+    list-style: none;
+    overflow-y: visible;
+    height: auto;
+    flex-wrap: wrap;
+	gap: 1vh;
 }
 
 #yokai-alliance{
@@ -152,4 +170,38 @@ a{
 #yokai-classic{
 	width: auto;
 	height: 40px;
+}
+
+/* =========================================================
+   3. Reusable Panels / Utility Components
+   ========================================================= */
+
+.cell-section{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 15px;
+}
+
+.cell-item{
+	width: 45%;
+	padding: 1%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-between;
+	background: var(--side-buttons-bg);
+	border-radius: 5px;
+}
+
+.move-size-1{
+	min-height: 50px;
+}
+
+.move-size-2{
+	min-height: 75px;
+}
+
+.move-size-3{
+	min-height: 100px;
 }

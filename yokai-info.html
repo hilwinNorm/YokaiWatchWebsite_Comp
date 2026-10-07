@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki</title>
+    <title>Yo-kai Info</title>
     <link rel="stylesheet" href="Content/CSS/main.css">
     <link rel="stylesheet" href="Content/CSS/yokai-info-page.css">
     <script defer src="Content/JS/main.js"></script>
@@ -15,9 +15,12 @@
 	<script defer src='Content/JS/Databases/YokaiSameKindDatabase.js'></script>
 	<script defer src="Content/JS/Databases/tierDatabase.js"></script>
 	
+	<script defer src="Content/JS/Databases/text/chara_text_ja.js"></script>
+	
 	<script defer src="Content/JS/Databases/skill_config_0.03p/SKILL_CONFIG_INFO.js"></script>
 	<script defer src="Content/JS/Databases/skill_config_0.03p/SKILL_GROWTH_INFO.js"></script>
 	<script defer src="Content/JS/Databases/skill_config_0.03p/SPSKILL_POINT_INFO.js"></script>
+	
 	<script defer src="Content/JS/Databases/ItemConsumeDatabase.js"></script>
 	<script defer src="Content/JS/Databases/EquipmentDatabase.js"></script>
 	
@@ -35,9 +38,12 @@
 	<div class="wrapper;">
 		<aside class="side-bar" id="side_bar"></aside>
 		<main>
-			<div class="transparent-background" id="yokai-details" style="color: var(--side-buttons-color); display: flex; margin: 20px 100px; padding: 20px 50px; width: 80%; flex-direction: column; list-style: none; overflow-y: visible; height: auto; flex-wrap: wrap;">
+			<div class="transparent-background" id="yokai-details">
 				<div class="header-bar">
-					<h1 id="yokai-title"></h1>
+					<span class="yokai-title">
+						<img id="yokai-medal">
+						<span id="yokai-name"></span>
+					</span>
 					<h1 id="yokai-no"></h1>
 					<h1 id="yokai-tribe" style="display: flex; align-items: center;"></h1>
 					<h1 id="yokai-rank" style="display: flex; align-items: center;"></h1>
@@ -183,10 +189,12 @@
 					</fieldset>
 					<fieldset class="cell-item move-size-2">
 						<legend style="padding: 0 10px; font-weight: bold;">Item Drop</legend>
-						<p id="common-item"></p>
-						<p id="common-item-chance"></p>
-						<p id="rare-item"></p>
-						<p id="rare-item-chance"></p>
+						<p id="common-item-id"></p>
+						<p class="common-drop-info" id="common-item"></p>
+						<p class="common-drop-info" id="common-item-chance"></p>
+						<p id="rare-item-id"></p>
+						<p class="rare-drop-info" id="rare-item"></p>
+						<p class="rare-drop-info" id="rare-item-chance"></p>
 					</fieldset>
 					<fieldset class="cell-item move-size-2">
 						<legend style="padding: 0 10px; font-weight: bold;">Appearance Data</legend>

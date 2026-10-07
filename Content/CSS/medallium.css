@@ -11,6 +11,20 @@ li {
 	list-style: none;
 }
 
+.yokai-list {
+	min-width: 90vw;
+}
+
+.info-name {
+	container-type: inline-size;
+	
+	text-align: center;
+	
+	width: 12%; 
+	
+	font-size: var(--font-size-resizable);
+}
+
 .attribute-button {
 	cursor: pointer; 
 	background: none; 
@@ -27,4 +41,9 @@ li {
 .yokai-attributes > img{
 	width: auto; 
 	height:70px;
+}
+
+.tag-classic {
+	width: auto; 
+	height: 25px;
 }

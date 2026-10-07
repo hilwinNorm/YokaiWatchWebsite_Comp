@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki</title>
     <link rel="stylesheet" href="Content/CSS/main.css">
-    <link rel="stylesheet" href="Content/CSS/medallium.css">
     <link rel="stylesheet" href="Content/CSS/info-list-style.css"/>
+    <link rel="stylesheet" href="Content/CSS/medallium.css">
+	
     <script defer src="Content/JS/main.js"></script>
+	
+    <script defer src='Content/JS/Databases/text/chara_text_ja.js'></script>
+	
     <script defer src='Content/JS/Databases/YokaiDatabase.js'></script>
     <script defer src='Content/JS/Databases/MoveDatabase.js'></script>
     <script defer src='Content/JS/Databases/skill_config_0.03p/SKILL_CONFIG_INFO.js'></script>
 	<script defer src='Content/JS/Databases/SteffInfoDatabase.js'></script>
+	
     <script defer src='Content/JS/medallium-script.js'></script>
 	<style>
 		main {
@@ -94,7 +99,7 @@
 					</ul>
 				</details>
 				<input type="search" id="search-input" name="query" placeholder="Search for Yokai...">
-					<div id="data-page" class="yokai-list" style="overflow-y: visible;"></div>
+					<div id="data-page" class="yokai-list"></div>
 				</div>
 		</main>
 	</div>

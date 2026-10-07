@@ -16,8 +16,8 @@
     display: flex;
     place-content: center;
 	align-items: center;
+	flex-wrap: nowrap;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .mini-info-div img {
@@ -49,8 +49,6 @@
 
 #data-page{
 	width: 100%;
-	min-width: 0;
-	min-height: 0;
 	
 	gap: 1vh;
 	margin: 0; 

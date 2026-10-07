@@ -1,37 +1,213 @@
+/* =========================================================
+   1. Design Tokens
+   ========================================================= */
 
-@font-face{
-	font-family: 'YokaiWatch_YokaiRoleFont';
-	src: url('../Fonts/Yokai_WatchFont/HOT-Bukotsu Std U.otf') format('woff');
-	font-weight: normal;
-	font-style: normal;
+:root {
+    --font-size-main: 12px;
+	--font-size-resizable: clamp(12px, 1cqw, 2em);
+
+    /* Layout */
+    --nav-height: 145px;
+	--nav-banner-height: 108px;
+    --sidebar-width: 200px;
+    --sidebar-button-width: 165px;
+
+    /* Common UI values */
+    --radius-small: 10px;
+    --radius-medium: 15px;
+    --radius-large: 30px;
 }
 
-@font-face{
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	src: url('../Fonts/Yokai_WatchFont/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
-	font-weight: normal;
-	font-style: normal;
+/* =========================================================
+   2. Fonts
+   ========================================================= */
+
+@font-face {
+    font-family: 'YokaiWatch_YokaiRoleFont';
+    src: url('../Fonts/Yokai_WatchFont/HOT-Bukotsu Std U.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face{
-	font-family: 'YokaiWatch_YokaiDialogue2Font';
-	src: url('../Fonts/Yokai_WatchFont/FOT-Seurat Pro B.otf') format('woff');
-	font-weight: normal;
-	font-style: normal;
+@font-face {
+    font-family: 'YokaiWatch_YokaiDialogue1Font';
+    src: url('../Fonts/Yokai_WatchFont/FOT-UDMarugo_LargePr6N-DB.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face{
-	font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
-	src: url('../Fonts/Yokai_WatchFont/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
-	font-weight: normal;
-	font-style: normal;
+@font-face {
+    font-family: 'YokaiWatch_YokaiDialogue2Font';
+    src: url('../Fonts/Yokai_WatchFont/FOT-Seurat Pro B.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face{
-	font-family: 'SN_Pro';
-	src: url('../Fonts/SN_Pro/SNPro-Italic-VariableFont_wght.ttf') format('woff');
-	font-weight: normal;
-	font-style: normal;
+@font-face {
+    font-family: 'YokaiWatch_YokaiSoutlimateMiscFont';
+    src: url('../Fonts/Yokai_WatchFont/about_friend_v5_by_matthewtheprep_dcxxxbw.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SN_Pro';
+    src: url('../Fonts/SN_Pro/SNPro-Italic-VariableFont_wght.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================================================
+   3. Theme Variables
+   ========================================================= */
+
+.Cool_Blue {
+    --logo-color: #003c83;
+    --side-buttons-bg: #2879d3;
+    --side-buttons-color: #ffffff;
+    --side-bg: #255cce;
+    --nav-buttons-bg: #2879d3;
+    --nav-buttons-color: #ffffff;
+    --nav-bg: #20a5d8;
+    --transparent-bg: #255cce80;
+}
+
+.Antique_Blossoms {
+    --logo-color: #734b04;
+    --side-buttons-bg: #c68282;
+    --side-buttons-color: #251e20;
+    --side-bg: #ce6a6a;
+    --nav-buttons-bg: #f5e54c;
+    --nav-buttons-color: #48483e;
+    --nav-bg: #dbce53;
+    --transparent-bg: #ce6a6a80;
+}
+
+.Bamboo_Forest {
+    --logo-color: #154624;
+    --side-buttons-bg: #4a854d;
+    --side-buttons-color: #fcfcfc;
+    --side-bg: #33612b;
+    --nav-buttons-bg: #4a854d;
+    --nav-buttons-color: #fcfcfc;
+    --nav-bg: #33612b;
+    --transparent-bg: #33612b80;
+}
+
+.Merchant_Purple {
+    --logo-color: #441a47;
+    --side-buttons-bg: #915673;
+    --side-buttons-color: #ffe0ef;
+    --side-bg: #5a255e;
+    --nav-buttons-bg: #915673;
+    --nav-buttons-color: #ffe0ef;
+    --nav-bg: #5a255e;
+    --transparent-bg: #5a255e80;
+}
+
+.Classic_Gold {
+    --logo-color: #ebba4d;
+    --side-buttons-bg: #936722;
+    --side-buttons-color: #fff5de;
+    --side-bg: #614416;
+    --nav-buttons-bg: #936722;
+    --nav-buttons-color: #fff5de;
+    --nav-bg: #614416;
+    --transparent-bg: #61441680;
+}
+
+.Up_All_Night {
+    --logo-color: #6680fb;
+    --side-buttons-bg: #202c64;
+    --side-buttons-color: #c6c0ff;
+    --side-bg: #0c1334;
+    --nav-buttons-bg: #202c64;
+    --nav-buttons-color: #c6c0ff;
+    --nav-bg: #0c1334;
+    --transparent-bg: #0c133480;
+}
+
+.Galaxy_Cruise {
+    --logo-color: #102521;
+    --side-buttons-bg: #2f73c0;
+    --side-buttons-color: #fff4f8;
+    --side-bg: #24558d;
+    --nav-buttons-bg: #da2424;
+    --nav-buttons-color: #f7ffff;
+    --nav-bg: #d64c4c;
+    --transparent-bg: #24558d80;
+}
+
+.Small_Cream_Soda {
+    --logo-color: #153831;
+    --side-buttons-bg: #148d67;
+    --side-buttons-color: #ffffff;
+    --side-bg: #1ba479;
+    --nav-buttons-bg: #deb358;
+    --nav-buttons-color: #ffffff;
+    --nav-bg: #edc87a;
+    --transparent-bg: #1ba47980;
+}
+
+.HeartsAndFluff {
+    --logo-color: #6d0032;
+    --side-buttons-bg: #ff85ac;
+    --side-buttons-color: #341b23;
+    --side-bg: #e95585;
+    --nav-buttons-bg: #ff85ac;
+    --nav-buttons-color: #341b23;
+    --nav-bg: #e95585;
+    --transparent-bg: #e9558580;
+}
+
+.OhMySwirls {
+    --logo-color: #244913;
+    --side-buttons-bg: #368b27;
+    --side-buttons-color: #000000;
+    --side-bg: #28661d;
+    --nav-buttons-bg: #368b27;
+    --nav-buttons-color: #000000;
+    --nav-bg: #28661d;
+    --transparent-bg: #368b2780;
+}
+
+/* =========================================================
+   4. Base / Document
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'YokaiWatch_YokaiDialogue2Font', sans-serif;
+    font-size: var(--font-size-main);
+
+    color: var(--nav-buttons-color);
+
+    /* Two-layer background */
+    background-image:
+        url('../Graphics/Wallpapers/Bamboo_Forest_Pattern.png'),
+        url('../Graphics/Wallpapers/Bamboo_Forest.png');
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, fixed;
+    background-size: auto 100%, cover;
+
+    animation: scrollBackground 180s linear infinite;
 }
 
 @keyframes scrollBackground {
@@ -43,449 +219,506 @@
 	
     100% {
         background-position: 
-            100% 100%,  /* Pattern moves diagonally */
+            1024px 1024px,  /* Pattern moves diagonally */
             0px 0px;    /* Static background stays in place */
     }
 }
 
-@media (max-height: 400px) {
-	main {
-		transform: scale(0.9);
-	}
-	nav{position: absolute !important; width: 100vw !important;}
-	.banner-container{transform: scale(1); height: 108px !important; width: 100vw !important;}
-	.nav-wallpaper-change{transform: scale(0.8); margin-left: 0px !important;}
-	#Logo-Text{font-size:26px !important;}
-	aside{top: 0 !important; height: 100vh !important; padding: 0px !important;}
-	#yokai-details{margin-left:0px !important;}
-	.yokai-tribes{transform: scale(0.55)}
-	.yokai-ranks{transform: scale(0.7)}
-	.yokai-list{width: 500px !important;}
-	.MiniYokaiInfo-div{transform: scale(0.55)}
-	.nav-button{transform: scale(0.8); padding: 0px 0px !important; width: 100px; font-size: 10px !important;}
-	.icon{transform: scale(0.7)}
-	#Wheel-div{width: 400px !important;}
-	#Wheel-img{margin: 0px 120px !important;}
-	.SaveOptions{left: 125px !important;}
-	#Slot1{top: 65px !important; left: 182.5px !important;}
-	#Slot2{top: 20px !important; left: 264px !important;}
-	#Slot3{top: 66px !important; left: 345px !important;}
-	#Slot4{top: 157px !important; left: 345px !important;}
-	#Slot5{top: 204px !important; left: 264px !important;}
-	#Slot6{top: 157px !important; left: 182.5px !important;}
+/* Shared text/form elements */
+
+label {
+	align-content: center;
+	
+    color: var(--side-buttons-color);
 }
 
-.icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-size: contain;
-  vertical-align: middle;
+input,
+select,
+textarea {
+    font: inherit;
+    background-color: var(--side-buttons-bg);
+    color: var(--side-buttons-color);
 }
 
-.icon-discord {
-  background-image: url('../Graphics/MenuIcons/Discord/discord_ico_color.png');
-}
-.icon-yokai {
-	background-image: url('../Graphics/MenuIcons/Yokai_Icon.png')
-}
-.icon-soulgems {
-	background-image: url('../Graphics/MenuIcons/SoulGems_Icon.png')
-}
-.icon-equipment {
-	background-image: url('../Graphics/MenuIcons/Equipment_Icon.png')
-}
-.icon-itemall {
-	background-image: url('../Graphics/MenuIcons/All_Icon.png')
-}
-.icon-dict {
-	background-image: url('../Graphics/MenuIcons/Dictionary_Icon.png')
-}
-.icon-damage {
-	background-image: url('../Graphics/MenuIcons/Damage_Icon.png')
-}
-.icon-home {
-	background-image: url('../Graphics/MenuIcons/Home_Icon.png')
-}
-.icon-dialoguequest {
-	background-image: url('../Graphics/MenuIcons/DialogueQuest_Icon.png')
-}
-.icon-search {
-	background-image: url('../Graphics/MenuIcons/Search_Icon.png')
-}
-.icon-misc {
-	background-image: url('../Graphics/MenuIcons/Misc.png')
+button,
+select,
+input,
+textarea {
+    accent-color: var(--nav-buttons-color);
 }
 
-.Cool_Blue {
-	--logo-color: #003c83;
-	--side-buttons-bg: #2879d3;
-	--side-buttons-color: #ffffff;
-	--side-bg: #255cce;
-	--nav-buttons-bg: #2879d3;
-	--nav-buttons-color: #ffffff;
-	--nav-bg: #20a5d8;
-	--transparent-bg: #255cce80;
-}
-
-.Antique_Blossoms {
-	--logo-color: #734b04;
-	--side-buttons-bg: #c68282;
-	--side-buttons-color: #251e20;
-	--side-bg: #ce6a6a;
-	--nav-buttons-bg: #f5e54c;
-	--nav-buttons-color: #48483e;
-	--nav-bg: #dbce53;
-	--transparent-bg: #ce6a6a80;
-}
-
-.Bamboo_Forest {
-	--logo-color: #154624;
-	--side-buttons-bg: #4a854d;
-	--side-buttons-color: #fcfcfc;
-	--side-bg: #33612b;
-	--nav-buttons-bg: #4a854d;
-	--nav-buttons-color: #fcfcfc;
-	--nav-bg: #33612b;
-	--transparent-bg: #33612b80;
-}
-.Merchant_Purple {
-	--logo-color: #441a47;
-	--side-buttons-bg: #915673;
-	--side-buttons-color: #ffe0ef;
-	--side-bg: #5a255e;
-	--nav-buttons-bg: #915673;
-	--nav-buttons-color: #ffe0ef;
-	--nav-bg: #5a255e;
-	--transparent-bg: #5a255e80;
-}
-.Classic_Gold {
-	--logo-color: #ebba4d;
-	--side-buttons-bg: #936722;
-	--side-buttons-color: #fff5de;
-	--side-bg: #614416;
-	--nav-buttons-bg: #936722;
-	--nav-buttons-color: #fff5de;
-	--nav-bg: #614416;
-	--transparent-bg: #61441680;
-}
-.Up_All_Night {
-	--logo-color: #6680fb;
-	--side-buttons-bg: #202c64;
-	--side-buttons-color: #c6c0ff;
-	--side-bg: #0c1334;
-	--nav-buttons-bg: #202c64;
-	--nav-buttons-color: #c6c0ff;
-	--nav-bg: #0c1334;
-	--transparent-bg: #0c133480;
-}
-.Galaxy_Cruise {
-	--logo-color: #102521;
-	--side-buttons-bg: #2f73c0;
-	--side-buttons-color: #fff4f8;
-	--side-bg: #24558d;
-	--nav-buttons-bg: #da2424;
-	--nav-buttons-color: #f7ffff;
-	--nav-bg: #d64c4c;
-	--transparent-bg: #24558d80;
-}
-.Small_Cream_Soda {
-	--logo-color: #153831;
-	--side-buttons-bg: #148d67;
-	--side-buttons-color: #ffffff;
-	--side-bg: #1ba479;
-	--nav-buttons-bg: #deb358;
-	--nav-buttons-color: #ffffff;
-	--nav-bg: #edc87a;
-	--transparent-bg: #1ba47980;
-}
-.HeartsAndFluff {
-	--logo-color: #6d0032;
-	--side-buttons-bg: #ff85ac;
-	--side-buttons-color: #341b23;
-	--side-bg: #e95585;
-	--nav-buttons-bg: #ff85ac;
-	--nav-buttons-color: #341b23;
-	--nav-bg: #e95585;
-	--transparent-bg: #e9558580;
-}
-.OhMySwirls {
-	--logo-color: #244913;
-	--side-buttons-bg: #368b27;
-	--side-buttons-color: #000000;
-	--side-bg: #28661d;
-	--nav-buttons-bg: #368b27;
-	--nav-buttons-color: #000000;
-	--nav-bg: #28661d;
-	--transparent-bg: #368b2780;
-}
-
-body {
-    font-family: 'YokaiWatch_YokaiDialogue2Font'; 
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-	flex-direction: column;
-    min-height: 100vh;
+hr {
     width: 100%;
-    
-    /* Two-layer background */
-    background: url('../Graphics/Wallpapers/Bamboo_Forest_Pattern.png') repeat, url('../Graphics/Wallpapers/Bamboo_Forest.png') fixed;
-    
-    background-size: 
-        auto 100%,  /* Pattern size */
-        cover;       /* Static background size */
-    
-    animation: scrollBackground 180s linear infinite;
+    flex-shrink: 0;
+    border: 1px solid var(--side-buttons-color);
 }
 
-main {
-	padding: 0 3vw;
-	
-	color: var(--nav-buttons-color); 
-	
-	flex: 1;
-	
-	overflow-y: auto;
-	
-	box-sizing: border-box;
-}
-
-main button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-    position: static;
-    width: auto;
-    height: auto;
-	border-width: 1px; 
-	border-style: solid;
-	border-radius: 30px;
-	border-color: var(--side-buttons-color);
-	cursor: pointer;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-}
-
-main select{
-	background-color: var(--side-buttons-bg); 
-	color: var(--side-buttons-color);
-}
-
-aside {
-	padding-top: 10px;
-	padding-left: 10px;
-	
-	position: fixed;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	
-	width: 200px;
-	height: 80vh;
-	
-	transition: transform 0.8s ease-in-out;
-	border-top-right-radius: 10px;
-	color: #fff;
-	top: 145px;
-	background: var(--side-bg);
-	z-index: 3;
-	overflow-y: auto;
-}
-
-nav {
-	background: var(--nav-bg);
-	border-left: 0px;
-	border-top: 0px;
-	border-right: 0px;
-	border-bottom: 0px;
-	grid-area: nav;
-	position: sticky;
-	top: 0;
-	width: 100%;
-	height: 145px;
-	z-index: 2;
-}
-
-button{
-	font-family: 'YokaiWatch_YokaiDialogue2Font';
-	background-color: var(--nav-buttons-bg); 
-	color: var(--nav-buttons-color); 
-	padding: 0px 15px; 
-	border: none; 
-	cursor: pointer;
-	border-radius: 15px;
-}
-button:hover{
-	color: white;
-}
-button:disabled{
-	color: grey;
-	cursor: default;
-}
-
-input {
-	background-color: var(--side-buttons-bg); 
-	color: var(--side-buttons-color);
-}
-
-select{
-	background-color: var(--side-buttons-bg); 
-	color: var(--side-buttons-color);
-}
-
-label{
-	color: var(--side-buttons-color);
-}
-
-textarea{
-	background-color: var(--side-buttons-bg); 
-	color: var(--side-buttons-color);
-}
-
-hr{
-	width: 100%;
-	flex-shrink: 0;
-	border: 1px var(--side-buttons-color) solid;
-	
-}
+/* =========================================================
+   5. Global Layout Shell
+   ========================================================= */
 
 .wrapper {
     display: flex;
     flex: 1;
     position: relative;
+    min-height: 0;
 }
 
-.main-tabs{
-	display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    height: 27px;
-    z-index: 4;
+main {
+    flex: 1;
+    padding: 0 3vw;
+    overflow-y: auto;
+    box-sizing: border-box;
+    color: var(--nav-buttons-color);
+}
+
+nav {
+    position: sticky;
+	top: 0;
+	z-index: 999;
+
+    width: 100%;
+    height: var(--nav-height);
+
+    background-color: var(--nav-bg);
+}
+
+/* =========================================================
+   6. Header / Banner
+   ========================================================= */
+
+.banner-container {
+    width: 100%;
+    height: var(--nav-banner-height);
+    position: absolute;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
+}
+
+.banner-container > img {
+    height: var(--nav-banner-height);
 }
 
 #left-char {
-  grid-column: 1;
-  height: 108px;
-  width: auto;
-  justify-self: start;
+    grid-column: 1;
+    justify-self: start;
+    width: auto;
 }
 
 #right-char {
-  grid-column: 3;
-  height: 108px;
-  width: auto;
-  justify-self: end;
-}
-
-.banner-container {
-	background-image: url('../Graphics/Wallpapers/Small_Cream_Soda.png');
-	position: absolute;
-	left: 0px;
-	top: 37px;
-	z-index: 2; 
-	display: grid;
-	grid-template-columns: 1fr auto 1fr; /* Left character | Logo | Right character */
-	width: 100%;
-    align-items: center;
-	height: 108px
+    grid-column: 3;
+    justify-self: end;
+    width: auto;
 }
 
 #logo-js {
-  justify-self: center;
-  
+    justify-self: center;
 }
 
-#Logo-Text{
-	font-family: 'YokaiWatch_YokaiRoleFont'; 
-	font-size: 40px; 
-	color: var(--logo-color);
+#logo-text {
+    font-family: 'YokaiWatch_YokaiRoleFont', sans-serif;
+    font-size: 45px;
+    color: var(--logo-color);
 }
 
-.nav-button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-    padding: 0px 30px;
+/* Navigation controls */
+
+.main-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	padding: 5px 1vw;
+}
+
+.nav-links, .nav-controls {
+    display: flex;
+    gap: 1vw;
+}
+
+.btn-discord {
+    background-color: #5972ff;
+    color: white;
+}
+
+.icon-discord-span {
+    height: 25px;
+    width: 25px;
+}
+
+nav button {
+    height: 28px;
+    padding: 0 30px;
+	
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+	font-size: var(--font-size-main);
+}
+
+.nav-change {
+    display: flex;
+	
+    height: 28px;
+    padding: 0 30px;
+
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+
+    background-color: var(--nav-buttons-bg);
+    color: var(--side-buttons-color);
+}
+
+#wallpaper-select {
+    display: flex;
+
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+    font-size: 12px;
+
     border: none;
     cursor: pointer;
-	border-radius: 15px;
-	height: 28px;
-	background-color: var(--nav-buttons-bg);
-	color: var(--nav-buttons-color);
+
+    background-color: var(--nav-buttons-bg);
+    color: var(--side-buttons-color);
 }
 
-.nav-wallpaper-change {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-	display: flex;
-	padding: 0px 30px;
-    margin: 0 50px;
-	border-radius: 15px;
-	cursor: pointer;
-	background-color: var(--nav-buttons-bg);
-	color: var(--side-buttons-color);
+#language-select {
+    display: flex;
+
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+    font-size: 12px;
+
+    border: none;
+    cursor: pointer;
+
+    background-color: var(--nav-buttons-bg);
+    color: var(--side-buttons-color);
 }
 
-#wallpaper-select{
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 12px;
-	display: flex;
-	margin-left: 5px;
-	padding-bottom: 3px;
-	border: none;
-	cursor: pointer;
-	background-color: var(--nav-buttons-bg);
-	color: var(--side-buttons-color);
+/* =========================================================
+   7. Sidebar
+   ========================================================= */
+
+aside {
+    position: fixed;
+    top: var(--nav-height);
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: var(--sidebar-width);
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    overflow-y: auto;
+
+    border-top-right-radius: var(--radius-small);
+    background: var(--side-bg);
+    color: #fff;
+
+    transition: transform 0.8s ease-in-out;
 }
 
 .hidden-sidebar {
     transform: translateX(-87%);
 }
 
-.side-button {
-	font-family: 'YokaiWatch_YokaiDialogue1Font';
-	font-size: 10px;
-    margin-top: 15px;
-    position: static;
-    width: 165px;
-    height: 40px;
-    border: none;
-	border-radius: 30px;
-	cursor: pointer;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	text-align: center;
-	text-decoration: none;
+aside a {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    width: var(--sidebar-button-width);
+    height: 40px;
+    margin-top: 15px;
+
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+
+    border: none;
+    border-radius: var(--radius-large);
+    cursor: pointer;
+
+    background-color: var(--side-buttons-bg);
+    color: var(--side-buttons-color);
 }
 
-
-.side-button:disabled {
+aside a:disabled {
     color: gray;
-	cursor: not-allowed;
+    cursor: not-allowed;
 }
 
-.transparent-background{
-	background-color: var(--transparent-bg);
-	color: var(--side-buttons-color);
-	border-radius: 15px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
+#toggleSidebar {
+	padding: 0; 
+	height: 27px; 
+	width: 27px; 
+	position: absolute; 
+	right: 0px; 
+	top: 0px; 
+	
+	border: var(--nav-buttons-color) 1px solid; 
+	border-radius: 100%;
 }
 
-#authDiv{
-	height: 100%;
-	gap: 5px;
+/* =========================================================
+   8. Buttons / Controls
+   ========================================================= */
+
+button {
+    font-family: 'YokaiWatch_YokaiDialogue2Font', sans-serif;
+    background-color: var(--nav-buttons-bg);
+    color: var(--nav-buttons-color);
+    padding: 0 15px;
+    border: none;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
 }
 
-#userPfpImg{
-	width: auto;
-	height: 120%;
+button:hover {
+    color: #fff;
+}
+
+button:disabled {
+    color: gray;
+    cursor: default;
+}
+
+main button {
+    font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
+    font-size: 12px;
+
+    width: auto;
+    height: auto;
+    position: static;
+
+    border: 1px solid var(--side-buttons-color);
+    border-radius: var(--radius-large);
+
+    cursor: pointer;
+
+    background-color: var(--side-buttons-bg);
+    color: var(--side-buttons-color);
+}
+
+/* =========================================================
+   9. Reusable Panels / Utility Components
+   ========================================================= */
+
+.transparent-background {
+    background-color: var(--transparent-bg);
+    color: var(--side-buttons-color);
+
+    border: 3px solid black;
+    border-radius: var(--radius-medium);
+}
+
+.fixed-container {
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 100px;
+
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.auto-shrink {
+    font-size: 24px;
 }
 
 .verticalLine {
-  border-left: 2px solid var(--side-buttons-color);
+    border-left: 2px solid var(--side-buttons-color);
+}
+
+#authDiv {
+    height: 100%;
+    gap: 5px;
+}
+
+#userPfpImg {
+    width: auto;
+    height: 120%;
+}
+
+/* =========================================================
+   10. Icons
+   ========================================================= */
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+.icon-discord {
+    background-image: url('../Graphics/MenuIcons/Discord/discord_ico_color.png');
+}
+
+.icon-yokai {
+    background-image: url('../Graphics/MenuIcons/Yokai_Icon.png');
+}
+
+.icon-soulgems {
+    background-image: url('../Graphics/MenuIcons/SoulGems_Icon.png');
+}
+
+.icon-equipment {
+    background-image: url('../Graphics/MenuIcons/Equipment_Icon.png');
+}
+
+.icon-itemall {
+    background-image: url('../Graphics/MenuIcons/All_Icon.png');
+}
+
+.icon-dict {
+    background-image: url('../Graphics/MenuIcons/Dictionary_Icon.png');
+}
+
+.icon-damage {
+    background-image: url('../Graphics/MenuIcons/Damage_Icon.png');
+}
+
+.icon-home {
+    background-image: url('../Graphics/MenuIcons/Home_Icon.png');
+}
+
+.icon-dialoguequest {
+    background-image: url('../Graphics/MenuIcons/DialogueQuest_Icon.png');
+}
+
+.icon-search {
+    background-image: url('../Graphics/MenuIcons/Search_Icon.png');
+}
+
+.icon-misc {
+    background-image: url('../Graphics/MenuIcons/Misc.png');
+}
+
+/* =========================================================
+   11. Responsive Adjustments
+   ---------------------------------------------------------
+   Keep page-specific responsive rules in page CSS files.
+   Only global/site-wide rules belong here.
+   ========================================================= */
+
+@media (max-height: 400px) {
+    main {
+        transform: scale(0.9);
+    }
+
+    nav {
+        position: absolute !important;
+        width: 100vw !important;
+    }
+
+    .banner-container {
+        width: 100vw !important;
+        height: 108px !important;
+        transform: scale(1);
+    }
+
+    .nav-wallpaper-change {
+        margin-left: 0 !important;
+        transform: scale(0.8);
+    }
+
+    #Logo-Text {
+        font-size: 26px !important;
+    }
+
+    aside {
+        top: 0 !important;
+        height: 100vh !important;
+        padding: 0 !important;
+    }
+
+    #yokai-details {
+        margin-left: 0 !important;
+    }
+
+    .yokai-tribes {
+        transform: scale(0.55);
+    }
+
+    .yokai-ranks {
+        transform: scale(0.7);
+    }
+
+    .yokai-list {
+        width: 500px !important;
+    }
+
+    .MiniYokaiInfo-div {
+        transform: scale(0.55);
+    }
+
+    .nav-button {
+        width: 100px;
+        padding: 0 !important;
+        font-size: 10px !important;
+        transform: scale(0.8);
+    }
+
+    .icon {
+        transform: scale(0.7);
+    }
+
+    /* These selectors are kept for the Team Builder page.
+       Move them into team-builder.css when that page is fully
+       independent from main.css. */
+    #Wheel-div {
+        width: 400px !important;
+    }
+
+    #Wheel-img {
+        margin: 0 120px !important;
+    }
+
+    .SaveOptions {
+        left: 125px !important;
+    }
+
+    #Slot1 {
+        top: 65px !important;
+        left: 182.5px !important;
+    }
+
+    #Slot2 {
+        top: 20px !important;
+        left: 264px !important;
+    }
+
+    #Slot3 {
+        top: 66px !important;
+        left: 345px !important;
+    }
+
+    #Slot4 {
+        top: 157px !important;
+        left: 345px !important;
+    }
+
+    #Slot5 {
+        top: 204px !important;
+        left: 264px !important;
+    }
+
+    #Slot6 {
+        top: 157px !important;
+        left: 182.5px !important;
+    }
 }
