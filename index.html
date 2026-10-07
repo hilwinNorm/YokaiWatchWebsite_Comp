@@ -28,17 +28,19 @@
 		<div class="transparent-background" style="width: 90%; font-size: 15px; color: var(--side-buttons-color); padding:5px; white-space: pre-wrap">
 		
 		<div id="news-main">
-		Hello everyone! I was able to get some free time to work on the website. <img style="height: auto; width: 20vw; float: right; margin-right : 170px;" src="Content/Graphics/Artwork/y119000.png">
-		I decided to add some important info related to items and skills as well as make 
-		minor quality of life improvements.
-		<h2>Version 2.3.0 Update</h2>
-		<ul>
-		  <li><strong>Damage Calculator:</strong> Optimized the page performance and added the <strong>UUBL</strong> tier.</li>
-		  <li><strong>QOL:</strong> Added option for the <strong>"Copy to Clipboard"</strong> feature (copy wheel image).</li>
-		  <li><strong>Database:</strong> Separated <strong>Torituki</strong>, Skill Config, and Moves into independent categories; added skill info for equipment and an Effect info list for skills.</li>
-		  <li><strong>Visual & Text Fixes:</strong> Refreshed overall UI layouts, updated seasonal December banners, and fixed text encoding for Yo-kai descriptions.</li>
-		  <li><strong>Modular UI & Styling:</strong> Restructured site-wide <strong>CSS</strong> into clean, modular files for some pages, refreshing the overall UI layout.</li>
-		</ul>
+			Hello everyone! I'm back with another update for the website.
+			<img style="height: auto; width: 20vw; float: right; margin-right : 170px;" src="Content/Graphics/Artwork/y119000.png">
+			I've just rolled out **Version 2.4.1** to deploy some quick bug fixes right after our
+			major **2.4.0** release. 
+			This time, I focused on adding highly requested language options, 
+			cleaning up the code behind the scenes, and making the site faster and smoother.
+			<h2 id="version-title">Version (Undefined) Update</h2>
+			<ul>
+			  <li><strong>Localization:</strong> Added initial <strong>Japanese language support</strong> for Yo-kai names and descriptions on the Medallium and Yo-kai Info pages.</li>
+			  <li><strong>Database:</strong> Added new, dedicated text database for Japanese Yo-kai text as well as text package for future language options.</li>
+			  <li><strong>Performance:</strong> Restructured and optimized the <strong>CSS layout</strong>, removing redundant properties to significantly improve page loading speeds.</li>
+			  <li><strong>Code Refactoring:</strong> Moved main global styling properties over to centralized root variables, making the codebase much cleaner and easier to maintain.</li>
+			</ul>
 		</div>
 		<div id="news-bottom">
 		I might add more features in the future, depending on what you would like to see next.
@@ -48,10 +50,28 @@
 		
 		Hope all of you will have a great day!
 		
-		Below you can see all content that was added previously. <img style="height: auto; width: 20vw; float: right; margin-right: 300px;" src="Content/Graphics/Artwork/y151600.png">
+		Below you can see all content that was added previously. <img style="height: auto; width: 20vw; float: right; margin-right: 10vw;" src="Content/Graphics/Artwork/y151600.png">
 		If you have any questions, you can contact me through my discord: @hilwin</div>
 		<div class="update-history">
 			<h2>Update History:</h2>
+			
+			<div class="update-version">
+				<h3>2.4.1:</h3>
+				<ul>
+					<li>• Changed <strong>search filter</strong> to use correct element property</li>
+					<li>• Fixed medalImg attribute lookup to use inspiritSteff.EffectID</li>
+				</ul>
+			</div>
+			
+			<div class="update-version">
+				<h3>2.4.0:</h3>
+				<ul>
+					<li>• Added initial <strong>Japanese localization</strong></li>
+					<li>• Added text database for <strong>Japanese Yo-kai text</strong></li>
+					<li>• Restructured and optimized the <strong>CSS layout</strong></li>
+					<li>• Moved <strong>main global styling</strong> properties over to <strong>centralized root</strong> variables</li>
+				</ul>
+			</div>
 			
 			<div class="update-version">
 				<h3>2.3.1:</h3>
