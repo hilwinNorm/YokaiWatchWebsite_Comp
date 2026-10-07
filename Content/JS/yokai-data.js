@@ -88,6 +88,20 @@ function validateAndStyleInputs(manager) {
 	//$('attitude-display').innerHTML = `HP Boost: ${attiduteDatabase[attiduteSelect.value].boost[0]} | STR Boost: ${attiduteDatabase[attiduteSelect.value].boost[1]} | SPR Boost: ${attiduteDatabase[attiduteSelect.value].boost[2]} | DEF Boost: ${attiduteDatabase[attiduteSelect.value].boost[3]} | SPD Boost: ${attiduteDatabase[attiduteSelect.value].boost[4]}`;
 }
 
+function changeYokaiLanguageDisplay(langPath, yokaiData){
+	let tier = tierDatabase[yokaiData.ParamID] ? `(${tierDatabase[yokaiData.ParamID]})` : '';
+	console.debug('changeYokaiLanguageDisplay', langPath);
+	switch(langPath){
+		case "jpn":
+			$("yokai-name").innerText = `${charaTextJapaneseDatabase["NOUN_INFO"][yokaiData.NameID].TextString} ${tier}`;
+			$("yokai-description").innerText = `${formatText(charaTextJapaneseDatabase["TEXT_INFO"][yokaiData.DescriptionID].TextString)}`;
+			break;
+		default:
+			$("yokai-name").innerText = `${yokaiData.Name} ${tier}`;
+			$("yokai-description").innerText = `${formatText(yokaiData.Description)}`;
+	}
+}
+
 const formatText = text => text?.replaceAll('\\n','\n') ?? '';
 
 function renderPage({
@@ -139,7 +153,8 @@ function renderPage({
 		"src="${pathElement(element[soultimateConfig?.Element])}" alt="elementImg">`
 
 	let tier = tierDatabase[yokaiData.ParamID] ? `(${tierDatabase[yokaiData.ParamID]})` : '';
-	$("yokai-title").innerHTML = `<img src="${pathMedal}${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp"> ${yokaiData.Name} ${tier}`;
+	$("yokai-name").innerText = `${yokaiData.Name} ${tier}`;
+	$("yokai-medal").src = `${pathMedal}${String(yokaiData.MedalPosX + yokaiData.MedalPosY * 23).padStart(3,'0')}.webp`;
 	$("yokai-no").innerText = `NO.: ${(yokaiData.MedalliumOffset).toString().padStart(3,'0')}`;
 	
 	const prefix = yokaiData.FileNamePrefix;
@@ -246,6 +261,26 @@ function renderPage({
 		rareItemImg.src = `${pathItem}item_${(rareItem.IconPosX + (rareItem.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
 	}
 	
+	$("common-item-id").innerText = `Common Item Drop ID: ${yokaiData?.CommonDropItemID ?? 0x00000000}`;
+	$("rare-item-id").innerText = `Rare Item Drop ID: ${yokaiData?.RareDropItemID ?? 0x00000000}`;
+	
+	if (commonItem){
+		document.querySelectorAll(".common-drop-info").forEach(element => {
+		  element.style.display = "block";
+		});
+		
+		$("common-item").innerHTML = `Common Item Drop: ${commonItemLink.outerHTML} ${commonItemImg.outerHTML}`;
+		$("common-item-chance").innerText = `Drop probability: ${yokaiData.CommonDrop_Percent}%`;
+	} 
+	if (rareItem){
+		document.querySelectorAll(".rare-drop-info").forEach(element => {
+		  element.style.display = "block";
+		});
+		
+		$("rare-item").innerHTML = `Rare Item Drop: ${rareItemLink.outerHTML} ${rareItemImg.outerHTML}`;
+		$("rare-item-chance").innerText = `Drop probability: ${yokaiData.RareDrop_Percent}%`;
+	}
+	
 	let attackLv10, techniqueLv10, soultimateLv10, soultimateChargeLv10, inspiritSteff;
 	
 	if(attack) attackLv10 = Math.floor(attackConfig?.BasePower * moveGrowthList[attackConfig?.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
@@ -297,20 +332,12 @@ function renderPage({
 	if(soultimate){
 		$("soultimate").innerHTML = `${soultimateLink.outerHTML}${soultimateElement} | Soultimate Power: ${soultimateLv10}${soultHits}  
 														| Soultimate Charge: ${soultimateChargeLv10} | (ID: ${soultimate.BattleCommandID})`;
-		$("soultimate-desc").innerHTML = `Description: ${formatText(soultimateConfig?.Desc.TextString)}`;
+		$("soultimate-desc").innerHTML = `Description: ${formatText(soultimateConfig?.Desc?.TextString)}`;
 	}
 	
 	$("item-slots").innerText = `Equipment Slots Amount: ${yokaiData.EquipmentSlots}`;
 	$("money-drop").innerText = `Money Drop: ${(yokaiData.DropMoney / 100).toFixed(2)}$`;
 	$("exp-drop").innerText = `Experience Drop: ${yokaiData.DropExperience}`;
-	if (commonItem){
-		$("common-item").innerHTML = `Common Item Drop: ${commonItemLink.outerHTML} ${commonItemImg.outerHTML} (ID: ${yokaiData.CommonDropItemID})`;
-		$("common-item-chance").innerText = `Drop probability: ${yokaiData.CommonDrop_Percent}%`;
-	} 
-	if (rareItem){
-		$("rare-item").innerHTML = `Rare Item Drop: ${rareItemLink.outerHTML} ${rareItemImg.outerHTML} (ID: ${yokaiData.RareDropItemID})`;
-		$("rare-item-chance").innerText = `Drop probability: ${yokaiData.RareDrop_Percent}%`;
-	} 
 	$("food-quote").innerText = `General Food Quote: ${yokaiData.GeneralFoodQuoteText}`;
 	$("fav-food").innerHTML = `Favourite Type of Food: ${foodTypeList[yokaiData.FavFood]} (${yokaiData.FavFood}) ${favFoodImg.outerHTML}`;
 	$("fav-food-quote").innerText = `Favourite Food Quote: ${yokaiData.FavouriteFoodQuoteText}`;
@@ -402,10 +429,10 @@ function loadYokaiData({
 		}
 	}
 	
-	const attackConfig = skillConfigDatabase[attack.SkillConfigID];
-	const techniqueConfig = skillConfigDatabase[technique.SkillConfigID];
-	const inspiritConfig = skillConfigDatabase[inspirit.SkillConfigID];
-	const soultimateConfig = skillConfigDatabase[soultimate.SkillConfigID];
+	const attackConfig = skillConfigDatabase[attack?.SkillConfigID];
+	const techniqueConfig = skillConfigDatabase[technique?.SkillConfigID];
+	const inspiritConfig = skillConfigDatabase[inspirit?.SkillConfigID];
+	const soultimateConfig = skillConfigDatabase[soultimate?.SkillConfigID];
 	
 	renderPage({yokaiData, attack, technique, skill, inspirit, soultimate,
 		attackConfig, techniqueConfig, inspiritConfig, soultimateConfig});
@@ -440,6 +467,19 @@ function loadYokaiData({
 		  yokaiManager.updateEV(stat, this.value);
 		});
 	})
+	
+	let languageSelect = $("language-select");
+	
+	if (languageSelect){
+		languageSelect?.addEventListener('change', function() {
+			changeYokaiLanguageDisplay(languageSelect.value, yokaiData);
+		});
+		changeYokaiLanguageDisplay(languageSelect.value, yokaiData);
+	}
+
+	window.addEventListener('load', scaleText($("yokai-name")));
+	window.addEventListener('resize', scaleText($("yokai-name")));
+
 	
 	/*
 	
@@ -592,7 +632,7 @@ const baseLoafAttList = [
 ]
 
 //
-window.addEventListener('load', function (){
+document.addEventListener('DOMContentLoaded', function (){
 	//	Where the parameters from:
 	//
 	// 	yokaiDatabase	=> YoKaiDataBase.js

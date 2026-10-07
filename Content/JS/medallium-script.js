@@ -66,6 +66,27 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     return { baseHp, baseStr, baseSpr, baseDef, baseSpd };
 }
 
+function changeYokaiLanguageDisplay(langPath, divs){
+	console.debug('changeYokaiLanguageDisplay', langPath);
+	switch(langPath){
+		case "jpn":
+			divs.forEach(div => {
+				const img = div.querySelector('a img');
+				const yokaiData = yokaiDatabase[img?.getAttribute('paramid-value')];
+				
+				div.querySelector('.info-name').textContent = charaTextJapaneseDatabase["NOUN_INFO"][yokaiData.NameID].TextString;
+			})
+			break;
+		default:
+			divs.forEach(div => {
+				const img = div.querySelector('a img');
+				const yokaiData = yokaiDatabase[img?.getAttribute('paramid-value')];
+				
+				div.querySelector('.info-name').textContent = yokaiData.Name;
+			})
+	}
+}
+
 
 function buildYokaiList(yokais) {
   const container = document.getElementById('data-page');
@@ -85,15 +106,6 @@ function buildYokaiList(yokais) {
 
     const divMain = document.createElement('div');
     divMain.className = 'mini-info-div';
-    divMain.style.cssText = `
-      min-width: 1100px; height: 80px; margin: 5px;
-      border: 1px solid #000;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    `;
 
     const idSpan = document.createElement('div');
     idSpan.className = 'yokai-index';
@@ -110,6 +122,7 @@ function buildYokaiList(yokais) {
     medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
     medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
     medalImg.setAttribute('tribe-value', tribeList[yokai.Tribe]);
+	medalImg.setAttribute('paramid-value', key);
 	if(yokai.IsRare) medalImg.setAttribute('rarity-value', "rare");
 	if(yokai.IsLegendary) medalImg.setAttribute('rarity-value', "legendary");
     link.appendChild(medalImg);
@@ -127,7 +140,7 @@ function buildYokaiList(yokais) {
 	}
 	if(yokai.IsClassic){
 		const classicTag = document.createElement('img');
-		classicTag.style = `width: auto; height: 25px;`;
+		classicTag.classList = `tag-classic`;
 		classicTag.src = `./Content/Graphics/rarities/classicTag.webp`;
 		medalImg.setAttribute('classic-value', "classic");
 		divMain.appendChild(classicTag);
@@ -135,7 +148,6 @@ function buildYokaiList(yokais) {
 
     const nameDiv = document.createElement('div');
     nameDiv.className = 'info-name';
-    nameDiv.style.cssText = 'width: 12%; text-align: center;';
     nameDiv.textContent = yokai.Name;
     divMain.appendChild(nameDiv);
 
@@ -207,44 +219,52 @@ function buildYokaiList(yokais) {
 }
 
 function setupSearchAndFilters() {
-  const searchInput = document.getElementById('search-input');
-  if (!searchInput) {
-    console.warn('Search input (#search-input) not found – filtering will not work.');
-    return;
-  }
+	const searchInput = document.getElementById('search-input');
+	if (!searchInput) {
+		console.warn('Search input (#search-input) not found – filtering will not work.');
+		return;
+	}
 
-  searchInput?.addEventListener('search', () => {
-    filterYokai(searchInput.value);
-  });
+	searchInput?.addEventListener('search', () => {
+		filterYokai(searchInput.value);
+	});
 
-  const buttons = document.querySelectorAll('.attribute-button');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const current = searchInput.value.trim();
-      const id = button.id.trim();
-      if (!id) return;
+	const buttons = document.querySelectorAll('.attribute-button');
+	buttons.forEach(button => {
+		button.addEventListener('click', () => {
+			const current = searchInput.value.trim();
+			const id = button.id.trim();
+			if (!id) return;
 
-      const words = current.split(/\s+/).filter(w => w.length > 0);
-      const index = words.indexOf(id);
-      if (index !== -1) {
-        words.splice(index, 1);
-      } else {
-        words.push(id);
-      }
-      searchInput.value = words.join(' ');
-      searchInput.dispatchEvent(new Event('input'));
-    });
-  });
+			const words = current.split(/\s+/).filter(w => w.length > 0);
+			const index = words.indexOf(id);
+			if (index !== -1) {
+				words.splice(index, 1);
+			} else {
+				words.push(id);
+			}
+			searchInput.value = words.join(' ');
+			searchInput.dispatchEvent(new Event('input'));
+		});
+	});
+  
+	let languageSelect = $("language-select");
+	
+	if (languageSelect){
+		const divs = document.querySelectorAll('#data-page .mini-info-div');
+		
+		languageSelect?.addEventListener('change', function() {
+			changeYokaiLanguageDisplay(languageSelect.value, divs);
+		});
+		changeYokaiLanguageDisplay(languageSelect.value, divs);
+	}
 
   filterYokai(searchInput.value);
 }
 
-window.addEventListener('load', () => {
-  if (typeof yokaiDatabase !== 'undefined') {
-    buildYokaiList(yokaiDatabase);
-  } else {
-    console.error('yokaiDatabase is not defined.');
-  }
+document.addEventListener('DOMContentLoaded', () => {
+	if (typeof yokaiDatabase !== 'undefined') buildYokaiList(yokaiDatabase);
+	else console.error('yokaiDatabase is not defined.');
 
-  setupSearchAndFilters();
+	setupSearchAndFilters();
 });

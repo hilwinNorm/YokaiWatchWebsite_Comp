@@ -11,10 +11,12 @@ meta.content = `width=device-width, initial-scale=1.0`;
 
 document.getElementsByTagName('head')[0].appendChild(meta);
 
+let textPath = null;
+
 let WV={
 	"Major": 2,
-	"Minor": 3,
-	"Patch": 1
+	"Minor": 4,
+	"Patch": 0
 }
 
 let webVerElement = document.getElementsByClassName('WebVerElement');
@@ -23,61 +25,70 @@ for (element of webVerElement){
 	element.innerText=`Version of the website: ${WV.Major}.${WV.Minor}.${WV.Patch}`
 }
 
-const side_bar = document.getElementsByTagName('aside')[0];
+const sideBar = document.getElementsByTagName('aside')[0];
 
-const nav_tab = $('nav-tab');
+const navTab = $('nav-tab');
 
-if (side_bar){
-side_bar.innerHTML += `
-	<button style="position: absolute; right: 0px; top: 0px; border-radius: 15px; color: var(--side_button-color); 
-	background-color: var(--side-buttons-bg); padding: 0; height: 27px; width: 27px; border: var(--nav-buttons-color) 1px solid; border-radius: 100%;"id="toggleSidebar";>+</button>
-	<a href='./medallium.html' class="side-button" id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
-	<a href='./team-builder.html' class="side-button" id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
-	<a href='./tier-sheet.html' class="side-button" id="tierSheet-btn">Tier Sheet</a>
-	<a href='./equipment-list.html' class="side-button" id="equipment-btn">Equipment List <span class="icon icon-equipment"></a>
-	<a href='./damage-calculator.html' class="side-button" id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></a>
-	<a href='./move-list.html' class="side-button" id="yokaiData-btn">Move List <span style="background-repeat: no-repeat;" class="icon icon-damage"></a>
-	<a href='./misc-list.html' class="side-button" id="Misc-btn">Misc  <span style="background-repeat: no-repeat;" class="icon icon-misc"></span></a>
-	<a href='./image-recources.html' class="side-button" id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></a>
+if (sideBar){
+sideBar.innerHTML += `
+	<button id="toggleSidebar";>+</button>
+	<a href='./medallium.html' id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
+	<a href='./team-builder.html' id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
+	<a href='./tier-sheet.html' id="tierSheet-btn">Tier Sheet</a>
+	<a href='./equipment-list.html' id="equipment-btn">Equipment List <span class="icon icon-equipment"></a>
+	<a href='./damage-calculator.html' id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></a>
+	<a href='./move-list.html' id="yokaiData-btn">Move List <span style="background-repeat: no-repeat;" class="icon icon-damage"></a>
+	<a href='./misc-list.html' id="Misc-btn">Misc  <span style="background-repeat: no-repeat;" class="icon icon-misc"></span></a>
+	<a href='./image-recources.html' id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></a>
 `
 }
-if (nav_tab){
-nav_tab.innerHTML += `
+if (navTab){
+	const navHtml = `
 	<div class="main-tabs">
-		<div style="display: flex; gap: 10px;">
-			<a href='./index.html' style="margin-left: 50px;"><button class="nav-button" id="home-btn">Home</button></a>
-			<a href='./about.html'><button class="nav-button">About Project</button></a>
-			<a href='./contact.html'><button class="nav-button">Contacts</button></a>
-			<a href='https://discord.gg/wyWbEhhGwm'><button class="nav-button" style="background-color: #5972ff; color: white;">Discord <span style="height: 25px; width: 25px;" class="icon icon-discord"></span></button></a>
+		<div class="nav-links">
+			<a href="./index.html"><button class="nav-button" id="home-btn">Home</button></a>
+			<a href="./about.html"><button class="nav-button">About Project</button></a>
+			<a href="./contact.html"><button class="nav-button">Contacts</button></a>
+			<a href="https://discord.gg/wyWbEhhGwm">
+				<button class="nav-button btn-discord">
+					Discord <span class="icon icon-discord icon-discord-span"></span>
+				</button>
+			</a>
 		</div>
-		<div style="display: flex; gap:10px">
-			<div id="nav-wallpaper-change" class="nav-wallpaper-change">
-				<label for="wallpaper-select">Wallpaper:  </label>
+		<div class="nav-controls">
+			<div id="nav-wallpaper-change" class="nav-change">
+				<label for="wallpaper-select">Wallpaper: </label>
 				<select id="wallpaper-select">
-				<option value="Cool_Blue">Cool Blue</option>
-				<option value="HeartsAndFluff">Hearts and Fluff</option>
-				<option value="Antique_Blossoms">Antique Blossoms</option>
-				<option selected value="Bamboo_Forest">Bamboo Forest</option>
-				<option value="Merchant_Purple">Merchant Purple</option>
-				<option value="Classic_Gold">Classic Gold</option>
-				<option value="Up_All_Night">Up All Night</option>
-				<option value="Galaxy_Cruise">Galaxy Cruise</option>
-				<option value="Small_Cream_Soda">Small Cream Soda</option>
-				<option value="OhMySwirls">Oh My Swirls! Pattern</option>
+					<option value="Cool_Blue">Cool Blue</option>
+					<option value="HeartsAndFluff">Hearts and Fluff</option>
+					<option value="Antique_Blossoms">Antique Blossoms</option>
+					<option selected value="Bamboo_Forest">Bamboo Forest</option>
+					<option value="Merchant_Purple">Merchant Purple</option>
+					<option value="Classic_Gold">Classic Gold</option>
+					<option value="Up_All_Night">Up All Night</option>
+					<option value="Galaxy_Cruise">Galaxy Cruise</option>
+					<option value="Small_Cream_Soda">Small Cream Soda</option>
+					<option value="OhMySwirls">Oh My Swirls! Pattern</option>
 				</select>
 			</div>
-			
+			<div id="nav-language-change" class="nav-change">
+				<label for="language-select">Language: </label>
+				<select id="language-select" name="languages">
+					<option value="eng">ENG</option>
+					<option value="jpn">JPN</option>
+				</select>
+			</div>
 		</div>
 	</div>
-		<a href="./index.html" id="logo-js" class="nav-brand">
-			<div id="banner-container" class="banner-container">
-				<img id="left-char" alt="Left Character">
-				
-					<div id="Logo-Text" style="font-family: 'YokaiWatch_YokaiRoleFont'; font-size: 45px;">Yo-gon Academy</div>
-				
-				<img id="right-char" alt="Right Character">
-			</div>
-		</a>
+	<a href="./index.html" class="nav-brand">
+		<div id="banner-container" class="banner-container">
+			<img id="left-char" alt="Left Character">
+			
+				<div id="logo-text">Yo-gon Academy</div>
+			
+			<img id="right-char" alt="Right Character">
+		</div>
+	</a>
 `
 
 /*
@@ -87,78 +98,51 @@ nav_tab.innerHTML += `
 				<a href='./profile.html' id="userGreeting" style="display: none; color: var(--nav-buttons-color);"></a>
 			</div>
 */
+	navTab.insertAdjacentHTML('beforeend', navHtml);
 
+	const wallpaperSelect = $("wallpaper-select");
+	let languageSelect = $("language-select");
 
-let wallpaperChange = $("wallpaper-select");
+	wallpaperSelect?.addEventListener('change', function() {
+		changeTheme(wallpaperSelect.value);
+	});
+	
+	languageSelect?.addEventListener('change', function() {
+		changeLanguage(languageSelect.value);
+	});
 
-wallpaperChange.addEventListener('change', function(event){
-	changeTheme(wallpaperChange.value);
-})
+	const toggleSidebar = $("toggleSidebar");
 
-const toggleSidebar_button = $("toggleSidebar")
+	if (toggleSidebar){
+		sideBar.classList.toggle('hidden-sidebar');
 
-if (toggleSidebar_button){
-	side_bar.classList.toggle('hidden-sidebar');
-
-	toggleSidebar_button.addEventListener('click', function(event){
-		const element = document.getElementsByTagName('aside')[0];
-		element.classList.toggle('hidden-sidebar');
-		if (element.classList.contains("hidden-sidebar")){
-			toggleSidebar_button.textContent = '+'
+		toggleSidebar.addEventListener('click', function(event){
+			const element = document.getElementsByTagName('aside')[0];
+			element.classList.toggle('hidden-sidebar');
+			if (element.classList.contains("hidden-sidebar")){
+				toggleSidebar.textContent = '+'
+			}
+			else{
+				toggleSidebar.textContent = '-'
+			}
+		})
+		if (localStorage.getItem("_sidebar_hidden") == 1){
+			const element = document.getElementsByTagName('aside')[0];
+			element.style.removeProperty("transition")
+			element.classList.toggle('hidden-sidebar');
+			element.style.transition = "transform 0.8s ease-in-out";
+			if (element.classList.contains("hidden-sidebar")){
+				toggleSidebar.textContent = '+'
+			}
+			else{
+				toggleSidebar.textContent = '-'
+			}
+			
 		}
-		else{
-			toggleSidebar_button.textContent = '-'
-		}
-	})
-	if (localStorage.getItem("_sidebar_hidden") == 1){
-		const element = document.getElementsByTagName('aside')[0];
-		element.style.removeProperty("transition")
-		element.classList.toggle('hidden-sidebar');
-		element.style.transition = "transform 0.8s ease-in-out";
-		if (element.classList.contains("hidden-sidebar")){
-			toggleSidebar_button.textContent = '+'
-		}
-		else{
-			toggleSidebar_button.textContent = '-'
-		}
-		
-	}
 	}
 }
 
-const transparent_background = document.getElementsByClassName("transparent-background")
-
-const nav_buttons = document.getElementsByClassName("nav-button")
-
-const side_buttons = document.getElementsByClassName("side-button")
-
-const disabled_side_buttons = document.getElementsByClassName("disabled-side-button")
-
-const nav_wallpaperChange = $("nav-wallpaper-change")
-
-const banner_container = $('banner-container')
-
-const body_element = document.body;
-
-const Logo_Text = $("Logo-Text")
-
-//const logo_text_color, side_buttons_color, nav_buttons_color, side_bg_color, nav_bg_color, nav_text_color, side_text_color;
-
-const medallium_btn = $('medallium-btn');
-
-const damageCalc_btn = $('damageCalc-btn')
-
-const teamBuild_btn = $('TeamBuild-btn')
-
-const equipment_btn = $("equipment-btn")
-
-const tierSheet_btn = $("tierSheet-btn")
-
-const yokaiData_btn = $("yokaiData-btn")
-
-const imageRecources_btn = $("Resources-btn")
-
-const head = document.head
+const head = document.head;
 
 const faviconLink = document.createElement('link');
 
@@ -169,13 +153,21 @@ faviconLink.href = 'Content/Graphics/Whisper.ico';
 head.appendChild(faviconLink);
 
 function changeTheme(wallpaper){
-	$("wallpaper-select").value = wallpaper; banner_container.style.backgroundImage = `url("./Content/Graphics/Wallpapers/${wallpaper}.png")`;
-	body_element.style.background = `url("./Content/Graphics/Wallpapers/${wallpaper}_Pattern.png") fixed, url("./Content/Graphics/Wallpapers/${wallpaper}.png") fixed`
-	body_element.style.backgroundSize = `220px, cover`
+	const body = document.body;
+	$("wallpaper-select").value = wallpaper; 
+	$("banner-container").style.backgroundImage = `url("./Content/Graphics/Wallpapers/${wallpaper}.png")`;
+	body.style.background = `url("./Content/Graphics/Wallpapers/${wallpaper}_Pattern.png") fixed, url("./Content/Graphics/Wallpapers/${wallpaper}.png") fixed`;
+	body.style.backgroundSize = `220px, cover`;
 	
 	document.documentElement.className = wallpaper;
 	
 	localStorage.setItem("selected_wallpaper", wallpaper);
+}
+
+function changeLanguage(language = "ENG"){
+	$("language-select").value = language;
+	textPath = language;
+	localStorage.setItem("selected_language", language);
 }
 
 function setBannerYokai(name){
@@ -209,6 +201,23 @@ function noredirect(num){
 			break;
 	}
 }
+	
+function scaleText(element) {
+	if (!element) return;
+
+	element.style.transform = 'scale(1)';
+	
+	const parentWidth = element.parentElement.clientWidth;
+	// Account for the medal width (44px) and gap (8px)
+	const availableWidth = parentWidth - 44 - 8; 
+	
+	const textWidth = element.offsetWidth;
+
+	if (textWidth > availableWidth) {
+		const scaleRatio = availableWidth / textWidth;
+		element.style.transform = `scale(${scaleRatio})`;
+	}
+}
 
 function filterYokai(searchTerm) {
 	const terms = searchTerm.toLowerCase().split(/\s+/);
@@ -219,7 +228,7 @@ function filterYokai(searchTerm) {
 	divs.forEach(div => {
 		const img = div.querySelector('a img');
 
-		const name = div.querySelector('#info-name')?.textContent || '';
+		const name = div.querySelector('.info-name')?.textContent || '';
 		const rank = img?.getAttribute('rank-value') || '';
 		const tribe = img?.getAttribute('tribe-value') || '';
 		const element = img?.getAttribute('element-value') || '';
@@ -255,16 +264,18 @@ const SearchInput = $("search-input");
 let pathLocation = window.location.pathname;
 let page = pathLocation.split("/").pop();
 let originalOrder = [];
+let localStorageWallpaper = localStorage.getItem('selected_wallpaper');
+let localStorageLanguage = localStorage.getItem('selected_language');
 
-let localStorage_Wallpaper = localStorage.getItem('selected_wallpaper');
-
-if (localStorage_Wallpaper){
-	changeTheme(localStorage_Wallpaper)
-	$("wallpaper-select").value = localStorage_Wallpaper
+if (localStorageWallpaper){
+	changeTheme(localStorageWallpaper)
+	$("wallpaper-select").value = localStorageWallpaper
 }
 else{
 	changeTheme("Small_Cream_Soda")
 }
+
+if (localStorageLanguage) changeLanguage(localStorageLanguage);
 
 const curDate = new Date();
 
