@@ -26,8 +26,7 @@ for (element of webVerElement){
 	element.innerText=`Version of the website: ${WV.Major}.${WV.Minor}.${WV.Patch}`
 }
 if (versionTitle) {
-	versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.0 Update`;
-	if (WV.Patch > 0) versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.0 (Patch ${WV.Major}.${WV.Minor}.${WV.Patch}) Update`;
+	versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.${WV.Patch} Update`;
 }
 
 const sideBar = document.getElementsByTagName('aside')[0];
