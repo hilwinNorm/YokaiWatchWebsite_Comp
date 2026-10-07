@@ -16,7 +16,7 @@ let textPath = null;
 let WV={
 	"Major": 2,
 	"Minor": 4,
-	"Patch": 0
+	"Patch": 1
 }
 
 let webVerElement = document.getElementsByClassName('WebVerElement');
