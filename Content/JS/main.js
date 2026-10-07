@@ -20,10 +20,12 @@ let WV={
 }
 
 let webVerElement = document.getElementsByClassName('WebVerElement');
+let versionTitle = $("version-title");
 
 for (element of webVerElement){
 	element.innerText=`Version of the website: ${WV.Major}.${WV.Minor}.${WV.Patch}`
 }
+if (versionTitle) versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.${WV.Patch} Update`;
 
 const sideBar = document.getElementsByTagName('aside')[0];
 
@@ -238,7 +240,7 @@ function filterYokai(searchTerm) {
 		const classic = img?.getAttribute('classic-value') || '';
 		
 		const fullText = `${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
-		const divText = div.innerText.toLowerCase();
+		const divText = div.textContent.toLowerCase();
 		
 		//console.debug(`${fullText}\n${divText}`);
 
