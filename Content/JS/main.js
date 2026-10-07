@@ -16,7 +16,7 @@ let textPath = null;
 let WV={
 	"Major": 2,
 	"Minor": 4,
-	"Patch": 1
+	"Patch": 0
 }
 
 let webVerElement = document.getElementsByClassName('WebVerElement');
@@ -25,7 +25,10 @@ let versionTitle = $("version-title");
 for (element of webVerElement){
 	element.innerText=`Version of the website: ${WV.Major}.${WV.Minor}.${WV.Patch}`
 }
-if (versionTitle) versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.${WV.Patch} Update`;
+if (versionTitle) {
+	versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.0 Update`;
+	if (WV.Patch > 0) versionTitle.textContent = `Version ${WV.Major}.${WV.Minor}.0 (Patch ${WV.Major}.${WV.Minor}.${WV.Patch}) Update`;
+}
 
 const sideBar = document.getElementsByTagName('aside')[0];
 
