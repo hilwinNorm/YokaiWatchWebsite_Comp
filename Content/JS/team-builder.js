@@ -8,21 +8,21 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     const lvlFactor = (parsedLvl - 1) / 98;
 
     const baseHp = yokaiData.baseA_HP + (yokaiData.baseB_HP - yokaiData.baseA_HP + (+ivHp))
-        * lvlFactor + (evHp * 3 * (1 + parsedLvl / 198));
+        * lvlFactor + (evHp * 2.6 * (1 + parsedLvl / 198));
 
     const baseStr = yokaiData.baseA_Strength + (yokaiData.baseB_Strength - yokaiData.baseA_Strength + (+ivStr))
-        * lvlFactor + (evStr * 1.5 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
+        * lvlFactor + (evStr * 1.3 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
 
     const baseSpr = yokaiData.baseA_Spirit + (yokaiData.baseB_Spirit - yokaiData.baseA_Spirit + (+ivSpr))
-        * lvlFactor + (evSpr * 1.5 * (1 + parsedLvl / 198)) + ((+gymSpr) * 5);
+        * lvlFactor + (evSpr * 1.3 * (1 + parsedLvl / 198)) + ((+gymSpr) * 5);
 
     const baseDef = yokaiData.baseA_Defense
         + (yokaiData.baseB_Defense - yokaiData.baseA_Defense + (+ivDef))
-        * lvlFactor + (evDef * 1.5 * (1 + parsedLvl / 198)) + ((+gymDef) * 5) - ((+gymStr) * 2) - ((+gymSpd) * 2);
+        * lvlFactor + (evDef * 1.3 * (1 + parsedLvl / 198)) + ((+gymDef) * 5) - ((+gymStr) * 2) - ((+gymSpd) * 2);
 
     const baseSpd = yokaiData.baseA_Speed
         + (yokaiData.baseB_Speed - yokaiData.baseA_Speed + (+ivSpd))
-        * lvlFactor + (evSpd * 1.5 * (1 + parsedLvl / 198)) + ((+gymSpd) * 5) - ((+gymSpr) * 2) - ((+gymDef) * 2);
+        * lvlFactor + (evSpd * 1.3 * (1 + parsedLvl / 198)) + ((+gymSpd) * 5) - ((+gymSpr) * 2) - ((+gymDef) * 2);
 
     return { baseHp, baseStr, baseSpr, baseDef, baseSpd };
 }
@@ -124,9 +124,7 @@ const state = {
 
 // Assigning elements:
 
-const alertWindow = $('alertWindow');
-
-const popupCloseButton  = $('close-btn');
+const altertWindow = $('alert-window');
 
 const main = document.getElementsByTagName('main')[0];
 
@@ -434,7 +432,7 @@ ${lines.join("\n")}`;
 async function CopyBoth() {
 	try {
 		const text = createTeamText();
-		const wheelDiv = document.getElementById('Wheel-div');
+		const wheelDiv = document.getElementById('wheel-div');
 		
 		
 		const canvas = await html2canvas(wheelDiv);
@@ -477,7 +475,7 @@ function showSlotInfo(){
 	
 	if(!yokaiData) return;
     
-	$("slot-info").style.visibility = "visible";
+	$("slot-info-container").style.visibility = "visible";
 	
 	//const prefix = yokaiData.FileNamePrefix;
 	//const number = (yokaiData.FileNameNumber).toString();
@@ -502,7 +500,7 @@ function showSlotInfo(){
 	else allianceImg.style.visibility = "hidden";
 	
 	/*
-	$("slot-info").querySelectorAll('.Stats').forEach(function(stat){
+	$("slot-info-container").querySelectorAll('.Stats').forEach(function(stat){
 		var dc = Math.round(parseInt(stat.getAttribute("data-stat")))
 		
 		for (var [name, value] of Object.entries(colorCodes)){
@@ -939,16 +937,16 @@ function clearEquipment(){
 }
 
 function closePopup(){
-	alertWindow.style.display="none";
+	altertWindow.style.display="none";
 	main.style.visibility="visible";
-	$("slot-info").style.display = "flex";
+	$("slot-info-container").style.display = "flex";
 	$("ChosenYokaiRing").style.display = "block";
 }
 
 function showPopup(){
-	alertWindow.style.display = "grid";
+	altertWindow.style.display = "grid";
 	main.style.visibility = "hidden";
-	$("slot-info").style.display = "none";
+	$("slot-info-container").style.display = "none";
 	$("ChosenYokaiRing").style.display = "none";
 }
 
