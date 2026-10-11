@@ -35,7 +35,7 @@ const navTab = $('nav-tab');
 
 if (sideBar){
 sideBar.innerHTML += `
-	<button id="toggleSidebar";>+</button>
+	<button id="toggleSidebar" class="close-btn">+</button>
 	<a href='./medallium.html' id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
 	<a href='./team-builder.html' id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
 	<a href='./tier-sheet.html' id="tierSheet-btn">Tier Sheet</a>

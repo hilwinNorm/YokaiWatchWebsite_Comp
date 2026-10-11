@@ -1,13 +1,119 @@
-.SlotInfo-Text{
-	color: var(--side-buttons-color)
+/* =========================================================
+   1. Base / Document
+   ========================================================= */
+
+h3 {
+	color: var(--side-buttons-color);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+	
+h4 {
+	color: var(--side-buttons-color);
 }
 
-.team-wheel-display-container{
-	align-self: center;
+/* =========================================================
+   2. Global Layout Shell
+   ========================================================= */
+
+#team-options {
+	position: absolute; 
+	top:325px; 
+	left: 225px;
+}
+
+.current-rank-container {
+	display: grid;
+	height: fit-content;
+}
+
+.current-rank-container img {
+	width: 26px;
+	height: auto; 
+}
+
+/* =========================================================
+   3. Alert Window
+   ========================================================= */
+
+#alert-window {
+	color: var(--side-buttons-color);
+	position: absolute;
+	display: none;
+	align-items: flex-start;
+	justify-content: center;
+	width: 30vw;
+	height: 60vh;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 15;
+	margin-top: 50px;
+}
+   
+.alert-window__button {
 	position: relative;
 }
 
-.wheel-medal-slot{
+#alert-window__close-btn {
 	position: absolute;
-	width: 48px;
+	right: 0px;
+	top: 0px;
+}
+
+/* =========================================================
+   4. Wheel
+   ========================================================= */
+
+.wheel-medal-img {
+	width: 70px;
+	height: auto;
+	position: absolute;
+}
+
+.wheel-medal-slot {
+position: absolute;
+width: 48px;
+}
+
+/* =========================================================
+   5. Slot Info
+   ========================================================= */
+
+#slot-info-container {
+	display: flex; 
+	
+	padding: 20px;
+	width: 50vw; 
+	height: auto;
+	
+	gap: 1vw;
+	
+	visibility: hidden;
+}
+
+#yokai-level {
+	width: 6ch;
+}
+
+.slot-info-container__settings {
+	display: flex;
+	gap: 1vw;
+}
+
+.slot-info-container__settings input {
+	width: 6ch;
+}
+
+.yokai-attributes {
+	display: grid;
+	grid-template-rows: repeat(5, 60px);
+	
+	padding: 0 0.5vw;
+	margin: 0;
+}
+
+.slot-info-container__text {
+	color: var(--side-buttons-color)
 }

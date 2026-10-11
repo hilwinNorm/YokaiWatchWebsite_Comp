@@ -9,8 +9,8 @@
     /* Layout */
     --nav-height: 145px;
 	--nav-banner-height: 108px;
-    --sidebar-width: 200px;
-    --sidebar-button-width: 165px;
+    --sidebar-width: 230px;
+    --sidebar-button-width: 180px;
 
     /* Common UI values */
     --radius-small: 10px;
@@ -456,18 +456,6 @@ aside a:disabled {
     cursor: not-allowed;
 }
 
-#toggleSidebar {
-	padding: 0; 
-	height: 27px; 
-	width: 27px; 
-	position: absolute; 
-	right: 0px; 
-	top: 0px; 
-	
-	border: var(--nav-buttons-color) 1px solid; 
-	border-radius: 100%;
-}
-
 /* =========================================================
    8. Buttons / Controls
    ========================================================= */
@@ -506,6 +494,18 @@ main button {
 
     background-color: var(--side-buttons-bg);
     color: var(--side-buttons-color);
+}
+
+.close-btn {
+	padding: 0; 
+	height: 27px; 
+	width: 27px; 
+	position: absolute; 
+	right: 3px; 
+	top: 3px; 
+	
+	border: var(--nav-buttons-color) 1px solid; 
+	border-radius: 100%;
 }
 
 /* =========================================================
