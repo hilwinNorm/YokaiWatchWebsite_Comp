@@ -364,7 +364,7 @@ function renderPage({
 	$("ice-res").innerHTML = `Ice multiplier: x${yokaiData.IceAttributeMultiplier} <img src="${pathElement("Ice")}">`
 	
 	$("yokai-paramID").innerText = `Param ID: ${yokaiData.ParamID}`;
-	$("yokai-baseID").innerText = `Base ID: ${yokaiData.ParamID}`;
+	$("yokai-baseID").innerText = `Base ID: ${yokaiData.BaseID}`;
 	$("yokai-MDL").innerText = `MDL: ${prefixArray[prefix]}${number.padStart(3,'0')}${variant.padStart(2,'0')}0`;
 	$("yokai-baseHP").innerText = `Base A HP: ${yokaiData.baseA_HP} | Base B HP: ${yokaiData.baseB_HP}`;
 	$("yokai-baseStr").innerText = `Base A STR: ${yokaiData.baseA_Strength} | Base B STR: ${yokaiData.baseB_Strength}`;
