@@ -235,3 +235,19 @@ main button {
 .slot-info-container__button {
 	width: auto;
 }
+
+/* =========================================================
+   Item List
+   ========================================================= */
+   
+.item-list__item {
+	width: 93%;
+    height: 120px;
+    margin: 5px;
+    border: 1px solid #c6c0ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

@@ -18,13 +18,6 @@
 	<script defer src='Content/JS/Databases/SteffInfoDatabase.js'></script>
 	
     <script defer src='Content/JS/medallium-script.js'></script>
-	<style>
-		main {
-			display: flex; 
-			align-items: flex-start; 
-			justify-content: center;
-		}
-	</style>
 </head>
 <body>
     <nav id="nav-tab">
@@ -32,7 +25,7 @@
     <div class="wrapper;">
 		<aside class="side-bar" id="side_bar"></aside>
 		<main>
-				<div class="yokai-list transparent-background">
+			<div class="transparent-background database-container">
 				<details>
 					<summary>Attribute List</summary>
 					<ul>
@@ -99,8 +92,8 @@
 					</ul>
 				</details>
 				<input type="search" id="search-input" name="query" placeholder="Search for Yokai...">
-					<div id="data-page" class="yokai-list"></div>
-				</div>
+				<div id="item-list" class="item-list"></div>
+			</div>
 		</main>
 	</div>
 </body>
