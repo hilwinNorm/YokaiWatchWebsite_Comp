@@ -1,69 +1,114 @@
+/* =========================================================
+   Design Tokens
+   ========================================================= */
 
-.yokai-list {
-	display: grid;
-	justify-items: center;
-	gap: 1vh;
+/* =========================================================
+   Base / Document
+   ========================================================= */
+   
+
+main {
+	display: grid;  
+	justify-content: center;
 }
 
-.mini-info-div{
-	width: stretch;
-    min-height: 80px;
-	padding: 0px 15px;
-	background-color: var(--side-buttons-bg);
-	color: var(--side-buttons-color);
-	border: 1px solid #000;
-	border-radius: 15px;
-    display: flex;
-    place-content: center;
-	align-items: center;
-	flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-.mini-info-div img {
-	width: 47px;
-	height: auto;
+details {
+	text-align: center;
+	
 	cursor: pointer;
-	margin: 5px;
+	
+	font-size: 16px;
 }
 
-.team-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center; 
-	margin: 20px 100px;
-    width: max-content;
+/* =========================================================
+   Global Layout Shell
+   ========================================================= */
+   
+.database-container {
+	display: grid;
+	
+	justify-items: center;
+	
+	gap: 5vh;
 }
 
 .yokai-attributes {
-	justify-content: center;
 	display: flex;
+	
+	justify-content: center;
 	align-items: center;
 	align-content: center;
+	
 	margin: 20px 100px;
+	
 	border-radius: 15px;
 	border-style: solid;
 	border-width: 3px;
 	border-color: black;
 }
 
-#data-page{
-	width: 100%;
+#search-input{
+	width:250px;
+	height: 25px;
+}
+
+/* =========================================================
+   Attribute List
+   ========================================================= */
+
+
+.attribute-button {
+	cursor: pointer; 
+	background: none; 
+	border: none;
+	height: 100px;
+	width: auto;
+}
+
+.attribute-button img {
+	width: auto;
+	height: 80px;
+}
+
+/* =========================================================
+   Item List
+   ========================================================= */
+   
+.item-list {
+	display: grid;
+	justify-items: center;
+	
+	min-width: 90vw;
 	
 	gap: 1vh;
-	margin: 0; 
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center; 
-	flex-wrap: nowrap; 
-	list-style: none; 
 	
 	overflow-y: visible; 
 	overflow-x: hidden;
 }
 
-#search-input{
-	width:250px;
-	height: 25px;
+.item-list__item {
+    display: flex;
+	
+	align-items: center;
+	flex-wrap: nowrap;
+    flex-direction: row;
+    place-content: center;
+	
+	padding: 0 15px;
+	margin: 0 1vw;
+	
+	width: stretch;
+    min-height: 80px;
+	
+	background-color: var(--side-buttons-bg);
+	
+	border: 1px solid #000;
+	border-radius: 15px;
+}
+
+.item-list__item img {
+	width: 47px;
+	height: auto;
+	cursor: pointer;
+	margin: 5px;
 }
