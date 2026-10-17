@@ -60,6 +60,9 @@ const elementList = [
 
 const effectTarget = ["Enemy", "Ally", "Itself", "Itself (All Ally in front if multitarget)", "Enemy and Ally"];
 
+//Value6 (Objective)  (Int) (1 : Enemy, 2 : Ally, 3 : Itself)
+// Value7  (NºTargets) (Int) (1 : Unitarget, 2 : Multitarget, 8: random 2 Yo-kai (?), 12: Adjacent Yo-kai(?))
+
 const effectTargetAmount = ["Unitarget", "Multitarget", "Unknown", "Yokai both in back and front", "Yokai in front"];
 
 const prefixArray = ['c','d','i','m','r','x','y','z'];
@@ -271,6 +274,8 @@ function showMoveDetails(database, move) {
 
     const skillConfig = skillConfigDatabase[move.SkillConfigID];
 	
+	console.debug(skillConfig);
+	
 	const steffList = [move.Steff1, move.Steff2, move.Steff3, move.Steff4];
 	
 	const steff1 = steffInfoDatabase[move.Steff1];
@@ -280,7 +285,7 @@ function showMoveDetails(database, move) {
 	if(skillConfig?.Element) {$("move-element-img").src = `Content/Graphics/elements/InGameIcons/${elementList[skillConfig.Element]}.png`; 
 		elementText=`(${elementList[skillConfig.Element]})`};
 
-    setText('move-name',skillConfig?.Text?.TextString || move?.Text?.TextString || "Unknown Move");
+    setText('move-name',skillConfig?.Text?.TextString || move?.Text?.[0]?.TextString || "Unknown Move");
 
     setText('move-id',`Battle Command ID: ${move.BattleCommandID}`);
 
@@ -312,8 +317,8 @@ function showMoveDetails(database, move) {
 	
 	if (skillConfig) {
 		if (databaseType != 2) {
-			const attackLv1 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[0]/100);
-			const attackLv10 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100);
+			const attackLv1 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1]?.powerLevelMulti[0]/100 ?? 0);
+			const attackLv10 = Math.floor(skillConfig.BasePower * moveGrowthList[skillConfig.SkillGrowthIndex - 1]?.powerLevelMulti[9]/100 ?? 0);
 			
 			setText('power-lv1',`Level 1 Power: ${attackLv1 ?? "None"}`);
 			
