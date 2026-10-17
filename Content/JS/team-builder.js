@@ -117,6 +117,7 @@ const state = {
 		equipmentId: null,
 	},
 	editingSlots: false,
+	slotMoveState: 0,
 	rankCounter: { S: 0, A: 0 } // Rank Config
 };
 
@@ -163,11 +164,51 @@ function createTeamCanvas(bgImg, medals = []) {
     return canvas;
 }
 
-const editTeam = () => (state.editingSlots = true, state.selected.yokaiId = null);
+const editTeam = () => (state.editingSlots = true, state.selected.yokaiId = null, setMoveState(0));
 
-const selectYokai = yokaiId => ($("ChosenYokaiRing").style.visibility = "hidden", state.editingSlots = false, state.selected.yokaiId = yokaiId);
+const activateMoveState = () => (setMoveState(1), state.editingSlots = true, state.selected.yokaiId = null);
 
-const selectEquipment = equipmentId => state.selected.equipmentId = equipmentId;
+const selectYokai = yokaiId => ($("choose-ring").style.visibility = "hidden", state.editingSlots = false, setMoveState(0), state.selected.yokaiId = yokaiId);
+
+const selectEquipment = equipmentId => (state.selected.equipmentId = equipmentId, setMoveState(0));
+
+function setMoveState(moveState){
+	state.slotMoveState = moveState;
+	console.debug(state.slotMoveState, moveState);
+	switch (moveState) {
+		case 0:
+			$("state-display").textContent = '';
+			return;
+		case 1:
+			$("state-display").textContent = "Choose first Yo-kai to move"
+			return;
+		case 2:
+			$("state-display").textContent = "Choose second Yo-kai to swap with"
+			return;
+		default:
+			$("state-display").textContent = '';
+			return;
+	}
+}
+
+function swapSlots(startSlotIndex, endSlotIndex) {
+	let endSlotData = state.slots[endSlotIndex];
+	
+	state.slots[endSlotIndex] = state.slots[startSlotIndex];
+	state.slots[startSlotIndex] = endSlotData;
+
+	endSlotData = state.equipment[endSlotIndex];
+	
+	state.equipment[endSlotIndex] = state.equipment[startSlotIndex];
+	state.equipment[startSlotIndex] = endSlotData;
+	
+	endSlotData = $(`Slot${endSlotIndex+1}`).src;
+	
+	$(`Slot${endSlotIndex+1}`).src = $(`Slot${startSlotIndex+1}`).src;
+	$(`Slot${startSlotIndex+1}`).src = endSlotData;
+	
+	setMoveState(0);
+}
 	
 function selectWheelSlot(slot) {
 
@@ -182,16 +223,27 @@ function selectWheelSlot(slot) {
         return;
     }
 	
+    const ring = $('choose-ring');
 	
-    state.selected.wheelSlot = slotIndex;
+    if (state.slotMoveState == 2) swapSlots(state.selected.wheelSlot, slotIndex)
+	
+	state.selected.wheelSlot = slotIndex;
+	
+	if (state.slotMoveState == 1) {
+		setMoveState(2);
+		return;
+	}
+	
+    const targetLeft = slot.offsetLeft;
+    const targetTop = slot.offsetTop;
+	
+    const offsetLeft = (slot.offsetWidth - ring.offsetWidth) / 2;
+    const offsetTop = (slot.offsetHeight - ring.offsetHeight) / 2;
 
-    const ringLeft = `${parseInt(slot.style.left || 0, 10) - 8}px`;
-
-    const ringTop = `${parseInt(slot.style.top || 0, 10) - 7}px`;
-
-    $("ChosenYokaiRing").style.left = ringLeft;
-    $("ChosenYokaiRing").style.top = ringTop;
-    $("ChosenYokaiRing").style.visibility = "visible";
+    ring.style.left = `${targetLeft + offsetLeft}px`;
+    ring.style.top = `${targetTop + offsetTop}px`;
+	
+    ring.style.visibility = "visible";
 
     if (state.editingSlots) {
         showSlotInfo();
@@ -940,14 +992,14 @@ function closePopup(){
 	altertWindow.style.display="none";
 	main.style.visibility="visible";
 	$("slot-info-container").style.display = "flex";
-	$("ChosenYokaiRing").style.display = "block";
+	$("choose-ring").style.display = "block";
 }
 
 function showPopup(){
 	altertWindow.style.display = "grid";
 	main.style.visibility = "hidden";
 	$("slot-info-container").style.display = "none";
-	$("ChosenYokaiRing").style.display = "none";
+	$("choose-ring").style.display = "none";
 }
 
 
