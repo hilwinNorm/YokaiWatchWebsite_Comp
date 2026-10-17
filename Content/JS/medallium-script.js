@@ -42,26 +42,27 @@ const GenericInspiritIDs = {"0x61999483": "STR_Buff", "0x169EA415": "SPR_Buff", 
 function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, ivDef = 8, ivSpd = 8,
                           gymStr = 0, gymSpr = 0, gymDef = 0, gymSpd = 0,
                           evHp = 0, evStr = 0, evSpr = 0, evDef = 0, evSpd = 0 }) {
+	//console.debug( yokaiData, lvl, ivHp, ivStr, ivSpr, ivDef, ivSpd, gymStr, gymSpr, gymDef, gymSpd, evHp, evStr, evSpr, evDef, evSpd);
     let parsedLvl = parseInt(lvl, 10);
     if (isNaN(parsedLvl) || parsedLvl > 99 || parsedLvl < 0) parsedLvl = 60;
     const lvlFactor = (parsedLvl - 1) / 98;
 
     const baseHp = yokaiData.baseA_HP + (yokaiData.baseB_HP - yokaiData.baseA_HP + (+ivHp))
-        * lvlFactor + (evHp * 3 * (1 + parsedLvl / 198));
+        * lvlFactor + (evHp * 2.6 * (1 + parsedLvl / 198));
 
     const baseStr = yokaiData.baseA_Strength + (yokaiData.baseB_Strength - yokaiData.baseA_Strength + (+ivStr))
-        * lvlFactor + (evStr * 1.5 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
+        * lvlFactor + (evStr * 1.3 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
 
     const baseSpr = yokaiData.baseA_Spirit + (yokaiData.baseB_Spirit - yokaiData.baseA_Spirit + (+ivSpr))
-        * lvlFactor + (evSpr * 1.5 * (1 + parsedLvl / 198)) + ((+gymSpr) * 5);
+        * lvlFactor + (evSpr * 1.3 * (1 + parsedLvl / 198)) + ((+gymSpr) * 5);
 
     const baseDef = yokaiData.baseA_Defense
         + (yokaiData.baseB_Defense - yokaiData.baseA_Defense + (+ivDef))
-        * lvlFactor + (evDef * 1.5 * (1 + parsedLvl / 198)) + ((+gymDef) * 5) - ((+gymStr) * 2) - ((+gymSpd) * 2);
+        * lvlFactor + (evDef * 1.3 * (1 + parsedLvl / 198)) + ((+gymDef) * 5) - ((+gymStr) * 2) - ((+gymSpd) * 2);
 
     const baseSpd = yokaiData.baseA_Speed
         + (yokaiData.baseB_Speed - yokaiData.baseA_Speed + (+ivSpd))
-        * lvlFactor + (evSpd * 1.5 * (1 + parsedLvl / 198)) + ((+gymSpd) * 5) - ((+gymSpr) * 2) - ((+gymDef) * 2);
+        * lvlFactor + (evSpd * 1.3 * (1 + parsedLvl / 198)) + ((+gymSpd) * 5) - ((+gymSpr) * 2) - ((+gymDef) * 2);
 
     return { baseHp, baseStr, baseSpr, baseDef, baseSpd };
 }
@@ -72,7 +73,7 @@ function changeYokaiLanguageDisplay(langPath, divs){
 		case "jpn":
 			divs.forEach(div => {
 				const img = div.querySelector('a img');
-				const yokaiData = yokaiDatabase[img?.getAttribute('paramid-value')];
+				const yokaiData = yokaiDatabase[img?.getAttribute('id-value')];
 				
 				div.querySelector('.info-name').textContent = charaTextJapaneseDatabase["NOUN_INFO"][yokaiData.NameID].TextString;
 			})
@@ -80,7 +81,7 @@ function changeYokaiLanguageDisplay(langPath, divs){
 		default:
 			divs.forEach(div => {
 				const img = div.querySelector('a img');
-				const yokaiData = yokaiDatabase[img?.getAttribute('paramid-value')];
+				const yokaiData = yokaiDatabase[img?.getAttribute('id-value')];
 				
 				div.querySelector('.info-name').textContent = yokaiData.Name;
 			})
@@ -89,7 +90,7 @@ function changeYokaiLanguageDisplay(langPath, divs){
 
 
 function buildYokaiList(yokais) {
-  const container = document.getElementById('data-page');
+  const container = document.getElementById('item-list');
   container.innerHTML = '';
 
   const sortedEntries = Object.entries(yokais)
@@ -105,7 +106,7 @@ function buildYokaiList(yokais) {
     const stats = calculateStats({ yokaiData: yokai, lvl: level});
 
     const divMain = document.createElement('div');
-    divMain.className = 'mini-info-div';
+    divMain.className = 'item-list__item';
 
     const idSpan = document.createElement('div');
     idSpan.className = 'yokai-index';
@@ -226,7 +227,7 @@ function setupSearchAndFilters() {
 	}
 
 	searchInput?.addEventListener('search', () => {
-		filterYokai(searchInput.value);
+		filterItems(searchInput.value);
 	});
 
 	const buttons = document.querySelectorAll('.attribute-button');
@@ -251,7 +252,7 @@ function setupSearchAndFilters() {
 	let languageSelect = $("language-select");
 	
 	if (languageSelect){
-		const divs = document.querySelectorAll('#data-page .mini-info-div');
+		const divs = document.querySelectorAll('#item-list .item-list__item');
 		
 		languageSelect?.addEventListener('change', function() {
 			changeYokaiLanguageDisplay(languageSelect.value, divs);
@@ -259,7 +260,7 @@ function setupSearchAndFilters() {
 		changeYokaiLanguageDisplay(languageSelect.value, divs);
 	}
 
-  filterYokai(searchInput.value);
+  filterItems(searchInput.value);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -347,7 +347,7 @@ function loadTeamFromURL(){
 	WheelSlot5Eq=Slots[5]
 	WheelSlot6Eq=Slots[6]
 	
-	let YokaiPage = document.getElementById("data-page")
+	let YokaiPage = document.getElementById("item-list")
 	let YokaiPageList = YokaiPage.children;
 	
 	for (let x = 0; x < 6; x++){
@@ -754,7 +754,7 @@ function addEquipmentIntoSlot(eqSlot){
 }
 
 function showEquipmentPage(){
-	const equipmentPage = document.getElementById("data-page");
+	const equipmentPage = document.getElementById("item-list");
 	let Path = "Content/Graphics/ItemIcons/"
 	equipmentPage.innerHTML = "";
 	const list = [];
@@ -787,7 +787,7 @@ function showEquipmentPage(){
 		divDEF.innerHTML = "DEF: "+item.DEFBuff;
 		divSPD.style=`width: auto; margin-left: 10px ;margin-right: 10px;`;
 		divSPD.innerHTML = "SPD: "+item.SPDBuff;
-		divMain.className = "mini-info-div";
+		divMain.className = "item-list__item";
 		divMain.style = "min-width: 850px; justify-content: space-between;";
 		if (item.ImageIcon !== undefined){
 		img.src = Path+item.ImageIcon;
@@ -825,7 +825,7 @@ function showEquipmentPage(){
 }
 
 function showSoulgemPage(){
-	const soulPage = document.getElementById("data-page");
+	const soulPage = document.getElementById("item-list");
 	let Path = "Content/Graphics/ItemIcons/"
 	soulPage.innerHTML = "";
 	const list = [];
@@ -849,7 +849,7 @@ function showSoulgemPage(){
 		divDesc.style = `width: auto`
 		divDesc.innerText = (item.DescText).replaceAll('\\n','\n') + descConfig;
 		divDesc.className = "div-desc"
-		divMain.className = "mini-info-div"
+		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		img.src = Path+item.ImageIcon;
 		img.alt = item.NounText;
@@ -896,7 +896,7 @@ if (soulGemButton){
 };
 
 function showPage(yokais) {
-	const yokaiPage = document.getElementById("data-page");
+	const yokaiPage = document.getElementById("item-list");
 	yokaiPage.innerHTML = "";
 
     let yokaiListHTML = '';
@@ -946,7 +946,7 @@ function showPage(yokais) {
         const spd = Math.floor(stats.baseSpd);
 
         const itemHTML = `
-            <div class="mini-info-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:space-between;align-items:center;flex-direction:row;flex-wrap:nowrap;">
+            <div class="item-list__item">
                 <div>NO. ${medalId}</div>
 				${medalImg.outerHTML}
 				${alliance}

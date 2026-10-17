@@ -1,4 +1,4 @@
-const dataPage = document.getElementById("data-page");
+const dataPage = document.getElementById("item-list");
 
 const attackBtn = document.getElementById("attack-btn");
 const techniqueBtn = document.getElementById("technique-btn");
@@ -133,7 +133,7 @@ function createMoveDiv(content, fontSize = "1.2em") {
 
     const divMain = document.createElement("div");
 
-    divMain.className = "mini-info-div";
+    divMain.className = "item-list__item";
 	
     divMain.style.fontSize = fontSize;
 

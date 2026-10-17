@@ -1,5 +1,5 @@
 
-const infoPage = document.getElementById("data-page");
+const infoPage = document.getElementById("item-list");
 
 const skillTextConfig=[
 	0x1880DCDC,
@@ -46,7 +46,7 @@ function showEquipmentPage(){
 		divDEF.innerHTML = "DEF: "+item.DEFBuff
 		divSPD.style=`width: auto; margin-left: 10px ;margin-right: 10px;`
 		divSPD.innerHTML = "SPD: "+item.SPDBuff
-		divMain.className = "mini-info-div"
+		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		if (item.ImageIcon !== undefined){
 		img.src = itemPath+item.ImageIcon;
@@ -82,7 +82,7 @@ function showEquipmentPage(){
 }
 
 function showSoulgemPage(){
-	const soulPage = document.getElementById("data-page");
+	const soulPage = document.getElementById("item-list");
 	let itemPath = "Content/Graphics/ItemIcons/"
 	soulPage.innerHTML = "";
 	const list = [];
@@ -105,7 +105,7 @@ function showSoulgemPage(){
 		divDesc.style = `width: auto`;
 		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n') + descConfig;
 		divDesc.id = "div-desc"
-		divMain.className = "mini-info-div"
+		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		img.src = itemPath+item.ImageIcon;
 		img.alt = item.NounText;
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const searchInput = $("search-input");
 	
 	searchInput.addEventListener('search', () => {
-		filterYokai(searchInput.value);
+		filterItems(searchInput.value);
 	});
 	showEquipmentPage()
 })

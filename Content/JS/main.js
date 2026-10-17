@@ -223,9 +223,9 @@ function scaleText(element) {
 	}
 }
 
-function filterYokai(searchTerm) {
+function filterItems(searchTerm) {
 	const terms = searchTerm.toLowerCase().split(/\s+/);
-	const divs = document.querySelectorAll('#data-page .mini-info-div');
+	const divs = document.querySelectorAll('#item-list .item-list__item');
 	const filterRanks = ['E', 'D', 'C', 'B', 'A', 'S'];
 	const filterTribes = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
 
@@ -240,7 +240,7 @@ function filterYokai(searchTerm) {
 		const alliance = img?.getAttribute('alliance-value') || '';
 		const rarity = img?.getAttribute('rarity-value') || '';
 		const classic = img?.getAttribute('classic-value') || '';
-		const elementID = img.getAttribute('id-value') || '';
+		const elementID = img?.getAttribute('id-value') || '';
 		
 		const fullText = `${elementID} ${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
 		const divText = div.textContent.toLowerCase();
@@ -265,7 +265,6 @@ function filterYokai(searchTerm) {
 	});
 }
 
-const SearchInput = $("search-input");
 let pathLocation = window.location.pathname;
 let page = pathLocation.split("/").pop();
 let originalOrder = [];
