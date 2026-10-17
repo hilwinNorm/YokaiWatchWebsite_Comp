@@ -179,7 +179,7 @@ function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
 }
 
 function loadYokaiList(yokais, attackerMng, defenderMng) {
-    const yokaiPage = $('data-page');
+    const yokaiPage = $('item-list');
 
     let pageHTML = '';
 	
@@ -217,7 +217,7 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
 		}
 
         const itemHTML = `
-            <div class="mini-info-div" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;flex-wrap:wrap;">
+            <div class="item-list__item" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;flex-wrap:wrap;">
                 <div style="width:12%;justify-self:center;">NO. ${medalId}</div>
                 <img class="yokai-list-img" src="${imgSrc}" alt="${name}" style="cursor:pointer;width:50px;height:auto;" data-yokai-key="${key}">
                 <div style="width:12%;justify-self:center;" paramID="${key}">${name}${alliance}</div>

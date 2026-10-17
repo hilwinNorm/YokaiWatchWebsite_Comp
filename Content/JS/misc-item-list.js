@@ -1,7 +1,7 @@
 
 let ImagePath = "Content/Graphics/ItemIcons/"
 
-var InfoPage = document.getElementById("data-page");
+var InfoPage = document.getElementById("item-list");
 
 var ItemConsumeButton = document.getElementById("ItemConsumeButton")
 
@@ -28,7 +28,7 @@ function Show_ConsumableItems_Page(){
 		divDesc.style = divInfoStyle
 		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n')
 		divDesc.id = "div-desc"
-		divMain.className = "mini-info-div"
+		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		if (item.ImageIcon !== undefined){
 		img.src = ImagePath+item.ImageIcon;

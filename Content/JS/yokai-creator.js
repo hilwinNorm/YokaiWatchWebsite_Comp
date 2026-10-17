@@ -121,7 +121,7 @@ function SetOptions_Soultimate(GivenAttack=null){
 }
 
 function showPage(yokais) {
-	const yokaiPage = document.getElementById("data-page");
+	const yokaiPage = document.getElementById("item-list");
 	yokaiPage.innerHTML = "";
 	const display_list = [];
 	console.log(yokais)
@@ -290,7 +290,7 @@ function CalculateStats(yokai, HP_IV, STR_IV, SPR_IV, DEF_IV, SPD_IV, LVL, STR_G
 window.addEventListener('load', function () {
 	loadScript('database.js', () => {
 		showPage(yokaiDatabase)
-		allYokaiInfoDiv = document.querySelectorAll('#data-page .MiniYokaiInfo-div');
+		allYokaiInfoDiv = document.querySelectorAll('#item-list .MiniYokaiInfo-div');
     });
 	SetOptions_Attack()
 	SetOptions_Technique()
