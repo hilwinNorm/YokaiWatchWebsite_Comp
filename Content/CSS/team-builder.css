@@ -1,5 +1,22 @@
 /* =========================================================
-   1. Base / Document
+   Design Tokens
+   ========================================================= */
+
+:root {
+	--button-height: 24px;
+	--button-width: 250px;
+	
+	--input-width: 6ch;
+	
+	--wheel-height: 300px;
+	--medal-img-width: 70px;
+	
+	--wheel-offset-left: 55.5px;
+	--wheel-offset-top: 32px;
+}
+
+/* =========================================================
+   Base / Document
    ========================================================= */
 
 h3 {
@@ -13,16 +30,26 @@ h4 {
 	color: var(--side-buttons-color);
 }
 
-/* =========================================================
-   2. Global Layout Shell
-   ========================================================= */
-
-#team-options {
-	position: absolute; 
-	top:325px; 
-	left: 225px;
+main button {
+	height: var(--button-height);
+	width: var(--button-width);
+	
+	white-space: nowrap;
 }
 
+/* =========================================================
+   Global Layout Shell
+   ========================================================= */
+   
+.main-section {
+	position: relative;
+	
+    display: flex;
+    flex-direction: row;
+	
+    /*padding-top: 10px;*/
+}
+   
 .current-rank-container {
 	display: grid;
 	height: fit-content;
@@ -34,7 +61,7 @@ h4 {
 }
 
 /* =========================================================
-   3. Alert Window
+   Alert Window
    ========================================================= */
 
 #alert-window {
@@ -58,34 +85,110 @@ h4 {
 
 #alert-window__close-btn {
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	right: 0;
+	top: 0;
 }
 
 /* =========================================================
-   4. Wheel
+   Wheel
    ========================================================= */
+   
+.wheel-section {
+	display: flex;
+}
+
+.wheel-section__wheel {
+	position: relative;
+	
+	padding: 0 15px;
+}
+   
+.wheel-img {
+    height: var(--wheel-height);
+    position: relative;
+	display: inline-block;
+}
+
+.wheel-section__options {
+	display: grid;
+	align-content: center;
+	
+	gap: 15px;
+}
+
+.state-display {
+	text-align: center;
+}
+
+.state-display::before {
+  content: "\200B"; /* Zero-width space */
+}
+
+/*
+	--wheel-offset-left: 262.5px;
+	--wheel-offset-top: 30px;
+*/
+
+#Slot1 {
+	left: calc(var(--wheel-offset-left));
+    top: calc(var(--wheel-offset-top) + 42px);
+}
+
+#Slot2 {
+    left: calc(var(--wheel-offset-left) + 73.5px);
+    top: calc(var(--wheel-offset-top));	
+}
+
+#Slot3 {
+    left: calc(var(--wheel-offset-left) + 146.5px);
+    top: calc(var(--wheel-offset-top) + 42px);
+}
+
+#Slot4 {
+    left: calc(var(--wheel-offset-left) + 146.5px);
+    top: calc(var(--wheel-offset-top) + 122px);
+}
+
+#Slot5 {
+    left: calc(var(--wheel-offset-left) + 73.5px);
+    top: calc(var(--wheel-offset-top) + 165px);
+}
+
+#Slot6 {
+	left: calc(var(--wheel-offset-left));
+    top: calc(var(--wheel-offset-top) + 122px);
+}
+
+#choose-ring {
+    position: absolute;
+	
+    width: calc(var(--medal-img-width) + 15px);
+    height: auto;
+	
+    visibility: hidden;
+	pointer-events: none;
+}
 
 .wheel-medal-img {
-	width: 70px;
+	width: var(--medal-img-width);
 	height: auto;
 	position: absolute;
 }
 
 .wheel-medal-slot {
-position: absolute;
-width: 48px;
+	position: absolute;
+	width: 48px;
 }
 
 /* =========================================================
-   5. Slot Info
+   Slot Info
    ========================================================= */
 
 #slot-info-container {
 	display: flex; 
 	
 	padding: 20px;
-	width: 50vw; 
+	/*width: 50vw;*/ 
 	height: auto;
 	
 	gap: 1vw;
@@ -94,7 +197,7 @@ width: 48px;
 }
 
 #yokai-level {
-	width: 6ch;
+	width: var(--input-width);
 }
 
 .slot-info-container__settings {
@@ -103,7 +206,7 @@ width: 48px;
 }
 
 .slot-info-container__settings input {
-	width: 6ch;
+	width: var(--input-width);
 }
 
 .yokai-attributes {
@@ -116,4 +219,8 @@ width: 48px;
 
 .slot-info-container__text {
 	color: var(--side-buttons-color)
+}
+
+.slot-info-container__button {
+	width: auto;
 }
