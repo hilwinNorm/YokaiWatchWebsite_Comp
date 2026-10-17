@@ -60,6 +60,14 @@ main button {
 	height: auto; 
 }
 
+#item-list {
+	height: 230px;
+    min-width: 60vw;
+	
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
 /* =========================================================
    Alert Window
    ========================================================= */
@@ -188,7 +196,8 @@ main button {
 	display: flex; 
 	
 	padding: 20px;
-	/*width: 50vw;*/ 
+	
+	/*max-width: 50vw;*/
 	height: auto;
 	
 	gap: 1vw;
@@ -215,6 +224,8 @@ main button {
 	
 	padding: 0 0.5vw;
 	margin: 0;
+	
+	width: 120px;
 }
 
 .slot-info-container__text {
