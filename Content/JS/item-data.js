@@ -184,7 +184,7 @@ function showItemDetails(database, item) {
 				for (const [key, yokai] of Object.entries(yokaiDatabase)){
 					if (yokai.BaseID == soulEffect.YokaiBaseID) {
 						display("soul-yokai", "block");
-						$("soul-yokai").href = `./yokai-info.html?yokai=${yokai.BaseID}`;
+						$("soul-yokai").href = `./yokai-info.html?yokai=${yokai.ParamID}`;
 						setText("soul-yokai", `Fusion Yokai: ${yokai.Name}`);
 						break;
 					}
