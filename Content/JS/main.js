@@ -240,8 +240,9 @@ function filterYokai(searchTerm) {
 		const alliance = img?.getAttribute('alliance-value') || '';
 		const rarity = img?.getAttribute('rarity-value') || '';
 		const classic = img?.getAttribute('classic-value') || '';
+		const elementID = img.getAttribute('id-value') || '';
 		
-		const fullText = `${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
+		const fullText = `${elementID} ${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
 		const divText = div.textContent.toLowerCase();
 		
 		//console.debug(`${fullText}\n${divText}`);

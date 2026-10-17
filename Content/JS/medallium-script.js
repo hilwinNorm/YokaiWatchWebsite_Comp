@@ -122,7 +122,7 @@ function buildYokaiList(yokais) {
     medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
     medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
     medalImg.setAttribute('tribe-value', tribeList[yokai.Tribe]);
-	medalImg.setAttribute('paramid-value', key);
+	medalImg.setAttribute('id-value', key);
 	if(yokai.IsRare) medalImg.setAttribute('rarity-value', "rare");
 	if(yokai.IsLegendary) medalImg.setAttribute('rarity-value', "legendary");
     link.appendChild(medalImg);
