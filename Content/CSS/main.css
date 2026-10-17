@@ -253,6 +253,10 @@ hr {
     border: 1px solid var(--side-buttons-color);
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* =========================================================
    5. Global Layout Shell
    ========================================================= */
