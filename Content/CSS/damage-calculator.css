@@ -123,3 +123,7 @@ input {
     background: var(--side-buttons-bg);
     color: var(--side-buttons-color);
 }
+
+#search-input {
+	justify-self: center;
+}

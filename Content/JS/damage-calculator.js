@@ -212,8 +212,6 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
 		medalImg.alt = yokai.Name;
 		medalImg.addEventListener("click", () => setYokaiData(yokai, state.selectedManager));
 		
-		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
-		
 		/*
 		divMain.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
 		divMain.setAttribute('tribe-value', tribeList[yokai.Tribe]);
@@ -227,7 +225,8 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
 		if ([1,2].includes(legalAlliances)){
 			//console.debug('pass');
 			const allianceTag = document.createElement('img');
-			allianceTag.style = `width: auto; height: 30px;`;
+			
+			allianceTag.className = `alliance-img`;
 			
 			if (legalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; divMain.setAttribute('alliance-value', "bony");}
 			else if (legalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; divMain.setAttribute('alliance-value', "fleshy");}
@@ -250,10 +249,19 @@ function loadYokaiList(yokais, attackerMng, defenderMng) {
 		const statLabels = ['HP', 'STR', 'SPR', 'DEF', 'SPD'];
 		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
 		statLabels.forEach((label, idx) => {
-		  const div = document.createElement('div');
-		  //div.style.cssText = 'width: 9%; text-align: center;';
-		  div.textContent = `${label}:${Math.floor(statValues[idx])}`;
-		  divMain.appendChild(div);
+			const labelLower = String(label).toLowerCase();
+			divMain.setAttribute(`${label}-value`, statValues[idx]);
+			
+			const spanLabel = document.createElement('span');
+			spanLabel.classList = `stat-div__label stat-div--${labelLower}`
+			spanLabel.textContent = label; 
+			const value = document.createElement('span');
+			value.className = "stat-div__value";
+			value.textContent = Math.floor(statValues[idx]);
+			const div = document.createElement('div');
+			div.appendChild(spanLabel);
+			div.appendChild(value);
+			divMain.appendChild(div);
 		});
 		/*
 		const tribeImg = document.createElement('img');
@@ -418,11 +426,11 @@ function setupEventListeners(){
 document.addEventListener('DOMContentLoaded', function (){
 	//yokaiDatabase;
 	//(STRorSPR/2 + BP/2)*0.9or1.1*ElementalWeaknessResistance*SkillMultiplier*Guard
-	
-	const searchInput = document.getElementById('search-input');
-	if (!searchInput) console.warn('Search input (#search-input) not found – filtering will not work.');
-	searchInput?.addEventListener('search', () => {filterYokai(searchInput.value)});
-	
-    console.log("All databases loaded. Initializing game...");
+
+	const searchInput = $("search-input");
+	searchInput.addEventListener('search', () => {
+		filterItems(searchInput.value);
+	});
+	console.log("All databases loaded. Initializing game...");
 	setupEventListeners();
 });

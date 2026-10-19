@@ -636,6 +636,10 @@ function setupSlotEventListeners() {
 			validateAndStyleInputs();
 		});
 	}
+	
+	$("equipment-button")?.addEventListener('click', showEquipmentPage);
+	$("soulgem-button")?.addEventListener('click', showSoulgemPage);
+	$("yokai-button").addEventListener('click', showPage);
 }
 
 function assignSlotValues(){
@@ -755,46 +759,36 @@ function addEquipmentIntoSlot(eqSlot){
 
 function showEquipmentPage(){
 	const equipmentPage = document.getElementById("item-list");
-	let Path = "Content/Graphics/ItemIcons/"
+	let itemPath = "Content/Graphics/ItemIcons/"
 	equipmentPage.innerHTML = "";
-	const list = [];
-	list.length = Object.keys(equipmentDatabase).length;
-	var path_location = window.location.pathname;
-	var page = path_location.split("/").pop();
+	
+	const fragment = document.createDocumentFragment();
 	
 	for (const [key,item] of Object.entries(equipmentDatabase)) {
-		const divMain = document.createElement("div")
-		const divName = document.createElement("div")
+		const divMain = document.createElement("div");
+		const divName = document.createElement("div");
 		const img = document.createElement("img");
-		const divDesc = document.createElement("div")
+		const divDesc = document.createElement("div");
 		
-		const divSTR = document.createElement("div")
-		const divSPR = document.createElement("div")
-		const divDEF = document.createElement("div")
-		const divSPD = document.createElement("div")
+		const divSTR = document.createElement("div");
+		const divSPR = document.createElement("div");
+		const divDEF = document.createElement("div");
+		const divSPD = document.createElement("div");
 		
-		divName.style = `width: auto; margin-left: 10px ;margin-right: 10px`;
 		divName.className = "div-name";
-		divName.innerHTML = item.NounText;
-		divDesc.style = `width: auto; margin-left: 10px ;margin-right: 10px`
-		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n');
+		divName.textContent = item.NounText;
+		divDesc.textContent = (item.DescText).replaceAll('\\n','\n');
 		divDesc.className = "div-desc";
-		divSTR.style=`width: auto; margin-left: 10px ;margin-right: 10px`;
-		divSTR.innerHTML = "STR: "+item.STRBuff;
-		divSPR.style=`width: auto; margin-left: 10px ;margin-right: 10px;`;
-		divSPR.innerHTML = "SPR: "+item.SPRBuff;
-		divDEF.style=`width: auto; margin-left: 10px ;margin-right: 10px`;
-		divDEF.innerHTML = "DEF: "+item.DEFBuff;
-		divSPD.style=`width: auto; margin-left: 10px ;margin-right: 10px;`;
-		divSPD.innerHTML = "SPD: "+item.SPDBuff;
+		divSTR.textContent = "STR: "+item.STRBuff;
+		divSPR.textContent = "SPR: "+item.SPRBuff;
+		divDEF.textContent = "DEF: "+item.DEFBuff;
+		divSPD.textContent = "SPD: "+item.SPDBuff;
 		divMain.className = "item-list__item";
-		divMain.style = "min-width: 850px; justify-content: space-between;";
 		if (item.ImageIcon !== undefined){
-		img.src = Path+item.ImageIcon;
+		img.src = itemPath+item.ImageIcon;
 		img.alt = item.NounText;
 		img.value = key;
 		img.setAttribute("ItemName", item.NounText);
-		img.style = "width: 70px; height: auto"
 		img.onclick = () => {
 			selectEquipment(key);
 		};
@@ -803,35 +797,23 @@ function showEquipmentPage(){
 		}
 		divMain.appendChild(divName);
 		divMain.appendChild(divDesc);
-		if (item.STRBuff !== 0){
-		divMain.appendChild(divSTR);
-		}
-		if (item.SPRBuff !== 0){
-		divMain.appendChild(divSPR);
-		}
-		if (item.DEFBuff !== 0){
-		divMain.appendChild(divDEF);
-		}
-		if (item.SPDBuff !== 0){
-		divMain.appendChild(divSPD);
-		}
-		list[item.ItemNum] = divMain;				
-}
-		for (i=0; i < list.length; i++){
-			if (list[i] !== undefined){
-				equipmentPage.appendChild(list[i])
-			}
-		}
+		
+		if (item.STRBuff !== 0) divMain.appendChild(divSTR);
+		if (item.SPRBuff !== 0) divMain.appendChild(divSPR);
+		if (item.DEFBuff !== 0) divMain.appendChild(divDEF);
+		if (item.SPDBuff !== 0) divMain.appendChild(divSPD);
+		
+		fragment.appendChild(divMain);				
+	}
+	equipmentPage.appendChild(fragment);
 }
 
 function showSoulgemPage(){
 	const soulPage = document.getElementById("item-list");
-	let Path = "Content/Graphics/ItemIcons/"
+	let itemPath = "Content/Graphics/ItemIcons/"
 	soulPage.innerHTML = "";
-	const list = [];
-	list.length = Object.entries(soulgemDatabase).length;
-	var path_location = window.location.pathname;
-	var page = path_location.split("/").pop();
+	
+	const fragment = document.createDocumentFragment();
 	
 	for (const [key,item] of Object.entries(soulgemDatabase)) {
 		const divMain = document.createElement("div");
@@ -843,134 +825,124 @@ function showSoulgemPage(){
 		
 		const descConfig = setBuffText(abilityData.EffectData[0]);
 		
-		divName.style = `width: auto; margin-left: 10px ;margin-right: 10px`
 		divName.className = "div-name"
 		divName.innerText = `${item.NounText} Soul`;
-		divDesc.style = `width: auto`
+		
 		divDesc.innerText = (item.DescText).replaceAll('\\n','\n') + descConfig;
 		divDesc.className = "div-desc"
+		
 		divMain.className = "item-list__item"
-		divMain.style = "min-width: 850px; justify-content: space-between;"
-		img.src = Path+item.ImageIcon;
+		img.src = itemPath+item.ImageIcon;
 		img.alt = item.NounText;
-		img.style = `width: 50px; height: auto; margin-left: 10px ;margin-right: 10px`
 		img.value = key;
 		img.setAttribute("ItemName", item.NounText);
-		img.onclick = () => {
-		selectEquipment(key);
-		};
+		img.addEventListener('click', () => selectEquipment(key));
+		
 		divMain.appendChild(img);
 		divMain.appendChild(divName);
 		divMain.appendChild(divDesc);
-		list[item.ItemNum] = divMain;
-		for (i=0; i < list.length; i++){
-			if (list[i] !== undefined){
-				//console.log(list[i])
-				soulPage.appendChild(list[i])
-			}
-		}
+		
+		fragment.appendChild(divMain);
 	}
+	soulPage.appendChild(fragment);
 }
 
-window.addEventListener('load', function () {
-	if (page == "equipment.html"){
-		console.log('!')
-		showEquipmentPage()
-	}
-});
-
-const equipmentButton = $("equipment-button");
-
-const soulGemButton = $("soulgem-button");
-
-if (equipmentButton){
-	equipmentButton.addEventListener('click', function (){
-		showEquipmentPage()
-	})
-};
-
-if (soulGemButton){
-	soulGemButton.addEventListener('click', function (){
-		showSoulgemPage()
-	})
-};
-
-function showPage(yokais) {
+function showPage() {
 	const yokaiPage = document.getElementById("item-list");
 	yokaiPage.innerHTML = "";
-
-    let yokaiListHTML = '';
 	
-	const sortedEntries = Object.entries(yokais)
-    .filter(([, yokai]) => yokai.InMedallium === 1 && yokai.LegalAlliances != 0)
-    .sort((a, b) => a[1].MedalliumOffset - b[1].MedalliumOffset);
+	const sortedEntries = Object.entries(yokaiDatabase)
+		.filter(([, yokai]) => yokai.InMedallium === 1 && yokai.LegalAlliances != 0)
+		.sort((a, b) => a[1].MedalliumOffset - b[1].MedalliumOffset);
+
+	const fragment = document.createDocumentFragment();
 
     for (const [key, yokai] of sortedEntries) {
 		
-		//console.debug(key, yokai);
+		const legalAlliances = yokai.LegalAlliances;
+		//const level = legalAlliances ? 60 : 0;
 
-        const stats = calculateStats({yokaiData: yokai});
+		const stats = calculateStats({ yokaiData: yokai});
 
-        const medalId = String(yokai.MedalliumOffset).padStart(3, '0');
-        let name = yokai.Name;
-		
+		const divMain = document.createElement('div');
+		divMain.className = 'item-list__item';
+
+		const idElement = document.createElement('div');
+		idElement.className = 'yokai-index';
+		idElement.textContent = `NO. ${String(yokai.MedalliumOffset).padStart(3, '0')}`;
+		divMain.appendChild(idElement);
+
 		const medalImg = document.createElement('img');
-		
 		medalImg.src = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
 		medalImg.alt = yokai.Name;
-		medalImg.className = "yokai-img";
-		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
-		medalImg.setAttribute('data-index', key);
-		medalImg.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
-		medalImg.setAttribute('tribe-value', tribeList[yokai.Tribe]);
-		if(yokai.IsRare) medalImg.setAttribute('rarity-value', "rare");
-		if(yokai.IsLegendary) medalImg.setAttribute('rarity-value', "legendary");
+		medalImg.addEventListener("click", () => {selectYokai(key)});
 		
-		let alliance = ``;
+		/*
+		divMain.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
+		divMain.setAttribute('tribe-value', tribeList[yokai.Tribe]);
+		divMain.setAttribute('id-value', key);
 		
-		if ([1,2].includes(yokai.LegalAlliances)){
+		if(yokai.IsRare) divMain.setAttribute('rarity-value', "rare");
+		if(yokai.IsLegendary) divMain.setAttribute('rarity-value', "legendary");
+		*/
+		divMain.appendChild(medalImg);
+
+		if ([1,2].includes(legalAlliances)){
 			//console.debug('pass');
 			const allianceTag = document.createElement('img');
-			allianceTag.style = `width: auto; height: 30px;`;
 			
-			if (yokai.LegalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; medalImg.setAttribute('alliance-value', "bony");}
-			else if (yokai.LegalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; medalImg.setAttribute('alliance-value', "fleshy");}
+			allianceTag.className = `alliance-img`;
 			
-			alliance = allianceTag.outerHTML;
+			if (legalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; divMain.setAttribute('alliance-value', "bony");}
+			else if (legalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; divMain.setAttribute('alliance-value', "fleshy");}
+			
+			divMain.appendChild(allianceTag);
 		}
-		
-        const hp = Math.floor(stats.baseHp);
-        const str = Math.floor(stats.baseStr);
-        const spr = Math.floor(stats.baseSpr);
-        const def = Math.floor(stats.baseDef);
-        const spd = Math.floor(stats.baseSpd);
+		/*if(yokai.IsClassic){
+			const classicTag = document.createElement('img');
+			classicTag.classList = `tag-classic`;
+			classicTag.src = `./Content/Graphics/rarities/classicTag.webp`;
+			//divMain.setAttribute('classic-value', "classic");
+			divMain.appendChild(classicTag);
+		}*/
 
-        const itemHTML = `
-            <div class="item-list__item">
-                <div>NO. ${medalId}</div>
-				${medalImg.outerHTML}
-				${alliance}
-                <div class="info-name" paramID="${key}">${name}</div>
-                <div>HP:${hp}</div>
-                <div>STR:${str}</div>
-                <div>SPR:${spr}</div>
-                <div>DEF:${def}</div>
-                <div>SPD:${spd}</div>
-				<img src="./Content/Graphics/tribes/${tribeList[yokai.Tribe]}.png">
-				<img src="./Content/Graphics/ranks/${rankList[yokai.Rank]}.png">
-            </div>
-        `;
+		const nameDiv = document.createElement('div');
+		nameDiv.className = 'info-name';
+		nameDiv.textContent = yokai.Name;
+		divMain.appendChild(nameDiv);
 
-        yokaiListHTML += itemHTML;
+		const statLabels = ['HP', 'STR', 'SPR', 'DEF', 'SPD'];
+		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
+		statLabels.forEach((label, idx) => {
+			const labelLower = String(label).toLowerCase();
+			divMain.setAttribute(`${label}-value`, statValues[idx]);
+			
+			const spanLabel = document.createElement('span');
+			spanLabel.classList = `stat-div__label stat-div--${labelLower}`
+			spanLabel.textContent = label; 
+			const value = document.createElement('span');
+			value.className = "stat-div__value";
+			value.textContent = Math.floor(statValues[idx]);
+			const div = document.createElement('div');
+			div.appendChild(spanLabel);
+			div.appendChild(value);
+			divMain.appendChild(div);
+		});
+		/*
+		const tribeImg = document.createElement('img');
+		tribeImg.src = `Content/Graphics/tribes/${tribeList[yokai.Tribe]}.png`;
+		tribeImg.alt = tribeList[yokai.Tribe];
+		divMain.appendChild(tribeImg);
+
+		const rankImg = document.createElement('img');
+		rankImg.src = `Content/Graphics/ranks/${rankList[yokai.Rank]}.png`;
+		rankImg.alt = rankList[yokai.Rank];
+		divMain.appendChild(rankImg);
+		*/
+		fragment.appendChild(divMain);
     }
 
-    yokaiPage.innerHTML = yokaiListHTML;
-
-    yokaiPage.querySelectorAll('.yokai-img').forEach(img => {
-        img.addEventListener('click', function(e) {
-			selectYokai(img.dataset.index);
-        });
-    });
+    yokaiPage.appendChild(fragment);
 }
 
 function clearEquipment(){
@@ -1002,26 +974,17 @@ function showPopup(){
 	$("choose-ring").style.display = "none";
 }
 
-
-const yokaiButton = document.getElementById("yokai-button");
-
-
-if (yokaiButton){
-	yokaiButton.addEventListener('click', function(){
-		showPage(yokaiDatabase)
-	});
-	
+document.addEventListener("DOMContentLoaded", function(){
 	const searchInput = $("search-input");
-	
 	searchInput.addEventListener('search', () => {
-		filterYokai(searchInput.value);
+		filterItems(searchInput.value);
 	});
 	
-	showPage(yokaiDatabase);
+	showPage();
 	/* Deprecated
 	if (urlParams.get('team')){
 		loadTeamFromURL();
 	}
 	*/
 	setupSlotEventListeners();
-}
+});
