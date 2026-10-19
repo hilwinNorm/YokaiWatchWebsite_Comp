@@ -1,55 +1,38 @@
 
-let ImagePath = "Content/Graphics/ItemIcons/"
+let itemPath = "Content/Graphics/ItemIcons/";
 
-var InfoPage = document.getElementById("item-list");
+var infoPage = document.getElementById("item-list");
 
-var ItemConsumeButton = document.getElementById("ItemConsumeButton")
-
-var divInfoStyle=`width: auto; margin-left: 10px ;margin-right: 10px; color: var(--side-buttons-color);`
-
-function Show_ConsumableItems_Page(){
-	InfoPage.innerHTML = "";
+function showItemPage(){
+	infoPage.innerHTML = "";
 	const list = [];
-	list.length = Object.keys(itemConsumeDatabase).length;
-	var path_location = window.location.pathname;
-	var page = path_location.split("/").pop();
 	
 	for (const [key,item] of Object.entries(itemConsumeDatabase)) {
-		const divMain = document.createElement("div")
-		const divDesc = document.createElement("div")
-		const img = document.createElement("img");
-		const ItemAnhr = document.createElement("a");
-		ItemAnhr.href=`./item-info.html?item=${key}&type=1`;
+		const divMain = document.createElement("div");
+		divMain.className = "item-list__item";
 		
-
-		ItemAnhr.style = divInfoStyle
-		ItemAnhr.id = "div-name"
-		ItemAnhr.innerHTML = item.NounText
-		divDesc.style = divInfoStyle
-		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n')
-		divDesc.id = "div-desc"
-		divMain.className = "item-list__item"
-		divMain.style = "min-width: 850px; justify-content: space-between;"
-		if (item.ImageIcon !== undefined){
-		img.src = ImagePath+item.ImageIcon;
+		const img = document.createElement("img");
+		img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
 		img.alt = item.Name;
-		img.style = "width: 70px; height: auto"
+		img.style = "width: 70px; height: auto";
 		divMain.appendChild(img);
-		}
-		divMain.appendChild(ItemAnhr);
+		
+		const itemLink = document.createElement("a");
+		itemLink.href=`./item-info.html?item=${key}&type=1`;
+		itemLink.innerHTML = item.NounText;
+		divMain.appendChild(itemLink);
+		
+		const divDesc = document.createElement("div");
+		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n');
 		divMain.appendChild(divDesc);
-		list[item.ItemNum] = divMain;				
+			
+		infoPage.appendChild(divMain);			
 	}
-		for (i=0; i < list.length; i++){
-			if (list[i] !== undefined){
-				InfoPage.appendChild(list[i])
-			}
-		}
 }
 
 document.addEventListener('DOMContentLoaded', function(){
 	const searchInput = document.getElementById('search-input');
 	if (!searchInput) console.warn('Search input (#search-input) not found – filtering will not work.');
-	searchInput?.addEventListener('search', () => {filterYokai(searchInput.value)});
-	Show_ConsumableItems_Page()
+	searchInput?.addEventListener('search', () => {filterItems(searchInput.value)});
+	showItemPage()
 });

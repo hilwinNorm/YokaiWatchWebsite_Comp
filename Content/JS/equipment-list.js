@@ -8,7 +8,7 @@ const skillTextConfig=[
 	0x81898D66,
 	0x68EA2853,
 	0xF68EBDF0
-];
+]
 
 function setBuffText(effect) {
 	//console.debug(skillTextConfig.includes(parseInt(effect.EffectID, 16)),  effect.EffectID);
@@ -36,44 +36,32 @@ function showEquipmentPage(){
 		
 		ItemAnhr.style = `width: auto; margin-left: 10px ;margin-right: 10px; color: var(--side-buttons-color);`
 		ItemAnhr.id = "div-name"
-		ItemAnhr.innerHTML = item.NounText
+		ItemAnhr.textContent = item.NounText
 		divDesc.style = `width: auto; margin-left: 10px ;margin-right: 10px`
-		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n')
+		divDesc.textContent = (item.DescText).replaceAll('\\n','\n')
 		divDesc.id = "div-desc"
-		divSTR.style=`width: auto; margin-left: 10px ;margin-right: 10px`
-		divSTR.innerHTML = "STR: "+item.STRBuff
-		divSPR.style=`width: auto; margin-left: 10px ;margin-right: 10px;`
-		divSPR.innerHTML = "SPR: "+item.SPRBuff
-		divDEF.style=`width: auto; margin-left: 10px ;margin-right: 10px`
-		divDEF.innerHTML = "DEF: "+item.DEFBuff
-		divSPD.style=`width: auto; margin-left: 10px ;margin-right: 10px;`
-		divSPD.innerHTML = "SPD: "+item.SPDBuff
+		divSTR.textContent = "STR: "+item.STRBuff
+		divSPR.textContent = "SPR: "+item.SPRBuff
+		divDEF.textContent = "DEF: "+item.DEFBuff
+		divSPD.textContent = "SPD: "+item.SPDBuff
 		divMain.className = "item-list__item"
-		divMain.style = "min-width: 850px; justify-content: space-between;"
+		//divMain.style = "min-width: 850px; justify-content: space-between;"
 		if (item.ImageIcon !== undefined){
-		img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
-		img.alt = item.Name;
-		img.style = "width: 70px; height: auto"
-		img.onclick = () => {
-		selectEquipment(img);
-		};
+			img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
+			img.alt = item.Name;
+			img.style = "width: 70px; height: auto"
+			img.onclick = () => {
+				selectEquipment(img);
+			};
 		
-		divMain.appendChild(img);
+			divMain.appendChild(img);
 		}
 		divMain.appendChild(ItemAnhr);
 		divMain.appendChild(divDesc);
-		if (item.STRBuff !== 0){
-		divMain.appendChild(divSTR);
-		}
-		if (item.SPRBuff !== 0){
-		divMain.appendChild(divSPR);
-		}
-		if (item.DEFBuff !== 0){
-		divMain.appendChild(divDEF);
-		}
-		if (item.SPDBuff !== 0){
-		divMain.appendChild(divSPD);
-		}
+		if (item.STRBuff !== 0) divMain.appendChild(divSTR);
+		if (item.SPRBuff !== 0) divMain.appendChild(divSPR);
+		if (item.DEFBuff !== 0) divMain.appendChild(divDEF);
+		if (item.SPDBuff !== 0) divMain.appendChild(divSPD);
 		list[item.ItemNum] = divMain;				
 }
 		for (i=0; i < list.length; i++){
@@ -101,25 +89,25 @@ function showSoulgemPage(){
 		
 		const descConfig = setBuffText(abilityData.EffectData[0]);
 		
-		ItemAnhr.style = `width: auto; margin-left: 10px ;margin-right: 10px; color: var(--side-buttons-color);`
+		//ItemAnhr.style = `width: auto; margin-left: 10px ;margin-right: 10px; color: var(--side-buttons-color);`
 		ItemAnhr.id = "div-name";
 		ItemAnhr.innerHTML = `${item.NounText} Soul`;
 		divDesc.style = `width: auto`;
 		divDesc.innerHTML = (item.DescText).replaceAll('\\n','\n') + descConfig;
-		divDesc.id = "div-desc"
-		divMain.className = "item-list__item"
-		divMain.style = "min-width: 850px; justify-content: space-between;"
+		divDesc.id = "div-desc";
+		divMain.className = "item-list__item";
+		//divMain.style = "min-width: 850px; justify-content: space-between;";
 		img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
 		img.alt = item.NounText;
 		img.style = `width: 50px; height: auto; margin-left: 10px ;margin-right: 10px`
 		img.value = key;
-		img.setAttribute("info-name", item.NounText);
+		divMain.setAttribute("info-name", `${item.NounText} Soul`);
 		if (item.SoulEffect.YokaiBaseID) {
 			let tribeIndex = item.IconPosY * 16 + item.IconPosX - 489;
-			img.setAttribute("tribe-value", tribeList[tribeIndex]);
+			divMain.setAttribute("tribe-value", tribeList[tribeIndex]);
 		}
 		img.onclick = () => {
-		selectEquipment(key);
+			selectEquipment(key);
 		};
 		divMain.appendChild(img);
 		divMain.appendChild(ItemAnhr);

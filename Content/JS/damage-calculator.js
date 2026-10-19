@@ -14,6 +14,10 @@ const elementList = [
 	"Drain"
 ];
 
+
+const rankList = ['E', 'D', 'C', 'B', 'A', 'S'];
+const tribeList = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
+
 const state = {
 	selectedManager: undefined,
 	selectedDatabase: undefined
@@ -180,68 +184,92 @@ function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
 
 function loadYokaiList(yokais, attackerMng, defenderMng) {
     const yokaiPage = $('item-list');
-
-    let pageHTML = '';
+	yokaiPage.innerHTML = '';
 	
 	const sortedEntries = Object.entries(yokais)
     .filter(([, yokai]) => yokai.InMedallium === 1 && yokai.LegalAlliances != 0)
     .sort((a, b) => a[1].MedalliumOffset - b[1].MedalliumOffset);
+	
+	const fragment = document.createDocumentFragment();
 
     for (const [key, yokai] of sortedEntries) {
 		
-		//console.debug(key, yokai);
+		const legalAlliances = yokai.LegalAlliances;
+		//const level = legalAlliances ? 60 : 0;
 
-        const stats = calculateStats({yokaiData: yokai});
+		const stats = calculateStats({ yokaiData: yokai});
 
-        const imgSrc = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+		const divMain = document.createElement('div');
+		divMain.className = 'item-list__item';
 
-        const medalId = String(yokai.MedalliumOffset).padStart(3, '0');
-        const name = yokai.Name;
-        const hp = Math.round(stats.baseHp);
-        const str = Math.round(stats.baseStr);
-        const spr = Math.round(stats.baseSpr);
-        const def = Math.round(stats.baseDef);
-        const spd = Math.round(stats.baseSpd);
+		const idElement = document.createElement('div');
+		idElement.className = 'yokai-index';
+		idElement.textContent = `NO. ${String(yokai.MedalliumOffset).padStart(3, '0')}`;
+		divMain.appendChild(idElement);
+
+		const medalImg = document.createElement('img');
+		medalImg.src = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
+		medalImg.alt = yokai.Name;
+		medalImg.addEventListener("click", () => setYokaiData(yokai, state.selectedManager));
 		
-		let alliance = ``;
+		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
 		
-		if ([1,2].includes(yokai.LegalAlliances)){
+		/*
+		divMain.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
+		divMain.setAttribute('tribe-value', tribeList[yokai.Tribe]);
+		divMain.setAttribute('id-value', key);
+		
+		if(yokai.IsRare) divMain.setAttribute('rarity-value', "rare");
+		if(yokai.IsLegendary) divMain.setAttribute('rarity-value', "legendary");
+		*/
+		divMain.appendChild(medalImg);
+
+		if ([1,2].includes(legalAlliances)){
 			//console.debug('pass');
 			const allianceTag = document.createElement('img');
 			allianceTag.style = `width: auto; height: 30px;`;
 			
-			if (yokai.LegalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`;}
-			else if (yokai.LegalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`;}
+			if (legalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; divMain.setAttribute('alliance-value', "bony");}
+			else if (legalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; divMain.setAttribute('alliance-value', "fleshy");}
 			
-			alliance = allianceTag.outerHTML;
+			divMain.appendChild(allianceTag);
 		}
+		/*if(yokai.IsClassic){
+			const classicTag = document.createElement('img');
+			classicTag.classList = `tag-classic`;
+			classicTag.src = `./Content/Graphics/rarities/classicTag.webp`;
+			//divMain.setAttribute('classic-value', "classic");
+			divMain.appendChild(classicTag);
+		}*/
 
-        const itemHTML = `
-            <div class="item-list__item" style="width:93%;height:120px;margin:5px;border:1px solid #c6c0ff;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;flex-wrap:wrap;">
-                <div style="width:12%;justify-self:center;">NO. ${medalId}</div>
-                <img class="yokai-list-img" src="${imgSrc}" alt="${name}" style="cursor:pointer;width:50px;height:auto;" data-yokai-key="${key}">
-                <div style="width:12%;justify-self:center;" paramID="${key}">${name}${alliance}</div>
-                <div style="width:12%;justify-self:center;">HP:${hp}</div>
-                <div style="width:12%;justify-self:center;">STR:${str}</div>
-                <div style="width:12%;justify-self:center;">SPR:${spr}</div>
-                <div style="width:12%;justify-self:center;">DEF:${def}</div>
-                <div style="width:12%;justify-self:center;">SPD:${spd}</div>
-            </div>
-        `;
+		const nameDiv = document.createElement('div');
+		nameDiv.className = 'info-name';
+		nameDiv.textContent = yokai.Name;
+		divMain.appendChild(nameDiv);
 
-        pageHTML += itemHTML;
+		const statLabels = ['HP', 'STR', 'SPR', 'DEF', 'SPD'];
+		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
+		statLabels.forEach((label, idx) => {
+		  const div = document.createElement('div');
+		  //div.style.cssText = 'width: 9%; text-align: center;';
+		  div.textContent = `${label}:${Math.floor(statValues[idx])}`;
+		  divMain.appendChild(div);
+		});
+		/*
+		const tribeImg = document.createElement('img');
+		tribeImg.src = `Content/Graphics/tribes/${tribeList[yokai.Tribe]}.png`;
+		tribeImg.alt = tribeList[yokai.Tribe];
+		divMain.appendChild(tribeImg);
+
+		const rankImg = document.createElement('img');
+		rankImg.src = `Content/Graphics/ranks/${rankList[yokai.Rank]}.png`;
+		rankImg.alt = rankList[yokai.Rank];
+		divMain.appendChild(rankImg);
+		*/
+		fragment.appendChild(divMain);
     }
 
-    yokaiPage.innerHTML = pageHTML;
-
-    yokaiPage.querySelectorAll('.yokai-list-img').forEach(img => {
-        img.addEventListener('click', function(e) {
-            const key = this.dataset.yokaiKey;
-            const yokai = yokais[key];
-            if (yokai) setYokaiData(yokai, state.selectedManager);
-            else console.warn('Yokai not found for key', key);
-        });
-    });
+    yokaiPage.appendChild(fragment);
 
     const defaultYokai = yokais['0x79F3AA36'];
     if (defaultYokai) {

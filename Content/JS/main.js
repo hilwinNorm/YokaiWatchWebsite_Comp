@@ -224,44 +224,48 @@ function scaleText(element) {
 }
 
 function filterItems(searchTerm) {
+	const trimmedSearch = searchTerm.trim().toLowerCase();
+	if (!trimmedSearch) {
+		document.querySelectorAll('.item-list__item').forEach(div => div.style.display = '');
+        return;
+	}
 	const terms = searchTerm.toLowerCase().split(/\s+/);
-	const divs = document.querySelectorAll('#item-list .item-list__item');
+	const elements = document.querySelectorAll('.item-list__item');
 	const filterRanks = ['E', 'D', 'C', 'B', 'A', 'S'];
 	const filterTribes = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
 
-	divs.forEach(div => {
-		const img = div.querySelector('a img');
+	//console.debug(items);
 
-		const name = div.querySelector('.info-name')?.textContent || '';
-		const rank = img?.getAttribute('rank-value') || '';
-		const tribe = img?.getAttribute('tribe-value') || '';
-		const element = img?.getAttribute('element-value') || '';
-		const inspirit = img?.getAttribute('inspirit-value') || '';
-		const alliance = img?.getAttribute('alliance-value') || '';
-		const rarity = img?.getAttribute('rarity-value') || '';
-		const classic = img?.getAttribute('classic-value') || '';
-		const elementID = img?.getAttribute('id-value') || '';
+	elements.forEach(item => {
+
+		const name = item.getAttribute('info-name') || '';
+		const rank = item.getAttribute('rank-value') || '';
+		const tribe = item.getAttribute('tribe-value') || '';
+		const element = item.getAttribute('element-value') || '';
+		const inspirit = item.getAttribute('inspirit-value') || '';
+		const alliance = item.getAttribute('alliance-value') || '';
+		const rarity = item.getAttribute('rarity-value') || '';
+		const classic = item.getAttribute('classic-value') || '';
+		const elementID = item.getAttribute('id-value') || '';
 		
 		const fullText = `${elementID} ${name} ${tribe} ${rank} ${element} ${inspirit} ${alliance} ${rarity} ${classic}`.toLowerCase();
-		const divText = div.textContent.toLowerCase();
+		const divText = item.textContent.toLowerCase();
 		
-		//console.debug(`${fullText}\n${divText}`);
+		//console.debug(`${item.outerHTML}\n${fullText}`);
+		
+		const isMatch = terms.every(term => {
+			const isStrict = term.startsWith('"') && term.endsWith('"');
+			const cleanTerm = term.replace(/"/g, '');
+			if (!cleanTerm) return true;
+			
+			if (isStrict) {
+                return fullText.includes(cleanTerm);
+            } else {
+                return fullText.includes(cleanTerm) || divText.includes(cleanTerm);
+            }
+		});
 
-		let match = 0;
-		for (term of terms){
-			if (term.includes(`"`)){
-				if (!fullText.includes(term.replaceAll(`"`,``))  || divText.includes(term.replaceAll(`"`,``))){
-					match=0;
-					break;
-				}
-				match=1;
-				continue;
-			}
-			else{
-				if (fullText.includes(term) || divText.includes(term)) match=1;
-			}
-		}
-		div.style.display = match ? 'flex' : 'none';
+		item.style.display = isMatch ? '' : 'none';
 	});
 }
 

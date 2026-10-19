@@ -1,14 +1,13 @@
-const dataPage = document.getElementById("item-list");
+const dataPage = $("item-list");
 
-const attackBtn = document.getElementById("attack-btn");
-const techniqueBtn = document.getElementById("technique-btn");
-const inspiritBtn = document.getElementById("inspirit-btn");
-const soultimateBtn = document.getElementById("soultimate-btn");
-const skillBtn = document.getElementById("skill-btn");
+const attackBtn = $("attack-btn");
+const techniqueBtn = $("technique-btn");
+const inspiritBtn = $("inspirit-btn");
+const soultimateBtn = $("soultimate-btn");
+const skillBtn = $("skill-btn");
 
 
-const anhrStyle =
-    "margin: 0 6px; color: var(--side-buttons-color);";
+const anhrStyle = "margin: 0 6px; color: var(--side-buttons-color);";
 
 
 const pathGraphics = "Content/Graphics/";
@@ -129,13 +128,11 @@ function getSoultimateCharge(move, level) {
 }
 
 
-function createMoveDiv(content, fontSize = "1.2em") {
+function createMoveDiv(content) {
 
     const divMain = document.createElement("div");
 
     divMain.className = "item-list__item";
-	
-    divMain.style.fontSize = fontSize;
 
     divMain.innerHTML = content;
 
@@ -434,28 +431,29 @@ let soultimateList = [];
 let skillList = [];
 
 
+document.addEventListener("DOMContentLoaded", () => {
+	buildAttackList();
+	buildTechniqueList();
+	buildInspiritList();
+	buildSoultimateList();
+	buildSkillList();
 
-buildAttackList();
-buildTechniqueList();
-buildInspiritList();
-buildSoultimateList();
-buildSkillList();
+
+	if (attackBtn) attackBtn.onclick = () => ShowYokaiData(attackList);
+
+	if (techniqueBtn) techniqueBtn.onclick = () => ShowYokaiData(techniqueList);
+
+	if (inspiritBtn) inspiritBtn.onclick = () => ShowYokaiData(inspiritList);
+
+	if (soultimateBtn) soultimateBtn.onclick = () => ShowYokaiData(soultimateList);
+
+	if (skillBtn) skillBtn.onclick = () => ShowYokaiData(skillList);
+
+	$("search-input")?.addEventListener('search', () => {
+		filterItems($("search-input").value);
+	});
 
 
-if (attackBtn) attackBtn.onclick = () => ShowYokaiData(attackList);
 
-if (techniqueBtn) techniqueBtn.onclick = () => ShowYokaiData(techniqueList);
-
-if (inspiritBtn) inspiritBtn.onclick = () => ShowYokaiData(inspiritList);
-
-if (soultimateBtn) soultimateBtn.onclick = () => ShowYokaiData(soultimateList);
-
-if (skillBtn) skillBtn.onclick = () => ShowYokaiData(skillList);
-
-$("search-input")?.addEventListener('search', () => {
-	filterYokai($("search-input").value);
+	ShowYokaiData(attackList);
 });
-
-
-
-ShowYokaiData(attackList);

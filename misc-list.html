@@ -17,12 +17,12 @@
 	<div class="wrapper;">
 		<aside class="side-bar" id="side_bar"></aside>
 		<main>
-			<div style="display: flex; align-items: center; justify-content: center;width: 50%; margin: 50px auto 50px auto">
-				<button style="font-size: 12px;" class="main-button" id="ItemConsumeButton" onclick="Show_Equipment_Page()">Consumables  <span class="icon icon-equipment"></button>
+			<div class="transparent-background database-container">
+				<div class="button-section">
+				<button class="main-button" id="item-btn" onclick="showItemPage()">Consumables  <span class="icon icon-equipment"></button>
+				</div>
 				<input type="search" id="search-input" name="query" placeholder="Search...">
-			</div>
-			<div class="container equipment-list" style="display: flex; flex-wrap: nowrap; margin: 1px 100px; margin-top: 1px; list-style: none; overflow-y: visible; height: auto;">
-				<div id="data-page" class="equipment-list"></div>
+				<div id="item-list" class="item-list"></div>
 			</div>
 		</main>
 	</div>

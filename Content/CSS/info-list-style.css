@@ -47,6 +47,16 @@ details {
 	border-color: black;
 }
 
+.button-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	margin: 50px auto 50px auto;
+	
+	width: 50%;
+}
+
 #search-input{
 	width:250px;
 	height: 25px;
@@ -90,9 +100,10 @@ details {
     display: flex;
 	
 	align-items: center;
+	justify-content: space-between;
 	flex-wrap: nowrap;
     flex-direction: row;
-    place-content: center;
+    /*place-content: center;*/
 	
 	padding: 0 15px;
 	margin: 0 1vw;
