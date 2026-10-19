@@ -384,7 +384,7 @@ window.tierDatabase = {
     "0x728B36C0": "UU",
     "0x8B4F70B2": "RU",
     "0xCB271688": "RU",
-    "0x739B71ED": "UUBL",
+    "0x739B71ED": "OU",
     "0x612EDE03": null,
     "0xD992B966": null,
     "0x444581DF": null,
