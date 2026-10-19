@@ -1,6 +1,8 @@
 
 const infoPage = document.getElementById("item-list");
 
+const tribeList = ['None', 'Brave', 'Mysterious', 'Tough', 'Charming', 'Heartful', 'Shady', 'Eerie', 'Slippery', 'Wicked'];
+
 const skillTextConfig=[
 	0x1880DCDC,
 	0x81898D66,
@@ -49,7 +51,7 @@ function showEquipmentPage(){
 		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
 		if (item.ImageIcon !== undefined){
-		img.src = itemPath+item.ImageIcon;
+		img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
 		img.alt = item.Name;
 		img.style = "width: 70px; height: auto"
 		img.onclick = () => {
@@ -107,11 +109,15 @@ function showSoulgemPage(){
 		divDesc.id = "div-desc"
 		divMain.className = "item-list__item"
 		divMain.style = "min-width: 850px; justify-content: space-between;"
-		img.src = itemPath+item.ImageIcon;
+		img.src = `${itemPath}item_${String(item.IconPosY * 16 + item.IconPosX + 1).padStart(3, '0')}.xi.00.png`;
 		img.alt = item.NounText;
 		img.style = `width: 50px; height: auto; margin-left: 10px ;margin-right: 10px`
 		img.value = key;
-		img.setAttribute("ItemName", item.NounText);
+		img.setAttribute("info-name", item.NounText);
+		if (item.SoulEffect.YokaiBaseID) {
+			let tribeIndex = item.IconPosY * 16 + item.IconPosX - 489;
+			img.setAttribute("tribe-value", tribeList[tribeIndex]);
+		}
 		img.onclick = () => {
 		selectEquipment(key);
 		};
@@ -126,6 +132,50 @@ function showSoulgemPage(){
 			soulPage.appendChild(list[i])
 		}
 	}
+}
+
+function setupSearchAndFilters() {
+	const searchInput = document.getElementById('search-input');
+	if (!searchInput) {
+		console.warn('Search input (#search-input) not found – filtering will not work.');
+		return;
+	}
+
+	searchInput?.addEventListener('search', () => {
+		filterItems(searchInput.value);
+	});
+
+	const buttons = document.querySelectorAll('.attribute-button');
+	buttons.forEach(button => {
+		button.addEventListener('click', () => {
+			const current = searchInput.value.trim();
+			const id = button.id.trim();
+			if (!id) return;
+
+			const words = current.split(/\s+/).filter(w => w.length > 0);
+			const index = words.indexOf(id);
+			if (index !== -1) {
+				words.splice(index, 1);
+			} else {
+				words.push(id);
+			}
+			searchInput.value = words.join(' ');
+			searchInput.dispatchEvent(new Event('input'));
+		});
+	});
+	/*
+	let languageSelect = $("language-select");
+	
+	if (languageSelect){
+		const divs = document.querySelectorAll('#item-list .item-list__item');
+		
+		languageSelect?.addEventListener('change', function() {
+			changeYokaiLanguageDisplay(languageSelect.value, divs);
+		});
+		changeYokaiLanguageDisplay(languageSelect.value, divs);
+	}
+	*/
+	filterItems(searchInput.value);
 }
 
 
@@ -151,5 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	searchInput.addEventListener('search', () => {
 		filterItems(searchInput.value);
 	});
-	showEquipmentPage()
+	showEquipmentPage();
+	setupSearchAndFilters();
 })

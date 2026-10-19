@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki</title>
     <link rel="stylesheet" href="Content/CSS/main.css">
-    <link rel="stylesheet" href="Content/CSS/equipment.css">
     <link rel="stylesheet" href="Content/CSS/info-list-style.css"/>
     <script defer src="Content/JS/main.js"></script>
+	
     <script defer src='Content/JS/Databases/SoulGemDatabase.js'></script>
 	<script defer src='Content/JS/Databases/EquipmentDatabase.js'></script>
 	<script defer src='Content/JS/Databases/YokaiAbilitiesDatabase.js'></script>
+	<script defer src='Content/JS/Databases/YokaiDatabase.js'></script>
+	
 	<script defer src='Content/JS/equipment-list.js'></script>
 </head>
 <body>
@@ -19,13 +21,31 @@
     <div class="wrapper;">
 		<aside class="side-bar" id="side_bar"></aside>
 		<main>
-			<div style="display: flex; align-items: center; justify-content: center;width: 50%; margin: 50px auto 50px auto">
-				<button style="font-size: 12px;" class="main-button" id="equipment-button">Equipment  <span class="icon icon-equipment"></button>
-				<button style="font-size: 12px" class="main-button" id="soulgem-button">Soul Gems  <span class="icon icon-soulgems"></button>
+			<div class="transparent-background database-container">
+				<details>
+					<summary>Attribute List</summary>
+					<ul>
+						<li>
+							<div class="yokai-attributes" data-type="Tribes">
+								<button id="Brave" class="attribute-button"><img src="Content/Graphics/Tribes/Brave.png" alt="Brave Tribe"></button>
+								<button id="Mysterious" class="attribute-button"><img src="Content/Graphics/Tribes/Mysterious.png" alt="Mysterious Tribe"></button>
+								<button id="Tough" class="attribute-button"><img src="Content/Graphics/Tribes/Tough.png" alt="Tough Tribe"></button>
+								<button id="Charming" class="attribute-button"><img src="Content/Graphics/Tribes/Charming.png" alt="Charming Tribe"></button>
+								<button id="Heartful" class="attribute-button"><img src="Content/Graphics/Tribes/Heartful.png" alt="Heartful Tribe"></button>
+								<button id="Shady" class="attribute-button"><img src="Content/Graphics/Tribes/Shady.png" alt="Shady Tribe"></button>
+								<button id="Eerie" class="attribute-button"><img src="Content/Graphics/Tribes/Eerie.png" style="width: 80px; height:55px;" alt="Eerie Tribe"></button>
+								<button id="Slippery" class="attribute-button"><img src="Content/Graphics/Tribes/Slippery.png" alt="Slippery Tribe"></button>
+								<button id="Wicked" class="attribute-button"><img src="Content/Graphics/Tribes/Wicked.png" alt="Wicked Tribe"></button>
+							</div>
+						</li>
+					</ul>
+				</details>
+				<div>
+					<button style="font-size: 12px;" class="main-button" id="equipment-button">Equipment  <span class="icon icon-equipment"></button>
+					<button style="font-size: 12px" class="main-button" id="soulgem-button">Soul Gems  <span class="icon icon-soulgems"></button>
+				</div>
 				<input type="search" id="search-input" name="query" placeholder="Search...">
-			</div>
-			<div class="container equipment-list" style="display: flex; flex-wrap: nowrap; margin: 1px 100px; margin-top: 1px; list-style: none; overflow-y: visible; height: auto;">
-				<div id="data-page" class="equipment-list"></div>
+				<div id="item-list" class="item-list"></div>
 			</div>
 		</main>
 	</div>
