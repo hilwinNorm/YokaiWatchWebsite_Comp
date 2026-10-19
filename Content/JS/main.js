@@ -258,6 +258,39 @@ function filterItems(searchTerm) {
 			const cleanTerm = term.replace(/"/g, '');
 			if (!cleanTerm) return true;
 			
+			const statRegex = /^(?<statType>[a-zA-Z]+)(?<operator>==|!=|[<>]=?|=)(?<termValue>\d+)$/; // Checking if term compares to a value
+			
+			const statRegexMatch = cleanTerm.match(statRegex);
+			
+			if (statRegexMatch) {
+				let { statType, operator, termValue } = statRegexMatch.groups;
+				termValue = parseInt(termValue, 10);
+				
+				const rawAttribute = item.getAttribute(`${statType}-value`);
+				const itemValue = rawAttribute ? Math.floor(Number(rawAttribute)) : 0;
+				
+				//console.debug({ statType, operator, termValue }, itemValue);
+				//console.debug(itemValue>termValue)
+				
+				switch (operator) {
+					case '>':
+						return (itemValue>termValue);
+					case '<':
+						return (itemValue<termValue);
+					case '>=':
+						return (itemValue>=termValue);
+					case '<=':
+						return (itemValue<=termValue);
+					case '=':
+					case '==':
+						return itemValue === termValue;
+					case '!=':
+						return itemValue !== termValue;
+					default:
+						return false;
+				}
+			}
+			
 			if (isStrict) {
                 return fullText.includes(cleanTerm);
             } else {

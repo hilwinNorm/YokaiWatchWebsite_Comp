@@ -151,8 +151,11 @@ function buildYokaiList(yokais) {
 		const statLabels = ['HP', 'STR', 'SPR', 'DEF', 'SPD'];
 		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
 		statLabels.forEach((label, idx) => {
+			const labelLower = String(label).toLowerCase();
+			divMain.setAttribute(`${label}-value`, statValues[idx]);
+			
 			const spanLabel = document.createElement('span');
-			spanLabel.classList = `stat-div__label stat-div--${String(label).toLowerCase()}`
+			spanLabel.classList = `stat-div__label stat-div--${labelLower}`
 			spanLabel.textContent = label; 
 			const value = document.createElement('span');
 			value.className = "stat-div__value";
