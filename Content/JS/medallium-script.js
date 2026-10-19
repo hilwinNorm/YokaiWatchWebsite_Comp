@@ -106,11 +106,10 @@ function buildYokaiList(yokais) {
 		const divMain = document.createElement('div');
 		divMain.className = 'item-list__item';
 
-		const idSpan = document.createElement('div');
-		idSpan.className = 'yokai-index';
-		idSpan.style.cssText = 'width: 6%; text-align: center;';
-		idSpan.textContent = `NO. ${String(yokai.MedalliumOffset).padStart(3, '0')}`;
-		divMain.appendChild(idSpan);
+		const yokaiID = document.createElement('div');
+		//yokaiID.className = 'yokai-index';
+		yokaiID.textContent = `NO. ${String(yokai.MedalliumOffset).padStart(3, '0')}`;
+		divMain.appendChild(yokaiID);
 
 		const link = document.createElement('a');
 		link.href = `./yokai-info.html?yokai=${key}`;
@@ -118,7 +117,6 @@ function buildYokaiList(yokais) {
 		const medalImg = document.createElement('img');
 		medalImg.src = `Content/Graphics/YokaiMedals/${String(yokai.MedalPosX + yokai.MedalPosY * 23).padStart(3, '0')}.webp`;
 		medalImg.alt = yokai.Name;
-		medalImg.style.cssText = 'cursor: pointer; width: 50px; height: auto;';
 		divMain.setAttribute('rank-value', `rank_${rankList[yokai.Rank]}`);
 		divMain.setAttribute('tribe-value', tribeList[yokai.Tribe]);
 		divMain.setAttribute('id-value', key);
@@ -130,7 +128,7 @@ function buildYokaiList(yokais) {
 		if ([1,2].includes(legalAlliances)){
 			//console.debug('pass');
 			const allianceTag = document.createElement('img');
-			allianceTag.style = `width: auto; height: 30px;`;
+			allianceTag.className = `alliance-img`;
 			
 			if (legalAlliances == 1) {allianceTag.src=`./Content/Graphics/alliances/bonyTag.webp`; divMain.setAttribute('alliance-value', "bony");}
 			else if (legalAlliances == 2) {allianceTag.src=`./Content/Graphics/alliances/fleshyTag.webp`; divMain.setAttribute('alliance-value', "fleshy");}
@@ -139,7 +137,7 @@ function buildYokaiList(yokais) {
 		}
 		if(yokai.IsClassic){
 			const classicTag = document.createElement('img');
-			classicTag.classList = `tag-classic`;
+			classicTag.className = `classic-img`;
 			classicTag.src = `./Content/Graphics/rarities/classicTag.webp`;
 			divMain.setAttribute('classic-value', "classic");
 			divMain.appendChild(classicTag);
@@ -149,14 +147,20 @@ function buildYokaiList(yokais) {
 		nameDiv.className = 'info-name';
 		nameDiv.textContent = yokai.Name;
 		divMain.appendChild(nameDiv);
-
+		
 		const statLabels = ['HP', 'STR', 'SPR', 'DEF', 'SPD'];
 		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
 		statLabels.forEach((label, idx) => {
-		  const div = document.createElement('div');
-		  //div.style.cssText = 'width: 9%; text-align: center;';
-		  div.textContent = `${label}:${Math.floor(statValues[idx])}`;
-		  divMain.appendChild(div);
+			const spanLabel = document.createElement('span');
+			spanLabel.classList = `stat-div__label stat-div--${String(label).toLowerCase()}`
+			spanLabel.textContent = label; 
+			const value = document.createElement('span');
+			value.className = "stat-div__value";
+			value.textContent = Math.floor(statValues[idx]);
+			const div = document.createElement('div');
+			div.appendChild(spanLabel);
+			div.appendChild(value);
+			divMain.appendChild(div);
 		});
 
 		const tribeImg = document.createElement('img');
@@ -178,8 +182,7 @@ function buildYokaiList(yokais) {
 		  const atkLink = document.createElement('a');
 		  atkLink.href = `./move-info.html?moveType=0&id=${yokai.AttackID}`;
 		  atkLink.textContent = skillConfigDatabase[attack.SkillConfigID]?.Text.TextString;
-		  atkLink.style.cssText =
-			'width: 15%; text-align: center; background-color: #e6903bc2; color: white; border-radius: 10px; border: 2px solid black; padding: 0 6px;';
+		  atkLink.className = "attack-div";
 		  divMain.appendChild(atkLink);
 
 		  const techLink = document.createElement('a');
@@ -195,8 +198,7 @@ function buildYokaiList(yokais) {
 		  }else{element = "Restoration"};
 		  techLink.appendChild(span);
 		  techLink.appendChild(document.createTextNode(techniqueConfig.Text.TextString));
-		  techLink.style.cssText =
-			'width: 15%; text-align: center; background-color: #84c6cfc2; color: white; border-radius: 10px; border: 2px solid black; padding: 0 6px;';
+		  techLink.className = "technique-div";
 		  divMain.appendChild(techLink);
 
 		  const inspLink = document.createElement('a');
