@@ -29,7 +29,7 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     const lvlFactor = (parsedLvl - 1) / 98;
 
     const baseHp = yokaiData.baseA_HP + (yokaiData.baseB_HP - yokaiData.baseA_HP + (+ivHp))
-        * lvlFactor + (evHp * 2.6 * (1 + parsedLvl / 198));
+        * lvlFactor + (evHp * 1.3 * (1 + parsedLvl / 198));
 
     const baseStr = yokaiData.baseA_Strength + (yokaiData.baseB_Strength - yokaiData.baseA_Strength + (+ivStr))
         * lvlFactor + (evStr * 1.3 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
@@ -356,12 +356,12 @@ function renderPage({
 	$("base-loaf-attitude").innerText = `Base Loaf Attitude: ${baseLoafAttList[yokaiData.BaseLoafAttitude]} (${yokaiData.BaseLoafAttitude})`
 	$("exp-curve").innerText = `Experience Curve: ${yokaiData.ExperienceCurve}`
 	
-	$("fire-res").innerHTML = `Fire multiplier: x${yokaiData.FireAttributeMultiplier} <img src="${pathElement("Fire")}">`
-	$("water-res").innerHTML = `Water multiplier: x${yokaiData.WaterAttributeMultiplier} <img src="${pathElement("Water")}">`
-	$("lightning-res").innerHTML = `Lightning multiplier: x${yokaiData.LightningAttributeMultiplier} <img src="${pathElement("Lightning")}">`
-	$("earth-res").innerHTML = `Earth multiplier: x${yokaiData.EarthAttributeMultiplier} <img src="${pathElement("Earth")}">`
-	$("wind-res").innerHTML = `Wind multiplier: x${yokaiData.WindAttributeMultiplier} <img src="${pathElement("Wind")}">`
-	$("ice-res").innerHTML = `Ice multiplier: x${yokaiData.IceAttributeMultiplier} <img src="${pathElement("Ice")}">`
+	$("fire-res").innerHTML = `x${yokaiData.FireAttributeMultiplier} <img src="${pathElement("Fire")}">`
+	$("water-res").innerHTML = `x${yokaiData.WaterAttributeMultiplier} <img src="${pathElement("Water")}">`
+	$("lightning-res").innerHTML = `x${yokaiData.LightningAttributeMultiplier} <img src="${pathElement("Lightning")}">`
+	$("earth-res").innerHTML = `x${yokaiData.EarthAttributeMultiplier} <img src="${pathElement("Earth")}">`
+	$("wind-res").innerHTML = `x${yokaiData.WindAttributeMultiplier} <img src="${pathElement("Wind")}">`
+	$("ice-res").innerHTML = `x${yokaiData.IceAttributeMultiplier} <img src="${pathElement("Ice")}">`
 	
 	$("yokai-paramID").innerText = `Param ID: ${yokaiData.ParamID}`;
 	$("yokai-baseID").innerText = `Base ID: ${yokaiData.BaseID}`;

@@ -4,6 +4,8 @@
 
 h1 {
 	text-align: center;
+	display: flex; 
+	align-items: center;
 }
 
 a {
@@ -29,23 +31,35 @@ main {
 }
 
 .main-info-grid {
-	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
-	gap: 15px;
+	display: grid;
 	align-items: center;
-	border-radius: 25px;
-	padding: 20px;
+	
 	margin-bottom: 20px;
-}
-.stats-column {
-	background-color: var(--side-buttons-bg);
+	padding: 20px;
+	gap: 15px;
+	
 	border-radius: 25px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 8px;
 }
 
+.stats-section {
+	display: grid;
+	
+	gap: 1vh;
+}
+
+.stats-column {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
+	
+	padding: 10px;
+	gap: 8px;
+	
+	background-color: var(--side-buttons-bg);
+	border-radius: 25px;
+}
+/*
 .stat-item {
 	font-size: 1.4rem;
 	background: var(--side-buttons-bg);
@@ -62,7 +76,7 @@ main {
 	color: white; 
 	background-color: #ffe327; 
 }
-
+*/
 .yokai-title {
     align-items: center;
 	display: flex;

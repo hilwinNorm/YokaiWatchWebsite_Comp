@@ -45,8 +45,8 @@
 						<span id="yokai-name"></span>
 					</span>
 					<h1 id="yokai-no"></h1>
-					<h1 id="yokai-tribe" style="display: flex; align-items: center;"></h1>
-					<h1 id="yokai-rank" style="display: flex; align-items: center;"></h1>
+					<h1 id="yokai-tribe"></h1>
+					<h1 id="yokai-rank"></h1>
 				</div>
 				
 				<span id="yokai-alliance">
@@ -55,17 +55,26 @@
 				</span>
 				
 				<div class="main-info-grid">
-					<div class="stats-column">
-						<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #a14290;">HP</span><span id="yokai-max-hp"></span></div>
-						<div style="width: 100%; display: flex; justify-content: space-between;">
-							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #9b3232;">STR</span><span id="yokai-strength"></span></div>
-							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #70329b;">SPR</span><span id="yokai-spirit"></span></div>
+					<div class="stats-section">
+						<div class="stats-column">
+							<div><span class="stat-div__label stat-div--hp">HP</span><span class="stat-div__value" id="yokai-max-hp"></span></div>
+							<div><span class="stat-div__label stat-div--str">STR</span><span class="stat-div__value" id="yokai-strength"></span></div>
+							<div><span class="stat-div__label stat-div--spr">SPR</span><span class="stat-div__value" id="yokai-spirit"></span></div>
+							<div><span class="stat-div__label stat-div--def">DEF</span><span class="stat-div__value" id="yokai-defense"></span></div>
+							<div><span class="stat-div__label stat-div--spd">SPD</span><span class="stat-div__value" id="yokai-speed"></span></div>
 						</div>
-						<div style="width: 100%; display: flex; justify-content: space-between;">
-							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #1a46bc;">DEF</span><span id="yokai-defense"></span></div>
-							<div class="stat-item"><span class="stat-type" style="-webkit-text-stroke-color: #184f16;">SPD</span><span id="yokai-speed"></span></div>
+						<div class="stats-column">
+							<p id="fire-res"></p>
+							<p id="ice-res"></p>
+							<p id="earth-res"></p>
+							<p id="lightning-res"></p>
+							<p id="water-res"></p>
+							<p id="wind-res"></p>
 						</div>
 					</div>
+					
+					
+						
 					<div class="artwork-column">
 						<div class="rarity-properties">
 							<img id="yokai-rarity" />
@@ -171,15 +180,6 @@
 						<p id="befriend-chance"></p>
 					</fieldset>
 					<fieldset class="cell-item move-size-3">
-						<legend style="padding: 0 10px; font-weight: bold;">Element Resistance</legend>
-						<p id="fire-res"></p>
-						<p id="ice-res"></p>
-						<p id="earth-res"></p>
-						<p id="lightning-res"></p>
-						<p id="water-res"></p>
-						<p id="wind-res"></p>
-					</fieldset>
-					<fieldset class="cell-item move-size-2">
 						<legend style="padding: 0 10px; font-weight: bold;">Food Data</legend>
 						<p id="food-quote"></p>
 						<p id="fav-food"></p>
