@@ -32,7 +32,7 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     const lvlFactor = (parsedLvl - 1) / 98;
 
     const baseHp = yokaiData.baseA_HP + (yokaiData.baseB_HP - yokaiData.baseA_HP + (+ivHp))
-        * lvlFactor + (evHp * 2.6 * (1 + parsedLvl / 198));
+        * lvlFactor + (evHp * 1.3 * (1 + parsedLvl / 198));
 
     const baseStr = yokaiData.baseA_Strength + (yokaiData.baseB_Strength - yokaiData.baseA_Strength + (+ivStr))
         * lvlFactor + (evStr * 1.3 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
@@ -114,70 +114,74 @@ function selectCombatant(manager) {
 }
 
 function getAttack({moveData, yokaiAttackerData, yokaiDefenderData}) {
-	const moveConfig = skillConfigDatabase[moveData?.SkillConfigID];
+	const commandConfig = skillConfigDatabase[moveData?.SkillConfigID];
 	
-	let attackerStats = yokaiAttackerData.getStats();
-	let defenderStats = yokaiDefenderData.getStats();
+	const attackerStats = yokaiAttackerData.getStats();
+	const defenderStats = yokaiDefenderData.getStats();
 	
-	let isMoxie = $('isMoxie');
-	let isCrit = $("isCrit");
-	let isCritSkill = $("isCritSkill");
-	let isDefending = $('isDefending');
-	let isDefenseSkill = $("isDefenseSkill");
 	//let moveTypeInput = parseInt($("move-type"));
 	let attackerStatValue;
-	let power = Math.floor(moveConfig.BasePower * moveGrowthList[moveData.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100); // Power set to lvl 10 by default
+	let power = Math.floor(commandConfig.BasePower * moveGrowthList[moveData.SkillConfig.SkillGrowthIndex - 1].powerLevelMulti[9]/100); // Power set to lvl 10 by default
 	
-	let moveEl = moveConfig.Element ?? 0;
-	let elementResist= moveEl == 0 ? 1 : yokaiDefenderData.yokaiData[`${elementList[moveEl]}AttributeMultiplier`];
+	let elementIndex = commandConfig.Element ?? 0;
+	let elementMulti = elementIndex == 0 ? 1 : yokaiDefenderData.yokaiData[`${elementList[elementIndex]}AttributeMultiplier`];
 	
 	let hitAmount = moveData.HitsPerTarget;
 	
-	let critMultiplier = 1; // Critical Hit: 1.25; Critical Hit with amplified skill: 1.875
-	let defenceScale = 0.25; // Physical attack: 0.25; Technique: 0.15; Critical Hit: 0.1
+	let defenceScale = 1/4; // STR: 1/4; STR crit: 1/10; SPR: 1/7; SPR crit: 1/14
+	let damageScale = 1/2 // STR: 1/2; STR crit: 2/3; SPR: 1/3+1/10; SPR crit: 3/5
 	let defenceMultiplier = 1; // Guard: 0.5; Guard with amplified skill: 0.25
+	let critMulti = 1; // Changed by crit skills
 	
-	let effectID = steffInfoDatabase[moveData?.Steff1].EffectID;
+	const effectID = steffInfoDatabase[moveData?.Steff1].EffectID;
 	
-	if (effectID == "0x7E496729") attackerStatValue = parseInt($("attacker-str").value);
-	else if (effectID == "0x094E57BF") attackerStatValue = parseInt($("attacker-spr").value);
-		
-	RandMulti = getRandomNumberWithTwoDecimals();
+	const isCrit = $("isCrit").checked;
 	
-	if (isDefending.checked == true){
-		defenceMultiplier = 0.5;
-		if (isDefenseSkill.checked == true) defenceMultiplier *= 0.5;
+	if (effectID == "0x7E496729") { // STR based attack
+		attackerStatValue = parseInt($("attacker-str").value);
+		defenceScale = isCrit ? 1/10 : 1/4;
+		damageScale = isCrit ? 2/3 : 1/2;
 	}
+	else if (effectID == "0x094E57BF") { // SPR based attack
+		attackerStatValue = parseInt($("attacker-spr").value);
+		defenceScale = isCrit ? 1/14 : 1/7;
+		damageScale = isCrit ? 3/5 : (1/3+1/10);
+	}
+
+	//const randomMulti = getRandomNumberWithTwoDecimals();
+	
+	if ($('isDefending').checked == true){
+		defenceMultiplier = 0.5;
+		if ($("isDefenseSkill").checked == true) defenceMultiplier = 0.25;
+	}
+	if ($("isCritSkill").checked == true) critMulti = 1.5;
 	
 	console.log("---")
 	console.log("STR or SPR ",attackerStatValue)
 	console.log("Power ",power)
 	console.log("Defence ", parseInt($("defender-def").value))
-	console.log("Random Multiplier ",RandMulti)
+	//console.log("Random Multiplier ",randomMulti)
 	console.log("Hit amount ", hitAmount)
-	console.log("Element Resist ", elementResist)
+	console.log("Element Resist ", elementMulti)
 	console.log("---")
-	if (isCrit.checked == true){
-		defenceScale = 0.1;
-		critMultiplier = 1.25;
-		if (isCritSkill.checked == true) critMultiplier *= 1.5;
-	}
 	
 	let MoxieMulti = 1;
+	
+	const isMoxie = $('isMoxie');
 	
 	if (isMoxie.checked == true && isMoxie.disabled == false) MoxieMulti = 2;
 	
 	//let rawDamage = Math.max(((attackerStatValue + power)/2 - defenderStats.baseDef*defenceScale),1);
-	let rawDamage = Math.max(((attackerStatValue + power)/2 - parseInt($("defender-def").value)*defenceScale),1);
-	//let totalDamage = rawDamage*RandMulti*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
-	let minTotalDamage = rawDamage*0.9*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
-	let maxTotalDamage = rawDamage*1.1*defenceMultiplier*elementResist*critMultiplier*MoxieMulti;
+	let rawDamage = Math.max((attackerStatValue + power*hitAmount)*damageScale - parseInt($("defender-def").value *defenceScale), 1);
+	//let totalDamage = rawDamage*randomMulti*defenceMultiplier*elementMulti*critMulti*MoxieMulti;
+	let minTotalDamage = rawDamage*0.9*defenceMultiplier*elementMulti*critMulti*MoxieMulti;
+	let maxTotalDamage = rawDamage*1.1*defenceMultiplier*elementMulti*critMulti*MoxieMulti;
 	let defenderHp = parseInt($("defender-hp").value);
 	//console.log("Raw Damage: ", rawDamage)
 	//totalDamage = Math.floor(totalDamage);
 	minTotalDamage = Math.floor(minTotalDamage);
 	maxTotalDamage = Math.floor(maxTotalDamage);
-	$("DamageOutput").innerText = `Minimum Damage: ${minTotalDamage} x ${hitAmount} | Max Damage: ${maxTotalDamage} x ${hitAmount}`;
+	$("DamageOutput").innerText = `Minimum Damage: ${minTotalDamage} | Max Damage: ${maxTotalDamage}`;
 	//$('HitsDiv').innerText = Math.ceil(defenderStats.baseHp / totalDamage);
 	$('HitsDiv').innerText = `Minimum Hits: ${Math.ceil(defenderHp / minTotalDamage)} | Max Hits: ${Math.ceil(defenderHp / maxTotalDamage)}`;
 }
