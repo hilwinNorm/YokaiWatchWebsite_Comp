@@ -5,7 +5,7 @@ window.attiduteDatabase = [
 },
 {	
 	text: "Grouchy",
-	boost: [10, 10, 0, 0, 0]
+	boost: [20, 10, 0, 0, 0]
 },
 {		
 	text:"Logical",
@@ -17,7 +17,7 @@ window.attiduteDatabase = [
 },
 {
 	text: "Gentle",
-	boost: [10, 0, 10, 0, 0]
+	boost: [20, 0, 10, 0, 0]
 },
 {		
 	text:"Twisted",
@@ -25,7 +25,7 @@ window.attiduteDatabase = [
 },
 {		
 	text:"Helpful",
-	boost: [10, 0, 0, 0, 10]
+	boost: [20, 0, 0, 0, 10]
 },
 {		
 	text:"Rough",
@@ -41,7 +41,7 @@ window.attiduteDatabase = [
 },
 {
 	text: "Tender",
-	boost: [20, 0, 0, 0, 0]
+	boost: [40, 0, 0, 0, 0]
 },
 {		
 	text:"Cruel",
