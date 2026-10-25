@@ -3,8 +3,8 @@
    ========================================================= */
 
 :root {
-	--button-height: 24px;
-	--button-width: 250px;
+	--button-height: auto;
+	--button-width: 200px;
 	
 	--input-width: 6ch;
 	
@@ -40,61 +40,37 @@ main button {
 /* =========================================================
    Global Layout Shell
    ========================================================= */
-   
-.main-section {
-	position: relative;
-	
-    display: flex;
-    flex-direction: row;
-	
-    /*padding-top: 10px;*/
+
+.team-builder-page {
+    display: grid;
+
+    grid-template-areas:
+        "wheel slot-info"
+        "options item-list";
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+
+    grid-template-rows: 1fr 2fr;
+
+    height: calc(100dvh - var(--nav-height));
+    min-height: 0;
 }
-   
-.current-rank-container {
+
+.options-section {
+	display: flex;
+	/*align-content: center;*/
+	grid-area: options;
+	
+	padding: 10px;
+	
+	gap: 15px;
+}
+
+.options-section__container {
 	display: grid;
-	height: fit-content;
-}
-
-.current-rank-container img {
-	width: 26px;
-	height: auto; 
-}
-
-#item-list {
-	height: 230px;
-    min-width: 60vw;
+	justify-items: center;
 	
-    overflow-x: hidden;
-    overflow-y: visible;
-}
-
-/* =========================================================
-   Alert Window
-   ========================================================= */
-
-#alert-window {
-	color: var(--side-buttons-color);
-	position: absolute;
-	display: none;
-	align-items: flex-start;
-	justify-content: center;
-	width: 30vw;
-	height: 60vh;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 15;
-	margin-top: 50px;
-}
-   
-.alert-window__button {
-	position: relative;
-}
-
-#alert-window__close-btn {
-	position: absolute;
-	right: 0;
-	top: 0;
+	gap: inherit;
 }
 
 /* =========================================================
@@ -102,7 +78,12 @@ main button {
    ========================================================= */
    
 .wheel-section {
+	grid-area: wheel;
+	
 	display: flex;
+	justify-content: center;
+	
+	height: auto;
 }
 
 .wheel-section__wheel {
@@ -115,13 +96,6 @@ main button {
     height: var(--wheel-height);
     position: relative;
 	display: inline-block;
-}
-
-.wheel-section__options {
-	display: grid;
-	align-content: center;
-	
-	gap: 15px;
 }
 
 .state-display {
@@ -188,66 +162,184 @@ main button {
 	width: 48px;
 }
 
+.current-rank-container {
+	display: grid;
+	height: fit-content;
+}
+
+.current-rank-container img {
+	width: 26px;
+	height: auto; 
+}
+
 /* =========================================================
    Slot Info
    ========================================================= */
 
-#slot-info-container {
-	display: flex; 
+#slot-info-section {
+	display: grid;
+	grid-template-areas: 
+		"header header header header"
+		"settings settings stats stats"
+		"equipment equipment stats stats";
+		
+	grid-area: slot-info;
 	
 	padding: 20px;
 	
-	/*max-width: 50vw;*/
+	width: auto;
 	height: auto;
 	
 	gap: 1vw;
 	
-	visibility: hidden;
+	/*visibility: hidden;*/
 }
 
 #yokai-level {
 	width: var(--input-width);
 }
 
-.slot-info-container__settings {
+.slot-info-section__header {
+	grid-area: header;
+	
 	display: flex;
+	justify-content: space-around;
+	
+	height: 60px;
+}
+
+.slot-info-section__equipment-section {
+	display:grid; 
+	justify-items: center;
+	align-content: start;
+	
+	grid-area: equipment;
+}
+
+.slot-info-section__equipment-section button{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	
+	height: 30px;
+}
+
+.equipment-button-container {
+	display: grid;
+    justify-items: center;
+    align-items: center;
+    
 	gap: 1vw;
 }
 
-.slot-info-container__settings input {
+.slot-info-section__settings {
+	grid-area: settings;
+	
+    display: grid;
+    justify-items: center;
+    align-items: center;
+	
+    gap: 1vw;
+}
+
+.slot-info-section__settings input {
 	width: var(--input-width);
 }
 
-.yokai-attributes {
-	display: grid;
-	grid-template-rows: repeat(5, 60px);
+.slot-info-section__stats {
+	grid-area: stats;
 	
-	padding: 0 0.5vw;
-	margin: 0;
+	display: flex;
+	justify-items: center;
 	
-	width: 120px;
-}
-
-.slot-info-container__text {
+	gap: 1vw;
+	
 	color: var(--side-buttons-color)
 }
 
-.slot-info-container__button {
-	width: auto;
+.stat-container {
+	display: grid;
+	grid-template-rows: repeat(6, 0.4fr);
+	justify-items: center;
+	
+	/*padding: 0 0.5vw;*/
+	margin: 0;
+	
+	flex: 1;
+}
+
+.stat-field input {
+	width: 50px;
+}
+
+.stat--hp::before {
+	content: "HP:";
+}
+
+.stat--str::before {
+	content: "STR:";
+}
+
+.stat--spr::before {
+	content: "SPR:";
+}
+
+.stat--def::before {
+	content: "DEF:";
+}
+
+.stat--spd::before {
+	content: "SPD:";
+}
+
+.equip-slot img{
+	height: inherit;
 }
 
 /* =========================================================
    Item List
    ========================================================= */
+
+
+.item-list {
+    grid-area: item-list;
+
+    min-height: 0;
+
+    overflow-y: auto;
+}
+
+/* =========================================================
+   Alert Window
+   ========================================================= */
+
+#alert-window {
+	display: none;
+	align-items: flex-start;
+	justify-content: center;
+	
+	position: absolute;
+	
+	top: 50%;
+	left: 50%;
+	
+	margin-top: 50px;
+	width: 30vw;
+	height: 60vh;
+	
+	color: var(--side-buttons-color);
+	
+	transform: translate(-50%, -50%);
+	
+	z-index: 15;
+}
    
-.item-list__item {
-	width: 93%;
-    height: 120px;
-    margin: 5px;
-    border: 1px solid #c6c0ff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
+.alert-window__button {
+	position: relative;
+}
+
+#alert-window__close-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
 }

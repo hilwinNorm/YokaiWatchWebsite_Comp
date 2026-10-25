@@ -9,7 +9,11 @@
     /* Layout */
     --nav-height: 145px;
 	--nav-banner-height: 108px;
+	
     --sidebar-width: 230px;
+	--sidebar-width-closed: calc(var(--sidebar-width) * 0.13); 
+	--current-sidebar-width: var(--sidebar-width);
+	
     --sidebar-button-width: 180px;
 
     /* Common UI values */
@@ -70,6 +74,9 @@
     --nav-buttons-color: #ffffff;
     --nav-bg: #20a5d8;
     --transparent-bg: #255cce80;
+    --filled-bg: #20a5d8;
+    --main-buttons-bg: #2879d3;
+    --main-buttons-color: #ffffff;
 }
 
 .Antique_Blossoms {
@@ -81,6 +88,9 @@
     --nav-buttons-color: #48483e;
     --nav-bg: #dbce53;
     --transparent-bg: #ce6a6a80;
+    --filled-bg: #dbce53;
+    --main-buttons-bg: #c68282;
+    --main-buttons-color: #251e20;
 }
 
 .Bamboo_Forest {
@@ -92,6 +102,9 @@
     --nav-buttons-color: #fcfcfc;
     --nav-bg: #33612b;
     --transparent-bg: #33612b80;
+    --filled-bg: #33612b;
+    --main-buttons-bg: #4a854d;
+    --main-buttons-color: #fcfcfc;
 }
 
 .Merchant_Purple {
@@ -103,6 +116,9 @@
     --nav-buttons-color: #ffe0ef;
     --nav-bg: #5a255e;
     --transparent-bg: #5a255e80;
+    --filled-bg: #5a255e;
+    --main-buttons-bg: #915673;
+    --main-buttons-color: #ffe0ef;
 }
 
 .Classic_Gold {
@@ -114,6 +130,9 @@
     --nav-buttons-color: #fff5de;
     --nav-bg: #614416;
     --transparent-bg: #61441680;
+    --filled-bg: #614416;
+    --main-buttons-bg: #936722;
+    --main-buttons-color: #fff5de;
 }
 
 .Up_All_Night {
@@ -125,6 +144,9 @@
     --nav-buttons-color: #c6c0ff;
     --nav-bg: #0c1334;
     --transparent-bg: #0c133480;
+    --filled-bg: #0c1334;
+    --main-buttons-bg: #202c64;
+    --main-buttons-color: #c6c0ff;
 }
 
 .Galaxy_Cruise {
@@ -136,6 +158,9 @@
     --nav-buttons-color: #f7ffff;
     --nav-bg: #d64c4c;
     --transparent-bg: #24558d80;
+    --filled-bg: #d64c4c;
+    --main-buttons-bg: #2f73c0;
+    --main-buttons-color: #fff4f8;
 }
 
 .Small_Cream_Soda {
@@ -147,6 +172,9 @@
     --nav-buttons-color: #ffffff;
     --nav-bg: #edc87a;
     --transparent-bg: #1ba47980;
+    --filled-bg: #edc87a;
+    --main-buttons-bg: #148d67;
+    --main-buttons-color: #ffffff;
 }
 
 .HeartsAndFluff {
@@ -158,6 +186,9 @@
     --nav-buttons-color: #341b23;
     --nav-bg: #e95585;
     --transparent-bg: #e9558580;
+    --filled-bg: #e95585;
+    --main-buttons-bg: #ff85ac;
+    --main-buttons-color: #341b23;
 }
 
 .OhMySwirls {
@@ -169,6 +200,9 @@
     --nav-buttons-color: #000000;
     --nav-bg: #28661d;
     --transparent-bg: #368b2780;
+    --filled-bg: #28661d;
+    --main-buttons-bg: #368b27;
+    --main-buttons-color: #000000;
 }
 
 /* =========================================================
@@ -186,14 +220,14 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+
     min-height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
-
-    display: flex;
-    flex-direction: column;
-
+	
     font-family: 'YokaiWatch_YokaiDialogue2Font', sans-serif;
     font-size: var(--font-size-main);
 
@@ -267,16 +301,26 @@ a {
 
 .wrapper {
     display: flex;
+	
     flex: 1;
+	
     position: relative;
+	
     min-height: 0;
 }
 
 main {
     flex: 1;
-    padding: 0 3vw;
+	
+	position: relative;
+	
+    padding-left: var(--sidebar-width-closed);
+	/*height: calc(100dvh - var(--nav-height));*/
+	
     overflow-y: auto;
+	
     box-sizing: border-box;
+	
     color: var(--nav-buttons-color);
 }
 
@@ -416,15 +460,14 @@ aside {
     z-index: 3;
 
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    /*flex-direction: column;
+    align-items: flex-start;*/
 
     width: var(--sidebar-width);
-    height: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-
-    overflow-y: auto;
+    height: calc(100dvh - var(--nav-height));
+	
+    /*padding-top: 10px;
+    padding-left: 10px;*/
 
     border-top-right-radius: var(--radius-small);
     background: var(--side-bg);
@@ -433,8 +476,55 @@ aside {
     transition: transform 0.8s ease-in-out;
 }
 
+.sidebar__page-list {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	
+	width: calc(var(--sidebar-width) - var(--sidebar-width-closed));
+	
+	gap: 1vh;
+	
+    overflow-y: auto;
+}
+
+.sidebar__close-container {
+	display: grid;
+	
+	width: var(--sidebar-width-closed);
+	
+	border: 1px solid #000;
+}
+
+/*.close-btn {
+	padding: 0; 
+	
+	height: fit-content;
+	
+	aspect-ratio: 1 / 1;
+	
+	border: var(--nav-buttons-color) 1px solid; 
+	border-radius: 100%;
+}*/
+
+.close-btn {
+	padding: 0; 
+	
+	height: 100%;
+	width: 100%;
+	
+	border-radius: 0;
+	/*border: solid 1px var(--side-buttons-bg);*/
+}
+
+.close-btn:hover {
+	/*background-color: var(--side-color);*/
+}
+
 .hidden-sidebar {
-    transform: translateX(-87%);
+	--current-sidebar-width: var(--sidebar-width-closed);
+  
+    transform: translateX(calc(-1 * ( var(--sidebar-width) - var(--sidebar-width-closed) ) ));
 }
 
 aside a {
@@ -444,7 +534,6 @@ aside a {
 
     width: var(--sidebar-button-width);
     height: 40px;
-    margin-top: 15px;
 
     font-family: 'YokaiWatch_YokaiDialogue1Font', sans-serif;
     font-size: 10px;
@@ -504,28 +593,21 @@ main button {
     color: var(--side-buttons-color);
 }
 
-.close-btn {
-	padding: 0; 
-	height: 27px; 
-	width: 27px; 
-	position: absolute; 
-	right: 3px; 
-	top: 3px; 
-	
-	border: var(--nav-buttons-color) 1px solid; 
-	border-radius: 100%;
-}
-
 /* =========================================================
    9. Reusable Panels / Utility Components
    ========================================================= */
 
 .transparent-background {
     background-color: var(--transparent-bg);
-    color: var(--side-buttons-color);
+    color: var(--main-buttons-color);
 
     border: 3px solid black;
     border-radius: var(--radius-medium);
+}
+
+.filled-background {
+	background-color: var(--filled-bg);
+	color: var(--main-buttons-color);
 }
 
 .fixed-container {
@@ -555,6 +637,44 @@ main button {
 #userPfpImg {
     width: auto;
     height: 120%;
+}
+
+.stat-div__label {
+    padding: 0px 6px;
+	
+    color: white;
+    background-color: #ffe327;
+	
+	border-radius: 15px;
+	
+	font-size: 1.4em;
+	
+    -webkit-text-stroke-width: 0.07em;
+	-webkit-text-stroke-color: var(--stroke-color, #000000);
+}
+
+.stat-div__value {
+	font-size: 1.4em;
+}
+
+.stat-div--hp {
+	--stroke-color: #a14290;
+}
+
+.stat-div--str {
+	--stroke-color: #9b3232;
+}
+
+.stat-div--spr {
+	--stroke-color: #70329b;
+}
+
+.stat-div--def {
+	--stroke-color: #1a46bc;
+}
+
+.stat-div--spd {
+	--stroke-color: #184f16;
 }
 
 /* =========================================================

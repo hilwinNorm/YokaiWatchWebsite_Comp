@@ -31,100 +31,118 @@
 	
     <div class="wrapper">        
 		<aside class="side-bar" id="side_bar"></aside>
-		<main>
-			<div class="main-section">
-				<div class="transparent-background current-rank-container">
+		<main class="team-builder-page">
+			<div class="wheel-section">
+				<div class="current-rank-container transparent-background">
 					<img id="S_Rank1" src="Content/Graphics/S_RankUnincluded.png">
 					<img id="S_Rank2" src="Content/Graphics/S_RankUnincluded.png">
 					<img id="A_Rank1" src="Content/Graphics/A_RankUnincluded.png">
 					<img id="A_Rank2" src="Content/Graphics/A_RankUnincluded.png">
 				</div>
-				<div class="wheel-section">
-					<div class="wheel-section__options">
-						<button onclick="activateMoveState()">Move Yo-kai</button>
-						<button onclick="editTeam()">Edit team</button>
-						<button onclick="showPopup()">More options</button>
-						<span class="state-display" id="state-display"></span>
-					</div>
-					<div class="wheel-section__wheel">
-						<img class="wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel">
-						<img id="Slot1" class="wheel-medal-img" data-index='0' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="1">
-						<img id="Slot2" class="wheel-medal-img" data-index='1' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="2">
-						<img id="Slot3" class="wheel-medal-img" data-index='2' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="3">
-						<img id="Slot4" class="wheel-medal-img" data-index='3' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="4">
-						<img id="Slot5" class="wheel-medal-img" data-index='4' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="5">
-						<img id="Slot6" class="wheel-medal-img" data-index='5' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="6">
-						<img id="choose-ring" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing">
-					</div>
-				</div>
-				<div class="transparent-background" id="slot-info-container">
-					<div style="display: grid;">
-						<div style="display: grid; align-items: center;">
-							<div style="display: flex; align-items: center; gap: 10px;">
-								<img id="yokai-img" width="74px" height="auto" alt="Yokai Medal">
-								<h3 id="yokai-title"></h3>
-							</div>
-							<div style="display: flex;">
-								<img id="yokai-rank" style="margin-left: 10px ;margin-right: 10px; width: 50px; height: auto;" alt="Rank">
-								<img id="yokai-tribe" style="margin-left: 10px ;margin-right: 10px; width: 50px; height: auto;" alt="Tribe">
-								<img id="yokai-alliance" style="margin-left: 10px ;margin-right: 10px; width: 23px; visibility: hidden;">
-							</div>
-						</div>
-						<div style="display:grid; justify-items: center;">
-							<img width="55px" height="auto" src="Content/Graphics/Equip_Image.png">
-							<div style="display: flex;">
-								<div id="equip-slot-1" style="position: relative; visibility: hidden;">
-									<img onclick="addEquipmentIntoSlot(this)" data-index="1" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
-									<img id="equipment-1" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
-								</div>
-								<div id="equip-slot-2" style="position: relative; visibility: hidden;">
-									<img onclick="addEquipmentIntoSlot(this)" data-index="2" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
-									<img id="equipment-2" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="slot-info-container__text" style="display: flex; flex-direction: column; justify-content: space-evenly;">
-						<label for="yokai-attitude">Attitude: <select id="yokai-attitude"></select></label>
-						<label for="yokai-level">Level: <input id="yokai-level" type="number" placeholder="60"></label>
-						<button class="slot-info-container__button" onclick="ClearEquipment()">Unequip Yo-kai</button>
-					</div>
-					<div class="slot-info-container__settings">
-						<div class="yokai-attributes">
-							<h3 id="yokai-max-hp"></h3>
-							<h3 id="yokai-strength"></h3>
-							<h3 id="yokai-spirit"></h3>
-							<h3 id="yokai-defense"></h3>
-							<h3 id="yokai-speed"></h3>
-						</div>
-						<div class="yokai-attributes">
-							<h3>Gym STR: <input id="gym-str" type="number" placeholder="0" class="gym"></h3>
-							<h3>Gym SPR: <input id="gym-spr" type="number" placeholder="0" class="gym"></h3>
-							<h3>Gym DEF: <input id="gym-def" type="number" placeholder="0" class="gym"></h3>
-							<h3>Gym SPD: <input id="gym-spd" type="number" placeholder="0" class="gym"></h3>
-						</div>
-						<div class="yokai-attributes">
-							<h3>IV HP: <input id="iv-hp" type="number" placeholder="16" class="IV"></h3>
-							<h3>IV STR: <input id="iv-str" type="number" placeholder="8" class="IV"></h3>
-							<h3>IV SPR: <input id="iv-spr" type="number" placeholder="8" class="IV"></h3>
-							<h3>IV DEF: <input id="iv-def" type="number" placeholder="8" class="IV"></h3>
-							<h3>IV SPD: <input id="iv-spd" type="number" placeholder="8" class="IV"></h3>
-						</div>
-					</div>
+				<div class="wheel-section__wheel">
+					<img class="wheel-img" src="Content/Graphics/Wheel.png" alt="Wheel">
+					<img id="Slot1" class="wheel-medal-img" data-index='0' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="1">
+					<img id="Slot2" class="wheel-medal-img" data-index='1' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="2">
+					<img id="Slot3" class="wheel-medal-img" data-index='2' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="3">
+					<img id="Slot4" class="wheel-medal-img" data-index='3' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="4">
+					<img id="Slot5" class="wheel-medal-img" data-index='4' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="5">
+					<img id="Slot6" class="wheel-medal-img" data-index='5' onclick="selectWheelSlot(this)" src="Content/Graphics/YokaiMedals/252.webp" alt="6">
+					<img id="choose-ring" src="Content/Graphics/ChosenYokai.png" alt="ChosenYokaiRing">
 				</div>
 			</div>
-			<div style="display: flex;">
-				<div style="display: grid; align-content: center; justify-content: center; gap: 10px; width: 50%;">
+			<div class="options-section filled-background">
+				<div class="options-section__container">	
+					<span class="state-display" id="state-display"></span>
+					<button onclick="activateMoveState()">Move Yo-kai</button>
+					<button onclick="editTeam()">Edit team</button>
+					<button onclick="showPopup()">More options</button>
+				</div>
+				<div class="options-section__container">
+					<input type="search" id="search-input" name="query" placeholder="Search...">
 					<button id="yokai-button">Yokai  <span class="icon icon-yokai"></span></button>
 					<button id="equipment-button">Equipment  <span class="icon icon-equipment"></span></button>
 					<button id="soulgem-button">Soul Gems  <span class="icon icon-soulgems"></span></button>
-					<input type="search" id="search-input" name="query" placeholder="Search...">
-				</div>
-				
-				
-				<div class="transparent-background item-list" id="item-list">
 				</div>
 			</div>
+			<div class="filled-background" id="slot-info-section">
+				<div id="slot-info-section__header" class="slot-info-section__header">
+						<img id="yokai-img">
+						<h3 id="yokai-title"></h3>
+						<img id="yokai-rank">
+						<img id="yokai-tribe">
+						<img id="yokai-alliance">
+				</div>
+				<div class="slot-info-section__settings">
+					<label>Attitude: <select id="yokai-attitude"></select></label>
+					<label>Level: <input id="yokai-level" type="number" placeholder="60"></label>
+					<button class="slot-info-section__button" onclick="clearEquipment()">Unequip Yo-kai</button>
+				</div>
+				<div class="slot-info-section__equipment-section">
+						<!--<img width="55px" height="auto" src="Content/Graphics/Equip_Image.png">
+						<div style="display: flex;">
+							<div id="equip-slot-1" style="position: relative; visibility: hidden;">
+								<img onclick="addEquipmentIntoSlot(this)" data-index="1" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+								<img id="equipment-1" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
+							</div>
+							<div id="equip-slot-2" style="position: relative; visibility: hidden;">
+								<img onclick="addEquipmentIntoSlot(this)" data-index="2" src="Content/Graphics/EquipmentSlot_Image.png" style="margin-left: 5px ;margin-right: 5px" width="80px" height="auto" alt="EquipmentSlot">
+								<img id="equipment-2" style="height: auto; pointer-events: none; position: absolute; top: 2px; left:7px; visibility: hidden;">
+							</div>
+						</div>-->
+					<p>Equipment:</p>
+					<div class="equipment-button-container">
+						<button class="equip-slot" id="equip-1" onclick="addEquipmentIntoSlot(this)" data-index="1"><img id="equip-1__img"><span id="equip-1__text"></span></button>
+						<button class="equip-slot" id="equip-2" onclick="addEquipmentIntoSlot(this)" data-index="2"><img id="equip-2__img"><span id="equip-2__text"></span></button>
+					</div>
+				</div>
+				<div class="slot-info-section__stats">
+					<div class="stat-container">
+						<h3 class="stat-container__header">Stats</h3>
+						<p id="yokai-max-hp" class="stat--hp">0</p>
+						<p id="yokai-strength" class="stat--str">0</p>
+						<p id="yokai-spirit" class="stat--spr">0</p>
+						<p id="yokai-defense" class="stat--def">0</p>
+						<p id="yokai-speed" class="stat--spd">0</p>
+					</div>
+					<div class="stat-container">
+						<h3 class="stat-container__header">Gym</h3>
+						<label class="stat-field stat--hp">
+							<input disabled type="number" placeholder="HP" id="gym-hp">
+						</label>
+						<label class="stat-field stat--str">
+							<input type="number" value=0 placeholder="STR" id="gym-str" class="gym">
+						</label>
+						<label class="stat-field stat--spr">
+							<input type="number" value=0 placeholder="SPR" id="gym-spr" class="gym">
+						</label>
+						<label class="stat-field stat--def">
+							<input type="number" value=0 placeholder="DEF" id="gym-def" class="gym">
+						</label>
+						<label class="stat-field stat--spd">
+							<input type="number" value=0 placeholder="SPD" id="gym-spd" class="gym">
+						</label>
+					</div>
+					<div class="stat-container">
+						<h3 class="stat-container__header">IV</h3>
+						<label class="stat-field stat--hp">
+							<input type="number" value=16 placeholder="HP" id="iv-hp" class="iv">
+						</label>
+						<label class="stat-field stat--str">
+							<input type="number" value=8 placeholder="STR" id="iv-str" class="iv">
+						</label>
+						<label class="stat-field stat--spr">
+							<input type="number" value=8 placeholder="SPR" id="iv-spr" class="iv">
+						</label>
+						<label class="stat-field stat--def">
+							<input type="number" value=8 placeholder="DEF" id="iv-def" class="iv">
+						</label>
+						<label class="stat-field stat--spd">
+							<input type="number" value=8 placeholder="SPD" id="iv-spd" class="iv">
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="item-list filled-background" id="item-list"></div>
 		</main>
 	</div>
 </body>

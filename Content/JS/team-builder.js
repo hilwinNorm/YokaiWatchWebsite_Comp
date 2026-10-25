@@ -8,7 +8,7 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
     const lvlFactor = (parsedLvl - 1) / 98;
 
     const baseHp = yokaiData.baseA_HP + (yokaiData.baseB_HP - yokaiData.baseA_HP + (+ivHp))
-        * lvlFactor + (evHp * 2.6 * (1 + parsedLvl / 198));
+        * lvlFactor + (evHp * 1.3 * (1 + parsedLvl / 198));
 
     const baseStr = yokaiData.baseA_Strength + (yokaiData.baseB_Strength - yokaiData.baseA_Strength + (+ivStr))
         * lvlFactor + (evStr * 1.3 * (1 + parsedLvl / 198)) + ((+gymStr) * 5);
@@ -26,6 +26,8 @@ function calculateStats({ yokaiData, lvl = 60, ivHp = 16, ivStr = 8, ivSpr = 8, 
 
     return { baseHp, baseStr, baseSpr, baseDef, baseSpd };
 }
+
+const setEquipmentText = data => data.InventorySort == 40 ? data.NounText + " Soul" : data.NounText;
 
 // Config:
 
@@ -174,97 +176,21 @@ const selectEquipment = equipmentId => (state.selected.equipmentId = equipmentId
 
 function setMoveState(moveState){
 	state.slotMoveState = moveState;
-	console.debug(state.slotMoveState, moveState);
+	//console.debug(state.slotMoveState, moveState);
 	switch (moveState) {
 		case 0:
 			$("state-display").textContent = '';
 			return;
 		case 1:
-			$("state-display").textContent = "Choose first Yo-kai to move"
+			$("state-display").textContent = "Choose Yo-kai to move"
 			return;
 		case 2:
-			$("state-display").textContent = "Choose second Yo-kai to swap with"
+			$("state-display").textContent = "Choose Yo-kai to swap with"
 			return;
 		default:
 			$("state-display").textContent = '';
 			return;
 	}
-}
-
-function swapSlots(startSlotIndex, endSlotIndex) {
-	let endSlotData = state.slots[endSlotIndex];
-	
-	state.slots[endSlotIndex] = state.slots[startSlotIndex];
-	state.slots[startSlotIndex] = endSlotData;
-
-	endSlotData = state.equipment[endSlotIndex];
-	
-	state.equipment[endSlotIndex] = state.equipment[startSlotIndex];
-	state.equipment[startSlotIndex] = endSlotData;
-	
-	endSlotData = $(`Slot${endSlotIndex+1}`).src;
-	
-	$(`Slot${endSlotIndex+1}`).src = $(`Slot${startSlotIndex+1}`).src;
-	$(`Slot${startSlotIndex+1}`).src = endSlotData;
-	
-	setMoveState(0);
-}
-	
-function selectWheelSlot(slot) {
-
-    const slotIndex = Number(slot.dataset.index);
-    if (state.selected.yokaiId === null && !state.editingSlots) {
-        console.warn("No Yo-kai selected!");
-        return;
-    }
-
-    if (state.selected.yokaiId === state.slots[slotIndex].yokaiId) {
-        console.warn("Yo-kai is already in that slot!");
-        return;
-    }
-	
-    const ring = $('choose-ring');
-	
-    if (state.slotMoveState == 2) swapSlots(state.selected.wheelSlot, slotIndex)
-	
-	state.selected.wheelSlot = slotIndex;
-	
-	if (state.slotMoveState == 1) {
-		setMoveState(2);
-		return;
-	}
-	
-    const targetLeft = slot.offsetLeft;
-    const targetTop = slot.offsetTop;
-	
-    const offsetLeft = (slot.offsetWidth - ring.offsetWidth) / 2;
-    const offsetTop = (slot.offsetHeight - ring.offsetHeight) / 2;
-
-    ring.style.left = `${targetLeft + offsetLeft}px`;
-    ring.style.top = `${targetTop + offsetTop}px`;
-	
-    ring.style.visibility = "visible";
-
-    if (state.editingSlots) {
-        showSlotInfo();
-        return;
-    }
-
-    const newYokai = yokaiDatabase[state.selected.yokaiId];
-
-    const slotState = state.slots[slotIndex];
-
-    const oldYokai = slotState.yokaiId !== null ? yokaiDatabase[slotState.yokaiId] : null;
-
-    if (oldYokai) updateRankCounter(oldYokai, -1);
-
-    updateRankCounter(newYokai, +1);
-
-    slotState.yokaiId = state.selected.yokaiId;
-
-    slot.src = `${pathMedal}${String(newYokai.MedalPosX + newYokai.MedalPosY * 23).padStart(3,'0')}.webp`;
-
-    showSlotInfo();
 }
 
 function updateRankCounter(yokai, amount) {
@@ -515,6 +441,82 @@ function postTeam(){
 	window.location.assign(`./createTeamPost.html?team=${SavingTeamJSON}`);
 }
 
+function swapSlots(startSlotIndex, endSlotIndex) {
+	let endSlotData = state.slots[endSlotIndex];
+	
+	state.slots[endSlotIndex] = state.slots[startSlotIndex];
+	state.slots[startSlotIndex] = endSlotData;
+
+	endSlotData = state.equipment[endSlotIndex];
+	
+	state.equipment[endSlotIndex] = state.equipment[startSlotIndex];
+	state.equipment[startSlotIndex] = endSlotData;
+	
+	endSlotData = $(`Slot${endSlotIndex+1}`).src;
+	
+	$(`Slot${endSlotIndex+1}`).src = $(`Slot${startSlotIndex+1}`).src;
+	$(`Slot${startSlotIndex+1}`).src = endSlotData;
+	
+	setMoveState(0);
+}
+	
+function selectWheelSlot(slot) {
+
+    const slotIndex = Number(slot.dataset.index);
+    if (state.selected.yokaiId === null && !state.editingSlots) {
+        console.warn("No Yo-kai selected!");
+        return;
+    }
+
+    if (state.selected.yokaiId === state.slots[slotIndex].yokaiId && state.selected.yokaiId !== null) {
+        console.warn("Yo-kai is already in that slot!");
+        return;
+    }
+	
+    const ring = $('choose-ring');
+	
+    if (state.slotMoveState == 2) swapSlots(state.selected.wheelSlot, slotIndex)
+	
+	state.selected.wheelSlot = slotIndex;
+	
+	if (state.slotMoveState == 1) {
+		setMoveState(2);
+		return;
+	}
+	
+    const targetLeft = slot.offsetLeft;
+    const targetTop = slot.offsetTop;
+	
+    const offsetLeft = (slot.offsetWidth - ring.offsetWidth) / 2;
+    const offsetTop = (slot.offsetHeight - ring.offsetHeight) / 2;
+
+    ring.style.left = `${targetLeft + offsetLeft}px`;
+    ring.style.top = `${targetTop + offsetTop}px`;
+	
+    ring.style.visibility = "visible";
+
+    if (state.editingSlots) {
+        showSlotInfo();
+        return;
+    }
+
+    const newYokai = yokaiDatabase[state.selected.yokaiId];
+
+    const slotState = state.slots[slotIndex];
+
+    const oldYokai = slotState.yokaiId !== null ? yokaiDatabase[slotState.yokaiId] : null;
+
+    if (oldYokai) updateRankCounter(oldYokai, -1);
+
+    updateRankCounter(newYokai, +1);
+
+    slotState.yokaiId = state.selected.yokaiId;
+
+    slot.src = `${pathMedal}${String(newYokai.MedalPosX + newYokai.MedalPosY * 23).padStart(3,'0')}.webp`;
+
+    showSlotInfo();
+}
+
 function showSlotInfo(){
 	
 	const slotIndex = state.selected.wheelSlot;
@@ -527,7 +529,7 @@ function showSlotInfo(){
 	
 	if(!yokaiData) return;
     
-	$("slot-info-container").style.visibility = "visible";
+	//$("slot-info-section").style.visibility = "visible";
 	
 	//const prefix = yokaiData.FileNamePrefix;
 	//const number = (yokaiData.FileNameNumber).toString();
@@ -552,7 +554,7 @@ function showSlotInfo(){
 	else allianceImg.style.visibility = "hidden";
 	
 	/*
-	$("slot-info-container").querySelectorAll('.Stats').forEach(function(stat){
+	$("slot-info-section").querySelectorAll('.Stats').forEach(function(stat){
 		var dc = Math.round(parseInt(stat.getAttribute("data-stat")))
 		
 		for (var [name, value] of Object.entries(colorCodes)){
@@ -568,27 +570,31 @@ function showSlotInfo(){
 	});
 	*/
 	
-	let equipment1 = equipmentDatabase[equipmentData.slot1] || soulgemDatabase[equipmentData.slot1];
-	let equipment2 = equipmentDatabase[equipmentData.slot2] || soulgemDatabase[equipmentData.slot2];
+	const equipment1 = equipmentDatabase[equipmentData.slot1] || soulgemDatabase[equipmentData.slot1];
+	const equipment2 = equipmentDatabase[equipmentData.slot2] || soulgemDatabase[equipmentData.slot2];
 	
-	const slotElement1 = $("equip-slot-1");
-	const slotElement2 = $("equip-slot-2");
-	slotElement1.style.visibility = "hidden";
-	$("equipment-1").style.visibility = "hidden";
-	slotElement2.style.visibility = "hidden";
-	$("equipment-2").style.visibility = "hidden";
+	const equipContainer1 = $("equip-1");
+	const equipContainer2 = $("equip-2");
+	equipContainer1.style.visibility = "hidden";
+	equipContainer2.style.visibility = "hidden";
+	//$("equipment-1").style.visibility = "hidden";
+	//$("equipment-2").style.visibility = "hidden";
 	
 	if (yokaiData.EquipmentSlots >= 1) {
-		slotElement1.style.visibility = "visible"
+		equipContainer1.style.visibility = "visible";
+		$("equip-1__img").src = '';
+		$("equip-1__text").textContent = '';
 		if (equipment1 != null){
-			$("equipment-1").src=`${pathEquipment}item_${(equipment1.IconPosX + (equipment1.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
-			$("equipment-1").style.visibility = "visible";
+			$("equip-1__img").src=`${pathEquipment}item_${(equipment1.IconPosX + (equipment1.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
+			$("equip-1__text").textContent = setEquipmentText(equipment1);
 		}
 		if (yokaiData.EquipmentSlots >= 2) {
-			slotElement2.style.visibility = "visible"
+			equipContainer2.style.visibility = "visible";
+			$("equip-2__img").src = '';
+			$("equip-2__text").textContent = '';
 			if (equipment2 != null){
-				$("equipment-2").src = `${pathEquipment}item_${(equipment2.IconPosX + (equipment2.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
-				$("equipment-2").style.visibility = "visible";
+				$("equip-2__img").src = `${pathEquipment}item_${(equipment2.IconPosX + (equipment2.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
+				$("equip-2__text").textContent = setEquipmentText(equipment2);
 			}
 		}
 	}
@@ -598,6 +604,27 @@ function showSlotInfo(){
 	validateAndStyleInputs();
 }
 
+
+function addEquipmentIntoSlot(eqSlot){
+	const slotIndex = state.selected.wheelSlot;
+	const eqSlotIndex = eqSlot.dataset.index;
+	const equipmentData = state.equipment[slotIndex];
+	const equipmentId = state.selected.equipmentId;
+	
+	if (!equipmentId) return;
+	
+	const data = equipmentDatabase[equipmentId] || soulgemDatabase[equipmentId];
+	
+	if (!data) return;
+	
+	equipmentData[`slot${eqSlot.dataset.index}`] = equipmentId;
+	
+	const image = $(`equip-${eqSlotIndex}__img`);
+	const text = $(`equip-${eqSlotIndex}__text`);
+	
+	image.src = `${pathEquipment}item_${(data.IconPosX + (data.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
+	text.textContent = setEquipmentText(data);
+}
 
 
 function setupSlotEventListeners() {
@@ -731,30 +758,11 @@ function updateDisplay(){
 	    evSpd: attitudeData[4]
 	}); 
 	
-	$('yokai-max-hp').innerText = "HP: "+Math.max(Math.floor(stats.baseHp), 1);
-	$('yokai-strength').innerText = "STR: "+Math.max(Math.floor(stats.baseStr), 1);
-	$('yokai-spirit').innerText = "SPR: "+Math.max(Math.floor(stats.baseSpr), 1);
-	$('yokai-defense').innerText = "DEF: "+Math.max(Math.floor(stats.baseDef), 1);
-	$('yokai-speed').innerText = "SPD: "+Math.max(Math.floor(stats.baseSpd), 1);
-}
-
-function addEquipmentIntoSlot(eqSlot){
-	const slotIndex = state.selected.wheelSlot;
-	const equipmentData = state.equipment[slotIndex];
-	const equipmentId = state.selected.equipmentId;
-	
-	if (!equipmentId) return;
-	
-	const data = equipmentDatabase[equipmentId] || soulgemDatabase[equipmentId];
-	
-	if (!data) return;
-	
-	equipmentData[`slot${eqSlot.dataset.index}`] = equipmentId;
-	
-	const image = $(`equipment-${eqSlot.dataset.index}`);
-	
-	image.src = `${pathEquipment}item_${(data.IconPosX + (data.IconPosY * 16) + 1).toString().padStart(3,'0')}.xi.00.png`;
-	image.style.visibility = "visible";
+	$('yokai-max-hp').innerText = Math.max(Math.floor(stats.baseHp), 1);
+	$('yokai-strength').innerText = Math.max(Math.floor(stats.baseStr), 1);
+	$('yokai-spirit').innerText = Math.max(Math.floor(stats.baseSpr), 1);
+	$('yokai-defense').innerText = Math.max(Math.floor(stats.baseDef), 1);
+	$('yokai-speed').innerText = Math.max(Math.floor(stats.baseSpd), 1);
 }
 
 function showEquipmentPage(){
@@ -915,7 +923,7 @@ function showPage() {
 		const statValues = [stats.baseHp, stats.baseStr, stats.baseSpr, stats.baseDef, stats.baseSpd];
 		statLabels.forEach((label, idx) => {
 			const labelLower = String(label).toLowerCase();
-			divMain.setAttribute(`${label}-value`, statValues[idx]);
+			divMain.setAttribute(`${label}-value`, Math.floor(statValues[idx]));
 			
 			const spanLabel = document.createElement('span');
 			spanLabel.classList = `stat-div__label stat-div--${labelLower}`
@@ -963,14 +971,14 @@ function clearEquipment(){
 function closePopup(){
 	altertWindow.style.display="none";
 	main.style.visibility="visible";
-	$("slot-info-container").style.display = "flex";
+	$("slot-info-section").style.display = "flex";
 	$("choose-ring").style.display = "block";
 }
 
 function showPopup(){
 	altertWindow.style.display = "grid";
 	main.style.visibility = "hidden";
-	$("slot-info-container").style.display = "none";
+	$("slot-info-section").style.display = "none";
 	$("choose-ring").style.display = "none";
 }
 

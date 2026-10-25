@@ -34,7 +34,7 @@ details {
 	gap: 5vh;
 }
 
-.yokai-attributes {
+.stat-container {
 	display: flex;
 	
 	justify-content: center;
@@ -85,7 +85,9 @@ details {
 	display: grid;
 	justify-items: center;
 	
-	min-width: 90vw;
+	/*min-width: 90vw;*/
+	padding: 0 1vw;
+	width: auto;
 	
 	gap: 1vh;
 	
@@ -103,7 +105,7 @@ details {
     /*place-content: center;*/
 	
 	padding: 0 15px;
-	margin: 0 1vw;
+	/*margin: 0 1vw;*/
 	
 	width: stretch;
     min-height: 80px;
@@ -148,42 +150,4 @@ details {
     border-radius: 10px;
     border: 2px solid black;
     padding: 0px 6px;
-}
-
-.stat-div__label {
-    padding: 0px 6px;
-	
-    color: white;
-    background-color: #ffe327;
-	
-	border-radius: 15px;
-	
-	font-size: 1.4em;
-	
-    -webkit-text-stroke-width: 0.07em;
-	-webkit-text-stroke-color: var(--stroke-color, #000000);
-}
-
-.stat-div__value {
-	font-size: 1.4em;
-}
-
-.stat-div--hp {
-	--stroke-color: #a14290;
-}
-
-.stat-div--str {
-	--stroke-color: #9b3232;
-}
-
-.stat-div--spr {
-	--stroke-color: #70329b;
-}
-
-.stat-div--def {
-	--stroke-color: #1a46bc;
-}
-
-.stat-div--spd {
-	--stroke-color: #184f16;
 }
