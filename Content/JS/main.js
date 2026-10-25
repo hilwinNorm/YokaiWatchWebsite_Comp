@@ -35,15 +35,19 @@ const navTab = $('nav-tab');
 
 if (sideBar){
 sideBar.innerHTML += `
-	<button id="toggleSidebar" class="close-btn">+</button>
-	<a href='./medallium.html' id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
-	<a href='./team-builder.html' id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
-	<a href='./tier-sheet.html' id="tierSheet-btn">Tier Sheet</a>
-	<a href='./equipment-list.html' id="equipment-btn">Equipment List <span class="icon icon-equipment"></a>
-	<a href='./damage-calculator.html' id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></a>
-	<a href='./move-list.html' id="yokaiData-btn">Move List <span style="background-repeat: no-repeat;" class="icon icon-damage"></a>
-	<a href='./misc-list.html' id="Misc-btn">Misc  <span style="background-repeat: no-repeat;" class="icon icon-misc"></span></a>
-	<a href='./image-recources.html' id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></a>
+	<div class="sidebar__page-list">
+		<a href='./medallium.html' id="medallium-btn">Strategy Medallium <span style="background-repeat: no-repeat;" class="icon icon-yokai"></span></a>
+		<a href='./team-builder.html' id="TeamBuild-btn">Build Team <span style="background-repeat: no-repeat;" class="icon icon-dict"></span></a>
+		<a href='./tier-sheet.html' id="tierSheet-btn">Tier Sheet</a>
+		<a href='./equipment-list.html' id="equipment-btn">Equipment List <span class="icon icon-equipment"></a>
+		<a href='./damage-calculator.html' id="damageCalc-btn">Damage Calculator <span style="background-repeat: no-repeat;" class="icon icon-damage"></span></a>
+		<a href='./move-list.html' id="yokaiData-btn">Move List <span style="background-repeat: no-repeat;" class="icon icon-damage"></a>
+		<a href='./misc-list.html' id="Misc-btn">Misc  <span style="background-repeat: no-repeat;" class="icon icon-misc"></span></a>
+		<a href='./image-recources.html' id="Resources-btn">Image Resources <span style="background-repeat: no-repeat;" class="icon icon-search"></span></a>
+	</div>
+	<div class="sidebar__close-container">
+		<button id="toggleSidebar" class="close-btn"></button>
+	</div>
 `
 }
 if (navTab){
@@ -123,24 +127,24 @@ if (navTab){
 		toggleSidebar.addEventListener('click', function(event){
 			const element = document.getElementsByTagName('aside')[0];
 			element.classList.toggle('hidden-sidebar');
-			if (element.classList.contains("hidden-sidebar")){
+			/*if (element.classList.contains("hidden-sidebar")){
 				toggleSidebar.textContent = '+'
 			}
 			else{
 				toggleSidebar.textContent = '-'
-			}
+			}*/
 		})
 		if (localStorage.getItem("_sidebar_hidden") == 1){
 			const element = document.getElementsByTagName('aside')[0];
 			element.style.removeProperty("transition")
 			element.classList.toggle('hidden-sidebar');
 			element.style.transition = "transform 0.8s ease-in-out";
-			if (element.classList.contains("hidden-sidebar")){
+			/*if (element.classList.contains("hidden-sidebar")){
 				toggleSidebar.textContent = '+'
 			}
 			else{
 				toggleSidebar.textContent = '-'
-			}
+			}*/
 			
 		}
 	}
