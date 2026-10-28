@@ -35,4 +35,4 @@ echo "2. Сommit version has been created."
 git tag -a "v$VERSION" -m "Version $VERSION"
 echo "3. Created git tag: v$VERSION"
 
-echo "=== Done! You can now push the code to GitHub: git push origin main --tags using `git push origin main --tags`==="
+echo "=== Done! You can now push the code to GitHub: git push origin main --tags using 'git push origin main --tags'==="
